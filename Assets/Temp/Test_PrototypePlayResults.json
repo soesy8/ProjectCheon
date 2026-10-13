@@ -1,0 +1,67 @@
+{
+  "success": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "Map aspect ratio 2:1",
+      "passed": true,
+      "details": "(40.00, 0.00, 20.00)"
+    },
+    {
+      "name": "Boss capsule scale 3x",
+      "passed": true,
+      "details": "(3.00, 3.00, 3.00)"
+    },
+    {
+      "name": "Exactly two gate pillars",
+      "passed": true,
+      "details": 4
+    },
+    {
+      "name": "Walk through gate to spirit world",
+      "passed": true,
+      "details": "(1.00, 1.03, -0.20)"
+    },
+    {
+      "name": "Walk back to reality",
+      "passed": true,
+      "details": "(-1.00, 1.03, 0.20)"
+    },
+    {
+      "name": "Cannot bypass gate at side boundary",
+      "passed": true,
+      "details": "(-0.93, 1.03, 5.06)"
+    },
+    {
+      "name": "Stay inside plane edges",
+      "passed": true,
+      "details": "(19.47, 1.03, -9.47)"
+    },
+    {
+      "name": "Space performs a short dodge",
+      "passed": true,
+      "details": {
+        "wasDodging": true,
+        "distance": 2.438317
+      }
+    },
+    {
+      "name": "J damages dummy once",
+      "passed": true,
+      "details": {
+        "HitCount": 1,
+        "CurrentHealth": 90
+      }
+    },
+    {
+      "name": "Dummy remains stationary",
+      "passed": true,
+      "details": "(11.00, 3.00, 0.00)"
+    },
+    {
+      "name": "Hit flash clears",
+      "passed": true,
+      "details": "Base material restored"
+    }
+  ]
+}
