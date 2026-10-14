@@ -1,0 +1,30 @@
+{
+  "preservedObjects": 595,
+  "missingOriginalObjects": [],
+  "resizedOriginalProps": [],
+  "ground": [
+    60.0,
+    80.0
+  ],
+  "floor": "(60.00, 0.00, 80.00)",
+  "cameraSize": 8.4,
+  "cameraBase": 8.4,
+  "battleRatio": 1.2,
+  "offset": "(10.50, 16.10, -16.10)",
+  "player": "(0.00, 0.00, -25.00)",
+  "boss": "(0.00, 0.00, 27.50)",
+  "addedObjects": 1378,
+  "addedTrees": 56,
+  "addedLandmarks": [
+    "Test_청동종각",
+    "Test_솟대숲",
+    "Test_부유환구",
+    "Test_별자리석정원",
+    "Test_소원비단숲",
+    "Test_청운돌탑",
+    "Test_거울연못",
+    "Test_서낭제단",
+    "Test_폐허누각",
+    "Test_석등마당"
+  ]
+}

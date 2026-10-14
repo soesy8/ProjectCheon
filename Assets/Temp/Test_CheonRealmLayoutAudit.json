@@ -1,0 +1,21 @@
+{
+  "dimensions": [
+    48.0,
+    104.0
+  ],
+  "visibleDimensions": [
+    48.0,
+    104.0
+  ],
+  "minimumZ": -49.5,
+  "maximumZ": 54.5,
+  "boundaryZ": -13.1000023,
+  "realityLength": 36.3999977,
+  "spiritLength": 67.6000061,
+  "realityFraction": 0.349999964,
+  "preservedObjects": 1916,
+  "missingOriginalObjects": [],
+  "resizedOriginalProps": [],
+  "duplicateObjects": 0,
+  "playerStayed": true
+}

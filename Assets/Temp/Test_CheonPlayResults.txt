@@ -1,0 +1,27 @@
+PASS Scene references
+PASS Introduction
+PASS Enter starts training
+PASS Real D input moves player
+PASS Walking through gate enters spirit battle
+PASS J fan attack deals damage
+PASS Q projectile hits and starts cooldown
+PASS Cooldown prevents repeated spell cost
+PASS E interrupts boss and deals damage
+PASS Space dodge grants invulnerability
+PASS Player takes damage outside invulnerability
+PASS Escape pauses
+PASS Escape resumes
+PASS Boss slam telegraph
+PASS Boss sweep telegraph
+PASS Boss charge telegraph
+PASS Boss phase two
+PASS Boss defeat completes purification
+PASS Return through gate restores reality
+PASS Victory restart reloads standalone scene
+PASS Player defeat
+PASS R restarts after defeat
+PASS Mouse clicks start button
+PASS Mouse clicks resume button
+PASS F restores energy near shrine
+PASS M toggles sound
+COMPLETE

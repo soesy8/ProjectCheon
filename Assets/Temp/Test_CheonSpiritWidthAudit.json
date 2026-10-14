@@ -1,0 +1,20 @@
+{
+  "realityWidth": 48.0,
+  "spiritWidth": 62.3999977,
+  "visibleDimensions": [
+    62.4,
+    104.0
+  ],
+  "minimumZ": -49.5,
+  "maximumZ": 54.5,
+  "boundaryZ": -13.1000023,
+  "realityLength": 36.3999977,
+  "spiritLength": 67.6000061,
+  "realityFraction": 0.349999964,
+  "preservedObjects": 1916,
+  "missingOriginalObjects": [],
+  "resizedOriginalProps": [],
+  "movedRealityProps": [],
+  "duplicateObjects": 0,
+  "playerStayed": true
+}
