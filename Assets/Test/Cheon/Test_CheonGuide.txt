@@ -32,6 +32,8 @@ R: 사망·승리·일시정지 화면에서 처음부터
 확장 도구를 다시 실행해도 맵과 프랍이 중복으로 확대되지 않습니다.
 현재 맵 형태·영역 비율 적용: Tools > Cheon Test > Apply Map Shape And Realm Ratio
 영적 영역 가로 확장 적용: Tools > Cheon Test > Apply Wider Spirit Realm
+컨셉 아트 디자인 적용: Tools > Cheon Test > Apply Concept Art Design
+아트 디자인: 청록 소나무 수관, 단청·기와 골, 밝은 석판과 이끼·풀꽃, 푸른 물결, 따뜻한 석등, 영적 광구, 운해와 산봉우리. 맵·배치·충돌 경계는 그대로 유지합니다.
 씬 재생성 시 이 테스트 씬의 직접 수정은 덮어쓰므로 필요한 경우 복사본을 보관하세요.
 
 모델·환경·이펙트는 도형 및 전용 셰이더로 구성했습니다.

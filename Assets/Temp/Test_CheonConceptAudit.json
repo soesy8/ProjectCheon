@@ -1,0 +1,17 @@
+{
+  "originalObjects": 1935,
+  "preservedObjects": 1935,
+  "missing": [],
+  "moved": [],
+  "resized": [],
+  "meshBoundsChanged": [],
+  "collisionChanged": [],
+  "realityWidth": 48.0,
+  "spiritWidth": 62.3999977,
+  "totalLength": 104.0,
+  "shaderErrors": [],
+  "postProcessing": true,
+  "volumeLayerIncluded": true,
+  "volumeComponents": 3,
+  "skybox": "Skybox"
+}

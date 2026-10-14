@@ -22,6 +22,17 @@ namespace Cheon.Testing
         [SerializeField] private Color realityFog = new Color(.55f, .73f, .72f);
         [SerializeField] private Color spiritFog = new Color(.12f, .13f, .25f);
         [SerializeField] private float transitionSpeed = .65f;
+        [Header("영역별 조명과 하늘")]
+        [SerializeField] private Material skyMaterial;
+        [SerializeField] private Color realityAmbient = new Color(.68f,.77f,.76f);
+        [SerializeField] private Color spiritAmbient = new Color(.4f,.36f,.58f);
+        [SerializeField] private Color realitySun = new Color(1,.88f,.69f);
+        [SerializeField] private Color spiritSun = new Color(.64f,.66f,1);
+        [SerializeField] private float realitySunIntensity = 1.2f;
+        [SerializeField] private float spiritSunIntensity = .85f;
+        [SerializeField] private Color realitySky = new Color(.28f,.62f,.9f);
+        [SerializeField] private Color spiritSky = new Color(.06f,.14f,.28f);
+        private Material runtimeSky, previousSky;
         public float SpiritAmount { get; private set; }
         public float BoundaryZ => gateHalo != null ? gateHalo.position.z : 0;
         private bool spirit;
@@ -30,6 +41,11 @@ namespace Cheon.Testing
 
         private void Awake()
         {
+            if (skyMaterial != null)
+            {
+                previousSky = RenderSettings.skybox; runtimeSky = new Material(skyMaterial);
+                RenderSettings.skybox = runtimeSky;
+            }
             // 공유 에셋을 직접 물들이지 않고 이 씬의 머티리얼 사본에만 전환을 적용한다.
             var replacements = new Dictionary<Material, Material>();
             foreach (var palette in palettes)
@@ -58,9 +74,15 @@ namespace Cheon.Testing
                 foreach (var palette in palettes) palette.runtimeMaterial.SetColor("_BaseColor", Color.Lerp(palette.reality, palette.spirit, SpiritAmount));
                 Color fog = Color.Lerp(realityFog, spiritFog, SpiritAmount);
                 RenderSettings.fogColor = fog; viewCamera.backgroundColor = fog;
-                RenderSettings.ambientLight = Color.Lerp(new Color(.68f, .77f, .76f), new Color(.4f, .36f, .58f), SpiritAmount);
-                sun.color = Color.Lerp(new Color(1, .88f, .69f), new Color(.64f, .66f, 1), SpiritAmount);
-                sun.intensity = Mathf.Lerp(1.2f, .85f, SpiritAmount);
+                RenderSettings.ambientLight = Color.Lerp(realityAmbient, spiritAmbient, SpiritAmount);
+                sun.color = Color.Lerp(realitySun, spiritSun, SpiritAmount);
+                sun.intensity = Mathf.Lerp(realitySunIntensity, spiritSunIntensity, SpiritAmount);
+                if (runtimeSky != null)
+                {
+                    runtimeSky.SetColor("_ZenithColor",Color.Lerp(realitySky,spiritSky,SpiritAmount));
+                    runtimeSky.SetColor("_HorizonColor",fog);
+                    runtimeSky.SetColor("_CloudColor",Color.Lerp(new Color(1,.95f,.83f),new Color(.27f,.40f,.56f),SpiritAmount));
+                }
                 lastAmount = SpiritAmount;
             }
             for (int i = 0; i < motes.Length; i++)
@@ -73,6 +95,14 @@ namespace Cheon.Testing
             // 경계를 넘으면 문의 실체가 영체화되어 도사와 붉은 공격 예고를 가리지 않는다.
             if (gateLintel != null) gateLintel.gameObject.SetActive(SpiritAmount < .4f);
         }
-        private void OnDestroy() { foreach (var palette in palettes) if (palette.runtimeMaterial != null) Destroy(palette.runtimeMaterial); }
+        private void OnDestroy()
+        {
+            foreach (var palette in palettes) if (palette.runtimeMaterial != null) Destroy(palette.runtimeMaterial);
+            if (runtimeSky != null)
+            {
+                if (RenderSettings.skybox == runtimeSky) RenderSettings.skybox = previousSky;
+                Destroy(runtimeSky);
+            }
+        }
     }
 }
