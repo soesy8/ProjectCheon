@@ -1,0 +1,80 @@
+[
+  {
+    "name": "chin",
+    "front_y": 303,
+    "side_y": 303,
+    "error_pixels": 0
+  },
+  {
+    "name": "shoulder",
+    "front_y": 354,
+    "side_y": 354,
+    "error_pixels": 0
+  },
+  {
+    "name": "belt_top",
+    "front_y": 480,
+    "side_y": 480,
+    "error_pixels": 0
+  },
+  {
+    "name": "belt_bottom",
+    "front_y": 509,
+    "side_y": 509,
+    "error_pixels": 0
+  },
+  {
+    "name": "fingers",
+    "front_y": 668,
+    "side_y": 668,
+    "error_pixels": 0
+  },
+  {
+    "name": "bag",
+    "front_y": 637,
+    "side_y": 637,
+    "error_pixels": 0
+  },
+  {
+    "name": "short_sash",
+    "front_y": 665,
+    "side_y": 665,
+    "error_pixels": 0
+  },
+  {
+    "name": "long_sash",
+    "front_y": 723,
+    "side_y": 723,
+    "error_pixels": 0
+  },
+  {
+    "name": "hem",
+    "front_y": 824,
+    "side_y": 824,
+    "error_pixels": 0
+  },
+  {
+    "name": "ankle_top",
+    "front_y": 916,
+    "side_y": 916,
+    "error_pixels": 0
+  },
+  {
+    "name": "sole",
+    "front_y": 988,
+    "side_y": 988,
+    "error_pixels": 0
+  },
+  {
+    "name": "hat_top",
+    "front_y": 7,
+    "side_y": 7,
+    "error_pixels": 0
+  },
+  {
+    "name": "hat_diameter",
+    "front_pixels": 445,
+    "side_pixels": 445,
+    "error_pixels": 0
+  }
+]

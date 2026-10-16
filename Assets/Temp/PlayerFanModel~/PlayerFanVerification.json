@@ -1,0 +1,15 @@
+{
+  "reopened_blend": true,
+  "mesh_objects": 41,
+  "evaluated_triangles": 1648,
+  "dimensions_xyz_m": [
+    0.5136941075325012,
+    0.04530438780784607,
+    0.44783999025821686
+  ],
+  "embedded_images": 5,
+  "packed_artwork": true,
+  "closed_meshes_after_bevel": true,
+  "outward_normals": true,
+  "default_camera": "Camera_Isometric"
+}
