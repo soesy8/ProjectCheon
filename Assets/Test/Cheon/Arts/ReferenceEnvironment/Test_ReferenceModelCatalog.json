@@ -1,0 +1,1043 @@
+{
+  "reference_root": "E:\\C.J.I\\ReferenceImage\\Cheonjiin_AI_3D_Reference_Pack",
+  "materials": {
+    "Test_M_RefGranite": {
+      "name": "Test_M_RefGranite",
+      "color": "C6BBA0",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefPaving": {
+      "name": "Test_M_RefPaving",
+      "color": "D9CCAC",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefBasin": {
+      "name": "Test_M_RefBasin",
+      "color": "778F82",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefPineWood": {
+      "name": "Test_M_RefPineWood",
+      "color": "A05228",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefCarvedWood": {
+      "name": "Test_M_RefCarvedWood",
+      "color": "BB6B36",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefPineNeedles": {
+      "name": "Test_M_RefPineNeedles",
+      "color": "315E50",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefStrawRope": {
+      "name": "Test_M_RefStrawRope",
+      "color": "B3945D",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefIvoryCloth": {
+      "name": "Test_M_RefIvoryCloth",
+      "color": "E9DEBE",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefJadeCloth": {
+      "name": "Test_M_RefJadeCloth",
+      "color": "6B9C92",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefRedCloth": {
+      "name": "Test_M_RefRedCloth",
+      "color": "AF6651",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefBlueCloth": {
+      "name": "Test_M_RefBlueCloth",
+      "color": "516A7C",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefOchreCloth": {
+      "name": "Test_M_RefOchreCloth",
+      "color": "C6A45D",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefHanjiTalisman": {
+      "name": "Test_M_RefHanjiTalisman",
+      "color": "FFFFFF",
+      "kind": "surface",
+      "texture": "Test_T_HanjiTalisman.png",
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefJade": {
+      "name": "Test_M_RefJade",
+      "color": "8DB5A2",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefPearl": {
+      "name": "Test_M_RefPearl",
+      "color": "D6E5BE",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0.15
+    },
+    "Test_M_RefDarkWood": {
+      "name": "Test_M_RefDarkWood",
+      "color": "392F24",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefCeramic": {
+      "name": "Test_M_RefCeramic",
+      "color": "C7D2C4",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefWater": {
+      "name": "Test_M_RefWater",
+      "color": "459F9D",
+      "kind": "surface",
+      "texture": null,
+      "mode": 1,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefWaterfall": {
+      "name": "Test_M_RefWaterfall",
+      "color": "4EADBA",
+      "kind": "surface",
+      "texture": null,
+      "mode": 2,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefFoam": {
+      "name": "Test_M_RefFoam",
+      "color": "D8EDE2",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefLily": {
+      "name": "Test_M_RefLily",
+      "color": "7E9350",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefOchre": {
+      "name": "Test_M_RefOchre",
+      "color": "B7974E",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefPersimmon": {
+      "name": "Test_M_RefPersimmon",
+      "color": "BB6336",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefRoofTile": {
+      "name": "Test_M_RefRoofTile",
+      "color": "354653",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefSealPattern": {
+      "name": "Test_M_RefSealPattern",
+      "color": "FFFFFF",
+      "kind": "effect",
+      "texture": "Test_T_SealingPattern.png",
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefHealPattern": {
+      "name": "Test_M_RefHealPattern",
+      "color": "FFFFFF",
+      "kind": "effect",
+      "texture": "Test_T_HealingPattern.png",
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefConstellation": {
+      "name": "Test_M_RefConstellation",
+      "color": "FFFFFF",
+      "kind": "effect",
+      "texture": "Test_T_ConstellationPattern.png",
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefBattlePattern": {
+      "name": "Test_M_RefBattlePattern",
+      "color": "FFFFFF",
+      "kind": "effect",
+      "texture": "Test_T_BattleFloorPattern.png",
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefMountainNear": {
+      "name": "Test_M_RefMountainNear",
+      "color": "869E8D",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefMountainMid": {
+      "name": "Test_M_RefMountainMid",
+      "color": "7F9FAD",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefMountainFar": {
+      "name": "Test_M_RefMountainFar",
+      "color": "AAC0CD",
+      "kind": "surface",
+      "texture": null,
+      "mode": 0,
+      "opacity": 1,
+      "emission": 0
+    },
+    "Test_M_RefCloudMist": {
+      "name": "Test_M_RefCloudMist",
+      "color": "E8E7D5",
+      "kind": "effect",
+      "texture": null,
+      "mode": 2,
+      "opacity": 0.65,
+      "emission": 0
+    },
+    "Test_M_RefSpiritFlame": {
+      "name": "Test_M_RefSpiritFlame",
+      "color": "69DDDC",
+      "kind": "effect",
+      "texture": null,
+      "mode": 1,
+      "opacity": 0.85,
+      "emission": 0
+    }
+  },
+  "models": [
+    {
+      "key": "PineA",
+      "label": "소나무 A",
+      "reference": "03_Pine",
+      "path": "Models/Test_CheonRef_PineA.fbx",
+      "vertices": 1866,
+      "triangles": 3536,
+      "parts": 49,
+      "dimensions": [
+        5.792989492416382,
+        2.635427713394165,
+        5.461265169084072
+      ],
+      "materials": [
+        "Test_M_RefPineNeedles",
+        "Test_M_RefPineWood"
+      ]
+    },
+    {
+      "key": "PineB",
+      "label": "소나무 B",
+      "reference": "03_Pine",
+      "path": "Models/Test_CheonRef_PineB.fbx",
+      "vertices": 1866,
+      "triangles": 3536,
+      "parts": 49,
+      "dimensions": [
+        5.781968355178833,
+        2.635427713394165,
+        5.461265169084072
+      ],
+      "materials": [
+        "Test_M_RefPineNeedles",
+        "Test_M_RefPineWood"
+      ]
+    },
+    {
+      "key": "PineC",
+      "label": "소나무 C",
+      "reference": "03_Pine",
+      "path": "Models/Test_CheonRef_PineC.fbx",
+      "vertices": 1866,
+      "triangles": 3536,
+      "parts": 49,
+      "dimensions": [
+        5.376989364624023,
+        2.7391037940979004,
+        4.987300395965576
+      ],
+      "materials": [
+        "Test_M_RefPineNeedles",
+        "Test_M_RefPineWood"
+      ]
+    },
+    {
+      "key": "RockA",
+      "label": "자연 바위 A",
+      "reference": "04_Rock",
+      "path": "Models/Test_CheonRef_RockA.fbx",
+      "vertices": 187,
+      "triangles": 370,
+      "parts": 1,
+      "dimensions": [
+        2.768429756164551,
+        2.050144374370575,
+        2.3721184730529785
+      ],
+      "materials": [
+        "Test_M_RefGranite"
+      ]
+    },
+    {
+      "key": "RockB",
+      "label": "자연 바위 B",
+      "reference": "04_Rock",
+      "path": "Models/Test_CheonRef_RockB.fbx",
+      "vertices": 188,
+      "triangles": 372,
+      "parts": 1,
+      "dimensions": [
+        2.2661049365997314,
+        1.8585817217826843,
+        1.6981325149536133
+      ],
+      "materials": [
+        "Test_M_RefGranite"
+      ]
+    },
+    {
+      "key": "RockC",
+      "label": "자연 바위 C",
+      "reference": "04_Rock",
+      "path": "Models/Test_CheonRef_RockC.fbx",
+      "vertices": 167,
+      "triangles": 330,
+      "parts": 1,
+      "dimensions": [
+        1.5484461188316345,
+        1.5113415718078613,
+        2.223271369934082
+      ],
+      "materials": [
+        "Test_M_RefGranite"
+      ]
+    },
+    {
+      "key": "FlatRock",
+      "label": "납작한 바위",
+      "reference": "04_Rock",
+      "path": "Models/Test_CheonRef_FlatRock.fbx",
+      "vertices": 210,
+      "triangles": 416,
+      "parts": 1,
+      "dimensions": [
+        1.520449161529541,
+        1.1554934978485107,
+        0.4515869915485382
+      ],
+      "materials": [
+        "Test_M_RefGranite"
+      ]
+    },
+    {
+      "key": "Sealstone",
+      "label": "봉인석",
+      "reference": "12_Sealstone_Constellation",
+      "path": "Models/Test_CheonRef_Sealstone.fbx",
+      "vertices": 1533,
+      "triangles": 3010,
+      "parts": 14,
+      "dimensions": [
+        2.3929779529571533,
+        1.916217029094696,
+        1.6006293296813965
+      ],
+      "materials": [
+        "Test_M_RefGranite",
+        "Test_M_RefHanjiTalisman",
+        "Test_M_RefIvoryCloth",
+        "Test_M_RefStrawRope"
+      ]
+    },
+    {
+      "key": "ConstellationGarden",
+      "label": "별자리 정원",
+      "reference": "12_Sealstone_Constellation",
+      "path": "Models/Test_CheonRef_ConstellationGarden.fbx",
+      "vertices": 1667,
+      "triangles": 3296,
+      "parts": 9,
+      "dimensions": [
+        8.0,
+        8.0,
+        1.4278870187699795
+      ],
+      "materials": [
+        "Test_M_RefConstellation",
+        "Test_M_RefGranite",
+        "Test_M_RefPaving"
+      ]
+    },
+    {
+      "key": "Talisman",
+      "label": "전투 부적",
+      "reference": "13_Talismans_Seal_Heal",
+      "path": "Models/Test_CheonRef_Talisman.fbx",
+      "vertices": 130,
+      "triangles": 256,
+      "parts": 1,
+      "dimensions": [
+        0.4794851541519165,
+        0.27603115141391754,
+        1.0045001357793808
+      ],
+      "materials": [
+        "Test_M_RefHanjiTalisman"
+      ]
+    },
+    {
+      "key": "TalismanBundle",
+      "label": "부적 묶음",
+      "reference": "13_Talismans_Seal_Heal",
+      "path": "Models/Test_CheonRef_TalismanBundle.fbx",
+      "vertices": 946,
+      "triangles": 1872,
+      "parts": 6,
+      "dimensions": [
+        0.5529098659753799,
+        0.4149416983127594,
+        1.038913682103157
+      ],
+      "materials": [
+        "Test_M_RefHanjiTalisman",
+        "Test_M_RefJade",
+        "Test_M_RefRedCloth"
+      ]
+    },
+    {
+      "key": "SealingCircle",
+      "label": "봉인진",
+      "reference": "13_Talismans_Seal_Heal",
+      "path": "Models/Test_CheonRef_SealingCircle.fbx",
+      "vertices": 1732,
+      "triangles": 3358,
+      "parts": 26,
+      "dimensions": [
+        5.12000036239624,
+        5.12000036239624,
+        0.1850000023841858
+      ],
+      "materials": [
+        "Test_M_RefGranite",
+        "Test_M_RefPaving",
+        "Test_M_RefSealPattern"
+      ]
+    },
+    {
+      "key": "HealingCircle",
+      "label": "치유진",
+      "reference": "13_Talismans_Seal_Heal",
+      "path": "Models/Test_CheonRef_HealingCircle.fbx",
+      "vertices": 1732,
+      "triangles": 3358,
+      "parts": 26,
+      "dimensions": [
+        5.12000036239624,
+        5.12000036239624,
+        0.1850000023841858
+      ],
+      "materials": [
+        "Test_M_RefGranite",
+        "Test_M_RefHealPattern",
+        "Test_M_RefPaving"
+      ]
+    },
+    {
+      "key": "JadeRings",
+      "label": "공중 옥고리와 중심 구슬",
+      "reference": "14_Jade_Rings",
+      "path": "Models/Test_CheonRef_JadeRings.fbx",
+      "vertices": 3641,
+      "triangles": 7230,
+      "parts": 16,
+      "dimensions": [
+        4.542590856552124,
+        4.405974626541138,
+        4.340000152587891
+      ],
+      "materials": [
+        "Test_M_RefGranite",
+        "Test_M_RefJade",
+        "Test_M_RefPearl"
+      ]
+    },
+    {
+      "key": "Sotdae",
+      "label": "솟대",
+      "reference": "15_Sotdae",
+      "path": "Models/Test_CheonRef_Sotdae.fbx",
+      "vertices": 1677,
+      "triangles": 3302,
+      "parts": 15,
+      "dimensions": [
+        1.4203305840492249,
+        0.8923570215702057,
+        4.678620330989361
+      ],
+      "materials": [
+        "Test_M_RefCarvedWood",
+        "Test_M_RefDarkWood",
+        "Test_M_RefGranite",
+        "Test_M_RefPineWood",
+        "Test_M_RefStrawRope"
+      ]
+    },
+    {
+      "key": "SotdaeGroup",
+      "label": "솟대와 나무새 군집",
+      "reference": "15_Sotdae",
+      "path": "Models/Test_CheonRef_SotdaeGroup.fbx",
+      "vertices": 5062,
+      "triangles": 9968,
+      "parts": 45,
+      "dimensions": [
+        3.0905319452285767,
+        1.4054274559020996,
+        5.083077217452228
+      ],
+      "materials": [
+        "Test_M_RefCarvedWood",
+        "Test_M_RefDarkWood",
+        "Test_M_RefGranite",
+        "Test_M_RefPineWood",
+        "Test_M_RefStrawRope"
+      ]
+    },
+    {
+      "key": "WishRibbon",
+      "label": "소원천 단품",
+      "reference": "16_Wish_Ribbons",
+      "path": "Models/Test_CheonRef_WishRibbon.fbx",
+      "vertices": 130,
+      "triangles": 256,
+      "parts": 1,
+      "dimensions": [
+        0.48663516342639923,
+        0.3796771466732025,
+        1.2038862090557814
+      ],
+      "materials": [
+        "Test_M_RefIvoryCloth"
+      ]
+    },
+    {
+      "key": "WishRibbons",
+      "label": "소원천과 줄 장식",
+      "reference": "16_Wish_Ribbons",
+      "path": "Models/Test_CheonRef_WishRibbons.fbx",
+      "vertices": 7498,
+      "triangles": 14912,
+      "parts": 32,
+      "dimensions": [
+        6.4995033740997314,
+        1.1414775252342224,
+        3.5189359169453382
+      ],
+      "materials": [
+        "Test_M_RefBlueCloth",
+        "Test_M_RefGranite",
+        "Test_M_RefIvoryCloth",
+        "Test_M_RefJadeCloth",
+        "Test_M_RefOchreCloth",
+        "Test_M_RefPineWood",
+        "Test_M_RefRedCloth",
+        "Test_M_RefStrawRope"
+      ]
+    },
+    {
+      "key": "OutdoorAltar",
+      "label": "야외 서낭제단과 공물",
+      "reference": "17_Outdoor_Seonang_Altar",
+      "path": "Models/Test_CheonRef_OutdoorAltar.fbx",
+      "vertices": 4253,
+      "triangles": 8406,
+      "parts": 29,
+      "dimensions": [
+        3.9148409366607666,
+        3.2734323740005493,
+        3.5404563061892986
+      ],
+      "materials": [
+        "Test_M_RefCarvedWood",
+        "Test_M_RefCeramic",
+        "Test_M_RefGranite",
+        "Test_M_RefIvoryCloth",
+        "Test_M_RefJadeCloth",
+        "Test_M_RefPersimmon",
+        "Test_M_RefPineWood",
+        "Test_M_RefStrawRope",
+        "Test_M_RefWater"
+      ]
+    },
+    {
+      "key": "RiceBowl",
+      "label": "밥그릇",
+      "reference": "17_Outdoor_Seonang_Altar",
+      "path": "Models/Test_CheonRef_RiceBowl.fbx",
+      "vertices": 162,
+      "triangles": 316,
+      "parts": 2,
+      "dimensions": [
+        0.4399999976158142,
+        0.4399999976158142,
+        0.3050000071525574
+      ],
+      "materials": [
+        "Test_M_RefCeramic",
+        "Test_M_RefIvoryCloth"
+      ]
+    },
+    {
+      "key": "WaterCup",
+      "label": "물잔",
+      "reference": "17_Outdoor_Seonang_Altar",
+      "path": "Models/Test_CheonRef_WaterCup.fbx",
+      "vertices": 264,
+      "triangles": 520,
+      "parts": 2,
+      "dimensions": [
+        0.23000000417232513,
+        0.23000000417232513,
+        0.25
+      ],
+      "materials": [
+        "Test_M_RefCeramic",
+        "Test_M_RefWater"
+      ]
+    },
+    {
+      "key": "FruitTray",
+      "label": "과일과 목재 쟁반",
+      "reference": "17_Outdoor_Seonang_Altar",
+      "path": "Models/Test_CheonRef_FruitTray.fbx",
+      "vertices": 212,
+      "triangles": 396,
+      "parts": 7,
+      "dimensions": [
+        0.800000011920929,
+        0.48499996960163116,
+        0.3349999934434891
+      ],
+      "materials": [
+        "Test_M_RefCarvedWood",
+        "Test_M_RefPersimmon",
+        "Test_M_RefPineWood"
+      ]
+    },
+    {
+      "key": "Pond",
+      "label": "연못과 물가",
+      "reference": "18_Pond_Waterfall",
+      "path": "Models/Test_CheonRef_Pond.fbx",
+      "vertices": 5542,
+      "triangles": 10748,
+      "parts": 51,
+      "dimensions": [
+        7.7152369022369385,
+        6.061354398727417,
+        1.2059756815433502
+      ],
+      "materials": [
+        "Test_M_RefBasin",
+        "Test_M_RefGranite",
+        "Test_M_RefIvoryCloth",
+        "Test_M_RefLily",
+        "Test_M_RefOchre",
+        "Test_M_RefWater"
+      ]
+    },
+    {
+      "key": "WaterfallStream",
+      "label": "폭포와 계류",
+      "reference": "18_Pond_Waterfall",
+      "path": "Models/Test_CheonRef_WaterfallStream.fbx",
+      "vertices": 1127,
+      "triangles": 2152,
+      "parts": 18,
+      "dimensions": [
+        4.361747741699219,
+        14.199999570846558,
+        7.271393418312073
+      ],
+      "materials": [
+        "Test_M_RefFoam",
+        "Test_M_RefGranite",
+        "Test_M_RefWaterfall"
+      ]
+    },
+    {
+      "key": "PathPlain",
+      "label": "돌길 모듈 Plain",
+      "reference": "19_Path_Stairs_Battlefloor",
+      "path": "Models/Test_CheonRef_PathPlain.fbx",
+      "vertices": 224,
+      "triangles": 432,
+      "parts": 4,
+      "dimensions": [
+        1.934999942779541,
+        1.934999942779541,
+        0.10999999940395355
+      ],
+      "materials": [
+        "Test_M_RefPaving"
+      ]
+    },
+    {
+      "key": "PathBorder",
+      "label": "돌길 모듈 Border",
+      "reference": "19_Path_Stairs_Battlefloor",
+      "path": "Models/Test_CheonRef_PathBorder.fbx",
+      "vertices": 336,
+      "triangles": 648,
+      "parts": 6,
+      "dimensions": [
+        2.1074999570846558,
+        1.9700000286102295,
+        0.23999999463558197
+      ],
+      "materials": [
+        "Test_M_RefGranite",
+        "Test_M_RefPaving"
+      ]
+    },
+    {
+      "key": "PathStraight",
+      "label": "돌길 모듈 Straight",
+      "reference": "19_Path_Stairs_Battlefloor",
+      "path": "Models/Test_CheonRef_PathStraight.fbx",
+      "vertices": 448,
+      "triangles": 864,
+      "parts": 8,
+      "dimensions": [
+        2.2799999713897705,
+        1.9700000286102295,
+        0.23999999463558197
+      ],
+      "materials": [
+        "Test_M_RefGranite",
+        "Test_M_RefPaving"
+      ]
+    },
+    {
+      "key": "BoundaryStone",
+      "label": "연속 경계석",
+      "reference": "19_Path_Stairs_Battlefloor",
+      "path": "Models/Test_CheonRef_BoundaryStone.fbx",
+      "vertices": 56,
+      "triangles": 108,
+      "parts": 1,
+      "dimensions": [
+        2.0,
+        0.30000001192092896,
+        0.2800000011920929
+      ],
+      "materials": [
+        "Test_M_RefGranite"
+      ]
+    },
+    {
+      "key": "StoneStairs",
+      "label": "돌계단",
+      "reference": "19_Path_Stairs_Battlefloor",
+      "path": "Models/Test_CheonRef_StoneStairs.fbx",
+      "vertices": 672,
+      "triangles": 1296,
+      "parts": 12,
+      "dimensions": [
+        3.0,
+        1.7699999660253525,
+        0.9300000071525574
+      ],
+      "materials": [
+        "Test_M_RefGranite",
+        "Test_M_RefPaving"
+      ]
+    },
+    {
+      "key": "BattleFloor",
+      "label": "전투장 원형 바닥",
+      "reference": "19_Path_Stairs_Battlefloor",
+      "path": "Models/Test_CheonRef_BattleFloor.fbx",
+      "vertices": 2180,
+      "triangles": 4222,
+      "parts": 34,
+      "dimensions": [
+        12.059157371520996,
+        12.059157371520996,
+        0.20499999821186066
+      ],
+      "materials": [
+        "Test_M_RefBattlePattern",
+        "Test_M_RefGranite",
+        "Test_M_RefPaving"
+      ]
+    },
+    {
+      "key": "CairnA",
+      "label": "돌탑 A",
+      "reference": "20_Stone_Cairns",
+      "path": "Models/Test_CheonRef_CairnA.fbx",
+      "vertices": 384,
+      "triangles": 760,
+      "parts": 2,
+      "dimensions": [
+        1.383078157901764,
+        1.2354598641395569,
+        1.193317174911499
+      ],
+      "materials": [
+        "Test_M_RefGranite"
+      ]
+    },
+    {
+      "key": "CairnB",
+      "label": "돌탑 B",
+      "reference": "20_Stone_Cairns",
+      "path": "Models/Test_CheonRef_CairnB.fbx",
+      "vertices": 1000,
+      "triangles": 1980,
+      "parts": 5,
+      "dimensions": [
+        1.573523759841919,
+        1.3458988666534424,
+        1.9000706672668457
+      ],
+      "materials": [
+        "Test_M_RefGranite"
+      ]
+    },
+    {
+      "key": "CairnC",
+      "label": "돌탑 C",
+      "reference": "20_Stone_Cairns",
+      "path": "Models/Test_CheonRef_CairnC.fbx",
+      "vertices": 802,
+      "triangles": 1588,
+      "parts": 4,
+      "dimensions": [
+        1.5229957103729248,
+        1.1077028512954712,
+        1.948220133781433
+      ],
+      "materials": [
+        "Test_M_RefGranite"
+      ]
+    },
+    {
+      "key": "RuinedPavilion",
+      "label": "부서진 정자와 파손 모듈",
+      "reference": "21_Ruined_Pavilion",
+      "path": "Models/Test_CheonRef_RuinedPavilion.fbx",
+      "vertices": 7494,
+      "triangles": 13820,
+      "parts": 292,
+      "dimensions": [
+        4.516150951385498,
+        4.2799999713897705,
+        4.429766654968262
+      ],
+      "materials": [
+        "Test_M_RefGranite",
+        "Test_M_RefJade",
+        "Test_M_RefOchre",
+        "Test_M_RefPineWood",
+        "Test_M_RefRoofTile"
+      ]
+    },
+    {
+      "key": "MountainNear",
+      "label": "배경 산맥 MountainNear",
+      "reference": "22_Mountain_Cloud_Background",
+      "path": "Models/Test_CheonRef_MountainNear.fbx",
+      "vertices": 561,
+      "triangles": 1118,
+      "parts": 1,
+      "dimensions": [
+        28.0,
+        18.0,
+        27.828433990478516
+      ],
+      "materials": [
+        "Test_M_RefMountainNear"
+      ]
+    },
+    {
+      "key": "MountainMid",
+      "label": "배경 산맥 MountainMid",
+      "reference": "22_Mountain_Cloud_Background",
+      "path": "Models/Test_CheonRef_MountainMid.fbx",
+      "vertices": 561,
+      "triangles": 1118,
+      "parts": 1,
+      "dimensions": [
+        28.0,
+        18.0,
+        25.68134117126465
+      ],
+      "materials": [
+        "Test_M_RefMountainMid"
+      ]
+    },
+    {
+      "key": "MountainFar",
+      "label": "배경 산맥 MountainFar",
+      "reference": "22_Mountain_Cloud_Background",
+      "path": "Models/Test_CheonRef_MountainFar.fbx",
+      "vertices": 561,
+      "triangles": 1118,
+      "parts": 1,
+      "dimensions": [
+        40.0,
+        22.0,
+        23.642545700073242
+      ],
+      "materials": [
+        "Test_M_RefMountainFar"
+      ]
+    },
+    {
+      "key": "GroundedMountainBase",
+      "label": "지면으로 이어지는 산정상 암반",
+      "reference": "22_Mountain_Cloud_Background",
+      "path": "Models/Test_CheonRef_GroundedMountainBase.fbx",
+      "vertices": 4447,
+      "triangles": 8890,
+      "parts": 1,
+      "dimensions": [
+        210.0,
+        315.0,
+        125.67713165283203
+      ],
+      "materials": [
+        "Test_M_RefGranite"
+      ]
+    },
+    {
+      "key": "CloudLayer",
+      "label": "구름바다와 산허리 안개",
+      "reference": "22_Mountain_Cloud_Background",
+      "path": "Models/Test_CheonRef_CloudLayer.fbx",
+      "vertices": 4,
+      "triangles": 2,
+      "parts": 1,
+      "dimensions": [
+        24.0,
+        16.0,
+        0.0
+      ],
+      "materials": [
+        "Test_M_RefCloudMist"
+      ]
+    },
+    {
+      "key": "SpiritFlame",
+      "label": "셰이더 영혼불",
+      "reference": "12_Sealstone_Constellation",
+      "path": "Models/Test_CheonRef_SpiritFlame.fbx",
+      "vertices": 12,
+      "triangles": 6,
+      "parts": 3,
+      "dimensions": [
+        0.4399999976158142,
+        0.3810511827468872,
+        0.699999988079071
+      ],
+      "materials": [
+        "Test_M_RefSpiritFlame"
+      ]
+    }
+  ]
+}
