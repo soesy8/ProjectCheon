@@ -1,0 +1,1502 @@
+{
+  "Cheon_Lantern": [
+    {
+      "name": "M_IndigoRoofTile",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.7799999713897705,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_IndigoRoofTile_BaseColor"
+      ]
+    },
+    {
+      "name": "M_LightSandstone",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.8500000238418579,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_LightSandstone_BaseColor"
+      ]
+    },
+    {
+      "name": "M_OrangeWood",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.6800000071525574,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_OrangeWood_BaseColor"
+      ]
+    },
+    {
+      "name": "M_RoofTileLight",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.7599999904632568,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_RoofTileLight_BaseColor"
+      ]
+    },
+    {
+      "name": "M_StudioGround",
+      "color": [
+        0.9100000262260437,
+        0.8299999833106995,
+        0.6600000262260437,
+        1.0
+      ],
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": []
+    },
+    {
+      "name": "M_VermilionWood",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.6800000071525574,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_VermilionWood_BaseColor"
+      ]
+    },
+    {
+      "name": "M_WarmHanji",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.800000011920929,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.5,
+      "images": [
+        "T_WarmHanji_BaseColor"
+      ]
+    },
+    {
+      "name": "M_WarmSandstone",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.8500000238418579,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_WarmSandstone_BaseColor"
+      ]
+    }
+  ],
+  "Cheon_Grass": [
+    {
+      "name": "M_GrassBlade",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.8600000143051147,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_GrassBlade_BaseColor"
+      ]
+    },
+    {
+      "name": "M_GrassBladeTip",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.8600000143051147,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_GrassBladeTip_BaseColor"
+      ]
+    },
+    {
+      "name": "M_StudioGround",
+      "color": [
+        0.9100000262260437,
+        0.8299999833106995,
+        0.6600000262260437,
+        1.0
+      ],
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": []
+    }
+  ],
+  "Cheon_Flowers": [
+    {
+      "name": "M_FlowerLeaf",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.8600000143051147,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_FlowerLeaf_BaseColor"
+      ]
+    },
+    {
+      "name": "M_GoldenYellowPetal",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.800000011920929,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_GoldenYellowPetal_BaseColor"
+      ]
+    },
+    {
+      "name": "M_IvoryPetal",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.800000011920929,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_IvoryPetal_BaseColor"
+      ]
+    },
+    {
+      "name": "M_MidLeaf",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.8500000238418579,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_MidLeaf_BaseColor"
+      ]
+    },
+    {
+      "name": "M_OchreGold",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.5199999809265137,
+      "metallic": 0.20000000298023224,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_OchreGold_BaseColor"
+      ]
+    },
+    {
+      "name": "M_Pollen",
+      "color": [
+        0.7799999713897705,
+        0.33000001311302185,
+        0.00800000037997961,
+        1.0
+      ],
+      "roughness": 0.699999988079071,
+      "metallic": 0.05000000074505806,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": []
+    },
+    {
+      "name": "M_StudioGround",
+      "color": [
+        0.9100000262260437,
+        0.8299999833106995,
+        0.6600000262260437,
+        1.0
+      ],
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": []
+    }
+  ],
+  "Cheon_Gate": [
+    {
+      "name": "M_DarkIron",
+      "color": [
+        0.06499999761581421,
+        0.07500000298023224,
+        0.07000000029802322,
+        1.0
+      ],
+      "roughness": 0.4000000059604645,
+      "metallic": 0.6499999761581421,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": []
+    },
+    {
+      "name": "M_IndigoRoofTile",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.7799999713897705,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_IndigoRoofTile_BaseColor"
+      ]
+    },
+    {
+      "name": "M_IvoryHanji",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.800000011920929,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_IvoryHanji_BaseColor"
+      ]
+    },
+    {
+      "name": "M_JadeDancheong",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.699999988079071,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_JadeDancheong_BaseColor"
+      ]
+    },
+    {
+      "name": "M_LightSandstone",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.8500000238418579,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_LightSandstone_BaseColor"
+      ]
+    },
+    {
+      "name": "M_OchreGold",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.5199999809265137,
+      "metallic": 0.20000000298023224,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_OchreGold_BaseColor"
+      ]
+    },
+    {
+      "name": "M_OrangeWood",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.6800000071525574,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_OrangeWood_BaseColor"
+      ]
+    },
+    {
+      "name": "M_RoofTileLight",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.7599999904632568,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_RoofTileLight_BaseColor"
+      ]
+    },
+    {
+      "name": "M_StudioGround",
+      "color": [
+        0.9100000262260437,
+        0.8299999833106995,
+        0.6600000262260437,
+        1.0
+      ],
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": []
+    },
+    {
+      "name": "M_TealDancheong",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.699999988079071,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_TealDancheong_BaseColor"
+      ]
+    },
+    {
+      "name": "M_VermilionWood",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.6800000071525574,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_VermilionWood_BaseColor"
+      ]
+    },
+    {
+      "name": "M_WarmHanji",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.800000011920929,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.5,
+      "images": [
+        "T_WarmHanji_BaseColor"
+      ]
+    },
+    {
+      "name": "M_WarmSandstone",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.8500000238418579,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_WarmSandstone_BaseColor"
+      ]
+    }
+  ],
+  "Cheon_Wall": [
+    {
+      "name": "M_FootingStone",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.8500000238418579,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_FootingStone_BaseColor"
+      ]
+    },
+    {
+      "name": "M_IndigoRoofTile",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.7799999713897705,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_IndigoRoofTile_BaseColor"
+      ]
+    },
+    {
+      "name": "M_LightSandstone",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.8500000238418579,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_LightSandstone_BaseColor"
+      ]
+    },
+    {
+      "name": "M_OchreGold",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.5199999809265137,
+      "metallic": 0.20000000298023224,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_OchreGold_BaseColor"
+      ]
+    },
+    {
+      "name": "M_OrangeWood",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.6800000071525574,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_OrangeWood_BaseColor"
+      ]
+    },
+    {
+      "name": "M_RoofTileLight",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.7599999904632568,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_RoofTileLight_BaseColor"
+      ]
+    },
+    {
+      "name": "M_StudioGround",
+      "color": [
+        0.9100000262260437,
+        0.8299999833106995,
+        0.6600000262260437,
+        1.0
+      ],
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": []
+    },
+    {
+      "name": "M_VermilionWood",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.6800000071525574,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_VermilionWood_BaseColor"
+      ]
+    },
+    {
+      "name": "M_WarmSandstone",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.8500000238418579,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_WarmSandstone_BaseColor"
+      ]
+    }
+  ],
+  "Cheon_BellPavilion": [
+    {
+      "name": "M_Bronze",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.4000000059604645,
+      "metallic": 0.7200000286102295,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_Bronze_BaseColor"
+      ]
+    },
+    {
+      "name": "M_BronzeRim",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.3499999940395355,
+      "metallic": 0.7200000286102295,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_BronzeRim_BaseColor"
+      ]
+    },
+    {
+      "name": "M_DarkIron",
+      "color": [
+        0.06499999761581421,
+        0.07500000298023224,
+        0.07000000029802322,
+        1.0
+      ],
+      "roughness": 0.4000000059604645,
+      "metallic": 0.6499999761581421,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": []
+    },
+    {
+      "name": "M_IndigoRoofTile",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.7799999713897705,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_IndigoRoofTile_BaseColor"
+      ]
+    },
+    {
+      "name": "M_JadeDancheong",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.699999988079071,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_JadeDancheong_BaseColor"
+      ]
+    },
+    {
+      "name": "M_LightSandstone",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.8500000238418579,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_LightSandstone_BaseColor"
+      ]
+    },
+    {
+      "name": "M_OchreGold",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.5199999809265137,
+      "metallic": 0.20000000298023224,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_OchreGold_BaseColor"
+      ]
+    },
+    {
+      "name": "M_OrangeWood",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.6800000071525574,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_OrangeWood_BaseColor"
+      ]
+    },
+    {
+      "name": "M_RoofTileLight",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.7599999904632568,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_RoofTileLight_BaseColor"
+      ]
+    },
+    {
+      "name": "M_StudioGround",
+      "color": [
+        0.9100000262260437,
+        0.8299999833106995,
+        0.6600000262260437,
+        1.0
+      ],
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": []
+    },
+    {
+      "name": "M_TealDancheong",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.699999988079071,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_TealDancheong_BaseColor"
+      ]
+    },
+    {
+      "name": "M_VermilionWood",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.6800000071525574,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_VermilionWood_BaseColor"
+      ]
+    },
+    {
+      "name": "M_Walnut",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.699999988079071,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_Walnut_BaseColor"
+      ]
+    },
+    {
+      "name": "M_WarmSandstone",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.8500000238418579,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_WarmSandstone_BaseColor"
+      ]
+    }
+  ],
+  "Cheon_MountainSpiritShrine": [
+    {
+      "name": "M_Bronze",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.4000000059604645,
+      "metallic": 0.7200000286102295,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_Bronze_BaseColor"
+      ]
+    },
+    {
+      "name": "M_BronzeRim",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.3499999940395355,
+      "metallic": 0.7200000286102295,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_BronzeRim_BaseColor"
+      ]
+    },
+    {
+      "name": "M_CandleWax",
+      "color": [
+        0.9599999785423279,
+        0.7699999809265137,
+        0.3499999940395355,
+        1.0
+      ],
+      "roughness": 0.6000000238418579,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": []
+    },
+    {
+      "name": "M_DarkIron",
+      "color": [
+        0.06499999761581421,
+        0.07500000298023224,
+        0.07000000029802322,
+        1.0
+      ],
+      "roughness": 0.4000000059604645,
+      "metallic": 0.6499999761581421,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": []
+    },
+    {
+      "name": "M_Flame",
+      "color": [
+        1.0,
+        0.46000000834465027,
+        0.03500000014901161,
+        1.0
+      ],
+      "roughness": 0.5,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        0.46000000834465027,
+        0.03500000014901161,
+        1.0
+      ],
+      "emissionStrength": 4.0,
+      "images": []
+    },
+    {
+      "name": "M_IndigoRoofTile",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.7799999713897705,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_IndigoRoofTile_BaseColor"
+      ]
+    },
+    {
+      "name": "M_IvoryHanji",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.800000011920929,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_IvoryHanji_BaseColor"
+      ]
+    },
+    {
+      "name": "M_JadeDancheong",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.699999988079071,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_JadeDancheong_BaseColor"
+      ]
+    },
+    {
+      "name": "M_LightSandstone",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.8500000238418579,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_LightSandstone_BaseColor"
+      ]
+    },
+    {
+      "name": "M_OchreGold",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.5199999809265137,
+      "metallic": 0.20000000298023224,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_OchreGold_BaseColor"
+      ]
+    },
+    {
+      "name": "M_OrangeWood",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.6800000071525574,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_OrangeWood_BaseColor"
+      ]
+    },
+    {
+      "name": "M_RoofTileLight",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.7599999904632568,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_RoofTileLight_BaseColor"
+      ]
+    },
+    {
+      "name": "M_Sansin_Painting",
+      "color": [
+        0.550000011920929,
+        0.4000000059604645,
+        0.1899999976158142,
+        1.0
+      ],
+      "roughness": 0.949999988079071,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.11999999731779099,
+      "images": [
+        "T_ShrinePainting_Source"
+      ]
+    },
+    {
+      "name": "M_StudioGround",
+      "color": [
+        0.9100000262260437,
+        0.8299999833106995,
+        0.6600000262260437,
+        1.0
+      ],
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": []
+    },
+    {
+      "name": "M_TealDancheong",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.699999988079071,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_TealDancheong_BaseColor"
+      ]
+    },
+    {
+      "name": "M_VermilionWood",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.6800000071525574,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_VermilionWood_BaseColor"
+      ]
+    },
+    {
+      "name": "M_Walnut",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.699999988079071,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_Walnut_BaseColor"
+      ]
+    },
+    {
+      "name": "M_WarmSandstone",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.8500000238418579,
+      "metallic": 0.0,
+      "emission": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissionStrength": 0.0,
+      "images": [
+        "T_WarmSandstone_BaseColor"
+      ]
+    }
+  ]
+}

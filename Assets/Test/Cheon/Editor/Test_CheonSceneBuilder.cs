@@ -75,6 +75,7 @@ public static class Test_CheonSceneBuilder
         Test_CheonMapLayout.Apply();
         Test_CheonSpiritWidth.Apply();
         Test_CheonConceptArt.Apply();
+        Test_CheonEnvironmentModels.Apply();
         EditorSceneManager.MarkSceneDirty(scene); EditorSceneManager.SaveScene(scene, ScenePath);
         AssetDatabase.SaveAssets(); Selection.activeObject = player.gameObject;
         if (SceneView.lastActiveSceneView != null) SceneView.lastActiveSceneView.LookAt(new Vector3(0, 0, 0), camera.transform.rotation, 24);

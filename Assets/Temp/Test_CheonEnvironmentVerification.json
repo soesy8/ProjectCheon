@@ -1,0 +1,82 @@
+{
+  "scene": "Assets/Test/Cheon/Scenes/Test_CheonBoundary.unity",
+  "playing": false,
+  "prefabCounts": [
+    {
+      "prefab": "Assets/Test/Cheon/Arts/EnvironmentModels/04_Gate/Test_Cheon_Gate.prefab",
+      "count": 1
+    },
+    {
+      "prefab": "Assets/Test/Cheon/Arts/EnvironmentModels/01_Lantern/Test_Cheon_Lantern.prefab",
+      "count": 39
+    },
+    {
+      "prefab": "Assets/Test/Cheon/Arts/EnvironmentModels/03_Flowers/Test_Cheon_Flowers.prefab",
+      "count": 69
+    },
+    {
+      "prefab": "Assets/Test/Cheon/Arts/EnvironmentModels/02_Grass/Test_Cheon_Grass.prefab",
+      "count": 340
+    },
+    {
+      "prefab": "Assets/Test/Cheon/Arts/EnvironmentModels/07_Mountain_Spirit_Shrine/Test_Cheon_MountainSpiritShrine.prefab",
+      "count": 1
+    },
+    {
+      "prefab": "Assets/Test/Cheon/Arts/EnvironmentModels/06_Bell_Pavilion/Test_Cheon_BellPavilion.prefab",
+      "count": 1
+    },
+    {
+      "prefab": "Assets/Test/Cheon/Arts/EnvironmentModels/05_Wall/Test_Cheon_Wall.prefab",
+      "count": 14
+    }
+  ],
+  "importedMaterials": 65,
+  "importedTextures": 59,
+  "invalidMaterials": 0,
+  "missingTextureMaterials": [],
+  "missingScripts": 0,
+  "originalGroups": [
+    {
+      "name": "Test_산신당",
+      "colliders": 5
+    },
+    {
+      "name": "Test_UpperGate",
+      "colliders": 4
+    },
+    {
+      "name": "Test_청동종각",
+      "colliders": 4
+    }
+  ],
+  "buildings": [
+    {
+      "path": "Assets/Test/Cheon/Arts/EnvironmentModels/04_Gate/Test_Cheon_Gate.prefab",
+      "renderers": 12,
+      "active": true,
+      "position": "(0.000, 0.000, -13.100)",
+      "scale": "(1.515, 1.163, 0.626)",
+      "center": "(0.000, 2.310, -13.100)"
+    },
+    {
+      "path": "Assets/Test/Cheon/Arts/EnvironmentModels/07_Mountain_Spirit_Shrine/Test_Cheon_MountainSpiritShrine.prefab",
+      "renderers": 24,
+      "active": true,
+      "position": "(-12.120, 0.000, -37.636)",
+      "scale": "(1.381, 0.988, 1.338)",
+      "center": "(-12.120, 2.100, -37.711)"
+    },
+    {
+      "path": "Assets/Test/Cheon/Arts/EnvironmentModels/06_Bell_Pavilion/Test_Cheon_BellPavilion.prefab",
+      "renderers": 14,
+      "active": true,
+      "position": "(-14.400, 0.000, -22.693)",
+      "scale": "(1.041, 0.940, 0.928)",
+      "center": "(-14.400, 2.018, -22.807)"
+    }
+  ],
+  "player": "(0.000, 0.000, -37.367)",
+  "gateReference": "Test_UpperGate",
+  "importedRenderers": 1529
+}
