@@ -1,0 +1,38 @@
+{
+  "Middle": {
+    "objects": 1,
+    "mesh_datablocks": 1,
+    "vertices": 12920,
+    "triangles": 25324,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "degenerate_faces": 0,
+    "external_images": 0,
+    "dimensions_m": [
+      2.4000000953674316,
+      1.3406999111175537,
+      2.2003421783447266
+    ],
+    "array_three_sections_m": 7.200000286102295
+  },
+  "End": {
+    "objects": 1,
+    "mesh_datablocks": 1,
+    "vertices": 4252,
+    "triangles": 8328,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "degenerate_faces": 0,
+    "external_images": 0,
+    "dimensions_m": [
+      0.4869999885559082,
+      1.3785600662231445,
+      2.2699999809265137
+    ]
+  },
+  "seams": {
+    "repeat_profile_error_m": 0.0,
+    "end_profile_error_m": 0.0,
+    "reversed_end_profile_error_m": 0.0
+  }
+}

@@ -1,0 +1,11 @@
+strike 1 at 65.27333
+strike 2 at 65.57333
+strike 3 at 66.18333
+frames advanced: 112
+intervals: 0.30000, 0.61000
+stage after full combo: 0
+step distance: 0.25000
+WindPracticeDummy_1: hits=3, damage=96
+WindPracticeDummy_2: hits=1, damage=56
+WindPracticeDummy_3: hits=1, damage=56
+remaining projectiles: 0

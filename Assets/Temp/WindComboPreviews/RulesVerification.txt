@@ -1,0 +1,12 @@
+PASS buffer rejects input before +0.05
+PASS buffer accepts exactly one next hit
+PASS buffer does not queue a third hit
+PASS late continuation within 0.30 starts third
+PASS third preparation can dodge cancel
+PASS cancelled preparation never fires
+PASS release commitment blocks dodge
+PASS late recovery can dodge cancel
+PASS late cancel preserves released projectile
+PASS projectile expires
+PASS expired continuation restarts first
+PASS holding J performs only one attack
