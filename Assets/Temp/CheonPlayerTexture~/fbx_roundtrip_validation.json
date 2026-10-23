@@ -1,0 +1,48 @@
+{
+  "fbx_import": "passed",
+  "mesh_objects": 1,
+  "materials": 1,
+  "uv_maps": 1,
+  "vertex_color_attributes": 0,
+  "vertices": 5103,
+  "triangles": 9996,
+  "dimensions": [
+    1.0770676136016846,
+    0.9747556447982788,
+    2.1628270149230957
+  ],
+  "images": [
+    {
+      "name": "T_Cheon_Player_BaseColor",
+      "size": [
+        4096,
+        4096
+      ],
+      "filepath": "D:\\project\\ProjectCheon\\Assets\\Temp\\CheonPlayerTexture~\\T_Cheon_Player_BaseColor.png"
+    },
+    {
+      "name": "T_Cheon_Player_Roughness",
+      "size": [
+        4096,
+        4096
+      ],
+      "filepath": "D:\\project\\ProjectCheon\\Assets\\Temp\\CheonPlayerTexture~\\T_Cheon_Player_Roughness.png"
+    },
+    {
+      "name": "T_Cheon_Player_Metallic",
+      "size": [
+        4096,
+        4096
+      ],
+      "filepath": "D:\\project\\ProjectCheon\\Assets\\Temp\\CheonPlayerTexture~\\T_Cheon_Player_Metallic.png"
+    },
+    {
+      "name": "T_Cheon_Player_BaseColor.001",
+      "size": [
+        4096,
+        4096
+      ],
+      "filepath": "D:\\project\\ProjectCheon\\Assets\\Temp\\CheonPlayerTexture~\\T_Cheon_Player_BaseColor.png"
+    }
+  ]
+}

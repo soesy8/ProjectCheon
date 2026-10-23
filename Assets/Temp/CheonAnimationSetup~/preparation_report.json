@@ -1,0 +1,34 @@
+{
+  "backups": [
+    {
+      "source": "E:\\C.J.I\\Blender\\AutoRigging\\Cheon_Player_Mixamo_RigFixed.blend",
+      "backup": "D:\\project\\ProjectCheon\\Assets\\Temp\\CheonAnimationSetup~\\Cheon_Player_Mixamo_RigFixed.blend.backup",
+      "sha256": "c33467d363c352ecc803044675f3d73dd21281dfa5fde63c5230ba2d46ba9d45"
+    },
+    {
+      "source": "E:\\C.J.I\\Blender\\AutoRigging\\Cheon_Player_Mixamo_RigFixed.fbx",
+      "backup": "D:\\project\\ProjectCheon\\Assets\\Temp\\CheonAnimationSetup~\\Cheon_Player_Mixamo_RigFixed.fbx.backup",
+      "sha256": "59f80a5a6e1510ed831924e800d28a472bd9958afd0c82cad9bdbf8a8fa3a854"
+    }
+  ],
+  "candidate_blend": "D:\\project\\ProjectCheon\\Assets\\Temp\\CheonAnimationSetup~\\Candidate\\Cheon_Player_Mixamo_RigFixed.blend",
+  "candidate_fbx": "D:\\project\\ProjectCheon\\Assets\\Temp\\CheonAnimationSetup~\\Candidate\\Cheon_Player_Mixamo_RigFixed.fbx",
+  "candidate_hashes": {
+    "Cheon_Player_Mixamo_RigFixed.blend": "8f523fcfff0bcb7ddd82405a7c954f0d421036c80d2fef7853d30131c0f75caa",
+    "Cheon_Player_Mixamo_RigFixed.fbx": "9f756a86bba70673f512e88478bb0b9bed1ec8e9cea3268dafc9e9ea8f750994"
+  },
+  "bone_count": 33,
+  "bone_names_and_hierarchy_preserved": true,
+  "vertices": 5103,
+  "polygons": 9996,
+  "uv_preserved": true,
+  "skin_weights_preserved": true,
+  "texture_preserved": true,
+  "embedded_texture_bytes": 7017359,
+  "ground_offset_m": 0.03846623748540878,
+  "object_transforms_identity": true,
+  "t_pose_is_bind_pose": true,
+  "active_legacy_animation_removed": true,
+  "legacy_action_retained_in_blend": true,
+  "unity_project_implementation": false
+}

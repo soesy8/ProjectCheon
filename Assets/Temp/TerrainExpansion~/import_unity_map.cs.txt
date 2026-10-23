@@ -1,0 +1,213 @@
+if (UnityEditor.EditorApplication.isPlaying)
+    throw new InvalidOperationException("Edit Mode에서 맵을 가져와야 합니다.");
+
+const string folder = "Assets/Test/CheonMountainMap";
+const string scenePath = folder + "/Scenes/Test_CheonMountainMap.unity";
+const string modelPath = folder + "/Models/Test_CheonMountainMap.fbx";
+const string prefabPath = folder + "/Prefabs/Test_CheonMountainMap.prefab";
+const string working = "D:/project/ProjectCheon/Assets/Temp/TerrainUnityImport~";
+var manifest = Newtonsoft.Json.Linq.JObject.Parse(System.IO.File.ReadAllText(working + "/map_manifest.json"));
+
+// 기존 씬에 미저장 변경이 생겼다면 닫지 않고 에셋 임포트까지만 진행한다.
+var previousScene = UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene();
+string previousScenePath = previousScene.path;
+var previousRoots = previousScene.GetRootGameObjects();
+bool resumePartialScene = string.IsNullOrEmpty(previousScene.path) && previousRoots.Length > 0 &&
+    previousRoots.All(item => item.name == "Test_CheonMountainMap" || item.name == "Test_DirectionalLight" || item.name == "Test_MainCamera");
+bool hasDirtyScene = Enumerable.Range(0, UnityEngine.SceneManagement.SceneManager.sceneCount)
+    .Select(UnityEngine.SceneManagement.SceneManager.GetSceneAt).Any(scene => scene.isDirty);
+if (resumePartialScene) hasDirtyScene = false;
+
+Action<string> ensureFolder = path =>
+{
+    string current = "Assets";
+    foreach (string part in path.Split('/').Skip(1))
+    {
+        string next = current + "/" + part;
+        if (!UnityEditor.AssetDatabase.IsValidFolder(next))
+            UnityEditor.AssetDatabase.CreateFolder(current, part);
+        current = next;
+    }
+};
+foreach (string name in new[] { "Models", "Textures", "Materials", "Prefabs", "Scenes" })
+    ensureFolder(folder + "/" + name);
+
+var textureFiles = manifest["textures_to_copy"].Select(value => (string)value).Distinct().ToArray();
+UnityEditor.AssetDatabase.StartAssetEditing();
+try
+{
+    foreach (string filename in textureFiles)
+        System.IO.File.Copy(working + "/Textures/" + filename, folder + "/Textures/" + filename, true);
+    System.IO.File.Copy(working + "/Test_CheonMountainMap.fbx", modelPath, true);
+}
+finally { UnityEditor.AssetDatabase.StopAssetEditing(); }
+UnityEditor.AssetDatabase.Refresh(UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+
+foreach (string filename in textureFiles)
+{
+    string path = folder + "/Textures/" + filename;
+    var importer = UnityEditor.AssetImporter.GetAtPath(path) as UnityEditor.TextureImporter;
+    if (importer == null) throw new InvalidOperationException("텍스처 임포트 실패: " + path);
+    importer.sRGBTexture = true;
+    importer.mipmapEnabled = true;
+    importer.wrapMode = TextureWrapMode.Repeat;
+    importer.filterMode = FilterMode.Trilinear;
+    importer.anisoLevel = 4;
+    importer.maxTextureSize = filename.Contains("UpperGround") || filename.Contains("MountainSlope") ? 4096 : 2048;
+    importer.textureCompression = UnityEditor.TextureImporterCompression.Compressed;
+    importer.SaveAndReimport();
+}
+
+var shader = Shader.Find("Cheon/SimpleToon");
+if (shader == null) throw new InvalidOperationException("프로젝트의 Cheon/SimpleToon 셰이더를 찾지 못했습니다.");
+var materials = new Dictionary<string, Material>();
+foreach (var entry in manifest["materials"].Children<Newtonsoft.Json.Linq.JObject>())
+{
+    string sourceName = (string)entry["source_name"];
+    string assetName = (string)entry["asset_name"];
+    string assetPath = folder + "/Materials/" + assetName + ".mat";
+    var material = UnityEditor.AssetDatabase.LoadAssetAtPath<Material>(assetPath);
+    if (material == null)
+    {
+        material = new Material(shader) { name = assetName };
+        UnityEditor.AssetDatabase.CreateAsset(material, assetPath);
+    }
+    material.shader = shader;
+    var value = entry["base_color"];
+    material.SetColor("_BaseColor", new Color((float)value[0], (float)value[1], (float)value[2], (float)value[3]));
+    string texturePath = (string)entry["texture"];
+    if (!string.IsNullOrEmpty(texturePath))
+    {
+        var texture = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath);
+        if (texture == null) throw new InvalidOperationException("색상 텍스처 누락: " + texturePath);
+        material.SetTexture("_BaseMap", texture);
+    }
+    bool terrain = (bool)entry["terrain"];
+    material.SetColor("_ShadowColor", terrain ? new Color(.56f, .59f, .59f, 1) : new Color(.35f, .42f, .58f, 1));
+    material.SetFloat("_MidTone", terrain ? .85f : .72f);
+    material.SetFloat("_AmbientStrength", terrain ? .24f : .15f);
+    material.SetFloat("_ReceiveShadows", 1);
+    material.SetFloat("_VertexTint", 0);
+    material.enableInstancing = true;
+    UnityEditor.EditorUtility.SetDirty(material);
+    materials.Add(sourceName, material);
+}
+foreach (var material in materials.Values)
+    UnityEditor.AssetDatabase.SaveAssetIfDirty(material);
+
+var modelImporter = UnityEditor.AssetImporter.GetAtPath(modelPath) as UnityEditor.ModelImporter;
+if (modelImporter == null) throw new InvalidOperationException("FBX 임포트 실패");
+modelImporter.importCameras = false;
+modelImporter.importLights = false;
+modelImporter.importAnimation = false;
+modelImporter.importBlendShapes = false;
+modelImporter.importNormals = UnityEditor.ModelImporterNormals.Import;
+modelImporter.materialImportMode = UnityEditor.ModelImporterMaterialImportMode.ImportStandard;
+modelImporter.materialLocation = UnityEditor.ModelImporterMaterialLocation.InPrefab;
+modelImporter.useFileScale = true;
+modelImporter.globalScale = 1;
+modelImporter.addCollider = false;
+modelImporter.isReadable = false;
+foreach (var pair in materials)
+    modelImporter.AddRemap(new UnityEditor.AssetImporter.SourceAssetIdentifier(typeof(Material), pair.Key), pair.Value);
+modelImporter.SaveAndReimport();
+
+var importedModel = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(modelPath);
+if (importedModel == null) throw new InvalidOperationException("FBX GameObject를 읽지 못했습니다.");
+if (hasDirtyScene)
+    return new { assetsImported = true, sceneCreated = false, reason = "Existing scene has unsaved changes", previousScene = previousScene.path };
+
+var scene = resumePartialScene ? previousScene : UnityEditor.SceneManagement.EditorSceneManager.NewScene(
+    UnityEditor.SceneManagement.NewSceneSetup.EmptyScene, UnityEditor.SceneManagement.NewSceneMode.Single);
+if (resumePartialScene)
+    foreach (var partialRoot in previousRoots) UnityEngine.Object.DestroyImmediate(partialRoot);
+var root = (GameObject)UnityEditor.PrefabUtility.InstantiatePrefab(importedModel, scene);
+UnityEditor.PrefabUtility.UnpackPrefabInstance(root, UnityEditor.PrefabUnpackMode.Completely, UnityEditor.InteractionMode.AutomatedAction);
+root.name = "Test_CheonMountainMap";
+foreach (var renderer in root.GetComponentsInChildren<MeshRenderer>(true))
+{
+    var slots = renderer.sharedMaterials;
+    for (int index = 0; index < slots.Length; index++)
+    {
+        if (slots[index] == null) throw new InvalidOperationException("빈 머테리얼 슬롯: " + renderer.name);
+        if (materials.TryGetValue(slots[index].name, out var replacement)) slots[index] = replacement;
+        else if (!UnityEditor.AssetDatabase.GetAssetPath(slots[index]).StartsWith(folder + "/Materials/"))
+            throw new InvalidOperationException("머테리얼 연결 누락: " + slots[index].name);
+    }
+    renderer.sharedMaterials = slots;
+    renderer.gameObject.isStatic = true;
+    string objectName = renderer.gameObject.name;
+    if (objectName.Contains("Mountain_Continuous_Core") || objectName.Contains("Floor_Flat_UV") ||
+        objectName.Contains("Stairway_") || objectName.Contains("Granite_Cliff") ||
+        objectName.Contains("Summit_Rim_Outcrops") || objectName.Contains("Rocky_Ledges"))
+    {
+        var collider = renderer.gameObject.GetComponent<MeshCollider>();
+        if (collider == null) collider = renderer.gameObject.AddComponent<MeshCollider>();
+        collider.sharedMesh = renderer.GetComponent<MeshFilter>().sharedMesh;
+    }
+}
+var renderers = root.GetComponentsInChildren<Renderer>();
+var bounds = renderers[0].bounds;
+foreach (var renderer in renderers.Skip(1)) bounds.Encapsulate(renderer.bounds);
+float expectedHeight = (float)manifest["bounds_blender"][1][2] - (float)manifest["bounds_blender"][0][2];
+if (Mathf.Abs(bounds.size.y - expectedHeight) > .05f)
+    throw new InvalidOperationException("FBX 단위 또는 축이 다릅니다. 실제 높이=" + bounds.size.y + ", 예상=" + expectedHeight);
+UnityEditor.PrefabUtility.SaveAsPrefabAssetAndConnect(root, prefabPath, UnityEditor.InteractionMode.AutomatedAction);
+
+RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Trilight;
+RenderSettings.ambientSkyColor = new Color(.66f, .74f, .77f);
+RenderSettings.ambientEquatorColor = new Color(.5f, .55f, .48f);
+RenderSettings.ambientGroundColor = new Color(.32f, .35f, .29f);
+RenderSettings.ambientIntensity = 1;
+RenderSettings.skybox = null;
+RenderSettings.fog = false;
+var lightObject = new GameObject("Test_DirectionalLight");
+var light = lightObject.AddComponent<Light>();
+light.type = LightType.Directional;
+light.color = new Color(1, .92f, .78f);
+light.intensity = 1.5f;
+light.shadows = LightShadows.Soft;
+lightObject.transform.rotation = Quaternion.Euler(45, -35, 0);
+RenderSettings.sun = light;
+
+var cameraObject = new GameObject("Test_MainCamera");
+cameraObject.tag = "MainCamera";
+var camera = cameraObject.AddComponent<Camera>();
+cameraObject.AddComponent<AudioListener>();
+camera.orthographic = true;
+camera.clearFlags = CameraClearFlags.SolidColor;
+camera.backgroundColor = new Color(.60f, .70f, .74f);
+camera.nearClipPlane = .1f;
+camera.farClipPlane = 2000;
+cameraObject.transform.position = bounds.center + new Vector3(-155, 200, 225);
+cameraObject.transform.LookAt(bounds.center);
+float minX = float.PositiveInfinity, minY = float.PositiveInfinity;
+float maxX = float.NegativeInfinity, maxY = float.NegativeInfinity;
+foreach (var renderer in renderers)
+    for (int x = -1; x <= 1; x += 2)
+        for (int y = -1; y <= 1; y += 2)
+            for (int z = -1; z <= 1; z += 2)
+            {
+                var point = cameraObject.transform.InverseTransformPoint(renderer.bounds.center + Vector3.Scale(renderer.bounds.extents, new Vector3(x, y, z)));
+                minX = Mathf.Min(minX, point.x); maxX = Mathf.Max(maxX, point.x);
+                minY = Mathf.Min(minY, point.y); maxY = Mathf.Max(maxY, point.y);
+            }
+cameraObject.transform.position += cameraObject.transform.right * ((minX + maxX) * .5f) + cameraObject.transform.up * ((minY + maxY) * .5f);
+camera.orthographicSize = Mathf.Max((maxY - minY) * .5f, (maxX - minX) / (2 * (4f / 3f))) * 1.08f;
+var cameraData = cameraObject.AddComponent<UnityEngine.Rendering.Universal.UniversalAdditionalCameraData>();
+cameraData.renderPostProcessing = false;
+cameraData.renderShadows = true;
+
+UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(scene);
+UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene, scenePath);
+var sceneView = UnityEditor.SceneView.lastActiveSceneView;
+if (sceneView != null)
+    sceneView.LookAt(bounds.center, cameraObject.transform.rotation, Mathf.Max(bounds.size.x, bounds.size.z) * .6f, true, true);
+UnityEditor.Selection.activeGameObject = root;
+return new {
+    sceneCreated = true, scene = scenePath, prefab = prefabPath, meshes = renderers.Length,
+    materials = materials.Count, copiedTextures = textureFiles.Length,
+    colliders = root.GetComponentsInChildren<MeshCollider>().Length,
+    boundsCenter = bounds.center.ToString(), boundsSize = bounds.size.ToString(),
+    sourceHeight = expectedHeight, previousScene = previousScenePath
+};

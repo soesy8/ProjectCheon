@@ -1,0 +1,33 @@
+const string scenePath = "Assets/Test/CheonMountainMap/Scenes/Test_CheonMountainMap.unity";
+var current = UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene();
+if (current.path != scenePath || current.isDirty)
+    throw new InvalidOperationException("새 씬이 저장된 상태인지 확인해야 합니다.");
+var scene = UnityEditor.SceneManagement.EditorSceneManager.OpenScene(scenePath, UnityEditor.SceneManagement.OpenSceneMode.Single);
+var root = scene.GetRootGameObjects().Single(item => item.name == "Test_CheonMountainMap");
+var filters = root.GetComponentsInChildren<MeshFilter>(true);
+var renderers = root.GetComponentsInChildren<MeshRenderer>(true);
+var materials = renderers.SelectMany(item => item.sharedMaterials).Distinct().ToArray();
+int missingMeshes = filters.Count(item => item.sharedMesh == null);
+int missingMaterials = renderers.Sum(item => item.sharedMaterials.Count(material => material == null || material.shader == null));
+int unsupportedShaders = materials.Count(material => material != null && !material.shader.isSupported);
+int missingScripts = root.GetComponentsInChildren<Transform>(true).Sum(item => item.GetComponents<Component>().Count(component => component == null));
+if (missingMeshes != 0 || missingMaterials != 0 || unsupportedShaders != 0 || missingScripts != 0)
+    throw new InvalidOperationException("씬에 누락되거나 지원되지 않는 참조가 있습니다.");
+Physics.SyncTransforms();
+RaycastHit upperHit, lowerHit;
+bool upperCollision = Physics.Raycast(new Vector3(-25, 150, -65), Vector3.down, out upperHit, 200);
+bool lowerCollision = Physics.Raycast(new Vector3(7, 150, 25), Vector3.down, out lowerHit, 200);
+if (!upperCollision || !lowerCollision || Mathf.Abs(upperHit.point.y - 37.12f) > .02f || Mathf.Abs(lowerHit.point.y - 27.12f) > .02f)
+    throw new InvalidOperationException("상단 또는 산신각 바닥 충돌 검증에 실패했습니다.");
+var report = new {
+    scene = scene.path, meshes = filters.Length, renderers = renderers.Length, materials = materials.Length,
+    missingMeshes, missingMaterials, unsupportedShaders, missingScripts,
+    meshColliders = root.GetComponentsInChildren<MeshCollider>().Length,
+    upperFloorCollisionHeight = upperHit.point.y, shrineFloorCollisionHeight = lowerHit.point.y,
+    prefab = UnityEditor.PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(root),
+    cameraCount = scene.GetRootGameObjects().SelectMany(item => item.GetComponentsInChildren<Camera>()).Count(),
+    allMaterialsInTestFolder = materials.All(material => UnityEditor.AssetDatabase.GetAssetPath(material).StartsWith("Assets/Test/CheonMountainMap/Materials/"))
+};
+System.IO.File.WriteAllText("D:/project/ProjectCheon/Assets/Temp/TerrainUnityImport~/Test_SceneValidation.json", Newtonsoft.Json.JsonConvert.SerializeObject(report, Newtonsoft.Json.Formatting.Indented));
+UnityEditor.Selection.activeObject = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEditor.SceneAsset>(scenePath);
+return report;

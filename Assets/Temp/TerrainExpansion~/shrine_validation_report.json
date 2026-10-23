@@ -1,0 +1,20 @@
+{
+  "file": "D:\\project\\ProjectCheon\\Assets\\Temp\\TerrainExpansion~\\Mountain_2Try_ShrineExpanded.blend",
+  "floor_connected_parts": 1,
+  "top_faces": 1565,
+  "top_height_range": [
+    27.1200008392334,
+    27.1200008392334
+  ],
+  "minimum_top_normal_z": 1.0,
+  "nonmanifold_floor_edges": 0,
+  "uv_layers": [
+    "UVMap",
+    "UV_Tile_8m"
+  ],
+  "finite_uvs": true,
+  "packed_images": 29,
+  "total_file_images": 29,
+  "linked_libraries": 0,
+  "preview_cameras_in_work_file": []
+}

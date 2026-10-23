@@ -1,0 +1,36 @@
+{
+  "source": "E:\\C.J.I\\Blender\\SelfModeling\\Hair\\Cheon_Player.blend",
+  "source_hash": "6c3723668c3d380ee05a7feeddbd5a334a360d4368636d34724580049f283aaf",
+  "staged": "D:\\project\\ProjectCheon\\Assets\\Temp\\CheonAccessories~\\Cheon_Player_Accessories_Work.blend",
+  "preserved": {
+    "Pouch": "b3ec955e8215aceab96cdfca4b62324b28c04af508f1faa6fe2705f35ba1f66f",
+    "Gat": "00048deb1ff7dcdc97fccceec246e374578c2901c5364c1a7e2c74437a70fb81",
+    "Body": "ee7e10c5882433f23e9dd5d4d25d0f4857865e3b09aa81b02b393e803c79ccbb",
+    "BeltTail": "fd6fb089db88a910ee53a7b8b75ace5ebe8b95b22516e41700bd0d753732768a",
+    "Ref_Front": "989bdf3382460fe57c6a55d6b519a10871e11df6e223fff79c005383195bd7f4",
+    "Ref_Side": "22258c0da1bb662141047c2cb53d2fef3ea2836eb6b68bd21400fd8ce5f2cf2d"
+  },
+  "validation": {
+    "Hair": {
+      "vertices": 1515,
+      "polygons": 1680,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    "PouchStrap": {
+      "vertices": 568,
+      "polygons": 562,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    "GatChinStrap": {
+      "vertices": 408,
+      "polygons": 366,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    }
+  },
+  "hair_parts_before": 3,
+  "hair_vertices_before": 1515,
+  "hair_faces_before": 1680
+}

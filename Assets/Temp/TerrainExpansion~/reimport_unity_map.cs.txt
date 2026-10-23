@@ -1,0 +1,6 @@
+const string path = "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx";
+System.IO.File.Copy("D:/project/ProjectCheon/Assets/Temp/TerrainUnityImport~/Test_CheonMountainMap.fbx", path, true);
+UnityEditor.AssetDatabase.ImportAsset(path, UnityEditor.ImportAssetOptions.ForceUpdate | UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var model = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(path);
+if (model == null) throw new InvalidOperationException("Map import failed.");
+return new { path, meshes = model.GetComponentsInChildren<MeshFilter>(true).Length, guid = UnityEditor.AssetDatabase.AssetPathToGUID(path) };
