@@ -119,37 +119,152 @@ namespace Cheon.Testing.PlayerFan
 
             // 씬 저장 전에 대기 포즈를 평가해 Edit Mode에서도 손 장착 상태를 확인할 수 있게 한다.
             animator.Rebind();
-            animator.Play("IDLE", 0, 0f);
+            animator.Play("SHEATHED_IDLE", 0, 0f);
             animator.Update(0f);
             if (SceneView.lastActiveSceneView != null)
                 SceneView.lastActiveSceneView.LookAt(new Vector3(0f, 1f, 0f), Quaternion.Euler(12f, 155f, 0f), 3f);
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene, ScenePath);
+            UpgradeCombatSetup();
             AssetDatabase.SaveAssets();
             Selection.activeGameObject = controls;
             return ScenePath;
         }
 
-        private static AnimatorController CreateCharacterController()
+        public static AnimatorController CreateCharacterController()
         {
             var controller = EmptyController(Root + "Animations/Test_Player.controller");
-            var states = new[] { ("IDLE", "Idle"), ("RUN", "Run"), ("ATTACK1", "Attack1"), ("ATTACK2", "Attack2"), ("ATTACK3", "Attack3"), ("HIT", "Hit"), ("DRAW_SHEATHE", "DrawSheathe") };
+            controller.AddParameter("MoveAmount", AnimatorControllerParameterType.Float);
+            var states = new[] { ("SHEATHED_IDLE", "SheathedIdle"), ("DRAWN_IDLE", "DrawnIdle"), ("DRAW", "DrawSheathe"), ("SHEATHE", "DrawSheathe"), ("ATTACK1", "Attack1"), ("ATTACK2", "Attack2"), ("ATTACK3", "Attack3"), ("HIT", "Hit") };
             var machine = controller.layers[0].stateMachine;
             for (int i = 0; i < states.Length; i++)
             {
                 var state = machine.AddState(states[i].Item1, new Vector3(250f * (i % 3), 90f * (i / 3), 0f));
-                state.motion = Clip(Root + "Animations/Test_" + states[i].Item2 + ".fbx");
+                var clip = Clip(Root + "Animations/Test_" + states[i].Item2 + ".fbx");
+                state.motion = clip;
+                if (i < 2)
+                {
+                    var tree = new BlendTree { name = "Test_" + states[i].Item1 + "_Locomotion", blendType = BlendTreeType.Simple1D, blendParameter = "MoveAmount", useAutomaticThresholds = false };
+                    AssetDatabase.AddObjectToAsset(tree, controller);
+                    tree.AddChild(clip, 0f);
+                    tree.AddChild(Clip(Root + "Animations/Test_Run.fbx"), 1f);
+                    state.motion = tree;
+                }
                 if (i == 0) machine.defaultState = state;
-                if (i < 2 || i > 4) continue;
-                string parameter = "Attack" + (i - 1) + "Speed";
+                if (i < 2 || i > 6) continue;
+                string parameter = i == 2 ? "DrawSpeed" : i == 3 ? "SheatheSpeed" : "Attack" + (i - 3) + "Speed";
                 controller.AddParameter(parameter, AnimatorControllerParameterType.Float);
                 var parameters = controller.parameters;
-                parameters[parameters.Length - 1].defaultFloat = 1f;
+                parameters[parameters.Length - 1].defaultFloat = i == 3 ? -1f : 1f;
                 controller.parameters = parameters;
                 state.speedParameter = parameter;
                 state.speedParameterActive = true;
             }
             return controller;
+        }
+
+        [MenuItem("Cheon/Tests/Update Player Fan Combat Setup")]
+        public static void UpgradeCombatSetup()
+        {
+            if (Application.isPlaying) throw new InvalidOperationException("Play Mode를 종료한 후 실행하세요.");
+            var scene = SceneManager.GetActiveScene();
+            if (scene.path != ScenePath) throw new InvalidOperationException("플레이어 부채 테스트 씬을 먼저 열어 주세요.");
+            Transform Find(string name) => scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<Transform>(true)).First(t => t.name == name);
+            var animator = Find("Test_CheonPlayer").GetComponent<Animator>();
+            animator.runtimeAnimatorController = CreateCharacterController();
+            animator.avatar = AssetDatabase.LoadAllAssetsAtPath(Root + "Models/Test_CheonPlayer.fbx").OfType<Avatar>().First(a => a.isValid && a.isHuman);
+            animator.applyRootMotion = false;
+            animator.Rebind(); animator.Play("SHEATHED_IDLE", 0, 0f); animator.Update(0f);
+            var socket = Find("Test_RightHandFanSocket");
+            ConfigureHandSocket(animator, socket);
+
+            var hips = animator.GetBoneTransform(HumanBodyBones.Hips);
+            var storage = hips.Find("Test_StowedFanSocket");
+            if (storage == null) { storage = new GameObject("Test_StowedFanSocket").transform; storage.SetParent(hips, false); }
+            // 손이 부채를 집는 시점의 실제 자세를 수납 위치로 삼아 장착 전환 때의 점프를 줄인다.
+            animator.Play("DRAW", 0, 0.48f); animator.Update(0f);
+            storage.SetPositionAndRotation(socket.position, socket.rotation);
+            animator.Play("SHEATHED_IDLE", 0, 0f); animator.Update(0f);
+
+            var closed = Find("Test_FanClosed").gameObject;
+            var open = Find("Test_FanOpen").gameObject;
+            var animated = Find("Test_FanOpening").gameObject;
+            var mount = storage.Find("Test_FanMount");
+            if (mount == null) { mount = new GameObject("Test_FanMount").transform; mount.SetParent(storage, false); }
+            foreach (var fan in new[] { closed, open, animated })
+            {
+                fan.transform.SetParent(mount, false);
+                fan.transform.localPosition = Vector3.zero; fan.transform.localRotation = Quaternion.identity; fan.transform.localScale = Vector3.one;
+            }
+            var attachment = Find("Test_AnimationControl").GetComponent<Test_PlayerFanAttachment>();
+            var fanAnimator = animated.GetComponent<Animator>();
+            fanAnimator.runtimeAnimatorController = AssetDatabase.LoadAssetAtPath<AnimatorController>(Root + "Animations/Test_Fan.controller");
+            fanAnimator.applyRootMotion = false;
+            fanAnimator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+            attachment.Configure(socket, closed, open, animated, fanAnimator, Clip(Root + "Models/Test_CheonFanOpening.fbx").length);
+            attachment.ConfigureMounts(storage, mount);
+            var serializedFan = new SerializedObject(attachment);
+            serializedFan.FindProperty("startOpen").boolValue = false;
+            serializedFan.FindProperty("openingAmount").floatValue = 0f;
+            serializedFan.FindProperty("fanScale").floatValue = 0.85f;
+            serializedFan.ApplyModifiedPropertiesWithoutUndo();
+            var control = attachment.GetComponent<Test_PlayerFanAnimationController>();
+            control.Configure(animator, attachment, Clip(Root + "Animations/Test_DrawSheathe.fbx").length);
+            var serializedControl = new SerializedObject(control);
+            for (int i = 1; i <= 3; i++)
+                serializedControl.FindProperty("attack" + i + "Clip").objectReferenceValue = Clip(Root + "Animations/Test_Attack" + i + ".fbx");
+            serializedControl.FindProperty("transitionDuration").floatValue = 0.09f;
+            serializedControl.FindProperty("repeatSelectedAnimation").boolValue = false;
+            serializedControl.ApplyModifiedPropertiesWithoutUndo();
+            attachment.SetSequencePose(false, 0f, true);
+            mount.localScale = Vector3.one * 0.85f;
+            RefreshTestFont();
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+            AssetDatabase.SaveAssets();
+            Selection.activeGameObject = control.gameObject;
+        }
+
+        public static void ConfigureHandSocket(Animator animator, Transform socket)
+        {
+            animator.Play("SHEATHED_IDLE", 0, 0f); animator.Update(0f);
+            var hand = animator.GetBoneTransform(HumanBodyBones.RightHand);
+            socket.SetParent(hand, false);
+            var index = animator.GetBoneTransform(HumanBodyBones.RightIndexProximal);
+            var middle = animator.GetBoneTransform(HumanBodyBones.RightIndexIntermediate);
+            Vector3 fingers = (index.position - hand.position).normalized;
+            Vector3 bend = (middle.position - index.position).normalized;
+            Vector3 palmNormal = (bend - fingers * Vector3.Dot(bend, fingers)).normalized;
+            Vector3 fanUp = Vector3.Cross(fingers, palmNormal).normalized;
+            if (fanUp.sqrMagnitude < 0.5f) fanUp = animator.transform.right;
+            if (Vector3.Dot(fanUp, animator.transform.right) < 0f) fanUp = -fanUp;
+            if (palmNormal.sqrMagnitude < 0.5f) palmNormal = animator.transform.forward;
+            fanUp = -fanUp;
+            Vector3 grip = Vector3.Lerp(hand.position, index.position, 0.8f) + palmNormal * 0.025f + fingers * 0.01f;
+            socket.SetPositionAndRotation(grip - fanUp * 0.035f, Quaternion.LookRotation(palmNormal, fanUp));
+            socket.localScale = Vector3.one;
+
+            // 발도 대기 자세에서 부채를 위·안쪽으로 옮기고, 세로축으로 뒤집어 그림 면이 위를 보게 한다.
+            animator.Play("DRAWN_IDLE", 0, 0f); animator.Update(0f);
+            socket.position += animator.transform.TransformDirection(new Vector3(-0.035f, 0.055f, 0.025f));
+            socket.localRotation *= Quaternion.Euler(0f, 180f, 0f);
+            animator.Play("SHEATHED_IDLE", 0, 0f); animator.Update(0f);
+        }
+
+        private static void RefreshTestFont()
+        {
+            var font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(Root + "Fonts/Test_PlayerFanKorean.asset");
+            var settings = AssetDatabase.LoadAssetAtPath<TMP_Settings>(Root + "Fonts/Test_TMPSettings.asset");
+            typeof(TMP_Settings).GetField("s_Instance", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic)?.SetValue(null, settings);
+            string text = new string(Enumerable.Range(32, 95).Select(i => (char)i).ToArray()) + string.Join("", Directory.GetFiles(Root + "Scripts", "*.cs").Select(File.ReadAllText));
+            font.atlasPopulationMode = AtlasPopulationMode.Dynamic;
+            // TMP는 전부 등록된 문자만 다시 요청해도 실패 목록을 반환하므로 새 글자만 추가한다.
+            uint[] missing = text.Where(c => !char.IsControl(c)).Select(c => (uint)c).Distinct().Where(c => !font.HasCharacter((int)c)).ToArray();
+            if (missing.Length > 0) font.TryAddCharacters(missing, out missing);
+            font.atlasPopulationMode = AtlasPopulationMode.Static;
+            if (missing != null && missing.Any(c => !font.HasCharacter((int)c))) throw new InvalidOperationException("테스트 UI의 일부 글자를 추가하지 못했습니다.");
+            EditorUtility.SetDirty(font);
+            foreach (var texture in font.atlasTextures) EditorUtility.SetDirty(texture);
         }
 
         private static AnimationClip Clip(string path) => AssetDatabase.LoadAllAssetsAtPath(path).OfType<AnimationClip>().First(c => !c.name.StartsWith("__preview__"));
@@ -159,6 +274,7 @@ namespace Cheon.Testing.PlayerFan
             var controller = AssetDatabase.LoadAssetAtPath<AnimatorController>(path);
             if (controller == null) return AnimatorController.CreateAnimatorControllerAtPath(path);
             foreach (var child in controller.layers[0].stateMachine.states) controller.layers[0].stateMachine.RemoveState(child.state);
+            foreach (var tree in AssetDatabase.LoadAllAssetsAtPath(path).OfType<BlendTree>()) UnityEngine.Object.DestroyImmediate(tree, true);
             controller.parameters = Array.Empty<AnimatorControllerParameter>();
             return controller;
         }

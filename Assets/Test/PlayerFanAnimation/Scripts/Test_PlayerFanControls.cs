@@ -1,3 +1,4 @@
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,9 +15,15 @@ namespace Cheon.Testing.PlayerFan
         [SerializeField] private TMP_FontAsset koreanFont;
         [SerializeField] private TMP_Settings textSettings;
 
-        private TMP_Text status, fanStatus, pauseText;
+        private TMP_Text status, fanStatus, pauseText, combatText;
+        [SerializeField, HideInInspector] private UnityEngine.UI.Button[] attackButtons = new UnityEngine.UI.Button[3];
+        [SerializeField, HideInInspector] private UnityEngine.UI.Button[] fanButtons = new UnityEngine.UI.Button[3];
         [SerializeField, HideInInspector] private UnityEngine.UI.Slider[] speedSliders = new UnityEngine.UI.Slider[3];
         [SerializeField, HideInInspector] private TMP_Text[] speedLabels = new TMP_Text[3];
+        private readonly TMP_InputField[] speedInputs = new TMP_InputField[3];
+        private readonly TMP_InputField[] startFrameInputs = new TMP_InputField[3];
+        private readonly TMP_InputField[] endFrameInputs = new TMP_InputField[3];
+        private TMP_InputField openingInput;
         private UnityEngine.UI.Slider openingSlider;
         private static readonly Color Paper = new Color(0.89f, 0.91f, 0.88f);
         private static readonly Color Jade = new Color(0.38f, 0.85f, 0.72f);
@@ -42,12 +49,15 @@ namespace Cheon.Testing.PlayerFan
             scaler.matchWidthOrHeight = 0.5f;
             if (FindFirstObjectByType<EventSystem>() == null)
             {
-                var events = new GameObject("Test_EventSystem", typeof(EventSystem), typeof(InputSystemUIInputModule));
+                var events = new GameObject("Test_EventSystem");
+                events.SetActive(false);
                 events.transform.SetParent(transform, false);
-                events.GetComponent<InputSystemUIInputModule>().AssignDefaultActions();
+                events.AddComponent<EventSystem>();
+                events.AddComponent<InputSystemUIInputModule>().AssignDefaultActions();
+                events.SetActive(true);
             }
 
-            var panel = Rect("Test_ControlPanel", canvasObject.transform, 24f, 24f, 334f, 810f);
+            var panel = Rect("Test_ControlPanel", canvasObject.transform, 24f, 24f, 334f, 866f);
             var background = panel.gameObject.AddComponent<UnityEngine.UI.Image>();
             background.color = new Color(0.035f, 0.065f, 0.085f, 0.96f);
             Text(panel, "PLAYER / FAN", 18f, 15f, 300f, 28f, 24f, Jade);
@@ -56,50 +66,123 @@ namespace Cheon.Testing.PlayerFan
 
             Button(panel, "대기 [I]", 18f, 136f, 144f, animationControl.PlayIdle);
             Button(panel, "달리기 [R]", 172f, 136f, 144f, animationControl.PlayRun);
-            Button(panel, "공격 1 [1]", 18f, 181f, 94f, animationControl.PlayAttack1);
-            Button(panel, "공격 2 [2]", 120f, 181f, 94f, animationControl.PlayAttack2);
-            Button(panel, "공격 3 [3]", 222f, 181f, 94f, animationControl.PlayAttack3);
+            attackButtons[0] = Button(panel, "공격 1 [1]", 18f, 181f, 94f, animationControl.PlayAttack1).transform.parent.GetComponent<UnityEngine.UI.Button>();
+            attackButtons[1] = Button(panel, "공격 2 [2]", 120f, 181f, 94f, animationControl.PlayAttack2).transform.parent.GetComponent<UnityEngine.UI.Button>();
+            attackButtons[2] = Button(panel, "공격 3 [3]", 222f, 181f, 94f, animationControl.PlayAttack3).transform.parent.GetComponent<UnityEngine.UI.Button>();
             Button(panel, "피격 [4]", 18f, 226f, 144f, animationControl.PlayHit);
-            Button(panel, "납도발도 [5]", 172f, 226f, 144f, animationControl.PlayDrawSheathe);
+            combatText = Button(panel, "전투 진입 [5]", 172f, 226f, 144f, animationControl.PlayDrawSheathe);
 
-            Text(panel, "공격별 속도 배율", 18f, 280f, 290f, 28f, 18f, Jade);
+            Text(panel, "공격 속도 / 재생 프레임", 18f, 276f, 298f, 28f, 18f, Jade);
             for (int i = 0; i < 3; i++)
             {
                 int index = i;
-                speedLabels[i] = Text(panel, "", 18f, 315f + i * 53f, 290f, 24f, 15f, Paper);
-                speedSliders[i] = Slider(panel, 18f, 341f + i * 53f, 298f, 0.05f, 3f);
-                speedSliders[i].onValueChanged.AddListener(value =>
+                float row = 308f + i * 77f;
+                speedLabels[i] = Text(panel, "", 18f, row, 220f, 26f, 14f, Paper);
+                speedInputs[i] = NumberInput(panel, "Attack" + (i + 1) + "Speed", 246f, row, 70f, false, value =>
                 {
-                    if (index == 0) animationControl.attack1Speed = value;
-                    else if (index == 1) animationControl.attack2Speed = value;
-                    else animationControl.attack3Speed = value;
+                    if (TryNumber(value, out float speed)) SetAttackSpeed(index, speed);
                 });
+                Text(panel, "시작 F", 18f, row + 29f, 48f, 26f, 14f, Paper);
+                startFrameInputs[i] = NumberInput(panel, "Attack" + (i + 1) + "StartFrame", 66f, row + 29f, 74f, true, value =>
+                {
+                    if (int.TryParse(value, out int frame))
+                        animationControl.SetAttackFrameRange(index + 1, frame, animationControl.GetAttackEndFrame(index + 1));
+                });
+                Text(panel, "종료 F", 190f, row + 29f, 52f, 26f, 14f, Paper);
+                endFrameInputs[i] = NumberInput(panel, "Attack" + (i + 1) + "EndFrame", 242f, row + 29f, 74f, true, value =>
+                {
+                    if (int.TryParse(value, out int frame))
+                        animationControl.SetAttackFrameRange(index + 1, animationControl.GetAttackStartFrame(index + 1), frame);
+                });
+                speedSliders[i] = Slider(panel, 18f, row + 57f, 298f, 0.05f, 3f);
+                speedSliders[i].onValueChanged.AddListener(value => SetAttackSpeed(index, value));
             }
-            pauseText = Button(panel, "일시정지 [Space]", 18f, 487f, 144f, animationControl.TogglePause);
-            Button(panel, "동작 반복 전환", 172f, 487f, 144f, () => animationControl.RepeatSelectedAnimation = !animationControl.RepeatSelectedAnimation);
-            Text(panel, "부채 상태", 18f, 541f, 290f, 28f, 18f, Jade);
-            Button(panel, "접힌 FBX", 18f, 577f, 94f, fanAttachment.ShowClosed);
-            Button(panel, "펼친 FBX", 120f, 577f, 94f, fanAttachment.ShowOpen);
-            Button(panel, "펼침 / 접힘 [F]", 222f, 577f, 94f, fanAttachment.ToggleFan, 12f);
-            fanStatus = Text(panel, "", 18f, 625f, 298f, 24f, 14f, Paper);
-            openingSlider = Slider(panel, 18f, 656f, 298f, 0f, 1f);
+            pauseText = Button(panel, "일시정지 [Space]", 18f, 542f, 144f, animationControl.TogglePause);
+            Button(panel, "동작 반복 전환", 172f, 542f, 144f, () => animationControl.RepeatSelectedAnimation = !animationControl.RepeatSelectedAnimation);
+            Text(panel, "부채 상태", 18f, 594f, 290f, 28f, 18f, Jade);
+            fanButtons[0] = Button(panel, "접힌 FBX", 18f, 630f, 94f, fanAttachment.ShowClosed).transform.parent.GetComponent<UnityEngine.UI.Button>();
+            fanButtons[1] = Button(panel, "펼친 FBX", 120f, 630f, 94f, fanAttachment.ShowOpen).transform.parent.GetComponent<UnityEngine.UI.Button>();
+            fanButtons[2] = Button(panel, "펼침 / 접힘 [F]", 222f, 630f, 94f, fanAttachment.ToggleFan, 12f).transform.parent.GetComponent<UnityEngine.UI.Button>();
+            fanStatus = Text(panel, "", 18f, 678f, 220f, 26f, 14f, Paper);
+            openingInput = NumberInput(panel, "FanOpeningPercent", 246f, 678f, 70f, false, value =>
+            {
+                if (TryNumber(value, out float percent)) fanAttachment.SetOpeningAmount(Mathf.Clamp01(percent / 100f));
+            });
+            openingSlider = Slider(panel, 18f, 710f, 298f, 0f, 1f);
             openingSlider.onValueChanged.AddListener(fanAttachment.SetOpeningAmount);
-            Button(panel, "카메라 초기화", 18f, 696f, 298f, orbitCamera.ResetView);
-            Text(panel, "우클릭 드래그: 회전  /  휠: 확대\n속도 값은 Inspector에서도 조절 가능합니다.", 18f, 746f, 300f, 48f, 13f, new Color(0.63f, 0.70f, 0.72f));
+            Button(panel, "카메라 초기화", 18f, 750f, 298f, orbitCamera.ResetView);
+            Text(panel, "숫자 입력 후 Enter 또는 다른 곳 클릭\n5: 전투 / 1~3: 공격 / 우클릭·휠: 카메라", 18f, 800f, 300f, 48f, 13f, new Color(0.63f, 0.70f, 0.72f));
         }
 
         private void Update()
         {
-            status.text = $"{animationControl.SelectedState}  ·  {(animationControl.NormalizedTime % 1f) * 100f:0}%\n동작 반복: {(animationControl.RepeatSelectedAnimation ? "켜짐" : "꺼짐")}";
+            string stateLabel = animationControl.SelectedState switch
+            {
+                "SHEATHED_IDLE" => "납도 대기", "DRAWN_IDLE" => "발도 대기", "DRAW" => "발도", "SHEATHE" => "납도",
+                "ATTACK1" => "공격 1", "ATTACK2" => "공격 2", "ATTACK3" => "공격 3", "HIT" => "피격", _ => "대기"
+            };
+            status.text = $"{stateLabel}{(animationControl.IsRunning ? " · 달리기" : "")}  ·  {animationControl.PlaybackProgress * 100f:0}%\n동작 반복: {(animationControl.RepeatSelectedAnimation ? "켜짐" : "꺼짐")}";
+            combatText.text = animationControl.IsCombatRequested ? "전투 종료 [5]" : "전투 진입 [5]";
             float[] speeds = { animationControl.attack1Speed, animationControl.attack2Speed, animationControl.attack3Speed };
             for (int i = 0; i < 3; i++)
             {
-                speedLabels[i].text = $"공격 {i + 1}                        × {speeds[i]:0.00}";
+                speedLabels[i].text = $"공격 {i + 1} · 0~{animationControl.GetAttackMaximumFrame(i + 1)}F · 속도 ×";
                 speedSliders[i].SetValueWithoutNotify(speeds[i]);
+                SyncInput(speedInputs[i], speeds[i].ToString("0.00", CultureInfo.InvariantCulture));
+                SyncInput(startFrameInputs[i], animationControl.GetAttackStartFrame(i + 1).ToString());
+                SyncInput(endFrameInputs[i], animationControl.GetAttackEndFrame(i + 1).ToString());
+                attackButtons[i].interactable = animationControl.CanAttack;
+                fanButtons[i].interactable = animationControl.CanPreviewFan;
             }
             pauseText.text = animationControl.IsPaused ? "계속 재생 [Space]" : "일시정지 [Space]";
-            fanStatus.text = $"{fanAttachment.FanState}  ·  {fanAttachment.OpeningAmount * 100f:0}%";
+            fanStatus.text = $"{(fanAttachment.IsInHand ? "손 장착" : "납도 보관")} · 펼침 %";
+            SyncInput(openingInput, (fanAttachment.OpeningAmount * 100f).ToString("0.0", CultureInfo.InvariantCulture));
+            openingInput.interactable = animationControl.CanPreviewFan;
             openingSlider.SetValueWithoutNotify(fanAttachment.OpeningAmount);
+            openingSlider.interactable = animationControl.CanPreviewFan;
+        }
+
+        private void SetAttackSpeed(int index, float value)
+        {
+            float speed = Mathf.Clamp(value, 0.05f, 3f);
+            if (index == 0) animationControl.attack1Speed = speed;
+            else if (index == 1) animationControl.attack2Speed = speed;
+            else animationControl.attack3Speed = speed;
+        }
+
+        private static bool TryNumber(string text, out float value)
+        {
+            return float.TryParse(text, NumberStyles.Float, CultureInfo.InvariantCulture, out value) && !float.IsNaN(value) && !float.IsInfinity(value);
+        }
+
+        private static void SyncInput(TMP_InputField input, string value)
+        {
+            // 편집 중인 문자열을 덮어쓰지 않고 입력 확정 후 제한된 실제 값을 표시한다.
+            if (!input.isFocused && input.text != value) input.SetTextWithoutNotify(value);
+        }
+
+        private TMP_InputField NumberInput(Transform parent, string name, float x, float y, float width, bool integer, UnityAction<string> onCommit)
+        {
+            var rect = Rect("Test_Input_" + name, parent, x, y, width, 26f);
+            var background = rect.gameObject.AddComponent<UnityEngine.UI.Image>();
+            background.color = new Color(0.13f, 0.23f, 0.25f);
+            var input = rect.gameObject.AddComponent<TMP_InputField>();
+            var viewport = Rect("Test_TextViewport", rect, 5f, 1f, width - 10f, 24f);
+            viewport.gameObject.AddComponent<UnityEngine.UI.RectMask2D>();
+            var text = Text(viewport, "", 0f, 0f, width - 10f, 24f, 15f, Paper);
+            text.alignment = TextAlignmentOptions.MidlineRight;
+            text.textWrappingMode = TextWrappingModes.NoWrap;
+            input.targetGraphic = background;
+            input.textViewport = viewport;
+            input.textComponent = text;
+            input.contentType = integer ? TMP_InputField.ContentType.IntegerNumber : TMP_InputField.ContentType.DecimalNumber;
+            input.lineType = TMP_InputField.LineType.SingleLine;
+            input.characterLimit = 8;
+            input.customCaretColor = true;
+            input.caretColor = Jade;
+            input.selectionColor = new Color(0.2f, 0.65f, 0.5f, 0.65f);
+            input.onEndEdit.AddListener(onCommit);
+            return input;
         }
 
         private static RectTransform Rect(string name, Transform parent, float x, float y, float width, float height)
@@ -144,6 +227,8 @@ namespace Cheon.Testing.PlayerFan
             var handleArea = Rect("Test_HandleArea", rect, 7f, 0f, width - 14f, 18f);
             var handle = Rect("Test_Handle", handleArea, 0f, 0f, 14f, 18f).gameObject.AddComponent<UnityEngine.UI.Image>();
             handle.color = Jade;
+            handle.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+            handle.rectTransform.sizeDelta = new Vector2(14f, 0f);
             slider.targetGraphic = handle; slider.handleRect = (RectTransform)handle.transform;
             slider.minValue = minimum; slider.maxValue = maximum;
             slider.direction = UnityEngine.UI.Slider.Direction.LeftToRight;
