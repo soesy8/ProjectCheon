@@ -1,0 +1,14 @@
+{
+  "success": true,
+  "reason": "All animation playback checks passed",
+  "checks": [
+    "Roll button advanced and returned to sheathed idle",
+    "Run2 button advanced through more than two loops with visible bone motion",
+    "Pause held Run2 playback time constant",
+    "Repeat option restarted Roll",
+    "Disabling repeat returned Roll to idle",
+    "Combat Roll returned to drawn idle and kept the fan in hand"
+  ],
+  "frameCount": 22803,
+  "elapsed": 7.5882166999999754
+}

@@ -1,0 +1,1025 @@
+{
+  "playing": true,
+  "frame": 2486,
+  "time": 4.47114229,
+  "meshes": [
+    {
+      "name": "Combined Mesh (root: scene) 3",
+      "key": "00000000000000000000000000000000:0",
+      "path": "",
+      "readable": false,
+      "bytes": 6995928
+    },
+    {
+      "name": "Combined Mesh (root: scene) 5",
+      "key": "00000000000000000000000000000000:0",
+      "path": "",
+      "readable": false,
+      "bytes": 6995928
+    },
+    {
+      "name": "Combined Mesh (root: scene) 6",
+      "key": "00000000000000000000000000000000:0",
+      "path": "",
+      "readable": false,
+      "bytes": 6995928
+    },
+    {
+      "name": "Combined Mesh (root: scene) 8",
+      "key": "00000000000000000000000000000000:0",
+      "path": "",
+      "readable": false,
+      "bytes": 3034392
+    },
+    {
+      "name": "Combined Mesh (root: scene) 4",
+      "key": "00000000000000000000000000000000:0",
+      "path": "",
+      "readable": false,
+      "bytes": 6995928
+    },
+    {
+      "name": "Combined Mesh (root: scene) 10",
+      "key": "00000000000000000000000000000000:0",
+      "path": "",
+      "readable": false,
+      "bytes": 3271600
+    },
+    {
+      "name": "Combined Mesh (root: scene) 9",
+      "key": "00000000000000000000000000000000:0",
+      "path": "",
+      "readable": false,
+      "bytes": 4765824
+    },
+    {
+      "name": "Combined Mesh (root: scene)",
+      "key": "00000000000000000000000000000000:0",
+      "path": "",
+      "readable": false,
+      "bytes": 255256
+    },
+    {
+      "name": "Combined Mesh (root: scene) 7",
+      "key": "00000000000000000000000000000000:0",
+      "path": "",
+      "readable": false,
+      "bytes": 3998304
+    },
+    {
+      "name": "Combined Mesh (root: scene) 2",
+      "key": "00000000000000000000000000000000:0",
+      "path": "",
+      "readable": false,
+      "bytes": 2129832
+    },
+    {
+      "name": "Cube",
+      "key": "0000000000000000e000000000000000:10202",
+      "path": "Library/unity default resources",
+      "readable": true,
+      "bytes": 4392
+    },
+    {
+      "name": "Cheon_Player",
+      "key": "0330a2fe2394e5249acd0ffe2ef7fb4e:6100045864009186833",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonPlayer.fbx",
+      "readable": false,
+      "bytes": 3510956
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "key": "0da791ee5e946c044b00855cae27f8a8:1292273344887502479",
+      "path": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "readable": false,
+      "bytes": 2318376
+    },
+    {
+      "name": "Fan_PivotGoldCap_Front",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-1022850585079952101",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 8064
+    },
+    {
+      "name": "Fan_IvoryPleatedTassel",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-1036732277829263790",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 24648
+    },
+    {
+      "name": "Fan_Closed_InnerRib_08",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:1201677936061903189",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 42024
+    },
+    {
+      "name": "Fan_Closed_InnerRib_11",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-1388844817345242568",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 42024
+    },
+    {
+      "name": "Fan_Closed_InnerRib_01",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-1720713947943821303",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 42024
+    },
+    {
+      "name": "Fan_Closed_Guard_Back",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-33025245096175313",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 42760
+    },
+    {
+      "name": "Fan_JadeTopGoldCap",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-3379312273511652498",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 6504
+    },
+    {
+      "name": "Fan_Closed_GoldTip_Back",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-4238279441359251930",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 40872
+    },
+    {
+      "name": "Fan_Closed_InnerRib_13",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-4241800224472885692",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 42024
+    },
+    {
+      "name": "Fan_PivotAxle",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:4315307668560787882",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 18792
+    },
+    {
+      "name": "Fan_TealCord_R",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-471545426735170487",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 12648
+    },
+    {
+      "name": "Fan_Closed_InnerRib_04",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-5068770688360194433",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 42024
+    },
+    {
+      "name": "Fan_Closed_InnerRib_03",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-5293380788881323165",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 42024
+    },
+    {
+      "name": "Fan_TealCord_L",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:5988303827353065422",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 12648
+    },
+    {
+      "name": "Fan_Closed_InnerRib_05",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:6487422883738021560",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 42024
+    },
+    {
+      "name": "Fan_Closed_Guard_Front",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:6694549636513234431",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 42760
+    },
+    {
+      "name": "Fan_Closed_GoldTip_Front",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-6795343276699373987",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 40872
+    },
+    {
+      "name": "Fan_Closed_InnerRib_10",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:6830737559398836095",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 42024
+    },
+    {
+      "name": "Fan_Closed_InnerRib_09",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:6989821682374785098",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 42024
+    },
+    {
+      "name": "Fan_PivotWoodHousing",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:7044610933064218189",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 20088
+    },
+    {
+      "name": "Fan_Closed_InnerRib_07",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-7317331351634591289",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 42024
+    },
+    {
+      "name": "Fan_Closed_PaperAccordion",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-7501871363654747481",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 20328
+    },
+    {
+      "name": "Fan_Closed_InnerRib_06",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:7756466743568629764",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 42024
+    },
+    {
+      "name": "Fan_PivotFace",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-7798204170839864452",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 19080
+    },
+    {
+      "name": "Fan_PivotGoldCap_Back",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:827053880302996038",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 8064
+    },
+    {
+      "name": "Fan_Closed_InnerRib_02",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:8369868796170801499",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 42024
+    },
+    {
+      "name": "Fan_FacetedJadeBead",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:855063658047656426",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 25752
+    },
+    {
+      "name": "Fan_JadeBottomGoldCap",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-8971708272652569814",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 6504
+    },
+    {
+      "name": "Fan_Closed_InnerRib_12",
+      "key": "3c1b937a3c07a5d4d8b5bca70ae43106:-9216171516208674497",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanClosed.fbx",
+      "readable": false,
+      "bytes": 42024
+    },
+    {
+      "name": "Summit_Rim_Outcrops_Upper",
+      "key": "6d1479b8e63fbf34295d8f3b1f0df00f:2128266047524370351",
+      "path": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "readable": false,
+      "bytes": 1063560
+    },
+    {
+      "name": "Granite_Cliff_Lower",
+      "key": "6d1479b8e63fbf34295d8f3b1f0df00f:-2962185577908108502",
+      "path": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "readable": false,
+      "bytes": 1037352
+    },
+    {
+      "name": "Stairway_Winding_Approach",
+      "key": "6d1479b8e63fbf34295d8f3b1f0df00f:-3241166458457212283",
+      "path": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "readable": false,
+      "bytes": 483000
+    },
+    {
+      "name": "Summit_Rim_Outcrops_Lower",
+      "key": "6d1479b8e63fbf34295d8f3b1f0df00f:3658756608675880488",
+      "path": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "readable": false,
+      "bytes": 592536
+    },
+    {
+      "name": "Pine_01",
+      "key": "6d1479b8e63fbf34295d8f3b1f0df00f:-3828481374269039540",
+      "path": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "readable": false,
+      "bytes": 1000680
+    },
+    {
+      "name": "Rocky_Ledges_And_Foothills",
+      "key": "6d1479b8e63fbf34295d8f3b1f0df00f:-4678979674365516125",
+      "path": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "readable": false,
+      "bytes": 1258104
+    },
+    {
+      "name": "Granite_Cliff_Upper",
+      "key": "6d1479b8e63fbf34295d8f3b1f0df00f:4692702322942908069",
+      "path": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "readable": false,
+      "bytes": 1544904
+    },
+    {
+      "name": "Mountain_Continuous_Core",
+      "key": "6d1479b8e63fbf34295d8f3b1f0df00f:-4709639450423540660",
+      "path": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "readable": false,
+      "bytes": 2060952
+    },
+    {
+      "name": "Shrine_Floor_Flat_UV",
+      "key": "6d1479b8e63fbf34295d8f3b1f0df00f:-5407843234541801173",
+      "path": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "readable": false,
+      "bytes": 304024
+    },
+    {
+      "name": "Arena_Floor_Flat_UV",
+      "key": "6d1479b8e63fbf34295d8f3b1f0df00f:7487919422084480274",
+      "path": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "readable": false,
+      "bytes": 444696
+    },
+    {
+      "name": "Gate_Threshold_1",
+      "key": "6d1479b8e63fbf34295d8f3b1f0df00f:-7655320677685511134",
+      "path": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "readable": false,
+      "bytes": 12653304
+    },
+    {
+      "name": "Stairway_Between_Summits",
+      "key": "6d1479b8e63fbf34295d8f3b1f0df00f:7668002961075633515",
+      "path": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "readable": false,
+      "bytes": 217800
+    },
+    {
+      "name": "Fan_PivotGoldCap_Back_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:1179874733424472068",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 8064
+    },
+    {
+      "name": "Fan_GoldRim_08_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-1245597126382395297",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4008
+    },
+    {
+      "name": "Fan_GuardGoldBand_L_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-1531396084715388379",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 11304
+    },
+    {
+      "name": "Fan_GoldRim_06_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-1971030361631392912",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4008
+    },
+    {
+      "name": "Fan_WoodRib_08_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-2112374442169048375",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 26152
+    },
+    {
+      "name": "Fan_GoldRim_14_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:2134407053860323258",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4008
+    },
+    {
+      "name": "Fan_PivotGoldCap_Front_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:241218281279899479",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 8064
+    },
+    {
+      "name": "Fan_GuardGoldBand_R_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:3021715504184167636",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 11304
+    },
+    {
+      "name": "Fan_OuterGuard_R_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:3058668254370666918",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 16056
+    },
+    {
+      "name": "Fan_JadeBottomGoldCap_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:3240462606370921972",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 6504
+    },
+    {
+      "name": "Fan_JadeTopGoldCap_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:3305466192708215121",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 6504
+    },
+    {
+      "name": "Fan_GuardFacet_R_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:3686116272997316406",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4632
+    },
+    {
+      "name": "Fan_WoodRib_13_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:3705818573323538192",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 26152
+    },
+    {
+      "name": "Fan_WoodRib_06_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-4005771530640779456",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 26152
+    },
+    {
+      "name": "Fan_PivotWoodHousing_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-4380993588134339900",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 20088
+    },
+    {
+      "name": "Fan_WoodRib_12_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:4498979212878871776",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 26792
+    },
+    {
+      "name": "Fan_WoodRib_03_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:458240065628098376",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 25192
+    },
+    {
+      "name": "Fan_GoldRim_12_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-4681891188214178705",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4008
+    },
+    {
+      "name": "Fan_GoldRim_11_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-5029248108440831523",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4008
+    },
+    {
+      "name": "Fan_TealCord_R_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:5183709872216440345",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 12648
+    },
+    {
+      "name": "Fan_PivotFace_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-5314675750472947684",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 19080
+    },
+    {
+      "name": "Fan_FacetedJadeBead_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-534626622645362513",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 25752
+    },
+    {
+      "name": "Fan_PivotAxle_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:5346923342664587672",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 18792
+    },
+    {
+      "name": "Fan_TealCord_L_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-5353840178247374334",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 12648
+    },
+    {
+      "name": "Fan_WoodRib_05_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:547589988173510986",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 25192
+    },
+    {
+      "name": "Fan_GoldRim_04_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-6485416870306348008",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4008
+    },
+    {
+      "name": "Fan_GoldRim_03_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:6611161473149207040",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4008
+    },
+    {
+      "name": "Fan_PleatedPaper_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:6619852262679021646",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 25320
+    },
+    {
+      "name": "Fan_WoodRib_09_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-6809023223369344896",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 25832
+    },
+    {
+      "name": "Fan_GoldRim_13_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-694144379969451541",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4008
+    },
+    {
+      "name": "Fan_WoodRib_11_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:7015007573690215591",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 26152
+    },
+    {
+      "name": "Fan_WoodRib_01_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:7167478911394790911",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 25512
+    },
+    {
+      "name": "Fan_WoodRib_02_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-7310918025696229092",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 26792
+    },
+    {
+      "name": "Fan_WoodRib_10_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-735440239587364671",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 26472
+    },
+    {
+      "name": "Fan_GoldRim_09_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:757491854064976481",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4008
+    },
+    {
+      "name": "Fan_WoodRib_04_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-7718097161010344904",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 26472
+    },
+    {
+      "name": "Fan_IvoryPleatedTassel_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:7956951357164728336",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 24648
+    },
+    {
+      "name": "Fan_GoldRim_02_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:8062022483862020570",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4008
+    },
+    {
+      "name": "Fan_OuterGuard_L_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:825768402626837435",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 16056
+    },
+    {
+      "name": "Fan_GoldRim_10_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:8411585683561197734",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4008
+    },
+    {
+      "name": "Fan_WoodRib_07_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:843826272505221162",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 25512
+    },
+    {
+      "name": "Fan_GoldRim_01_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-8643960393284566321",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4008
+    },
+    {
+      "name": "Fan_GuardFacet_L_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:-8645065539043039231",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4632
+    },
+    {
+      "name": "Fan_GoldRim_05_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:8677846938836195887",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4008
+    },
+    {
+      "name": "Fan_GoldRim_07_Static",
+      "key": "96344d456a151b149afa766b5b59d02f:963038501299504920",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpen.fbx",
+      "readable": false,
+      "bytes": 4008
+    },
+    {
+      "name": "Fan_PivotGoldCap_Front",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-1022850585079952101",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 9800
+    },
+    {
+      "name": "Fan_IvoryPleatedTassel",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-1036732277829263790",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 27664
+    },
+    {
+      "name": "Fan_GoldRim_14",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:1327948909141943219",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 5424
+    },
+    {
+      "name": "Fan_WoodRib_06",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-1355682301329504732",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 29648
+    },
+    {
+      "name": "Fan_GoldRim_02",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:1462799070985844622",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 5424
+    },
+    {
+      "name": "Fan_OuterGuard_L",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:1481246588587272254",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 18416
+    },
+    {
+      "name": "Fan_GoldRim_07",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-180437342044374136",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 5424
+    },
+    {
+      "name": "Fan_GuardFacet_R",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:2117741061716482546",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 6096
+    },
+    {
+      "name": "Fan_GoldRim_08",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:2148172623625193304",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 5424
+    },
+    {
+      "name": "Fan_WoodRib_08",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-2277203416971972975",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 29648
+    },
+    {
+      "name": "Fan_GoldRim_03",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-3183689726929424879",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 5424
+    },
+    {
+      "name": "Fan_JadeTopGoldCap",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-3379312273511652498",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 8112
+    },
+    {
+      "name": "Fan_GoldRim_10",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:3486898917163757856",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 5424
+    },
+    {
+      "name": "Fan_PleatedPaper",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:4126278858286281906",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 28400
+    },
+    {
+      "name": "Fan_PivotAxle",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:4315307668560787882",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 21360
+    },
+    {
+      "name": "Fan_WoodRib_10",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-4360218948968815026",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 30000
+    },
+    {
+      "name": "Fan_GuardGoldBand_R",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:4377574689626123950",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 13296
+    },
+    {
+      "name": "Fan_GoldRim_13",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-4455837416585714745",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 5424
+    },
+    {
+      "name": "Fan_WoodRib_02",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:4702686777371398259",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 30352
+    },
+    {
+      "name": "Fan_TealCord_R",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-471545426735170487",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 14736
+    },
+    {
+      "name": "Fan_WoodRib_11",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:4974701795162791016",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 29648
+    },
+    {
+      "name": "Fan_GoldRim_09",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-5600366056101979139",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 5424
+    },
+    {
+      "name": "Fan_WoodRib_03",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:5689371543193732721",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 28592
+    },
+    {
+      "name": "Fan_WoodRib_05",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:5785118657036168743",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 28592
+    },
+    {
+      "name": "Fan_TealCord_L",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:5988303827353065422",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 14736
+    },
+    {
+      "name": "Fan_GuardGoldBand_L",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-6243641038241553191",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 13296
+    },
+    {
+      "name": "Fan_WoodRib_12",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-634866034391642823",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 30352
+    },
+    {
+      "name": "Fan_GoldRim_06",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-6514355972562421614",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 5424
+    },
+    {
+      "name": "Fan_GoldRim_04",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:6813226785211349900",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 5424
+    },
+    {
+      "name": "Fan_PivotWoodHousing",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:7044610933064218189",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 22768
+    },
+    {
+      "name": "Fan_GoldRim_11",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:7378129074294176004",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 5424
+    },
+    {
+      "name": "Fan_GoldRim_01",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-7539740415016803246",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 5424
+    },
+    {
+      "name": "Fan_WoodRib_04",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:7687499097606438672",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 30000
+    },
+    {
+      "name": "Fan_WoodRib_09",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-7785227116556830540",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 29296
+    },
+    {
+      "name": "Fan_PivotFace",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-7798204170839864452",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 21680
+    },
+    {
+      "name": "Fan_WoodRib_07",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-7986392267481853298",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 28944
+    },
+    {
+      "name": "Fan_GoldRim_12",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-8237705812515474700",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 5424
+    },
+    {
+      "name": "Fan_PivotGoldCap_Back",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:827053880302996038",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 9800
+    },
+    {
+      "name": "Fan_FacetedJadeBead",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:855063658047656426",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 28896
+    },
+    {
+      "name": "Fan_OuterGuard_R",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-8782656736776429539",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 18416
+    },
+    {
+      "name": "Fan_GoldRim_05",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-8807812430806542059",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 5424
+    },
+    {
+      "name": "Fan_WoodRib_13",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-8870089445441491173",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 29648
+    },
+    {
+      "name": "Fan_WoodRib_01",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-891832182322882696",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 28944
+    },
+    {
+      "name": "Fan_JadeBottomGoldCap",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-8971708272652569814",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 8112
+    },
+    {
+      "name": "Fan_GuardFacet_L",
+      "key": "ac0b6c2f709610f45a9d2ad7b35608f4:-9110672949062694879",
+      "path": "Assets/Test/PlayerFanAnimation/Models/Test_CheonFanOpening.fbx",
+      "readable": false,
+      "bytes": 6096
+    },
+    {
+      "name": "Wall_End_Geometry",
+      "key": "d390b5fd310fc614eb322bbdc5894a8d:9185068056346365598",
+      "path": "Assets/Arts/Environment/SelfModeling/Models/Wall_End.fbx",
+      "readable": false,
+      "bytes": 835608
+    }
+  ],
+  "meshCount": 145,
+  "meshBytes": 77063724,
+  "readableCount": 1
+}

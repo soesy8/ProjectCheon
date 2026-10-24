@@ -1,0 +1,22 @@
+[
+  {
+    "Path": "D:\\mbcAcademy\\ProjectCheon\\Assets\\Test\\CheonMountainMap\\Settings\\Test_MountainPlayerPlayback.asset",
+    "Hash": "C54FF64FF3D4F8EDB2DBAAA236F3818A173CB43FBD23FDE0860CBECBD5B8155D"
+  },
+  {
+    "Path": "D:\\mbcAcademy\\ProjectCheon\\Assets\\Test\\CheonMountainMap\\Settings\\Test_MountainPlayerActionTimings.asset",
+    "Hash": "1E03044DC4B645F9B6168222A21C759B00A717237AB5076AC90908A9C8F76B98"
+  },
+  {
+    "Path": "D:\\mbcAcademy\\ProjectCheon\\Assets\\Test\\PlayerFanAnimation\\Scripts\\Test_PlayerFanAnimationController.cs",
+    "Hash": "B29A6D6697F0D93255570A966CC6266134C78DD605E72B2890D71D5179E3EA04"
+  },
+  {
+    "Path": "D:\\mbcAcademy\\ProjectCheon\\Assets\\Test\\PlayerFanAnimation\\Animations\\Test_Roll.fbx.meta",
+    "Hash": "7BC25C69BF22E360194A05A553D5B7B8DE71E478CEE8BC3C3281F84B77B7C4F0"
+  },
+  {
+    "Path": "D:\\mbcAcademy\\ProjectCheon\\ProjectSettings\\ProjectSettings.asset",
+    "Hash": "CC59D46B2AA1D0C52D046E8C0C64B53BEC2D38BCFD45E422A98DCDC7DAE91E3E"
+  }
+]

@@ -1,0 +1,3332 @@
+{
+  "success": true,
+  "message": "실제 방향 입력, 회복 조작, 재생 구간·배속, 거리 유지 검증 완료",
+  "testCase": 6,
+  "checks": [
+    "기본 구간 0~28F에서 구르기 총 거리 7.5m 유지",
+    "기본 구간 0~28F에서 수평 회전과 이동 유지",
+    "기본 구간 0~28F에서 기본 45% 방향 조작 확인",
+    "기본 구간 0~28F에서 회복 75%로 방향 전환 증가",
+    "구간 8~32F / 1.5배속에서 구르기 총 거리 7.5m 유지",
+    "구간 8~32F / 1.5배속에서 수평 회전과 이동 유지",
+    "구간 8~32F / 1.5배속에서 기본 45% 방향 조작 확인",
+    "구간 8~32F / 1.5배속에서 회복 75%로 방향 전환 증가",
+    "회복 구간 26~40F에서 구르기 총 거리 7.5m 유지",
+    "회복 구간 26~40F에서 수평 회전과 이동 유지",
+    "회복 구간부터 재생한 경우 75% 조작 적용",
+    "회복 전 0~20F에서 구르기 총 거리 7.5m 유지",
+    "회복 전 0~20F에서 수평 회전과 이동 유지",
+    "회복 전에 끝나는 구간은 기본 45%만 적용",
+    "회복 중 반대 방향 입력에서 구르기 총 거리 7.5m 유지",
+    "회복 중 반대 방향 입력에서 수평 회전과 이동 유지",
+    "기본 구간은 역방향을 제한하고 회복 구간에서는 역방향 전환 허용",
+    "방향 입력 없이 직진에서 구르기 총 거리 7.5m 유지",
+    "방향 입력 없이 직진에서 수평 회전과 이동 유지",
+    "입력이 없으면 처음 방향으로 직진 유지"
+  ],
+  "reports": [
+    {
+      "name": "기본 구간 0~28F",
+      "distance": 7.49999952,
+      "earlyYaw": 39.2782021,
+      "lastYaw": 67.59004,
+      "maxVertical": 0.0,
+      "samples": [
+        {
+          "frame": 0.0,
+          "yaw": 0.0,
+          "distance": 0.166476667,
+          "dodging": true
+        },
+        {
+          "frame": 0.3125,
+          "yaw": 4.32649,
+          "distance": 0.3310843,
+          "dodging": true
+        },
+        {
+          "frame": 0.625,
+          "yaw": 8.135038,
+          "distance": 0.4938242,
+          "dodging": true
+        },
+        {
+          "frame": 0.9375,
+          "yaw": 11.5363684,
+          "distance": 0.654695451,
+          "dodging": true
+        },
+        {
+          "frame": 1.25,
+          "yaw": 14.57175,
+          "distance": 0.813698649,
+          "dodging": true
+        },
+        {
+          "frame": 1.5625,
+          "yaw": 17.2789516,
+          "distance": 0.9708323,
+          "dodging": true
+        },
+        {
+          "frame": 1.875,
+          "yaw": 19.6923656,
+          "distance": 1.12609875,
+          "dodging": true
+        },
+        {
+          "frame": 2.1875,
+          "yaw": 21.8430538,
+          "distance": 1.27949643,
+          "dodging": true
+        },
+        {
+          "frame": 2.5,
+          "yaw": 23.7590656,
+          "distance": 1.43102551,
+          "dodging": true
+        },
+        {
+          "frame": 2.8125,
+          "yaw": 25.4656086,
+          "distance": 1.58068562,
+          "dodging": true
+        },
+        {
+          "frame": 3.125,
+          "yaw": 26.9852982,
+          "distance": 1.72847843,
+          "dodging": true
+        },
+        {
+          "frame": 3.4375,
+          "yaw": 28.338398,
+          "distance": 1.87440217,
+          "dodging": true
+        },
+        {
+          "frame": 3.75,
+          "yaw": 29.5430317,
+          "distance": 2.01845741,
+          "dodging": true
+        },
+        {
+          "frame": 4.0625,
+          "yaw": 30.6154,
+          "distance": 2.16064429,
+          "dodging": true
+        },
+        {
+          "frame": 4.375,
+          "yaw": 31.5699272,
+          "distance": 2.30096316,
+          "dodging": true
+        },
+        {
+          "frame": 4.6875,
+          "yaw": 32.4195366,
+          "distance": 2.43941355,
+          "dodging": true
+        },
+        {
+          "frame": 5.0,
+          "yaw": 33.1757164,
+          "distance": 2.57599568,
+          "dodging": true
+        },
+        {
+          "frame": 5.3125,
+          "yaw": 33.8487244,
+          "distance": 2.71070814,
+          "dodging": true
+        },
+        {
+          "frame": 5.625,
+          "yaw": 34.4476852,
+          "distance": 2.843553,
+          "dodging": true
+        },
+        {
+          "frame": 5.9375,
+          "yaw": 34.98074,
+          "distance": 2.97452974,
+          "dodging": true
+        },
+        {
+          "frame": 6.25,
+          "yaw": 35.4551277,
+          "distance": 3.10363722,
+          "dodging": true
+        },
+        {
+          "frame": 6.5625,
+          "yaw": 35.8772926,
+          "distance": 3.23087716,
+          "dodging": true
+        },
+        {
+          "frame": 6.875,
+          "yaw": 36.253,
+          "distance": 3.35624862,
+          "dodging": true
+        },
+        {
+          "frame": 7.1875,
+          "yaw": 36.5873375,
+          "distance": 3.47975135,
+          "dodging": true
+        },
+        {
+          "frame": 7.5,
+          "yaw": 36.88487,
+          "distance": 3.601385,
+          "dodging": true
+        },
+        {
+          "frame": 7.8125,
+          "yaw": 37.1496468,
+          "distance": 3.72115064,
+          "dodging": true
+        },
+        {
+          "frame": 8.125,
+          "yaw": 37.3852577,
+          "distance": 3.83904862,
+          "dodging": true
+        },
+        {
+          "frame": 8.4375,
+          "yaw": 37.5949364,
+          "distance": 3.955078,
+          "dodging": true
+        },
+        {
+          "frame": 8.75,
+          "yaw": 37.7815247,
+          "distance": 4.069238,
+          "dodging": true
+        },
+        {
+          "frame": 9.0625,
+          "yaw": 37.94757,
+          "distance": 4.18153,
+          "dodging": true
+        },
+        {
+          "frame": 9.375,
+          "yaw": 38.09533,
+          "distance": 4.291954,
+          "dodging": true
+        },
+        {
+          "frame": 9.6875,
+          "yaw": 38.2268143,
+          "distance": 4.40050936,
+          "dodging": true
+        },
+        {
+          "frame": 10.0,
+          "yaw": 38.34383,
+          "distance": 4.507196,
+          "dodging": true
+        },
+        {
+          "frame": 10.3125,
+          "yaw": 38.44795,
+          "distance": 4.612014,
+          "dodging": true
+        },
+        {
+          "frame": 10.625,
+          "yaw": 38.5406151,
+          "distance": 4.71496439,
+          "dodging": true
+        },
+        {
+          "frame": 10.9375,
+          "yaw": 38.62307,
+          "distance": 4.816046,
+          "dodging": true
+        },
+        {
+          "frame": 11.25,
+          "yaw": 38.6964531,
+          "distance": 4.91525936,
+          "dodging": true
+        },
+        {
+          "frame": 11.5625,
+          "yaw": 38.7617531,
+          "distance": 5.01260376,
+          "dodging": true
+        },
+        {
+          "frame": 11.875,
+          "yaw": 38.81985,
+          "distance": 5.10808,
+          "dodging": true
+        },
+        {
+          "frame": 12.1875,
+          "yaw": 38.871563,
+          "distance": 5.20168829,
+          "dodging": true
+        },
+        {
+          "frame": 12.5,
+          "yaw": 38.9175758,
+          "distance": 5.29342747,
+          "dodging": true
+        },
+        {
+          "frame": 12.8125,
+          "yaw": 38.9585228,
+          "distance": 5.383298,
+          "dodging": true
+        },
+        {
+          "frame": 13.125,
+          "yaw": 38.994957,
+          "distance": 5.471301,
+          "dodging": true
+        },
+        {
+          "frame": 13.4375,
+          "yaw": 39.02738,
+          "distance": 5.55743551,
+          "dodging": true
+        },
+        {
+          "frame": 13.75,
+          "yaw": 39.0562363,
+          "distance": 5.641701,
+          "dodging": true
+        },
+        {
+          "frame": 14.0625,
+          "yaw": 39.081913,
+          "distance": 5.72409868,
+          "dodging": true
+        },
+        {
+          "frame": 14.375,
+          "yaw": 39.1047554,
+          "distance": 5.804628,
+          "dodging": true
+        },
+        {
+          "frame": 14.6875,
+          "yaw": 39.1250877,
+          "distance": 5.88328838,
+          "dodging": true
+        },
+        {
+          "frame": 15.0,
+          "yaw": 39.1431847,
+          "distance": 5.96008062,
+          "dodging": true
+        },
+        {
+          "frame": 15.3125,
+          "yaw": 39.1592865,
+          "distance": 6.035005,
+          "dodging": true
+        },
+        {
+          "frame": 15.625,
+          "yaw": 39.1736145,
+          "distance": 6.10806036,
+          "dodging": true
+        },
+        {
+          "frame": 15.9375,
+          "yaw": 39.186367,
+          "distance": 6.17924738,
+          "dodging": true
+        },
+        {
+          "frame": 16.25,
+          "yaw": 39.19771,
+          "distance": 6.248566,
+          "dodging": true
+        },
+        {
+          "frame": 16.5625,
+          "yaw": 39.2078056,
+          "distance": 6.316016,
+          "dodging": true
+        },
+        {
+          "frame": 16.875,
+          "yaw": 39.2167969,
+          "distance": 6.381598,
+          "dodging": true
+        },
+        {
+          "frame": 17.1875,
+          "yaw": 39.2247963,
+          "distance": 6.445311,
+          "dodging": true
+        },
+        {
+          "frame": 17.5,
+          "yaw": 39.2319069,
+          "distance": 6.50715637,
+          "dodging": true
+        },
+        {
+          "frame": 17.8125,
+          "yaw": 39.2382431,
+          "distance": 6.567133,
+          "dodging": true
+        },
+        {
+          "frame": 18.125,
+          "yaw": 39.2438736,
+          "distance": 6.62524128,
+          "dodging": true
+        },
+        {
+          "frame": 18.4375,
+          "yaw": 39.2488937,
+          "distance": 6.68148041,
+          "dodging": true
+        },
+        {
+          "frame": 18.75,
+          "yaw": 39.25336,
+          "distance": 6.735852,
+          "dodging": true
+        },
+        {
+          "frame": 19.0625,
+          "yaw": 39.25733,
+          "distance": 6.7883544,
+          "dodging": true
+        },
+        {
+          "frame": 19.375,
+          "yaw": 39.2608681,
+          "distance": 6.838989,
+          "dodging": true
+        },
+        {
+          "frame": 19.6875,
+          "yaw": 39.2640152,
+          "distance": 6.887755,
+          "dodging": true
+        },
+        {
+          "frame": 20.0,
+          "yaw": 39.2668076,
+          "distance": 6.93465233,
+          "dodging": true
+        },
+        {
+          "frame": 20.3125,
+          "yaw": 39.2692947,
+          "distance": 6.97968149,
+          "dodging": true
+        },
+        {
+          "frame": 20.625,
+          "yaw": 39.2715149,
+          "distance": 7.022842,
+          "dodging": true
+        },
+        {
+          "frame": 20.9375,
+          "yaw": 39.27349,
+          "distance": 7.064134,
+          "dodging": true
+        },
+        {
+          "frame": 21.25,
+          "yaw": 39.27525,
+          "distance": 7.103558,
+          "dodging": true
+        },
+        {
+          "frame": 21.5625,
+          "yaw": 39.27682,
+          "distance": 7.14111328,
+          "dodging": true
+        },
+        {
+          "frame": 21.875,
+          "yaw": 39.2782021,
+          "distance": 7.17680025,
+          "dodging": true
+        },
+        {
+          "frame": 22.1875,
+          "yaw": 39.2794456,
+          "distance": 7.210619,
+          "dodging": true
+        },
+        {
+          "frame": 22.5,
+          "yaw": 42.80202,
+          "distance": 7.242569,
+          "dodging": true
+        },
+        {
+          "frame": 22.8125,
+          "yaw": 45.9462662,
+          "distance": 7.27265072,
+          "dodging": true
+        },
+        {
+          "frame": 23.125,
+          "yaw": 48.7510452,
+          "distance": 7.30086374,
+          "dodging": true
+        },
+        {
+          "frame": 23.4375,
+          "yaw": 51.2517624,
+          "distance": 7.32720852,
+          "dodging": true
+        },
+        {
+          "frame": 23.75,
+          "yaw": 53.48049,
+          "distance": 7.351685,
+          "dodging": true
+        },
+        {
+          "frame": 24.0625,
+          "yaw": 55.4661942,
+          "distance": 7.374293,
+          "dodging": true
+        },
+        {
+          "frame": 24.375,
+          "yaw": 57.2349243,
+          "distance": 7.39503241,
+          "dodging": true
+        },
+        {
+          "frame": 24.6875,
+          "yaw": 58.81008,
+          "distance": 7.413903,
+          "dodging": true
+        },
+        {
+          "frame": 25.0,
+          "yaw": 60.21262,
+          "distance": 7.430906,
+          "dodging": true
+        },
+        {
+          "frame": 25.3125,
+          "yaw": 61.4613,
+          "distance": 7.44603968,
+          "dodging": true
+        },
+        {
+          "frame": 25.625,
+          "yaw": 62.5729065,
+          "distance": 7.459306,
+          "dodging": true
+        },
+        {
+          "frame": 25.9375,
+          "yaw": 63.562397,
+          "distance": 7.47070265,
+          "dodging": true
+        },
+        {
+          "frame": 26.25,
+          "yaw": 64.44314,
+          "distance": 7.480232,
+          "dodging": true
+        },
+        {
+          "frame": 26.5625,
+          "yaw": 65.22705,
+          "distance": 7.48789263,
+          "dodging": true
+        },
+        {
+          "frame": 26.875,
+          "yaw": 65.92473,
+          "distance": 7.493685,
+          "dodging": true
+        },
+        {
+          "frame": 27.1875,
+          "yaw": 66.5456543,
+          "distance": 7.497608,
+          "dodging": true
+        },
+        {
+          "frame": 27.5,
+          "yaw": 67.09825,
+          "distance": 7.49966335,
+          "dodging": true
+        },
+        {
+          "frame": 27.8125,
+          "yaw": 67.59004,
+          "distance": 7.49999952,
+          "dodging": true
+        },
+        {
+          "frame": 0.0,
+          "yaw": 68.0277,
+          "distance": 7.49999952,
+          "dodging": false
+        }
+      ]
+    },
+    {
+      "name": "구간 8~32F / 1.5배속",
+      "distance": 7.49999952,
+      "earlyYaw": 38.7617531,
+      "lastYaw": 69.97932,
+      "maxVertical": 0.0,
+      "samples": [
+        {
+          "frame": 8.0,
+          "yaw": 0.0,
+          "distance": 0.232543945,
+          "dodging": true
+        },
+        {
+          "frame": 8.375,
+          "yaw": 4.32649,
+          "distance": 0.461425781,
+          "dodging": true
+        },
+        {
+          "frame": 8.750001,
+          "yaw": 8.135038,
+          "distance": 0.6866455,
+          "dodging": true
+        },
+        {
+          "frame": 9.125001,
+          "yaw": 11.5363684,
+          "distance": 0.9082031,
+          "dodging": true
+        },
+        {
+          "frame": 9.500001,
+          "yaw": 14.57175,
+          "distance": 1.12609863,
+          "dodging": true
+        },
+        {
+          "frame": 9.875001,
+          "yaw": 17.2789516,
+          "distance": 1.340332,
+          "dodging": true
+        },
+        {
+          "frame": 10.250001,
+          "yaw": 19.6923656,
+          "distance": 1.55090332,
+          "dodging": true
+        },
+        {
+          "frame": 10.625001,
+          "yaw": 21.8430538,
+          "distance": 1.7578125,
+          "dodging": true
+        },
+        {
+          "frame": 11.0000019,
+          "yaw": 23.7590656,
+          "distance": 1.96105957,
+          "dodging": true
+        },
+        {
+          "frame": 11.3750019,
+          "yaw": 25.4656086,
+          "distance": 2.16064453,
+          "dodging": true
+        },
+        {
+          "frame": 11.7500019,
+          "yaw": 26.9852982,
+          "distance": 2.35656762,
+          "dodging": true
+        },
+        {
+          "frame": 12.1250019,
+          "yaw": 28.338398,
+          "distance": 2.54882813,
+          "dodging": true
+        },
+        {
+          "frame": 12.5000019,
+          "yaw": 29.5430317,
+          "distance": 2.73742676,
+          "dodging": true
+        },
+        {
+          "frame": 12.8750029,
+          "yaw": 30.6154,
+          "distance": 2.92236328,
+          "dodging": true
+        },
+        {
+          "frame": 13.2500029,
+          "yaw": 31.5699272,
+          "distance": 3.1036377,
+          "dodging": true
+        },
+        {
+          "frame": 13.6250029,
+          "yaw": 32.4195366,
+          "distance": 3.28125,
+          "dodging": true
+        },
+        {
+          "frame": 14.0000038,
+          "yaw": 33.1757164,
+          "distance": 3.4552002,
+          "dodging": true
+        },
+        {
+          "frame": 14.3750038,
+          "yaw": 33.8487244,
+          "distance": 3.62548828,
+          "dodging": true
+        },
+        {
+          "frame": 14.7500038,
+          "yaw": 34.4476852,
+          "distance": 3.79211426,
+          "dodging": true
+        },
+        {
+          "frame": 15.1250038,
+          "yaw": 34.98074,
+          "distance": 3.95507813,
+          "dodging": true
+        },
+        {
+          "frame": 15.5000038,
+          "yaw": 35.4551277,
+          "distance": 4.11438,
+          "dodging": true
+        },
+        {
+          "frame": 15.8750048,
+          "yaw": 35.8772926,
+          "distance": 4.27001953,
+          "dodging": true
+        },
+        {
+          "frame": 16.2500038,
+          "yaw": 36.253,
+          "distance": 4.421997,
+          "dodging": true
+        },
+        {
+          "frame": 16.6250057,
+          "yaw": 36.5873375,
+          "distance": 4.5703125,
+          "dodging": true
+        },
+        {
+          "frame": 17.0000057,
+          "yaw": 36.88487,
+          "distance": 4.714966,
+          "dodging": true
+        },
+        {
+          "frame": 17.3750057,
+          "yaw": 37.1496468,
+          "distance": 4.855957,
+          "dodging": true
+        },
+        {
+          "frame": 17.7500057,
+          "yaw": 37.3852577,
+          "distance": 4.993286,
+          "dodging": true
+        },
+        {
+          "frame": 18.1250057,
+          "yaw": 37.5949364,
+          "distance": 5.126953,
+          "dodging": true
+        },
+        {
+          "frame": 18.5000057,
+          "yaw": 37.7815247,
+          "distance": 5.25695753,
+          "dodging": true
+        },
+        {
+          "frame": 18.8750057,
+          "yaw": 37.94757,
+          "distance": 5.3833003,
+          "dodging": true
+        },
+        {
+          "frame": 19.2500076,
+          "yaw": 38.09533,
+          "distance": 5.505981,
+          "dodging": true
+        },
+        {
+          "frame": 19.6250076,
+          "yaw": 38.2268143,
+          "distance": 5.62499952,
+          "dodging": true
+        },
+        {
+          "frame": 20.0000076,
+          "yaw": 38.34383,
+          "distance": 5.740356,
+          "dodging": true
+        },
+        {
+          "frame": 20.3750057,
+          "yaw": 38.44795,
+          "distance": 5.852051,
+          "dodging": true
+        },
+        {
+          "frame": 20.7500057,
+          "yaw": 38.5406151,
+          "distance": 5.960083,
+          "dodging": true
+        },
+        {
+          "frame": 21.1250038,
+          "yaw": 38.62307,
+          "distance": 6.064453,
+          "dodging": true
+        },
+        {
+          "frame": 21.5000038,
+          "yaw": 38.6964531,
+          "distance": 6.165161,
+          "dodging": true
+        },
+        {
+          "frame": 21.8750019,
+          "yaw": 38.7617531,
+          "distance": 6.262207,
+          "dodging": true
+        },
+        {
+          "frame": 22.2500019,
+          "yaw": 38.81985,
+          "distance": 6.355591,
+          "dodging": true
+        },
+        {
+          "frame": 22.625,
+          "yaw": 42.3916168,
+          "distance": 6.4453125,
+          "dodging": true
+        },
+        {
+          "frame": 23.0,
+          "yaw": 45.5800438,
+          "distance": 6.531372,
+          "dodging": true
+        },
+        {
+          "frame": 23.3749981,
+          "yaw": 48.42445,
+          "distance": 6.61376953,
+          "dodging": true
+        },
+        {
+          "frame": 23.7499981,
+          "yaw": 50.9606247,
+          "distance": 6.692505,
+          "dodging": true
+        },
+        {
+          "frame": 24.1249962,
+          "yaw": 53.22105,
+          "distance": 6.767578,
+          "dodging": true
+        },
+        {
+          "frame": 24.4999962,
+          "yaw": 55.23507,
+          "distance": 6.83898926,
+          "dodging": true
+        },
+        {
+          "frame": 24.8749943,
+          "yaw": 57.0290871,
+          "distance": 6.90673828,
+          "dodging": true
+        },
+        {
+          "frame": 25.2499943,
+          "yaw": 58.6267776,
+          "distance": 6.970825,
+          "dodging": true
+        },
+        {
+          "frame": 25.6249924,
+          "yaw": 60.04942,
+          "distance": 7.03125,
+          "dodging": true
+        },
+        {
+          "frame": 25.9999924,
+          "yaw": 61.31601,
+          "distance": 7.0880127,
+          "dodging": true
+        },
+        {
+          "frame": 26.37499,
+          "yaw": 62.44357,
+          "distance": 7.14111328,
+          "dodging": true
+        },
+        {
+          "frame": 26.74999,
+          "yaw": 63.4472733,
+          "distance": 7.19055176,
+          "dodging": true
+        },
+        {
+          "frame": 27.1249886,
+          "yaw": 64.34067,
+          "distance": 7.236328,
+          "dodging": true
+        },
+        {
+          "frame": 27.4999886,
+          "yaw": 65.13583,
+          "distance": 7.27844238,
+          "dodging": true
+        },
+        {
+          "frame": 27.8749866,
+          "yaw": 65.84355,
+          "distance": 7.31689453,
+          "dodging": true
+        },
+        {
+          "frame": 28.2499866,
+          "yaw": 66.47341,
+          "distance": 7.35168457,
+          "dodging": true
+        },
+        {
+          "frame": 28.6249847,
+          "yaw": 67.03397,
+          "distance": 7.3828125,
+          "dodging": true
+        },
+        {
+          "frame": 28.9999847,
+          "yaw": 67.53283,
+          "distance": 7.41027832,
+          "dodging": true
+        },
+        {
+          "frame": 29.3749828,
+          "yaw": 67.9768,
+          "distance": 7.434082,
+          "dodging": true
+        },
+        {
+          "frame": 29.7499828,
+          "yaw": 68.37189,
+          "distance": 7.45422363,
+          "dodging": true
+        },
+        {
+          "frame": 30.12498,
+          "yaw": 68.7234955,
+          "distance": 7.47070265,
+          "dodging": true
+        },
+        {
+          "frame": 30.49998,
+          "yaw": 69.03638,
+          "distance": 7.48352,
+          "dodging": true
+        },
+        {
+          "frame": 30.874979,
+          "yaw": 69.31482,
+          "distance": 7.4926753,
+          "dodging": true
+        },
+        {
+          "frame": 31.249979,
+          "yaw": 69.56259,
+          "distance": 7.49816847,
+          "dodging": true
+        },
+        {
+          "frame": 31.6249771,
+          "yaw": 69.7831,
+          "distance": 7.49999952,
+          "dodging": true
+        },
+        {
+          "frame": 31.9999771,
+          "yaw": 69.97932,
+          "distance": 7.49999952,
+          "dodging": true
+        },
+        {
+          "frame": 0.0,
+          "yaw": 70.15393,
+          "distance": 7.49999952,
+          "dodging": false
+        }
+      ]
+    },
+    {
+      "name": "회복 구간 26~40F",
+      "distance": 7.499999,
+      "earlyYaw": 0.0,
+      "lastYaw": 71.14023,
+      "maxVertical": 0.0,
+      "samples": [
+        {
+          "frame": 26.0,
+          "yaw": 0.0,
+          "distance": 0.331084281,
+          "dodging": true
+        },
+        {
+          "frame": 26.3125,
+          "yaw": 7.88060045,
+          "distance": 0.654695451,
+          "dodging": true
+        },
+        {
+          "frame": 26.625,
+          "yaw": 14.8934278,
+          "distance": 0.9708322,
+          "dodging": true
+        },
+        {
+          "frame": 26.9375,
+          "yaw": 21.13401,
+          "distance": 1.27949643,
+          "dodging": true
+        },
+        {
+          "frame": 27.25,
+          "yaw": 26.6873932,
+          "distance": 1.58068573,
+          "dodging": true
+        },
+        {
+          "frame": 27.5625,
+          "yaw": 31.6292362,
+          "distance": 1.87440228,
+          "dodging": true
+        },
+        {
+          "frame": 27.875,
+          "yaw": 36.0269,
+          "distance": 2.16064453,
+          "dodging": true
+        },
+        {
+          "frame": 28.1875,
+          "yaw": 39.89675,
+          "distance": 2.43941379,
+          "dodging": true
+        },
+        {
+          "frame": 28.5,
+          "yaw": 43.3531761,
+          "distance": 2.71070838,
+          "dodging": true
+        },
+        {
+          "frame": 28.8125,
+          "yaw": 46.4380379,
+          "distance": 2.97453,
+          "dodging": true
+        },
+        {
+          "frame": 29.125,
+          "yaw": 49.18959,
+          "distance": 3.23087764,
+          "dodging": true
+        },
+        {
+          "frame": 29.4375,
+          "yaw": 51.6426659,
+          "distance": 3.47975183,
+          "dodging": true
+        },
+        {
+          "frame": 29.75,
+          "yaw": 53.82881,
+          "distance": 3.721152,
+          "dodging": true
+        },
+        {
+          "frame": 30.0625,
+          "yaw": 55.7764854,
+          "distance": 3.95507813,
+          "dodging": true
+        },
+        {
+          "frame": 30.375,
+          "yaw": 57.51128,
+          "distance": 4.18153143,
+          "dodging": true
+        },
+        {
+          "frame": 30.6875,
+          "yaw": 59.05616,
+          "distance": 4.400511,
+          "dodging": true
+        },
+        {
+          "frame": 31.0,
+          "yaw": 60.4317322,
+          "distance": 4.612016,
+          "dodging": true
+        },
+        {
+          "frame": 31.3125,
+          "yaw": 61.6563721,
+          "distance": 4.81604767,
+          "dodging": true
+        },
+        {
+          "frame": 31.625,
+          "yaw": 62.74655,
+          "distance": 5.01260567,
+          "dodging": true
+        },
+        {
+          "frame": 31.9375,
+          "yaw": 63.7169571,
+          "distance": 5.20169067,
+          "dodging": true
+        },
+        {
+          "frame": 32.25,
+          "yaw": 64.58072,
+          "distance": 5.383301,
+          "dodging": true
+        },
+        {
+          "frame": 32.5625,
+          "yaw": 65.34949,
+          "distance": 5.55743742,
+          "dodging": true
+        },
+        {
+          "frame": 32.875,
+          "yaw": 66.0337,
+          "distance": 5.724101,
+          "dodging": true
+        },
+        {
+          "frame": 33.1875,
+          "yaw": 66.64263,
+          "distance": 5.88329029,
+          "dodging": true
+        },
+        {
+          "frame": 33.5,
+          "yaw": 67.18458,
+          "distance": 6.035006,
+          "dodging": true
+        },
+        {
+          "frame": 33.8125,
+          "yaw": 67.66686,
+          "distance": 6.179248,
+          "dodging": true
+        },
+        {
+          "frame": 34.125,
+          "yaw": 68.09606,
+          "distance": 6.31601667,
+          "dodging": true
+        },
+        {
+          "frame": 34.4375,
+          "yaw": 68.47802,
+          "distance": 6.44531155,
+          "dodging": true
+        },
+        {
+          "frame": 34.75,
+          "yaw": 68.81794,
+          "distance": 6.567133,
+          "dodging": true
+        },
+        {
+          "frame": 35.0625,
+          "yaw": 69.1204453,
+          "distance": 6.68148041,
+          "dodging": true
+        },
+        {
+          "frame": 35.375,
+          "yaw": 69.38962,
+          "distance": 6.788354,
+          "dodging": true
+        },
+        {
+          "frame": 35.6875,
+          "yaw": 69.62917,
+          "distance": 6.887754,
+          "dodging": true
+        },
+        {
+          "frame": 36.0,
+          "yaw": 69.84234,
+          "distance": 6.97968,
+          "dodging": true
+        },
+        {
+          "frame": 36.3125,
+          "yaw": 70.03205,
+          "distance": 7.06413269,
+          "dodging": true
+        },
+        {
+          "frame": 36.625,
+          "yaw": 70.20086,
+          "distance": 7.141112,
+          "dodging": true
+        },
+        {
+          "frame": 36.9375,
+          "yaw": 70.35109,
+          "distance": 7.21061659,
+          "dodging": true
+        },
+        {
+          "frame": 37.25,
+          "yaw": 70.4847641,
+          "distance": 7.27264833,
+          "dodging": true
+        },
+        {
+          "frame": 37.5625,
+          "yaw": 70.60372,
+          "distance": 7.32720661,
+          "dodging": true
+        },
+        {
+          "frame": 37.875,
+          "yaw": 70.70957,
+          "distance": 7.374291,
+          "dodging": true
+        },
+        {
+          "frame": 38.1875,
+          "yaw": 70.80379,
+          "distance": 7.41390133,
+          "dodging": true
+        },
+        {
+          "frame": 38.5,
+          "yaw": 70.88761,
+          "distance": 7.44603872,
+          "dodging": true
+        },
+        {
+          "frame": 38.8125,
+          "yaw": 70.96221,
+          "distance": 7.47070169,
+          "dodging": true
+        },
+        {
+          "frame": 39.125,
+          "yaw": 71.028595,
+          "distance": 7.487891,
+          "dodging": true
+        },
+        {
+          "frame": 39.4375,
+          "yaw": 71.08767,
+          "distance": 7.497607,
+          "dodging": true
+        },
+        {
+          "frame": 39.75,
+          "yaw": 71.14023,
+          "distance": 7.499999,
+          "dodging": true
+        },
+        {
+          "frame": 0.0,
+          "yaw": 71.1870041,
+          "distance": 7.499999,
+          "dodging": false
+        }
+      ]
+    },
+    {
+      "name": "회복 전 0~20F",
+      "distance": 7.50000048,
+      "earlyYaw": 39.2640152,
+      "lastYaw": 39.2640152,
+      "maxVertical": 0.0,
+      "samples": [
+        {
+          "frame": 0.0,
+          "yaw": 0.0,
+          "distance": 0.232543945,
+          "dodging": true
+        },
+        {
+          "frame": 0.3125,
+          "yaw": 4.32649,
+          "distance": 0.461425781,
+          "dodging": true
+        },
+        {
+          "frame": 0.625,
+          "yaw": 8.135038,
+          "distance": 0.6866455,
+          "dodging": true
+        },
+        {
+          "frame": 0.9375,
+          "yaw": 11.5363684,
+          "distance": 0.9082031,
+          "dodging": true
+        },
+        {
+          "frame": 1.25,
+          "yaw": 14.57175,
+          "distance": 1.12609863,
+          "dodging": true
+        },
+        {
+          "frame": 1.5625,
+          "yaw": 17.2789516,
+          "distance": 1.340332,
+          "dodging": true
+        },
+        {
+          "frame": 1.875,
+          "yaw": 19.6923656,
+          "distance": 1.55090332,
+          "dodging": true
+        },
+        {
+          "frame": 2.1875,
+          "yaw": 21.8430538,
+          "distance": 1.7578125,
+          "dodging": true
+        },
+        {
+          "frame": 2.5,
+          "yaw": 23.7590656,
+          "distance": 1.96105957,
+          "dodging": true
+        },
+        {
+          "frame": 2.8125,
+          "yaw": 25.4656086,
+          "distance": 2.16064453,
+          "dodging": true
+        },
+        {
+          "frame": 3.125,
+          "yaw": 26.9852982,
+          "distance": 2.35656762,
+          "dodging": true
+        },
+        {
+          "frame": 3.4375,
+          "yaw": 28.338398,
+          "distance": 2.54882813,
+          "dodging": true
+        },
+        {
+          "frame": 3.75,
+          "yaw": 29.5430317,
+          "distance": 2.73742676,
+          "dodging": true
+        },
+        {
+          "frame": 4.0625,
+          "yaw": 30.6154,
+          "distance": 2.92236328,
+          "dodging": true
+        },
+        {
+          "frame": 4.375,
+          "yaw": 31.5699272,
+          "distance": 3.1036377,
+          "dodging": true
+        },
+        {
+          "frame": 4.6875,
+          "yaw": 32.4195366,
+          "distance": 3.28125,
+          "dodging": true
+        },
+        {
+          "frame": 5.0,
+          "yaw": 33.1757164,
+          "distance": 3.4552002,
+          "dodging": true
+        },
+        {
+          "frame": 5.3125,
+          "yaw": 33.8487244,
+          "distance": 3.62548828,
+          "dodging": true
+        },
+        {
+          "frame": 5.625,
+          "yaw": 34.4476852,
+          "distance": 3.79211426,
+          "dodging": true
+        },
+        {
+          "frame": 5.9375,
+          "yaw": 34.98074,
+          "distance": 3.95507813,
+          "dodging": true
+        },
+        {
+          "frame": 6.25,
+          "yaw": 35.4551277,
+          "distance": 4.11438,
+          "dodging": true
+        },
+        {
+          "frame": 6.5625,
+          "yaw": 35.8772926,
+          "distance": 4.27001953,
+          "dodging": true
+        },
+        {
+          "frame": 6.875,
+          "yaw": 36.253,
+          "distance": 4.421997,
+          "dodging": true
+        },
+        {
+          "frame": 7.1875,
+          "yaw": 36.5873375,
+          "distance": 4.5703125,
+          "dodging": true
+        },
+        {
+          "frame": 7.5,
+          "yaw": 36.88487,
+          "distance": 4.714966,
+          "dodging": true
+        },
+        {
+          "frame": 7.8125,
+          "yaw": 37.1496468,
+          "distance": 4.855957,
+          "dodging": true
+        },
+        {
+          "frame": 8.125,
+          "yaw": 37.3852577,
+          "distance": 4.993286,
+          "dodging": true
+        },
+        {
+          "frame": 8.4375,
+          "yaw": 37.5949364,
+          "distance": 5.126953,
+          "dodging": true
+        },
+        {
+          "frame": 8.75,
+          "yaw": 37.7815247,
+          "distance": 5.25695753,
+          "dodging": true
+        },
+        {
+          "frame": 9.0625,
+          "yaw": 37.94757,
+          "distance": 5.3833003,
+          "dodging": true
+        },
+        {
+          "frame": 9.375,
+          "yaw": 38.09533,
+          "distance": 5.505981,
+          "dodging": true
+        },
+        {
+          "frame": 9.6875,
+          "yaw": 38.2268143,
+          "distance": 5.62499952,
+          "dodging": true
+        },
+        {
+          "frame": 10.0,
+          "yaw": 38.34383,
+          "distance": 5.740356,
+          "dodging": true
+        },
+        {
+          "frame": 10.3125,
+          "yaw": 38.44795,
+          "distance": 5.852051,
+          "dodging": true
+        },
+        {
+          "frame": 10.625,
+          "yaw": 38.5406151,
+          "distance": 5.960083,
+          "dodging": true
+        },
+        {
+          "frame": 10.9375,
+          "yaw": 38.62307,
+          "distance": 6.064453,
+          "dodging": true
+        },
+        {
+          "frame": 11.25,
+          "yaw": 38.6964531,
+          "distance": 6.165161,
+          "dodging": true
+        },
+        {
+          "frame": 11.5625,
+          "yaw": 38.7617531,
+          "distance": 6.262207,
+          "dodging": true
+        },
+        {
+          "frame": 11.875,
+          "yaw": 38.81985,
+          "distance": 6.355591,
+          "dodging": true
+        },
+        {
+          "frame": 12.1875,
+          "yaw": 38.871563,
+          "distance": 6.4453125,
+          "dodging": true
+        },
+        {
+          "frame": 12.5,
+          "yaw": 38.9175758,
+          "distance": 6.53137159,
+          "dodging": true
+        },
+        {
+          "frame": 12.8125,
+          "yaw": 38.9585228,
+          "distance": 6.61376953,
+          "dodging": true
+        },
+        {
+          "frame": 13.125,
+          "yaw": 38.994957,
+          "distance": 6.692505,
+          "dodging": true
+        },
+        {
+          "frame": 13.4375,
+          "yaw": 39.02738,
+          "distance": 6.767578,
+          "dodging": true
+        },
+        {
+          "frame": 13.75,
+          "yaw": 39.0562363,
+          "distance": 6.83898926,
+          "dodging": true
+        },
+        {
+          "frame": 14.0625,
+          "yaw": 39.081913,
+          "distance": 6.90673828,
+          "dodging": true
+        },
+        {
+          "frame": 14.375,
+          "yaw": 39.1047554,
+          "distance": 6.970825,
+          "dodging": true
+        },
+        {
+          "frame": 14.6875,
+          "yaw": 39.1250877,
+          "distance": 7.03125,
+          "dodging": true
+        },
+        {
+          "frame": 15.0,
+          "yaw": 39.1431847,
+          "distance": 7.0880127,
+          "dodging": true
+        },
+        {
+          "frame": 15.3125,
+          "yaw": 39.1592865,
+          "distance": 7.14111328,
+          "dodging": true
+        },
+        {
+          "frame": 15.625,
+          "yaw": 39.1736145,
+          "distance": 7.19055176,
+          "dodging": true
+        },
+        {
+          "frame": 15.9375,
+          "yaw": 39.186367,
+          "distance": 7.236328,
+          "dodging": true
+        },
+        {
+          "frame": 16.25,
+          "yaw": 39.19771,
+          "distance": 7.27844238,
+          "dodging": true
+        },
+        {
+          "frame": 16.5625,
+          "yaw": 39.2078056,
+          "distance": 7.31689453,
+          "dodging": true
+        },
+        {
+          "frame": 16.875,
+          "yaw": 39.2167969,
+          "distance": 7.35168457,
+          "dodging": true
+        },
+        {
+          "frame": 17.1875,
+          "yaw": 39.2247963,
+          "distance": 7.3828125,
+          "dodging": true
+        },
+        {
+          "frame": 17.5,
+          "yaw": 39.2319069,
+          "distance": 7.410279,
+          "dodging": true
+        },
+        {
+          "frame": 17.8125,
+          "yaw": 39.2382431,
+          "distance": 7.43408251,
+          "dodging": true
+        },
+        {
+          "frame": 18.125,
+          "yaw": 39.2438736,
+          "distance": 7.454224,
+          "dodging": true
+        },
+        {
+          "frame": 18.4375,
+          "yaw": 39.2488937,
+          "distance": 7.4707036,
+          "dodging": true
+        },
+        {
+          "frame": 18.75,
+          "yaw": 39.25336,
+          "distance": 7.483521,
+          "dodging": true
+        },
+        {
+          "frame": 19.0625,
+          "yaw": 39.25733,
+          "distance": 7.49267626,
+          "dodging": true
+        },
+        {
+          "frame": 19.375,
+          "yaw": 39.2608681,
+          "distance": 7.49816942,
+          "dodging": true
+        },
+        {
+          "frame": 19.6875,
+          "yaw": 39.2640152,
+          "distance": 7.50000048,
+          "dodging": true
+        },
+        {
+          "frame": 0.0,
+          "yaw": 39.2668076,
+          "distance": 7.50000048,
+          "dodging": false
+        }
+      ]
+    },
+    {
+      "name": "회복 중 반대 방향 입력",
+      "distance": 7.50000048,
+      "earlyYaw": 0.0,
+      "lastYaw": 157.87088,
+      "maxVertical": 0.0,
+      "samples": [
+        {
+          "frame": 0.0,
+          "yaw": 0.0,
+          "distance": 0.166476667,
+          "dodging": true
+        },
+        {
+          "frame": 0.3125,
+          "yaw": 0.0,
+          "distance": 0.331084281,
+          "dodging": true
+        },
+        {
+          "frame": 0.625,
+          "yaw": 0.0,
+          "distance": 0.493824184,
+          "dodging": true
+        },
+        {
+          "frame": 0.9375,
+          "yaw": 0.0,
+          "distance": 0.6546955,
+          "dodging": true
+        },
+        {
+          "frame": 1.25,
+          "yaw": 0.0,
+          "distance": 0.813698649,
+          "dodging": true
+        },
+        {
+          "frame": 1.5625,
+          "yaw": 0.0,
+          "distance": 0.9708322,
+          "dodging": true
+        },
+        {
+          "frame": 1.875,
+          "yaw": 0.0,
+          "distance": 1.12609863,
+          "dodging": true
+        },
+        {
+          "frame": 2.1875,
+          "yaw": 0.0,
+          "distance": 1.27949643,
+          "dodging": true
+        },
+        {
+          "frame": 2.5,
+          "yaw": 0.0,
+          "distance": 1.43102551,
+          "dodging": true
+        },
+        {
+          "frame": 2.8125,
+          "yaw": 0.0,
+          "distance": 1.58068562,
+          "dodging": true
+        },
+        {
+          "frame": 3.125,
+          "yaw": 0.0,
+          "distance": 1.72847855,
+          "dodging": true
+        },
+        {
+          "frame": 3.4375,
+          "yaw": 0.0,
+          "distance": 1.87440228,
+          "dodging": true
+        },
+        {
+          "frame": 3.75,
+          "yaw": 0.0,
+          "distance": 2.01845741,
+          "dodging": true
+        },
+        {
+          "frame": 4.0625,
+          "yaw": 0.0,
+          "distance": 2.16064453,
+          "dodging": true
+        },
+        {
+          "frame": 4.375,
+          "yaw": 0.0,
+          "distance": 2.3009634,
+          "dodging": true
+        },
+        {
+          "frame": 4.6875,
+          "yaw": 0.0,
+          "distance": 2.43941355,
+          "dodging": true
+        },
+        {
+          "frame": 5.0,
+          "yaw": 0.0,
+          "distance": 2.57599568,
+          "dodging": true
+        },
+        {
+          "frame": 5.3125,
+          "yaw": 0.0,
+          "distance": 2.71070838,
+          "dodging": true
+        },
+        {
+          "frame": 5.625,
+          "yaw": 0.0,
+          "distance": 2.8435533,
+          "dodging": true
+        },
+        {
+          "frame": 5.9375,
+          "yaw": 0.0,
+          "distance": 2.97453,
+          "dodging": true
+        },
+        {
+          "frame": 6.25,
+          "yaw": 0.0,
+          "distance": 3.1036377,
+          "dodging": true
+        },
+        {
+          "frame": 6.5625,
+          "yaw": 0.0,
+          "distance": 3.23087764,
+          "dodging": true
+        },
+        {
+          "frame": 6.875,
+          "yaw": 0.0,
+          "distance": 3.356249,
+          "dodging": true
+        },
+        {
+          "frame": 7.1875,
+          "yaw": 0.0,
+          "distance": 3.47975183,
+          "dodging": true
+        },
+        {
+          "frame": 7.5,
+          "yaw": 0.0,
+          "distance": 3.60138559,
+          "dodging": true
+        },
+        {
+          "frame": 7.8125,
+          "yaw": 0.0,
+          "distance": 3.721151,
+          "dodging": true
+        },
+        {
+          "frame": 8.125,
+          "yaw": 0.0,
+          "distance": 3.83904886,
+          "dodging": true
+        },
+        {
+          "frame": 8.4375,
+          "yaw": 0.0,
+          "distance": 3.95507813,
+          "dodging": true
+        },
+        {
+          "frame": 8.75,
+          "yaw": 0.0,
+          "distance": 4.069238,
+          "dodging": true
+        },
+        {
+          "frame": 9.0625,
+          "yaw": 0.0,
+          "distance": 4.18153,
+          "dodging": true
+        },
+        {
+          "frame": 9.375,
+          "yaw": 0.0,
+          "distance": 4.291954,
+          "dodging": true
+        },
+        {
+          "frame": 9.6875,
+          "yaw": 0.0,
+          "distance": 4.40051,
+          "dodging": true
+        },
+        {
+          "frame": 10.0,
+          "yaw": 0.0,
+          "distance": 4.50719643,
+          "dodging": true
+        },
+        {
+          "frame": 10.3125,
+          "yaw": 0.0,
+          "distance": 4.61201429,
+          "dodging": true
+        },
+        {
+          "frame": 10.625,
+          "yaw": 0.0,
+          "distance": 4.714965,
+          "dodging": true
+        },
+        {
+          "frame": 10.9375,
+          "yaw": 0.0,
+          "distance": 4.81604671,
+          "dodging": true
+        },
+        {
+          "frame": 11.25,
+          "yaw": 0.0,
+          "distance": 4.91525936,
+          "dodging": true
+        },
+        {
+          "frame": 11.5625,
+          "yaw": 0.0,
+          "distance": 5.012604,
+          "dodging": true
+        },
+        {
+          "frame": 11.875,
+          "yaw": 0.0,
+          "distance": 5.108081,
+          "dodging": true
+        },
+        {
+          "frame": 12.1875,
+          "yaw": 0.0,
+          "distance": 5.201689,
+          "dodging": true
+        },
+        {
+          "frame": 12.5,
+          "yaw": 0.0,
+          "distance": 5.293428,
+          "dodging": true
+        },
+        {
+          "frame": 12.8125,
+          "yaw": 0.0,
+          "distance": 5.383299,
+          "dodging": true
+        },
+        {
+          "frame": 13.125,
+          "yaw": 0.0,
+          "distance": 5.471302,
+          "dodging": true
+        },
+        {
+          "frame": 13.4375,
+          "yaw": 0.0,
+          "distance": 5.55743647,
+          "dodging": true
+        },
+        {
+          "frame": 13.75,
+          "yaw": 0.0,
+          "distance": 5.6417017,
+          "dodging": true
+        },
+        {
+          "frame": 14.0625,
+          "yaw": 0.0,
+          "distance": 5.72409964,
+          "dodging": true
+        },
+        {
+          "frame": 14.375,
+          "yaw": 0.0,
+          "distance": 5.804629,
+          "dodging": true
+        },
+        {
+          "frame": 14.6875,
+          "yaw": 0.0,
+          "distance": 5.88328934,
+          "dodging": true
+        },
+        {
+          "frame": 15.0,
+          "yaw": 0.0,
+          "distance": 5.96008158,
+          "dodging": true
+        },
+        {
+          "frame": 15.3125,
+          "yaw": 0.0,
+          "distance": 6.03500557,
+          "dodging": true
+        },
+        {
+          "frame": 15.625,
+          "yaw": 0.0,
+          "distance": 6.10806131,
+          "dodging": true
+        },
+        {
+          "frame": 15.9375,
+          "yaw": 0.0,
+          "distance": 6.17924833,
+          "dodging": true
+        },
+        {
+          "frame": 16.25,
+          "yaw": 0.0,
+          "distance": 6.248567,
+          "dodging": true
+        },
+        {
+          "frame": 16.5625,
+          "yaw": 0.0,
+          "distance": 6.316017,
+          "dodging": true
+        },
+        {
+          "frame": 16.875,
+          "yaw": 0.0,
+          "distance": 6.381599,
+          "dodging": true
+        },
+        {
+          "frame": 17.1875,
+          "yaw": 0.0,
+          "distance": 6.445312,
+          "dodging": true
+        },
+        {
+          "frame": 17.5,
+          "yaw": 0.0,
+          "distance": 6.50715733,
+          "dodging": true
+        },
+        {
+          "frame": 17.8125,
+          "yaw": 0.0,
+          "distance": 6.56713343,
+          "dodging": true
+        },
+        {
+          "frame": 18.125,
+          "yaw": 0.0,
+          "distance": 6.62524176,
+          "dodging": true
+        },
+        {
+          "frame": 18.4375,
+          "yaw": 0.0,
+          "distance": 6.68148136,
+          "dodging": true
+        },
+        {
+          "frame": 18.75,
+          "yaw": 0.0,
+          "distance": 6.73585224,
+          "dodging": true
+        },
+        {
+          "frame": 19.0625,
+          "yaw": 0.0,
+          "distance": 6.78835535,
+          "dodging": true
+        },
+        {
+          "frame": 19.375,
+          "yaw": 0.0,
+          "distance": 6.83898973,
+          "dodging": true
+        },
+        {
+          "frame": 19.6875,
+          "yaw": 0.0,
+          "distance": 6.88775539,
+          "dodging": true
+        },
+        {
+          "frame": 20.0,
+          "yaw": 0.0,
+          "distance": 6.934653,
+          "dodging": true
+        },
+        {
+          "frame": 20.3125,
+          "yaw": 0.0,
+          "distance": 6.979682,
+          "dodging": true
+        },
+        {
+          "frame": 20.625,
+          "yaw": 0.0,
+          "distance": 7.02284241,
+          "dodging": true
+        },
+        {
+          "frame": 20.9375,
+          "yaw": 0.0,
+          "distance": 7.0641346,
+          "dodging": true
+        },
+        {
+          "frame": 21.25,
+          "yaw": 0.0,
+          "distance": 7.10355854,
+          "dodging": true
+        },
+        {
+          "frame": 21.5625,
+          "yaw": 0.0,
+          "distance": 7.14111376,
+          "dodging": true
+        },
+        {
+          "frame": 21.875,
+          "yaw": 0.0,
+          "distance": 7.17680073,
+          "dodging": true
+        },
+        {
+          "frame": 22.1875,
+          "yaw": 0.0,
+          "distance": 7.21061945,
+          "dodging": true
+        },
+        {
+          "frame": 22.5,
+          "yaw": 19.82127,
+          "distance": 7.24256945,
+          "dodging": true
+        },
+        {
+          "frame": 22.8125,
+          "yaw": 37.45987,
+          "distance": 7.272651,
+          "dodging": true
+        },
+        {
+          "frame": 23.125,
+          "yaw": 53.15613,
+          "distance": 7.300864,
+          "dodging": true
+        },
+        {
+          "frame": 23.4375,
+          "yaw": 67.12396,
+          "distance": 7.327209,
+          "dodging": true
+        },
+        {
+          "frame": 23.75,
+          "yaw": 79.55366,
+          "distance": 7.35168552,
+          "dodging": true
+        },
+        {
+          "frame": 24.0625,
+          "yaw": 90.61463,
+          "distance": 7.37429333,
+          "dodging": true
+        },
+        {
+          "frame": 24.375,
+          "yaw": 100.457581,
+          "distance": 7.395033,
+          "dodging": true
+        },
+        {
+          "frame": 24.6875,
+          "yaw": 109.216675,
+          "distance": 7.41390371,
+          "dodging": true
+        },
+        {
+          "frame": 25.0,
+          "yaw": 117.011208,
+          "distance": 7.4309063,
+          "dodging": true
+        },
+        {
+          "frame": 25.3125,
+          "yaw": 123.947418,
+          "distance": 7.44604063,
+          "dodging": true
+        },
+        {
+          "frame": 25.625,
+          "yaw": 130.119843,
+          "distance": 7.45930624,
+          "dodging": true
+        },
+        {
+          "frame": 25.9375,
+          "yaw": 135.612564,
+          "distance": 7.4707036,
+          "dodging": true
+        },
+        {
+          "frame": 26.25,
+          "yaw": 140.500427,
+          "distance": 7.48023272,
+          "dodging": true
+        },
+        {
+          "frame": 26.5625,
+          "yaw": 144.850052,
+          "distance": 7.487893,
+          "dodging": true
+        },
+        {
+          "frame": 26.875,
+          "yaw": 148.678543,
+          "distance": 7.49368525,
+          "dodging": true
+        },
+        {
+          "frame": 27.1875,
+          "yaw": 152.0978,
+          "distance": 7.497609,
+          "dodging": true
+        },
+        {
+          "frame": 27.5,
+          "yaw": 155.149246,
+          "distance": 7.49966431,
+          "dodging": true
+        },
+        {
+          "frame": 27.8125,
+          "yaw": 157.87088,
+          "distance": 7.50000048,
+          "dodging": true
+        },
+        {
+          "frame": 0.0,
+          "yaw": 160.29718,
+          "distance": 7.50000048,
+          "dodging": false
+        }
+      ]
+    },
+    {
+      "name": "방향 입력 없이 직진",
+      "distance": 7.5,
+      "earlyYaw": 0.0,
+      "lastYaw": 0.0,
+      "maxVertical": 0.0,
+      "samples": [
+        {
+          "frame": 0.0,
+          "yaw": 0.0,
+          "distance": 0.166476667,
+          "dodging": true
+        },
+        {
+          "frame": 0.3125,
+          "yaw": 0.0,
+          "distance": 0.331084281,
+          "dodging": true
+        },
+        {
+          "frame": 0.625,
+          "yaw": 0.0,
+          "distance": 0.493824184,
+          "dodging": true
+        },
+        {
+          "frame": 0.9375,
+          "yaw": 0.0,
+          "distance": 0.6546955,
+          "dodging": true
+        },
+        {
+          "frame": 1.25,
+          "yaw": 0.0,
+          "distance": 0.813698649,
+          "dodging": true
+        },
+        {
+          "frame": 1.5625,
+          "yaw": 0.0,
+          "distance": 0.9708322,
+          "dodging": true
+        },
+        {
+          "frame": 1.875,
+          "yaw": 0.0,
+          "distance": 1.12609863,
+          "dodging": true
+        },
+        {
+          "frame": 2.1875,
+          "yaw": 0.0,
+          "distance": 1.27949643,
+          "dodging": true
+        },
+        {
+          "frame": 2.5,
+          "yaw": 0.0,
+          "distance": 1.43102551,
+          "dodging": true
+        },
+        {
+          "frame": 2.8125,
+          "yaw": 0.0,
+          "distance": 1.58068562,
+          "dodging": true
+        },
+        {
+          "frame": 3.125,
+          "yaw": 0.0,
+          "distance": 1.72847855,
+          "dodging": true
+        },
+        {
+          "frame": 3.4375,
+          "yaw": 0.0,
+          "distance": 1.87440228,
+          "dodging": true
+        },
+        {
+          "frame": 3.75,
+          "yaw": 0.0,
+          "distance": 2.01845741,
+          "dodging": true
+        },
+        {
+          "frame": 4.0625,
+          "yaw": 0.0,
+          "distance": 2.16064453,
+          "dodging": true
+        },
+        {
+          "frame": 4.375,
+          "yaw": 0.0,
+          "distance": 2.3009634,
+          "dodging": true
+        },
+        {
+          "frame": 4.6875,
+          "yaw": 0.0,
+          "distance": 2.43941355,
+          "dodging": true
+        },
+        {
+          "frame": 5.0,
+          "yaw": 0.0,
+          "distance": 2.57599568,
+          "dodging": true
+        },
+        {
+          "frame": 5.3125,
+          "yaw": 0.0,
+          "distance": 2.71070838,
+          "dodging": true
+        },
+        {
+          "frame": 5.625,
+          "yaw": 0.0,
+          "distance": 2.8435533,
+          "dodging": true
+        },
+        {
+          "frame": 5.9375,
+          "yaw": 0.0,
+          "distance": 2.97453,
+          "dodging": true
+        },
+        {
+          "frame": 6.25,
+          "yaw": 0.0,
+          "distance": 3.1036377,
+          "dodging": true
+        },
+        {
+          "frame": 6.5625,
+          "yaw": 0.0,
+          "distance": 3.23087764,
+          "dodging": true
+        },
+        {
+          "frame": 6.875,
+          "yaw": 0.0,
+          "distance": 3.356249,
+          "dodging": true
+        },
+        {
+          "frame": 7.1875,
+          "yaw": 0.0,
+          "distance": 3.47975183,
+          "dodging": true
+        },
+        {
+          "frame": 7.5,
+          "yaw": 0.0,
+          "distance": 3.60138559,
+          "dodging": true
+        },
+        {
+          "frame": 7.8125,
+          "yaw": 0.0,
+          "distance": 3.721151,
+          "dodging": true
+        },
+        {
+          "frame": 8.125,
+          "yaw": 0.0,
+          "distance": 3.83904886,
+          "dodging": true
+        },
+        {
+          "frame": 8.4375,
+          "yaw": 0.0,
+          "distance": 3.95507813,
+          "dodging": true
+        },
+        {
+          "frame": 8.75,
+          "yaw": 0.0,
+          "distance": 4.069238,
+          "dodging": true
+        },
+        {
+          "frame": 9.0625,
+          "yaw": 0.0,
+          "distance": 4.18153,
+          "dodging": true
+        },
+        {
+          "frame": 9.375,
+          "yaw": 0.0,
+          "distance": 4.291954,
+          "dodging": true
+        },
+        {
+          "frame": 9.6875,
+          "yaw": 0.0,
+          "distance": 4.40051,
+          "dodging": true
+        },
+        {
+          "frame": 10.0,
+          "yaw": 0.0,
+          "distance": 4.50719643,
+          "dodging": true
+        },
+        {
+          "frame": 10.3125,
+          "yaw": 0.0,
+          "distance": 4.61201429,
+          "dodging": true
+        },
+        {
+          "frame": 10.625,
+          "yaw": 0.0,
+          "distance": 4.714965,
+          "dodging": true
+        },
+        {
+          "frame": 10.9375,
+          "yaw": 0.0,
+          "distance": 4.81604671,
+          "dodging": true
+        },
+        {
+          "frame": 11.25,
+          "yaw": 0.0,
+          "distance": 4.91525936,
+          "dodging": true
+        },
+        {
+          "frame": 11.5625,
+          "yaw": 0.0,
+          "distance": 5.012604,
+          "dodging": true
+        },
+        {
+          "frame": 11.875,
+          "yaw": 0.0,
+          "distance": 5.108081,
+          "dodging": true
+        },
+        {
+          "frame": 12.1875,
+          "yaw": 0.0,
+          "distance": 5.201689,
+          "dodging": true
+        },
+        {
+          "frame": 12.5,
+          "yaw": 0.0,
+          "distance": 5.293428,
+          "dodging": true
+        },
+        {
+          "frame": 12.8125,
+          "yaw": 0.0,
+          "distance": 5.383299,
+          "dodging": true
+        },
+        {
+          "frame": 13.125,
+          "yaw": 0.0,
+          "distance": 5.471302,
+          "dodging": true
+        },
+        {
+          "frame": 13.4375,
+          "yaw": 0.0,
+          "distance": 5.55743647,
+          "dodging": true
+        },
+        {
+          "frame": 13.75,
+          "yaw": 0.0,
+          "distance": 5.6417017,
+          "dodging": true
+        },
+        {
+          "frame": 14.0625,
+          "yaw": 0.0,
+          "distance": 5.72409964,
+          "dodging": true
+        },
+        {
+          "frame": 14.375,
+          "yaw": 0.0,
+          "distance": 5.804629,
+          "dodging": true
+        },
+        {
+          "frame": 14.6875,
+          "yaw": 0.0,
+          "distance": 5.88328934,
+          "dodging": true
+        },
+        {
+          "frame": 15.0,
+          "yaw": 0.0,
+          "distance": 5.96008158,
+          "dodging": true
+        },
+        {
+          "frame": 15.3125,
+          "yaw": 0.0,
+          "distance": 6.03500557,
+          "dodging": true
+        },
+        {
+          "frame": 15.625,
+          "yaw": 0.0,
+          "distance": 6.10806131,
+          "dodging": true
+        },
+        {
+          "frame": 15.9375,
+          "yaw": 0.0,
+          "distance": 6.17924833,
+          "dodging": true
+        },
+        {
+          "frame": 16.25,
+          "yaw": 0.0,
+          "distance": 6.248567,
+          "dodging": true
+        },
+        {
+          "frame": 16.5625,
+          "yaw": 0.0,
+          "distance": 6.316017,
+          "dodging": true
+        },
+        {
+          "frame": 16.875,
+          "yaw": 0.0,
+          "distance": 6.381599,
+          "dodging": true
+        },
+        {
+          "frame": 17.1875,
+          "yaw": 0.0,
+          "distance": 6.445312,
+          "dodging": true
+        },
+        {
+          "frame": 17.5,
+          "yaw": 0.0,
+          "distance": 6.50715733,
+          "dodging": true
+        },
+        {
+          "frame": 17.8125,
+          "yaw": 0.0,
+          "distance": 6.56713343,
+          "dodging": true
+        },
+        {
+          "frame": 18.125,
+          "yaw": 0.0,
+          "distance": 6.62524176,
+          "dodging": true
+        },
+        {
+          "frame": 18.4375,
+          "yaw": 0.0,
+          "distance": 6.68148136,
+          "dodging": true
+        },
+        {
+          "frame": 18.75,
+          "yaw": 0.0,
+          "distance": 6.73585224,
+          "dodging": true
+        },
+        {
+          "frame": 19.0625,
+          "yaw": 0.0,
+          "distance": 6.78835535,
+          "dodging": true
+        },
+        {
+          "frame": 19.375,
+          "yaw": 0.0,
+          "distance": 6.83898973,
+          "dodging": true
+        },
+        {
+          "frame": 19.6875,
+          "yaw": 0.0,
+          "distance": 6.88775539,
+          "dodging": true
+        },
+        {
+          "frame": 20.0,
+          "yaw": 0.0,
+          "distance": 6.934653,
+          "dodging": true
+        },
+        {
+          "frame": 20.3125,
+          "yaw": 0.0,
+          "distance": 6.979682,
+          "dodging": true
+        },
+        {
+          "frame": 20.625,
+          "yaw": 0.0,
+          "distance": 7.02284241,
+          "dodging": true
+        },
+        {
+          "frame": 20.9375,
+          "yaw": 0.0,
+          "distance": 7.0641346,
+          "dodging": true
+        },
+        {
+          "frame": 21.25,
+          "yaw": 0.0,
+          "distance": 7.10355854,
+          "dodging": true
+        },
+        {
+          "frame": 21.5625,
+          "yaw": 0.0,
+          "distance": 7.14111376,
+          "dodging": true
+        },
+        {
+          "frame": 21.875,
+          "yaw": 0.0,
+          "distance": 7.17680073,
+          "dodging": true
+        },
+        {
+          "frame": 22.1875,
+          "yaw": 0.0,
+          "distance": 7.21061945,
+          "dodging": true
+        },
+        {
+          "frame": 22.5,
+          "yaw": 0.0,
+          "distance": 7.24256945,
+          "dodging": true
+        },
+        {
+          "frame": 22.8125,
+          "yaw": 0.0,
+          "distance": 7.27265072,
+          "dodging": true
+        },
+        {
+          "frame": 23.125,
+          "yaw": 0.0,
+          "distance": 7.300864,
+          "dodging": true
+        },
+        {
+          "frame": 23.4375,
+          "yaw": 0.0,
+          "distance": 7.327209,
+          "dodging": true
+        },
+        {
+          "frame": 23.75,
+          "yaw": 0.0,
+          "distance": 7.351685,
+          "dodging": true
+        },
+        {
+          "frame": 24.0625,
+          "yaw": 0.0,
+          "distance": 7.37429333,
+          "dodging": true
+        },
+        {
+          "frame": 24.375,
+          "yaw": 0.0,
+          "distance": 7.39503241,
+          "dodging": true
+        },
+        {
+          "frame": 24.6875,
+          "yaw": 0.0,
+          "distance": 7.41390371,
+          "dodging": true
+        },
+        {
+          "frame": 25.0,
+          "yaw": 0.0,
+          "distance": 7.4309063,
+          "dodging": true
+        },
+        {
+          "frame": 25.3125,
+          "yaw": 0.0,
+          "distance": 7.44604063,
+          "dodging": true
+        },
+        {
+          "frame": 25.625,
+          "yaw": 0.0,
+          "distance": 7.45930624,
+          "dodging": true
+        },
+        {
+          "frame": 25.9375,
+          "yaw": 0.0,
+          "distance": 7.4707036,
+          "dodging": true
+        },
+        {
+          "frame": 26.25,
+          "yaw": 0.0,
+          "distance": 7.48023224,
+          "dodging": true
+        },
+        {
+          "frame": 26.5625,
+          "yaw": 0.0,
+          "distance": 7.487893,
+          "dodging": true
+        },
+        {
+          "frame": 26.875,
+          "yaw": 0.0,
+          "distance": 7.493685,
+          "dodging": true
+        },
+        {
+          "frame": 27.1875,
+          "yaw": 0.0,
+          "distance": 7.49760866,
+          "dodging": true
+        },
+        {
+          "frame": 27.5,
+          "yaw": 0.0,
+          "distance": 7.499664,
+          "dodging": true
+        },
+        {
+          "frame": 27.8125,
+          "yaw": 0.0,
+          "distance": 7.5,
+          "dodging": true
+        },
+        {
+          "frame": 0.0,
+          "yaw": 0.0,
+          "distance": 7.5,
+          "dodging": false
+        }
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "frame": 0.0,
+      "yaw": 0.0,
+      "distance": 0.166476667,
+      "dodging": true
+    },
+    {
+      "frame": 0.3125,
+      "yaw": 0.0,
+      "distance": 0.331084281,
+      "dodging": true
+    },
+    {
+      "frame": 0.625,
+      "yaw": 0.0,
+      "distance": 0.493824184,
+      "dodging": true
+    },
+    {
+      "frame": 0.9375,
+      "yaw": 0.0,
+      "distance": 0.6546955,
+      "dodging": true
+    },
+    {
+      "frame": 1.25,
+      "yaw": 0.0,
+      "distance": 0.813698649,
+      "dodging": true
+    },
+    {
+      "frame": 1.5625,
+      "yaw": 0.0,
+      "distance": 0.9708322,
+      "dodging": true
+    },
+    {
+      "frame": 1.875,
+      "yaw": 0.0,
+      "distance": 1.12609863,
+      "dodging": true
+    },
+    {
+      "frame": 2.1875,
+      "yaw": 0.0,
+      "distance": 1.27949643,
+      "dodging": true
+    },
+    {
+      "frame": 2.5,
+      "yaw": 0.0,
+      "distance": 1.43102551,
+      "dodging": true
+    },
+    {
+      "frame": 2.8125,
+      "yaw": 0.0,
+      "distance": 1.58068562,
+      "dodging": true
+    },
+    {
+      "frame": 3.125,
+      "yaw": 0.0,
+      "distance": 1.72847855,
+      "dodging": true
+    },
+    {
+      "frame": 3.4375,
+      "yaw": 0.0,
+      "distance": 1.87440228,
+      "dodging": true
+    },
+    {
+      "frame": 3.75,
+      "yaw": 0.0,
+      "distance": 2.01845741,
+      "dodging": true
+    },
+    {
+      "frame": 4.0625,
+      "yaw": 0.0,
+      "distance": 2.16064453,
+      "dodging": true
+    },
+    {
+      "frame": 4.375,
+      "yaw": 0.0,
+      "distance": 2.3009634,
+      "dodging": true
+    },
+    {
+      "frame": 4.6875,
+      "yaw": 0.0,
+      "distance": 2.43941355,
+      "dodging": true
+    },
+    {
+      "frame": 5.0,
+      "yaw": 0.0,
+      "distance": 2.57599568,
+      "dodging": true
+    },
+    {
+      "frame": 5.3125,
+      "yaw": 0.0,
+      "distance": 2.71070838,
+      "dodging": true
+    },
+    {
+      "frame": 5.625,
+      "yaw": 0.0,
+      "distance": 2.8435533,
+      "dodging": true
+    },
+    {
+      "frame": 5.9375,
+      "yaw": 0.0,
+      "distance": 2.97453,
+      "dodging": true
+    },
+    {
+      "frame": 6.25,
+      "yaw": 0.0,
+      "distance": 3.1036377,
+      "dodging": true
+    },
+    {
+      "frame": 6.5625,
+      "yaw": 0.0,
+      "distance": 3.23087764,
+      "dodging": true
+    },
+    {
+      "frame": 6.875,
+      "yaw": 0.0,
+      "distance": 3.356249,
+      "dodging": true
+    },
+    {
+      "frame": 7.1875,
+      "yaw": 0.0,
+      "distance": 3.47975183,
+      "dodging": true
+    },
+    {
+      "frame": 7.5,
+      "yaw": 0.0,
+      "distance": 3.60138559,
+      "dodging": true
+    },
+    {
+      "frame": 7.8125,
+      "yaw": 0.0,
+      "distance": 3.721151,
+      "dodging": true
+    },
+    {
+      "frame": 8.125,
+      "yaw": 0.0,
+      "distance": 3.83904886,
+      "dodging": true
+    },
+    {
+      "frame": 8.4375,
+      "yaw": 0.0,
+      "distance": 3.95507813,
+      "dodging": true
+    },
+    {
+      "frame": 8.75,
+      "yaw": 0.0,
+      "distance": 4.069238,
+      "dodging": true
+    },
+    {
+      "frame": 9.0625,
+      "yaw": 0.0,
+      "distance": 4.18153,
+      "dodging": true
+    },
+    {
+      "frame": 9.375,
+      "yaw": 0.0,
+      "distance": 4.291954,
+      "dodging": true
+    },
+    {
+      "frame": 9.6875,
+      "yaw": 0.0,
+      "distance": 4.40051,
+      "dodging": true
+    },
+    {
+      "frame": 10.0,
+      "yaw": 0.0,
+      "distance": 4.50719643,
+      "dodging": true
+    },
+    {
+      "frame": 10.3125,
+      "yaw": 0.0,
+      "distance": 4.61201429,
+      "dodging": true
+    },
+    {
+      "frame": 10.625,
+      "yaw": 0.0,
+      "distance": 4.714965,
+      "dodging": true
+    },
+    {
+      "frame": 10.9375,
+      "yaw": 0.0,
+      "distance": 4.81604671,
+      "dodging": true
+    },
+    {
+      "frame": 11.25,
+      "yaw": 0.0,
+      "distance": 4.91525936,
+      "dodging": true
+    },
+    {
+      "frame": 11.5625,
+      "yaw": 0.0,
+      "distance": 5.012604,
+      "dodging": true
+    },
+    {
+      "frame": 11.875,
+      "yaw": 0.0,
+      "distance": 5.108081,
+      "dodging": true
+    },
+    {
+      "frame": 12.1875,
+      "yaw": 0.0,
+      "distance": 5.201689,
+      "dodging": true
+    },
+    {
+      "frame": 12.5,
+      "yaw": 0.0,
+      "distance": 5.293428,
+      "dodging": true
+    },
+    {
+      "frame": 12.8125,
+      "yaw": 0.0,
+      "distance": 5.383299,
+      "dodging": true
+    },
+    {
+      "frame": 13.125,
+      "yaw": 0.0,
+      "distance": 5.471302,
+      "dodging": true
+    },
+    {
+      "frame": 13.4375,
+      "yaw": 0.0,
+      "distance": 5.55743647,
+      "dodging": true
+    },
+    {
+      "frame": 13.75,
+      "yaw": 0.0,
+      "distance": 5.6417017,
+      "dodging": true
+    },
+    {
+      "frame": 14.0625,
+      "yaw": 0.0,
+      "distance": 5.72409964,
+      "dodging": true
+    },
+    {
+      "frame": 14.375,
+      "yaw": 0.0,
+      "distance": 5.804629,
+      "dodging": true
+    },
+    {
+      "frame": 14.6875,
+      "yaw": 0.0,
+      "distance": 5.88328934,
+      "dodging": true
+    },
+    {
+      "frame": 15.0,
+      "yaw": 0.0,
+      "distance": 5.96008158,
+      "dodging": true
+    },
+    {
+      "frame": 15.3125,
+      "yaw": 0.0,
+      "distance": 6.03500557,
+      "dodging": true
+    },
+    {
+      "frame": 15.625,
+      "yaw": 0.0,
+      "distance": 6.10806131,
+      "dodging": true
+    },
+    {
+      "frame": 15.9375,
+      "yaw": 0.0,
+      "distance": 6.17924833,
+      "dodging": true
+    },
+    {
+      "frame": 16.25,
+      "yaw": 0.0,
+      "distance": 6.248567,
+      "dodging": true
+    },
+    {
+      "frame": 16.5625,
+      "yaw": 0.0,
+      "distance": 6.316017,
+      "dodging": true
+    },
+    {
+      "frame": 16.875,
+      "yaw": 0.0,
+      "distance": 6.381599,
+      "dodging": true
+    },
+    {
+      "frame": 17.1875,
+      "yaw": 0.0,
+      "distance": 6.445312,
+      "dodging": true
+    },
+    {
+      "frame": 17.5,
+      "yaw": 0.0,
+      "distance": 6.50715733,
+      "dodging": true
+    },
+    {
+      "frame": 17.8125,
+      "yaw": 0.0,
+      "distance": 6.56713343,
+      "dodging": true
+    },
+    {
+      "frame": 18.125,
+      "yaw": 0.0,
+      "distance": 6.62524176,
+      "dodging": true
+    },
+    {
+      "frame": 18.4375,
+      "yaw": 0.0,
+      "distance": 6.68148136,
+      "dodging": true
+    },
+    {
+      "frame": 18.75,
+      "yaw": 0.0,
+      "distance": 6.73585224,
+      "dodging": true
+    },
+    {
+      "frame": 19.0625,
+      "yaw": 0.0,
+      "distance": 6.78835535,
+      "dodging": true
+    },
+    {
+      "frame": 19.375,
+      "yaw": 0.0,
+      "distance": 6.83898973,
+      "dodging": true
+    },
+    {
+      "frame": 19.6875,
+      "yaw": 0.0,
+      "distance": 6.88775539,
+      "dodging": true
+    },
+    {
+      "frame": 20.0,
+      "yaw": 0.0,
+      "distance": 6.934653,
+      "dodging": true
+    },
+    {
+      "frame": 20.3125,
+      "yaw": 0.0,
+      "distance": 6.979682,
+      "dodging": true
+    },
+    {
+      "frame": 20.625,
+      "yaw": 0.0,
+      "distance": 7.02284241,
+      "dodging": true
+    },
+    {
+      "frame": 20.9375,
+      "yaw": 0.0,
+      "distance": 7.0641346,
+      "dodging": true
+    },
+    {
+      "frame": 21.25,
+      "yaw": 0.0,
+      "distance": 7.10355854,
+      "dodging": true
+    },
+    {
+      "frame": 21.5625,
+      "yaw": 0.0,
+      "distance": 7.14111376,
+      "dodging": true
+    },
+    {
+      "frame": 21.875,
+      "yaw": 0.0,
+      "distance": 7.17680073,
+      "dodging": true
+    },
+    {
+      "frame": 22.1875,
+      "yaw": 0.0,
+      "distance": 7.21061945,
+      "dodging": true
+    },
+    {
+      "frame": 22.5,
+      "yaw": 0.0,
+      "distance": 7.24256945,
+      "dodging": true
+    },
+    {
+      "frame": 22.8125,
+      "yaw": 0.0,
+      "distance": 7.27265072,
+      "dodging": true
+    },
+    {
+      "frame": 23.125,
+      "yaw": 0.0,
+      "distance": 7.300864,
+      "dodging": true
+    },
+    {
+      "frame": 23.4375,
+      "yaw": 0.0,
+      "distance": 7.327209,
+      "dodging": true
+    },
+    {
+      "frame": 23.75,
+      "yaw": 0.0,
+      "distance": 7.351685,
+      "dodging": true
+    },
+    {
+      "frame": 24.0625,
+      "yaw": 0.0,
+      "distance": 7.37429333,
+      "dodging": true
+    },
+    {
+      "frame": 24.375,
+      "yaw": 0.0,
+      "distance": 7.39503241,
+      "dodging": true
+    },
+    {
+      "frame": 24.6875,
+      "yaw": 0.0,
+      "distance": 7.41390371,
+      "dodging": true
+    },
+    {
+      "frame": 25.0,
+      "yaw": 0.0,
+      "distance": 7.4309063,
+      "dodging": true
+    },
+    {
+      "frame": 25.3125,
+      "yaw": 0.0,
+      "distance": 7.44604063,
+      "dodging": true
+    },
+    {
+      "frame": 25.625,
+      "yaw": 0.0,
+      "distance": 7.45930624,
+      "dodging": true
+    },
+    {
+      "frame": 25.9375,
+      "yaw": 0.0,
+      "distance": 7.4707036,
+      "dodging": true
+    },
+    {
+      "frame": 26.25,
+      "yaw": 0.0,
+      "distance": 7.48023224,
+      "dodging": true
+    },
+    {
+      "frame": 26.5625,
+      "yaw": 0.0,
+      "distance": 7.487893,
+      "dodging": true
+    },
+    {
+      "frame": 26.875,
+      "yaw": 0.0,
+      "distance": 7.493685,
+      "dodging": true
+    },
+    {
+      "frame": 27.1875,
+      "yaw": 0.0,
+      "distance": 7.49760866,
+      "dodging": true
+    },
+    {
+      "frame": 27.5,
+      "yaw": 0.0,
+      "distance": 7.499664,
+      "dodging": true
+    },
+    {
+      "frame": 27.8125,
+      "yaw": 0.0,
+      "distance": 7.5,
+      "dodging": true
+    },
+    {
+      "frame": 0.0,
+      "yaw": 0.0,
+      "distance": 7.5,
+      "dodging": false
+    }
+  ],
+  "elapsed": 0.88784909999958472
+}

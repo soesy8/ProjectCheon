@@ -1,0 +1,55 @@
+{
+  "success": true,
+  "message": "걷기·달리기·장비 전환 중 이동 및 재생 주기 확인 완료",
+  "reports": [
+    {
+      "mode": "납도 걷기",
+      "actualSpeed": 4.400002,
+      "expectedSpeed": 4.4,
+      "actualCycles": 1.52380991,
+      "expectedCycles": 1.52380967,
+      "passed": true
+    },
+    {
+      "mode": "납도 달리기",
+      "actualSpeed": 6.60000324,
+      "expectedSpeed": 6.6,
+      "actualCycles": 2.285715,
+      "expectedCycles": 2.28571439,
+      "passed": true
+    },
+    {
+      "mode": "달리며 발도",
+      "actualSpeed": 6.60000229,
+      "expectedSpeed": 6.6,
+      "actualCycles": 2.28571486,
+      "expectedCycles": 2.28571439,
+      "passed": true
+    },
+    {
+      "mode": "발도 달리기",
+      "actualSpeed": 6.60000229,
+      "expectedSpeed": 6.6,
+      "actualCycles": 2.285715,
+      "expectedCycles": 2.28571439,
+      "passed": true
+    },
+    {
+      "mode": "발도 걷기",
+      "actualSpeed": 4.399999,
+      "expectedSpeed": 4.4,
+      "actualCycles": 1.52381015,
+      "expectedCycles": 1.52380967,
+      "passed": true
+    },
+    {
+      "mode": "걸으며 납도",
+      "actualSpeed": 4.400003,
+      "expectedSpeed": 4.4,
+      "actualCycles": 1.52381,
+      "expectedCycles": 1.52380967,
+      "passed": true
+    }
+  ],
+  "elapsed": 0.87694879999980913
+}

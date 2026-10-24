@@ -1,0 +1,13 @@
+{
+  "scene": "Assets/Test/CheonMountainMap/Scenes/Test_CheonMountainMap.unity",
+  "wallBodies": 11,
+  "endPosts": 7,
+  "colliders": 18,
+  "invalidColliders": 0,
+  "connectedPrefabs": 18,
+  "passageChecks": 87,
+  "capsuleRadius": 0.28,
+  "capsuleHeight": 1.8,
+  "blocked": [],
+  "failedWallCollisions": []
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "attack": 1,
+    "sampledFrames": 69,
+    "maxOriginalDeviationDegrees": 57.5149422,
+    "meanOriginalDeviationDegrees": 56.82564,
+    "maxCorrectedDeviationDegrees": 0.0,
+    "originalMaxCombinedDegrees": 56.309124,
+    "correctedMaxCombinedDegrees": 62.3466454,
+    "rawMaxCombinedDegrees": 62.3466225,
+    "rawMaxHeadStepDegrees": 6.889384,
+    "rawMaxHeadStepAtFrame": 26
+  },
+  {
+    "attack": 2,
+    "sampledFrames": 96,
+    "maxOriginalDeviationDegrees": 57.73734,
+    "meanOriginalDeviationDegrees": 53.92213,
+    "maxCorrectedDeviationDegrees": 0.0,
+    "originalMaxCombinedDegrees": 123.678932,
+    "correctedMaxCombinedDegrees": 70.16536,
+    "rawMaxCombinedDegrees": 70.16542,
+    "rawMaxHeadStepDegrees": 19.13557,
+    "rawMaxHeadStepAtFrame": 33
+  },
+  {
+    "attack": 3,
+    "sampledFrames": 76,
+    "maxOriginalDeviationDegrees": 34.9820366,
+    "meanOriginalDeviationDegrees": 33.3422546,
+    "maxCorrectedDeviationDegrees": 0.0,
+    "originalMaxCombinedDegrees": 82.217514,
+    "correctedMaxCombinedDegrees": 52.4622726,
+    "rawMaxCombinedDegrees": 52.4622726,
+    "rawMaxHeadStepDegrees": 11.6084824,
+    "rawMaxHeadStepAtFrame": 26
+  }
+]

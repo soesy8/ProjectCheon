@@ -1,0 +1,26 @@
+[
+  {
+    "variant": 0,
+    "path": "Assets/Temp/FanSocketAdjustment~/Test_Variant0.png",
+    "position": "(0.008971, -0.015314, -0.001120)",
+    "euler": "(0.000, 203.127, 270.000)",
+    "fanCenter": "(0.4272, 0.7894, -0.0820)",
+    "hand": "(0.4650, 0.7936, -0.1414)"
+  },
+  {
+    "variant": -1,
+    "path": "Assets/Temp/FanSocketAdjustment~/Test_Variant-1.png",
+    "position": "(-0.006029, -0.015314, -0.001120)",
+    "euler": "(0.000, 203.127, 258.000)",
+    "fanCenter": "(0.4132, 0.8075, -0.0675)",
+    "hand": "(0.4650, 0.7936, -0.1414)"
+  },
+  {
+    "variant": 1,
+    "path": "Assets/Temp/FanSocketAdjustment~/Test_Variant1.png",
+    "position": "(-0.006029, -0.015314, -0.001120)",
+    "euler": "(0.000, 203.127, 282.000)",
+    "fanCenter": "(0.4427, 0.7776, -0.0672)",
+    "hand": "(0.4650, 0.7936, -0.1414)"
+  }
+]

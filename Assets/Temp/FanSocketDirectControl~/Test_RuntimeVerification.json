@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "reason": "Direct Transform edits survived drawing and all three attacks",
+  "samples": 5685,
+  "maxPositionDrift": 0.0,
+  "maxRotationDrift": 0.0,
+  "finishedAttacks": [
+    1,
+    2,
+    3
+  ],
+  "elapsed": 8.56934020000017,
+  "restoredPosition": "(-0.021029, -0.015314, -0.001120)",
+  "restoredEuler": "(0.000, 203.127, 294.000)",
+  "fanAttachedToSocket": true
+}

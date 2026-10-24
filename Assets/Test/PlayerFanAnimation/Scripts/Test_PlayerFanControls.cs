@@ -23,6 +23,11 @@ namespace Cheon.Testing.PlayerFan
         private readonly TMP_InputField[] speedInputs = new TMP_InputField[3];
         private readonly TMP_InputField[] startFrameInputs = new TMP_InputField[3];
         private readonly TMP_InputField[] endFrameInputs = new TMP_InputField[3];
+        private readonly TMP_InputField[] movementSpeedInputs = new TMP_InputField[2];
+        private readonly TMP_InputField[] movementStartFrameInputs = new TMP_InputField[2];
+        private readonly TMP_InputField[] movementEndFrameInputs = new TMP_InputField[2];
+        private readonly UnityEngine.UI.Slider[] movementSpeedSliders = new UnityEngine.UI.Slider[2];
+        private readonly TMP_Text[] movementSpeedLabels = new TMP_Text[2];
         private TMP_InputField openingInput;
         private UnityEngine.UI.Slider openingSlider;
         private static readonly Color Paper = new Color(0.89f, 0.91f, 0.88f);
@@ -65,18 +70,19 @@ namespace Cheon.Testing.PlayerFan
             status = Text(panel, "", 18f, 82f, 300f, 46f, 16f, Paper);
 
             Button(panel, "대기 [I]", 18f, 136f, 144f, animationControl.PlayIdle);
-            Button(panel, "달리기 [R]", 172f, 136f, 144f, animationControl.PlayRun);
+            Button(panel, "달리기 [Shift]", 172f, 136f, 144f, animationControl.PlayRun);
             attackButtons[0] = Button(panel, "공격 1 [1]", 18f, 181f, 94f, animationControl.PlayAttack1).transform.parent.GetComponent<UnityEngine.UI.Button>();
             attackButtons[1] = Button(panel, "공격 2 [2]", 120f, 181f, 94f, animationControl.PlayAttack2).transform.parent.GetComponent<UnityEngine.UI.Button>();
             attackButtons[2] = Button(panel, "공격 3 [3]", 222f, 181f, 94f, animationControl.PlayAttack3).transform.parent.GetComponent<UnityEngine.UI.Button>();
             Button(panel, "피격 [4]", 18f, 226f, 144f, animationControl.PlayHit);
             combatText = Button(panel, "전투 진입 [5]", 172f, 226f, 144f, animationControl.PlayDrawSheathe);
+            Button(panel, "구르기 [Space]", 18f, 271f, 298f, animationControl.PlayRoll);
 
-            Text(panel, "공격 속도 / 재생 프레임", 18f, 276f, 298f, 28f, 18f, Jade);
+            Text(panel, "공격 속도 / 재생 프레임", 18f, 316f, 298f, 28f, 18f, Jade);
             for (int i = 0; i < 3; i++)
             {
                 int index = i;
-                float row = 308f + i * 77f;
+                float row = 348f + i * 77f;
                 speedLabels[i] = Text(panel, "", 18f, row, 220f, 26f, 14f, Paper);
                 speedInputs[i] = NumberInput(panel, "Attack" + (i + 1) + "Speed", 246f, row, 70f, false, value =>
                 {
@@ -97,21 +103,57 @@ namespace Cheon.Testing.PlayerFan
                 speedSliders[i] = Slider(panel, 18f, row + 57f, 298f, 0.05f, 3f);
                 speedSliders[i].onValueChanged.AddListener(value => SetAttackSpeed(index, value));
             }
-            pauseText = Button(panel, "일시정지 [Space]", 18f, 542f, 144f, animationControl.TogglePause);
-            Button(panel, "동작 반복 전환", 172f, 542f, 144f, () => animationControl.RepeatSelectedAnimation = !animationControl.RepeatSelectedAnimation);
-            Text(panel, "부채 상태", 18f, 594f, 290f, 28f, 18f, Jade);
-            fanButtons[0] = Button(panel, "접힌 FBX", 18f, 630f, 94f, fanAttachment.ShowClosed).transform.parent.GetComponent<UnityEngine.UI.Button>();
-            fanButtons[1] = Button(panel, "펼친 FBX", 120f, 630f, 94f, fanAttachment.ShowOpen).transform.parent.GetComponent<UnityEngine.UI.Button>();
-            fanButtons[2] = Button(panel, "펼침 / 접힘 [F]", 222f, 630f, 94f, fanAttachment.ToggleFan, 12f).transform.parent.GetComponent<UnityEngine.UI.Button>();
-            fanStatus = Text(panel, "", 18f, 678f, 220f, 26f, 14f, Paper);
-            openingInput = NumberInput(panel, "FanOpeningPercent", 246f, 678f, 70f, false, value =>
+            pauseText = Button(panel, "일시정지 [P]", 18f, 584f, 144f, animationControl.TogglePause);
+            Button(panel, "동작 반복 전환", 172f, 584f, 144f, () => animationControl.RepeatSelectedAnimation = !animationControl.RepeatSelectedAnimation);
+            Text(panel, "부채 상태", 18f, 628f, 290f, 28f, 18f, Jade);
+            fanButtons[0] = Button(panel, "접힌 FBX", 18f, 660f, 94f, fanAttachment.ShowClosed).transform.parent.GetComponent<UnityEngine.UI.Button>();
+            fanButtons[1] = Button(panel, "펼친 FBX", 120f, 660f, 94f, fanAttachment.ShowOpen).transform.parent.GetComponent<UnityEngine.UI.Button>();
+            fanButtons[2] = Button(panel, "펼침 / 접힘 [F]", 222f, 660f, 94f, fanAttachment.ToggleFan, 12f).transform.parent.GetComponent<UnityEngine.UI.Button>();
+            fanStatus = Text(panel, "", 18f, 704f, 220f, 26f, 14f, Paper);
+            openingInput = NumberInput(panel, "FanOpeningPercent", 246f, 704f, 70f, false, value =>
             {
                 if (TryNumber(value, out float percent)) fanAttachment.SetOpeningAmount(Mathf.Clamp01(percent / 100f));
             });
-            openingSlider = Slider(panel, 18f, 710f, 298f, 0f, 1f);
+            openingSlider = Slider(panel, 18f, 734f, 298f, 0f, 1f);
             openingSlider.onValueChanged.AddListener(fanAttachment.SetOpeningAmount);
-            Button(panel, "카메라 초기화", 18f, 750f, 298f, orbitCamera.ResetView);
-            Text(panel, "숫자 입력 후 Enter 또는 다른 곳 클릭\n5: 전투 / 1~3: 공격 / 우클릭·휠: 카메라", 18f, 800f, 300f, 48f, 13f, new Color(0.63f, 0.70f, 0.72f));
+            Button(panel, "카메라 초기화", 18f, 754f, 298f, orbitCamera.ResetView);
+            Text(panel, "숫자 입력 후 Enter 또는 다른 곳 클릭\nSpace: 구르기 / Shift: 달리기 / P: 정지\n5: 전투 / 1~3: 공격 / 우클릭·휠: 카메라", 18f, 794f, 300f, 64f, 13f, new Color(0.63f, 0.70f, 0.72f));
+            CreateMovementSettings(canvasObject.transform);
+        }
+
+        private void CreateMovementSettings(Transform canvas)
+        {
+            var panel = Rect("Test_MovementSettingsPanel", canvas, 0f, 0f, 334f, 224f);
+            panel.anchorMin = panel.anchorMax = panel.pivot = Vector2.one;
+            panel.anchoredPosition = new Vector2(-24f, -24f);
+            panel.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(0.035f, 0.065f, 0.085f, 0.96f);
+            Text(panel, "구르기 / 달리기 조절", 18f, 14f, 298f, 28f, 18f, Jade);
+            for (int i = 0; i < 2; i++)
+            {
+                int index = i;
+                int playbackIndex = i + 4;
+                string name = i == 0 ? "Roll" : "Run2";
+                float row = 48f + i * 82f;
+                movementSpeedLabels[i] = Text(panel, "", 18f, row, 220f, 26f, 14f, Paper);
+                movementSpeedInputs[i] = NumberInput(panel, name + "Speed", 246f, row, 70f, false, value =>
+                {
+                    if (TryNumber(value, out float speed)) SetMovementSpeed(index, speed);
+                });
+                Text(panel, "시작 F", 18f, row + 29f, 48f, 26f, 14f, Paper);
+                movementStartFrameInputs[i] = NumberInput(panel, name + "StartFrame", 66f, row + 29f, 74f, true, value =>
+                {
+                    if (int.TryParse(value, out int frame))
+                        animationControl.SetPlaybackFrameRange(playbackIndex, frame, animationControl.GetPlaybackEndFrame(playbackIndex));
+                });
+                Text(panel, "종료 F", 190f, row + 29f, 52f, 26f, 14f, Paper);
+                movementEndFrameInputs[i] = NumberInput(panel, name + "EndFrame", 242f, row + 29f, 74f, true, value =>
+                {
+                    if (int.TryParse(value, out int frame))
+                        animationControl.SetPlaybackFrameRange(playbackIndex, animationControl.GetPlaybackStartFrame(playbackIndex), frame);
+                });
+                movementSpeedSliders[i] = Slider(panel, 18f, row + 57f, 298f, 0.05f, 3f);
+                movementSpeedSliders[i].onValueChanged.AddListener(value => SetMovementSpeed(index, value));
+            }
         }
 
         private void Update()
@@ -119,9 +161,10 @@ namespace Cheon.Testing.PlayerFan
             string stateLabel = animationControl.SelectedState switch
             {
                 "SHEATHED_IDLE" => "납도 대기", "DRAWN_IDLE" => "발도 대기", "DRAW" => "발도", "SHEATHE" => "납도",
-                "ATTACK1" => "공격 1", "ATTACK2" => "공격 2", "ATTACK3" => "공격 3", "HIT" => "피격", _ => "대기"
+                "ATTACK1" => "공격 1", "ATTACK2" => "공격 2", "ATTACK3" => "공격 3", "HIT" => "피격",
+                "ROLL" => "구르기", "RUN2" => "달리기", _ => "대기"
             };
-            status.text = $"{stateLabel}{(animationControl.IsRunning ? " · 달리기" : "")}  ·  {animationControl.PlaybackProgress * 100f:0}%\n동작 반복: {(animationControl.RepeatSelectedAnimation ? "켜짐" : "꺼짐")}";
+            status.text = $"{stateLabel}{(animationControl.IsRunning && animationControl.SelectedState != "RUN2" ? " · 달리기" : "")}  ·  {animationControl.PlaybackProgress * 100f:0}%\n동작 반복: {(animationControl.RepeatSelectedAnimation ? "켜짐" : "꺼짐")}";
             combatText.text = animationControl.IsCombatRequested ? "전투 종료 [5]" : "전투 진입 [5]";
             float[] speeds = { animationControl.attack1Speed, animationControl.attack2Speed, animationControl.attack3Speed };
             for (int i = 0; i < 3; i++)
@@ -134,7 +177,18 @@ namespace Cheon.Testing.PlayerFan
                 attackButtons[i].interactable = animationControl.CanAttack;
                 fanButtons[i].interactable = animationControl.CanPreviewFan;
             }
-            pauseText.text = animationControl.IsPaused ? "계속 재생 [Space]" : "일시정지 [Space]";
+            for (int i = 0; i < 2; i++)
+            {
+                int playbackIndex = i + 4;
+                float speed = i == 0 ? animationControl.rollSpeed : animationControl.run2Speed;
+                string label = i == 0 ? "구르기" : "달리기";
+                movementSpeedLabels[i].text = $"{label} · 0~{animationControl.GetPlaybackMaximumFrame(playbackIndex)}F · 속도 ×";
+                movementSpeedSliders[i].SetValueWithoutNotify(speed);
+                SyncInput(movementSpeedInputs[i], speed.ToString("0.00", CultureInfo.InvariantCulture));
+                SyncInput(movementStartFrameInputs[i], animationControl.GetPlaybackStartFrame(playbackIndex).ToString());
+                SyncInput(movementEndFrameInputs[i], animationControl.GetPlaybackEndFrame(playbackIndex).ToString());
+            }
+            pauseText.text = animationControl.IsPaused ? "계속 재생 [P]" : "일시정지 [P]";
             fanStatus.text = $"{(fanAttachment.IsInHand ? "손 장착" : "납도 보관")} · 펼침 %";
             SyncInput(openingInput, (fanAttachment.OpeningAmount * 100f).ToString("0.0", CultureInfo.InvariantCulture));
             openingInput.interactable = animationControl.CanPreviewFan;
@@ -148,6 +202,13 @@ namespace Cheon.Testing.PlayerFan
             if (index == 0) animationControl.attack1Speed = speed;
             else if (index == 1) animationControl.attack2Speed = speed;
             else animationControl.attack3Speed = speed;
+        }
+
+        private void SetMovementSpeed(int index, float value)
+        {
+            float speed = Mathf.Clamp(value, 0.05f, 3f);
+            if (index == 0) animationControl.rollSpeed = speed;
+            else animationControl.run2Speed = speed;
         }
 
         private static bool TryNumber(string text, out float value)

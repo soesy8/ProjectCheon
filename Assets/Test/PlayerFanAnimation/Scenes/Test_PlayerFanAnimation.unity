@@ -1362,6 +1362,7 @@ GameObject:
   - component: {fileID: 544550194}
   - component: {fileID: 544550193}
   - component: {fileID: 544550192}
+  - component: {fileID: 544550196}
   m_Layer: 0
   m_Name: Test_MainCamera
   m_TagString: MainCamera
@@ -1461,6 +1462,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &544550196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544550191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1 &565084924
 GameObject:
   m_ObjectHideFlags: 0
@@ -4253,13 +4298,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258500978}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.69275427, y: 0.6927544, z: 0.14174522, w: -0.14174391}
-  m_LocalPosition: {x: 0.00897063, y: -0.01531397, z: -0.0011200239}
+  m_LocalRotation: {x: 0.22514525, y: -0.97025245, z: -0.0884815, w: -0.0095367795}
+  m_LocalPosition: {x: -0.0028359771, y: 0.033948634, z: 0.01464762}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 591604340}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -10.136, y: 181.242, z: 333.762}
 --- !u!1 &1308309249
 GameObject:
   m_ObjectHideFlags: 0
@@ -5463,8 +5508,6 @@ MonoBehaviour:
   handSocket: {fileID: 1258500979}
   stowedSocket: {fileID: 56931703}
   fanRoot: {fileID: 170366077}
-  socketLocalPosition: {x: 0.00897063, y: -0.01531397, z: -0.0011200239}
-  socketLocalEulerAngles: {x: -0.00010672171, y: 203.12738, z: 270}
   fanScale: 0.85
   attachmentBlendDuration: 0.06
   closedFan: {fileID: 2118517849}
@@ -5490,18 +5533,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cheon.Testing.PlayerFan.Test_PlayerFanAnimationController
   characterAnimator: {fileID: 591604341}
   fanAttachment: {fileID: 1916732145}
-  attack1Speed: 1
-  attack2Speed: 1
-  attack3Speed: 1
+  attack1Speed: 1.8
+  attack2Speed: 1.3
+  attack3Speed: 1.5
   attack1Clip: {fileID: -203655887218126122, guid: 13c46b5c87780ab4596a4bef2f950317, type: 3}
-  attack1StartFrame: 0
+  attack1StartFrame: 6
   attack1EndFrame: 68
   attack2Clip: {fileID: -203655887218126122, guid: 3b1614202f42984478696dbd4b435030, type: 3}
-  attack2StartFrame: 0
+  attack2StartFrame: 20
   attack2EndFrame: 95
   attack3Clip: {fileID: -203655887218126122, guid: d18c75d63e0e5c245ab0dfde66946ee3, type: 3}
-  attack3StartFrame: 0
+  attack3StartFrame: 5
   attack3EndFrame: 75
+  rollClip: {fileID: -203655887218126122, guid: f3f31d8eed4bc3e41bf8a941f2f33e6e, type: 3}
+  rollSpeed: 1.25
+  rollStartFrame: 0
+  rollEndFrame: 40
+  run2Clip: {fileID: -203655887218126122, guid: 6ef8bd48f10873346bbbf1633385983a, type: 3}
+  run2Speed: 1
+  run2StartFrame: 0
+  run2EndFrame: 21
   transitionDuration: 0.09
   returnBlendDuration: 0.18
   locomotionBlendDuration: 0.12
@@ -5516,6 +5567,8 @@ MonoBehaviour:
   sheatheStowTime: 0.52
   repeatSelectedAnimation: 0
   enableKeyboardShortcuts: 1
+  timingSettings: {fileID: 0}
+  equipmentWhileMoving: 0
 --- !u!4 &1916732147
 Transform:
   m_ObjectHideFlags: 0

@@ -1,0 +1,30 @@
+[
+  {
+    "Path": "D:\\mbcAcademy\\ProjectCheon\\Assets\\Settings\\Mobile_RPAsset.asset",
+    "Hash": "2D5182D2B8884AC88BC6ED033A0A722C23CFB15A7BC8B7DAA38DB37227BAFD09"
+  },
+  {
+    "Path": "D:\\mbcAcademy\\ProjectCheon\\Assets\\Test\\PlayerFanAnimation\\Models\\Test_CheonPlayer.fbx.meta",
+    "Hash": "5F3503A460854490686957E4B2BC5F6FBFD1CC410D60A834DAF7B9E91A89A5DD"
+  },
+  {
+    "Path": "D:\\mbcAcademy\\ProjectCheon\\Assets\\Test\\PlayerFanAnimation\\Animations\\Test_Player.controller",
+    "Hash": "7ADAC409217F95D039F295F5CD5C44FF5B919C3CF483C23DB042B9224D48F367"
+  },
+  {
+    "Path": "D:\\mbcAcademy\\ProjectCheon\\Assets\\Test\\PlayerFanAnimation\\Scenes\\Test_PlayerFanAnimation.unity",
+    "Hash": "BDD73A1723D9A1A7B01C804D216F6F00DD1C2339687020585F147ADB530D5F94"
+  },
+  {
+    "Path": "D:\\mbcAcademy\\ProjectCheon\\Assets\\Test\\PlayerFanAnimation\\Animations\\Test_Attack1.fbx",
+    "Hash": "56F37DA45727E3B7244E7F29CA7BE12B737BE5E77B3D4672349B08C78A9BE8F8"
+  },
+  {
+    "Path": "D:\\mbcAcademy\\ProjectCheon\\Assets\\Test\\PlayerFanAnimation\\Animations\\Test_Attack2.fbx",
+    "Hash": "791163E86F3064B44C01E70D0995D54F59B7DA35CFAD8C0DD3ED241D78D3AB09"
+  },
+  {
+    "Path": "D:\\mbcAcademy\\ProjectCheon\\Assets\\Test\\PlayerFanAnimation\\Animations\\Test_Attack3.fbx",
+    "Hash": "28D78B91DCEB26460138ED2266BFB7937D3D0157E8D70883BC0F250770FE9531"
+  }
+]

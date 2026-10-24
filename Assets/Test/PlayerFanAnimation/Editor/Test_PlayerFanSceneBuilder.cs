@@ -135,7 +135,7 @@ namespace Cheon.Testing.PlayerFan
         {
             var controller = EmptyController(Root + "Animations/Test_Player.controller");
             controller.AddParameter("MoveAmount", AnimatorControllerParameterType.Float);
-            var states = new[] { ("SHEATHED_IDLE", "SheathedIdle"), ("DRAWN_IDLE", "DrawnIdle"), ("DRAW", "DrawSheathe"), ("SHEATHE", "DrawSheathe"), ("ATTACK1", "Attack1"), ("ATTACK2", "Attack2"), ("ATTACK3", "Attack3"), ("HIT", "Hit") };
+            var states = new[] { ("SHEATHED_IDLE", "SheathedIdle"), ("DRAWN_IDLE", "DrawnIdle"), ("DRAW", "DrawSheathe"), ("SHEATHE", "DrawSheathe"), ("ATTACK1", "Attack1"), ("ATTACK2", "Attack2"), ("ATTACK3", "Attack3"), ("HIT", "Hit"), ("ROLL", "Roll"), ("RUN2", "Run2") };
             var machine = controller.layers[0].stateMachine;
             for (int i = 0; i < states.Length; i++)
             {
@@ -147,12 +147,13 @@ namespace Cheon.Testing.PlayerFan
                     var tree = new BlendTree { name = "Test_" + states[i].Item1 + "_Locomotion", blendType = BlendTreeType.Simple1D, blendParameter = "MoveAmount", useAutomaticThresholds = false };
                     AssetDatabase.AddObjectToAsset(tree, controller);
                     tree.AddChild(clip, 0f);
-                    tree.AddChild(Clip(Root + "Animations/Test_Run.fbx"), 1f);
+                    tree.AddChild(Clip(Root + "Animations/Test_Run2.fbx"), 1f);
                     state.motion = tree;
                 }
                 if (i == 0) machine.defaultState = state;
-                if (i < 2 || i > 6) continue;
-                string parameter = i == 2 ? "DrawSpeed" : i == 3 ? "SheatheSpeed" : "Attack" + (i - 3) + "Speed";
+                if (i < 2 || i == 7) continue;
+                string parameter = i == 8 ? "RollSpeed" : i == 9 ? "Run2Speed" :
+                    i == 2 ? "DrawSpeed" : i == 3 ? "SheatheSpeed" : "Attack" + (i - 3) + "Speed";
                 controller.AddParameter(parameter, AnimatorControllerParameterType.Float);
                 var parameters = controller.parameters;
                 parameters[parameters.Length - 1].defaultFloat = i == 3 ? -1f : 1f;
@@ -213,6 +214,8 @@ namespace Cheon.Testing.PlayerFan
             var serializedControl = new SerializedObject(control);
             for (int i = 1; i <= 3; i++)
                 serializedControl.FindProperty("attack" + i + "Clip").objectReferenceValue = Clip(Root + "Animations/Test_Attack" + i + ".fbx");
+            serializedControl.FindProperty("rollClip").objectReferenceValue = Clip(Root + "Animations/Test_Roll.fbx");
+            serializedControl.FindProperty("run2Clip").objectReferenceValue = Clip(Root + "Animations/Test_Run2.fbx");
             serializedControl.FindProperty("transitionDuration").floatValue = 0.09f;
             serializedControl.FindProperty("repeatSelectedAnimation").boolValue = false;
             serializedControl.ApplyModifiedPropertiesWithoutUndo();

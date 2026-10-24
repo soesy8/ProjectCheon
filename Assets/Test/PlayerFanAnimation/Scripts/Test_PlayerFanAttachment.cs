@@ -6,11 +6,10 @@ namespace Cheon.Testing.PlayerFan
     public class Test_PlayerFanAttachment : MonoBehaviour
     {
         [Header("장착 기준점")]
+        [Tooltip("이 소켓 Transform의 로컬 위치와 회전을 Inspector에서 직접 조절합니다.")]
         [SerializeField] private Transform handSocket;
         [SerializeField] private Transform stowedSocket;
         [SerializeField] private Transform fanRoot;
-        [SerializeField] private Vector3 socketLocalPosition;
-        [SerializeField] private Vector3 socketLocalEulerAngles;
         [SerializeField, Min(0.01f)] private float fanScale = 1f;
         [SerializeField, Range(0f, 0.2f)] private float attachmentBlendDuration = 0.06f;
         [Header("부채 FBX")]
@@ -40,7 +39,7 @@ namespace Cheon.Testing.PlayerFan
 
         public void Configure(Transform socket, GameObject closed, GameObject open, GameObject animated, Animator animator, float clipLength)
         {
-            handSocket = socket; socketLocalPosition = socket.localPosition; socketLocalEulerAngles = socket.localEulerAngles;
+            handSocket = socket;
             closedFan = closed; openFan = open; animatedFan = animated; fanAnimator = animator; openingClipLength = clipLength;
         }
         public void ConfigureMounts(Transform storage, Transform root) { stowedSocket = storage; fanRoot = root; }
@@ -58,12 +57,7 @@ namespace Cheon.Testing.PlayerFan
         }
         private void LateUpdate()
         {
-            if (handSocket != null)
-            {
-                handSocket.localPosition = socketLocalPosition;
-                handSocket.localRotation = Quaternion.Euler(socketLocalEulerAngles);
-                handSocket.localScale = Vector3.one;
-            }
+            // 손 소켓은 Transform의 조절값을 그대로 사용하고, 장착 전환은 부채 루트에서만 처리한다.
             if (fanRoot == null) return;
             if (!paused) attachmentProgress = attachmentBlendDuration <= 0f ? 1f : Mathf.Min(1f, attachmentProgress + Time.deltaTime / attachmentBlendDuration);
             float blend = Mathf.SmoothStep(0f, 1f, attachmentProgress);
