@@ -1,0 +1,47 @@
+var game=UnityEngine.Object.FindFirstObjectByType<Cheon.Prototype.MountainPass.PassGameFlow>();
+var player=game.Player.GetComponent<Cheon.Prototype.MountainPass.PassPlayerMovement>();
+var boss=game.Boss;
+var checks=new System.Collections.Generic.List<object>();var failures=new System.Collections.Generic.List<string>();
+System.Action<string,bool,object> record=(name,passed,value)=>{checks.Add(new{name,passed,value});if(!passed)failures.Add(name);};
+System.Collections.IEnumerator Routine(){
+ game.BeginBossChallenge();boss.enabled=false;
+ player.Teleport(boss.transform.position+Vector3.forward*6f,Quaternion.Euler(0f,90f,0f));
+ yield return new WaitForSeconds(1.6f);
+ var origin=player.transform.position;
+ UnityEngine.InputSystem.InputSystem.QueueStateEvent(UnityEngine.InputSystem.Keyboard.current,new UnityEngine.InputSystem.LowLevel.KeyboardState(UnityEngine.InputSystem.Key.Space));
+ yield return new WaitForSeconds(0.12f);
+ bool rolling=player.AnimationControl.IsDodging;
+ UnityEngine.InputSystem.InputSystem.QueueStateEvent(UnityEngine.InputSystem.Keyboard.current,new UnityEngine.InputSystem.LowLevel.KeyboardState());
+ yield return new WaitForSeconds(0.9f);
+ float rolled=Vector3.Distance(origin,player.transform.position);
+ record("roll_input_movement",rolling && rolled>6.5f,new{rolling,rolled});
+ game.BeginBossChallenge();boss.enabled=false;
+ player.Teleport(new Vector3(-15f,20f,-43f),Quaternion.identity);
+ yield return new WaitForSeconds(0.25f);
+ record("fall_recovery",player.transform.position.y>36f && game.PlayerHealth.Current==80f,new{position=player.transform.position.ToString(),hp=game.PlayerHealth.Current});
+ player.Teleport(boss.transform.position+Vector3.right*40f,Quaternion.identity);
+ yield return new WaitForSeconds(0.2f);
+ var arenaOffset=player.transform.position-boss.transform.position;arenaOffset.y=0f;
+ record("arena_boundary",arenaOffset.magnitude<=28.1f,arenaOffset.magnitude);
+ game.BeginBossChallenge();boss.enabled=false;
+ player.Teleport(boss.transform.position+Vector3.forward*6f,Quaternion.Euler(0f,180f,0f));
+ yield return new WaitForSeconds(1.6f);
+ var top=Camera.main.WorldToViewportPoint(boss.transform.position+Vector3.up*12.3f);
+ var foot=Camera.main.WorldToViewportPoint(player.transform.position);
+ record("combat_framing",top.y<0.95f && top.y>0.1f && foot.y>0.08f,new{top=top.ToString(),foot=foot.ToString()});
+ var renderer=boss.transform.Find("Visual").GetComponentsInChildren<Renderer>().First(r=>r.name=="Head");
+ var block=new MaterialPropertyBlock();renderer.GetPropertyBlock(block,0);
+ record("wood_color_preserved",Vector4.Distance(block.GetColor("_BaseColor"),renderer.sharedMaterials[0].GetColor("_BaseColor"))<0.01f,block.GetColor("_BaseColor").ToString());
+ boss.Health.TakeDamage(225f);game.PlayerHealth.Invulnerable=true;boss.enabled=true;
+ typeof(Cheon.Prototype.MountainPass.PassBossController).GetField("attackCount",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance).SetValue(boss,0);
+ typeof(Cheon.Prototype.MountainPass.PassBossController).GetMethod("BeginAttack",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance).Invoke(boss,null);
+ yield return new WaitForSeconds(1.1f);
+ record("enraged_phase",boss.Enraged && boss.State==Cheon.Prototype.MountainPass.PassBossController.BossState.Recovering,boss.State.ToString());
+ boss.enabled=false;game.PlayerHealth.Invulnerable=false;
+ game.BeginBossChallenge();boss.enabled=false;
+ player.Teleport(boss.transform.position+Vector3.forward*6f,Quaternion.Euler(0f,180f,0f));
+ var report=new{checks,failures,complete=true};
+ System.IO.File.WriteAllText("Assets/Temp/MountainPrototype~/Test_FinalGameplayVerification.json",Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented));
+}
+game.StartCoroutine(Routine());return true;
+

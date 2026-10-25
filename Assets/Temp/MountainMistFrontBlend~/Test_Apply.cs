@@ -1,0 +1,21 @@
+var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+if(EditorApplication.isPlaying || scene.path!="Assets/Proto/MountainPass/Scenes/MountainPass.unity") throw new InvalidOperationException("프로토타입 편집 씬 확인 필요");
+UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);
+System.IO.File.Copy(scene.path,"Assets/Temp/MountainMistFrontBlend~/Test_Before.unity",false);
+var mist=UnityEngine.Object.FindFirstObjectByType<Cheon.Prototype.MountainPass.PassMountainMist>();
+var rear=new SerializedObject(mist.RearFog);
+var boundary=(Transform)rear.FindProperty("densityBoundary").objectReferenceValue;
+var before=new{width=rear.FindProperty("boundaryFade").floatValue,position=new[]{boundary.position.x,boundary.position.y,boundary.position.z}};
+Undo.RecordObjects(new UnityEngine.Object[]{mist.RearFog,boundary},"계단 앞쪽 안개를 옅게 확장");
+rear.FindProperty("boundaryFade").floatValue=.8f;
+rear.ApplyModifiedProperties();
+boundary.position-=boundary.forward*.12f;
+mist.RearFog.ApplySettings();
+EditorUtility.SetDirty(mist.RearFog);
+EditorUtility.SetDirty(boundary);
+UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(scene);
+UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);
+var report=new{before=before,width=rear.FindProperty("boundaryFade").floatValue,position=new[]{boundary.position.x,boundary.position.y,boundary.position.z},roughness=rear.FindProperty("boundaryRoughness").floatValue,floorHeight=rear.FindProperty("boundaryFloorHeight").floatValue};
+System.IO.File.WriteAllText("Assets/Temp/MountainMistFrontBlend~/Test_Adjustment.json",Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented));
+return report;
+

@@ -1,0 +1,18 @@
+{
+  "scene": "Assets/Proto/MountainPass/Scenes/MountainPass.unity",
+  "saved": true,
+  "rails": [
+    {
+      "name": "ApproachLeftParapet",
+      "maxTurnPerStep": 13.5934,
+      "colliderMatches": true,
+      "metaPreserved": true
+    },
+    {
+      "name": "ApproachRightParapet",
+      "maxTurnPerStep": 21.1657772,
+      "colliderMatches": true,
+      "metaPreserved": true
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "scene": "Assets/Proto/MountainPass/Scenes/MountainPass.unity",
+  "missingScripts": 0,
+  "lanterns": 22,
+  "existingLanternInstances": 22,
+  "barriers": 186,
+  "shrine": true,
+  "entrance": true,
+  "timeline": "Assets/Proto/MountainPass/Timelines/BossIntroduction.playable",
+  "cameraBounds": "-65 ~ 85",
+  "bossScale": "(1.50, 2.25, 1.50)",
+  "atlasDimensions": [
+    "1024x1024",
+    "1024x1024"
+  ],
+  "shaderErrors": 0,
+  "oldCheckpointObjectsRemoved": true,
+  "inputBackground": "ResetAndDisableNonBackgroundDevices",
+  "editorInput": "PointersAndKeyboardsRespectGameViewFocus",
+  "player": "(-18.72, 3.53, 100.82)",
+  "editMode": true
+}

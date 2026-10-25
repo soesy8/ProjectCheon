@@ -1,0 +1,733 @@
+[
+  {
+    "root": "BossGateEntrance",
+    "name": "BossGateEntrance",
+    "localPosition": "(-6.75, 40.96, -18.77)",
+    "position": "(-6.75, 40.96, -18.77)",
+    "rotation": "(0.00, 224.56, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "BossGateEntrance",
+    "name": "SpiritPortalVeil",
+    "localPosition": "(0.00, -0.05, 0.04)",
+    "position": "(-6.78, 40.91, -18.80)",
+    "rotation": "(0.00, 224.56, 0.00)",
+    "scale": "(5.70, 8.45, 1.00)",
+    "mesh": "Library/unity default resources",
+    "min": "(-8.81, 36.69, -20.80)",
+    "max": "(-4.75, 45.14, -16.80)",
+    "material": [
+      "Assets/Proto/MountainPass/Materials/M_SpiritGate.mat"
+    ],
+    "colliders": []
+  },
+  {
+    "root": "BossGateEntrance",
+    "name": "AscendingSpiritMotes",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(-6.75, 40.96, -18.77)",
+    "rotation": "(0.00, 224.56, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "(0.00, 0.00, 0.00)",
+    "max": "(0.00, 0.00, 0.00)",
+    "material": [
+      "Assets/Proto/MountainPass/Materials/M_SpiritRing.mat"
+    ],
+    "colliders": []
+  },
+  {
+    "root": "BossGateEntrance",
+    "name": "SpiritPortalGlow",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(-6.75, 40.96, -18.77)",
+    "rotation": "(0.00, 224.56, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "BossGateEntrance",
+    "name": "SpiritPortalOutline",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(-6.75, 40.96, -18.77)",
+    "rotation": "(0.00, 224.56, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "(-8.80, 36.74, -20.79)",
+    "max": "(-4.71, 45.08, -16.75)",
+    "material": [
+      "Assets/Proto/MountainPass/Materials/M_SpiritRing.mat"
+    ],
+    "colliders": []
+  },
+  {
+    "root": "BossGateEntrance",
+    "name": "BossEncounterRetreatBarrier",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(-6.75, 40.96, -18.77)",
+    "rotation": "(0.00, 224.56, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": [
+      {
+        "name": "BoxCollider",
+        "enabled": false,
+        "min": "(-6.75, 40.96, -18.77)",
+        "max": "(-6.75, 40.96, -18.77)"
+      }
+    ]
+  },
+  {
+    "root": "Gate Environment Transition",
+    "name": "Gate Environment Transition",
+    "localPosition": "(-6.75, 40.96, -18.77)",
+    "position": "(-6.75, 40.96, -18.77)",
+    "rotation": "(0.00, 224.56, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_ShrineEntranceWalls",
+    "localPosition": "(0.00, 27.12, 37.00)",
+    "position": "(0.00, 27.12, 37.00)",
+    "rotation": "(0.00, 0.00, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_EntranceWall_Left",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(0.00, 27.12, 37.00)",
+    "rotation": "(0.00, 0.00, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_Middle_01",
+    "localPosition": "(11.45, -0.24, 4.95)",
+    "position": "(11.45, 26.88, 41.95)",
+    "rotation": "(0.00, 171.53, 355.07)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_Middle_Geometry",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(11.45, 26.88, 41.95)",
+    "rotation": "(0.00, 171.53, 355.07)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+    "min": "(11.16, 26.88, 41.26)",
+    "max": "(13.92, 29.27, 42.97)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(11.16, 26.88, 41.26)",
+        "max": "(13.92, 29.27, 42.97)"
+      }
+    ]
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_Middle_02",
+    "localPosition": "(7.51, -0.50, 6.82)",
+    "position": "(7.51, 26.62, 43.82)",
+    "rotation": "(359.29, 163.23, 357.65)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_Middle_Geometry",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(7.51, 26.62, 43.82)",
+    "rotation": "(359.29, 163.23, 357.65)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+    "min": "(7.22, 26.61, 43.18)",
+    "max": "(10.01, 28.92, 45.16)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(7.22, 26.61, 43.18)",
+        "max": "(10.01, 28.92, 45.16)"
+      }
+    ]
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_Middle_03",
+    "localPosition": "(5.56, -0.69, 5.72)",
+    "position": "(5.56, 26.43, 42.72)",
+    "rotation": "(358.28, 151.11, 355.38)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_Middle_Geometry",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(5.56, 26.43, 42.72)",
+    "rotation": "(358.28, 151.11, 355.38)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+    "min": "(5.05, 26.41, 42.10)",
+    "max": "(7.98, 28.84, 44.47)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(5.05, 26.41, 42.10)",
+        "max": "(7.98, 28.84, 44.47)"
+      }
+    ]
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_Middle_04",
+    "localPosition": "(4.03, -0.83, 4.20)",
+    "position": "(4.03, 26.29, 41.20)",
+    "rotation": "(358.07, 135.36, 355.46)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_Middle_Geometry",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(4.03, 26.29, 41.20)",
+    "rotation": "(358.07, 135.36, 355.46)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+    "min": "(3.38, 26.27, 40.65)",
+    "max": "(6.21, 28.69, 43.37)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(3.38, 26.27, 40.65)",
+        "max": "(6.21, 28.69, 43.37)"
+      }
+    ]
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_End_01",
+    "localPosition": "(14.04, -0.04, 5.34)",
+    "position": "(14.04, 27.08, 42.34)",
+    "rotation": "(0.00, 171.53, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_End_Geometry",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(14.04, 27.08, 42.34)",
+    "rotation": "(0.00, 171.53, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_End.fbx",
+    "min": "(13.45, 27.08, 41.58)",
+    "max": "(14.14, 29.35, 43.02)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_End.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(13.45, 27.08, 41.58)",
+        "max": "(14.14, 29.35, 43.02)"
+      }
+    ]
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_End_02",
+    "localPosition": "(4.20, -0.83, 4.37)",
+    "position": "(4.20, 26.29, 41.37)",
+    "rotation": "(358.07, 135.36, 0.39)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_End_Geometry",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(4.20, 26.29, 41.37)",
+    "rotation": "(358.07, 135.36, 0.39)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_End.fbx",
+    "min": "(3.33, 26.26, 40.53)",
+    "max": "(4.69, 28.58, 41.92)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_End.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(3.33, 26.26, 40.53)",
+        "max": "(4.69, 28.58, 41.92)"
+      }
+    ]
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_EntranceWall_Right",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(0.00, 27.12, 37.00)",
+    "rotation": "(0.00, 0.00, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_Middle_01",
+    "localPosition": "(-1.81, -0.48, -1.54)",
+    "position": "(-1.81, 26.64, 35.46)",
+    "rotation": "(1.89, 134.57, 0.40)",
+    "scale": "(1.17, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_Middle_Geometry",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(-1.81, 26.64, 35.46)",
+    "rotation": "(1.89, 134.57, 0.40)",
+    "scale": "(1.17, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+    "min": "(-2.29, 26.60, 34.95)",
+    "max": "(0.69, 28.86, 37.92)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(-2.29, 26.60, 34.95)",
+        "max": "(0.69, 28.86, 37.92)"
+      }
+    ]
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_Middle_02",
+    "localPosition": "(-4.09, -0.44, -3.40)",
+    "position": "(-4.09, 26.68, 33.60)",
+    "rotation": "(0.00, 143.97, 1.56)",
+    "scale": "(1.17, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_Middle_Geometry",
+    "localPosition": "(-0.04, 0.23, -0.17)",
+    "position": "(-4.15, 26.91, 33.77)",
+    "rotation": "(0.00, 143.97, 4.98)",
+    "scale": "(1.17, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+    "min": "(-4.54, 26.69, 33.22)",
+    "max": "(-1.32, 29.10, 36.08)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(-4.54, 26.66, 33.22)",
+        "max": "(-1.34, 29.10, 36.06)"
+      }
+    ]
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_Middle_03",
+    "localPosition": "(-6.93, -0.04, -3.84)",
+    "position": "(-6.93, 27.08, 33.16)",
+    "rotation": "(0.00, 166.06, 3.21)",
+    "scale": "(1.26, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_Middle_Geometry",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(-6.93, 27.08, 33.16)",
+    "rotation": "(0.00, 166.06, 3.21)",
+    "scale": "(1.26, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+    "min": "(-7.10, 26.91, 32.51)",
+    "max": "(-3.72, 29.28, 34.57)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(-7.10, 26.91, 32.51)",
+        "max": "(-3.72, 29.28, 34.57)"
+      }
+    ]
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_Middle_04",
+    "localPosition": "(-8.73, -0.04, -2.91)",
+    "position": "(-8.73, 27.08, 34.09)",
+    "rotation": "(0.00, 212.57, 0.00)",
+    "scale": "(0.90, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_Middle_Geometry",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(-8.73, 27.08, 34.09)",
+    "rotation": "(0.00, 212.57, 0.00)",
+    "scale": "(0.90, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+    "min": "(-9.09, 27.08, 32.36)",
+    "max": "(-6.55, 29.28, 34.65)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(-9.09, 27.08, 32.36)",
+        "max": "(-6.55, 29.28, 34.65)"
+      }
+    ]
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_Middle_05",
+    "localPosition": "(-10.53, -0.04, -1.76)",
+    "position": "(-10.53, 27.08, 35.24)",
+    "rotation": "(0.00, 212.57, 0.00)",
+    "scale": "(0.90, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_Middle_Geometry",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(-10.53, 27.08, 35.24)",
+    "rotation": "(0.00, 212.57, 0.00)",
+    "scale": "(0.90, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+    "min": "(-10.89, 27.08, 33.51)",
+    "max": "(-8.35, 29.28, 35.80)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(-10.89, 27.08, 33.51)",
+        "max": "(-8.35, 29.28, 35.80)"
+      }
+    ]
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_Middle_06",
+    "localPosition": "(-12.43, -0.04, -0.01)",
+    "position": "(-12.43, 27.08, 36.99)",
+    "rotation": "(0.00, 222.65, 0.00)",
+    "scale": "(1.09, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_Middle_Geometry",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(-12.43, 27.08, 36.99)",
+    "rotation": "(0.00, 222.65, 0.00)",
+    "scale": "(1.09, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+    "min": "(-12.88, 27.08, 34.73)",
+    "max": "(-10.06, 29.28, 37.48)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(-12.88, 27.08, 34.73)",
+        "max": "(-10.06, 29.28, 37.48)"
+      }
+    ]
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_Middle_07",
+    "localPosition": "(-14.33, -0.04, 1.74)",
+    "position": "(-14.33, 27.08, 38.74)",
+    "rotation": "(0.00, 222.65, 0.00)",
+    "scale": "(1.09, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_Middle_Geometry",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(-14.33, 27.08, 38.74)",
+    "rotation": "(0.00, 222.65, 0.00)",
+    "scale": "(1.09, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+    "min": "(-14.78, 27.08, 36.48)",
+    "max": "(-11.96, 29.28, 39.23)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(-14.78, 27.08, 36.48)",
+        "max": "(-11.96, 29.28, 39.23)"
+      }
+    ]
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_End_01",
+    "localPosition": "(0.30, -0.45, 0.60)",
+    "position": "(0.30, 26.67, 37.60)",
+    "rotation": "(1.89, 134.57, 349.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_End_Geometry",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(0.30, 26.67, 37.60)",
+    "rotation": "(1.89, 134.57, 349.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_End.fbx",
+    "min": "(-0.78, 26.55, 36.42)",
+    "max": "(0.79, 28.92, 38.09)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_End.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(-0.78, 26.55, 36.42)",
+        "max": "(0.79, 28.92, 38.09)"
+      }
+    ]
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_End_04",
+    "localPosition": "(-10.35, -0.04, -1.92)",
+    "position": "(-10.35, 27.08, 35.08)",
+    "rotation": "(0.00, 222.65, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_End_Geometry",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(-10.35, 27.08, 35.08)",
+    "rotation": "(0.00, 222.65, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_End.fbx",
+    "min": "(-11.18, 27.08, 34.57)",
+    "max": "(-9.89, 29.35, 35.91)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_End.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(-11.18, 27.08, 34.57)",
+        "max": "(-9.89, 29.35, 35.91)"
+      }
+    ]
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Test_Wall_End_05",
+    "localPosition": "(-15.22, -0.04, 1.84)",
+    "position": "(-15.22, 27.08, 38.84)",
+    "rotation": "(0.00, 222.65, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "Test_ShrineEntranceWalls",
+    "name": "Wall_End_Geometry",
+    "localPosition": "(0.00, 0.00, 0.00)",
+    "position": "(-15.22, 27.08, 38.84)",
+    "rotation": "(0.00, 222.65, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_End.fbx",
+    "min": "(-16.05, 27.08, 38.33)",
+    "max": "(-14.76, 29.35, 39.67)",
+    "material": [
+      "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_End.mat"
+    ],
+    "colliders": [
+      {
+        "name": "MeshCollider",
+        "enabled": true,
+        "min": "(-16.05, 27.08, 38.33)",
+        "max": "(-14.76, 29.35, 39.67)"
+      }
+    ]
+  },
+  {
+    "root": "HeightFog_VFX",
+    "name": "HeightFog_VFX",
+    "localPosition": "(-28.00, 8.00, -21.00)",
+    "position": "(-28.00, 8.00, -21.00)",
+    "rotation": "(0.00, 0.00, 0.00)",
+    "scale": "(1.00, 1.00, 1.00)",
+    "mesh": "",
+    "min": "",
+    "max": "",
+    "material": null,
+    "colliders": []
+  },
+  {
+    "root": "HeightFog_VFX",
+    "name": "Fog Volume",
+    "localPosition": "(0.00, -55.00, 0.00)",
+    "position": "(-28.00, -47.00, -21.00)",
+    "rotation": "(0.00, 0.00, 0.00)",
+    "scale": "(1000.00, 110.00, 1120.00)",
+    "mesh": "Library/unity default resources",
+    "min": "(-528.00, -102.00, -581.00)",
+    "max": "(472.00, 8.00, 539.00)",
+    "material": [
+      "Assets/Arts/Materials/M_HeightFogVolume.mat"
+    ],
+    "colliders": []
+  }
+]

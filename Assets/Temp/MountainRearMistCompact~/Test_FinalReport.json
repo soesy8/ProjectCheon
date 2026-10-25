@@ -1,0 +1,16 @@
+{
+  "scene": "Assets/Proto/MountainPass/Scenes/MountainPass.unity",
+  "areaSize": [
+    10.0,
+    10.0
+  ],
+  "volumeDepth": 10.0,
+  "top": 5.67948246,
+  "position": "(-17.69, 5.68, 101.54)",
+  "boundary": "(-18.46, 3.48, 100.95)",
+  "topFade": 2.2,
+  "edgeFade": 2.0,
+  "summitFadeHeight": 7.0,
+  "summitClearLeadHeight": 1.5,
+  "shaderErrors": 0
+}

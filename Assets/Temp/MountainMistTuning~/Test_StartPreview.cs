@@ -1,0 +1,1 @@
+var game=UnityEngine.Object.FindFirstObjectByType<Cheon.Prototype.MountainPass.PassGameFlow>();game.BeginJourney();game.Boss.enabled=false;game.Player.GetComponent<Cheon.Prototype.MountainPass.PassPlayerMovement>().InputEnabled=false;return new{frame=Time.frameCount};

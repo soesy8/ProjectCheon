@@ -1,0 +1,19 @@
+{
+  "playing": true,
+  "frame": 24359,
+  "grounded": true,
+  "position": "(-18.7239, 3.5095, 100.8249)",
+  "playerYaw": 230.946,
+  "orthographic": true,
+  "cameraPitch": 35.26439,
+  "cameraYaw": 135.0,
+  "cameraSize": 7.0,
+  "timingsMatch": true,
+  "runtimeTimingsMatch": true,
+  "playbackMatch": true,
+  "scalarMismatches": [],
+  "restored": true,
+  "reenabled": true,
+  "tracksPlayer": true,
+  "failures": []
+}

@@ -1,0 +1,24 @@
+{
+  "frame": 50960,
+  "player": [
+    15.749999,
+    27.1499958,
+    25.0999947
+  ],
+  "spawn": [
+    15.749999,
+    27.1599979,
+    25.0999947
+  ],
+  "grounded": true,
+  "horizontalDrift": 0.0,
+  "playerFootToGround": 0.02999878,
+  "boss": [
+    -28.2499962,
+    37.1199837,
+    -67.9
+  ],
+  "bossHeight": 5.43,
+  "wallColliders": 16,
+  "passageBlockedByNewWalls": false
+}

@@ -1,0 +1,33 @@
+Jangseung boss concept v5 — revision prompts
+Mode: built-in image_gen edit
+Input artwork: T_JangseungBossConcept_v4.png
+Final artwork: T_JangseungBossConcept_v5.png (1024 x 1024)
+Revision: double the length of the plain inset body below the projecting chin.
+
+Initial edit
+
+Use case: precise-object-edit.
+Asset type: Korean jangseung boss reference sheet, revision v5.
+Edit the supplied v4 character sheet.
+
+Make exactly ONE change: DOUBLE the LENGTH of the plain wooden BODY BELOW THE CHIN.
+
+Measurement and geometry:
+The body is ONLY the slightly recessed plain wooden pillar from the UNDERSIDE OF THE PROJECTING CHIN down to the flat ground-contact bottom. Increase this vertical distance to EXACTLY 2 TIMES its present length, keeping its width and depth unchanged. For clarity, in the supplied 1024-pixel sheet's large left view this segment is about 180 pixels tall; at the same face scale it should become about 360 pixels tall before the final sheet is reframed. Extend the bottom downward, keeping the upper attachment directly beneath the chin in place.
+Do not double the whole character, do not stretch the face, and do not make the body longer than twice its original length. Preserve the slightly inset front surface, narrow body width, flat bottom, and simple angular wood grooves. The broad protruding chin continues to overhang the recessed body, with a clear geometric step and hard cel-shaded underside shadow.
+
+Invariants: keep the head, face, large ears and hat EXACTLY as they are, preserving their existing proportions relative to each other and to the pillar width. Same menacing brows, eyes and red pupils, large nose, uneven square teeth and mouth shape, same forward-projecting jaw, same dark charcoal-blue hat with horizontal wings, same elongated carved ears, same warm brown wood palette, sparse cracks, low-poly geometry and crisp cel-shading. No arms, hands, legs, feet, decorations, new text or new objects. No changes other than doubling the lower body's length.
+
+Apply the same precise doubling of the under-chin body segment consistently to ALL THREE VIEWS.
+Preserve the square reference-sheet composition: one large full-body three-quarter view on the left, smaller front and side views stacked on the right. Zoom out and reduce the drawings uniformly as needed to fit the newly taller character, retaining full uncropped silhouettes and hat wings with clear margins. Do NOT crop off the doubled body to keep the old framing. Plain light gray studio background, subtle grounding shadows. Target 1024 x 1024. No text, labels or watermark.
+
+Proportion refinement
+
+Precisely refine this Korean jangseung boss sheet. Keep the head, face, chin, ears, hat and body width unchanged.
+
+The desired lower-body length is DOUBLE the previous v4 design, which means the plain wooden body BELOW THE CHIN should be about 65% of the height of the wooden FACE BLOCK measured from the bottom edge of the hat to the underside of the chin. In the supplied image the body is too long. Shorten the large left view's under-chin body to about THREE QUARTERS of its current length, while retaining the exact head size. Keep the body straight and slightly inset behind the projecting chin.
+
+Crucially, fix the smaller front and side views to match this SAME character geometry: in EACH VIEW the vertical distance from chin underside to ground equals approximately 65% of the vertical distance from bottom edge of hat to chin underside. The face height itself does NOT change. All three renderings must show one identical 3D character with matching proportions. The body must remain clearly longer than the earlier compact stump, without becoming an extremely long pole.
+
+Preserve the same large left three-quarter view and two smaller right front and side views, crisp low-poly cel shading, warm timber, aggressive expression, carved long ears, winged dark hat, broad projecting chin, inset body and sparse cracks. No other alterations. No limbs, text or new objects. Reframe each full character to fit with margins, on the same light gray background. Square 1024 x 1024 target output.
+

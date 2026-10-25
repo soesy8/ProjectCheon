@@ -1,0 +1,43 @@
+{
+  "checks": [
+    {
+      "stair": 0,
+      "side": 0,
+      "offset": -2.230161,
+      "edge": 2.88221455,
+      "y": 11.1435165,
+      "blocked": true
+    },
+    {
+      "stair": 0,
+      "side": 1,
+      "offset": 1.84603965,
+      "edge": 2.62115049,
+      "y": 11.1435156,
+      "blocked": true
+    },
+    {
+      "stair": 1,
+      "side": 0,
+      "offset": -1.71062529,
+      "edge": 2.3686707,
+      "y": 20.0635052,
+      "blocked": true
+    },
+    {
+      "stair": 1,
+      "side": 1,
+      "offset": 1.01096976,
+      "edge": 1.66707087,
+      "y": 20.0498924,
+      "blocked": true
+    }
+  ],
+  "invisibleWalls": true,
+  "colliders": 186,
+  "playerLayer": 0,
+  "physicalCollision": true,
+  "cameraIgnoresWalls": true,
+  "oldCheckpointObjectsRemoved": true,
+  "completed": true
+}

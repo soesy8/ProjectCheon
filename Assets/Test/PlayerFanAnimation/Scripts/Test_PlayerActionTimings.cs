@@ -40,11 +40,11 @@ namespace Cheon.Testing.PlayerFan
         {
             new ActionTiming { state = "ATTACK1", moveCancel = 0.60f, dodgeCancel = 0.45f },
             new ActionTiming { state = "ATTACK2", moveCancel = 0.55f, dodgeCancel = 0.32f, attack1Cancel = 0.60f, attack2Cancel = 0.60f, attack3Cancel = 0.25811943f },
-            new ActionTiming { state = "ATTACK3", moveCancel = 0.85f, dodgeCancel = 0.80f, attack1Cancel = 0.70f, attack2Cancel = 0.70f, attack3Cancel = 0.70f, equipmentCancel = 1f },
+            new ActionTiming { state = "ATTACK3", moveCancel = 0.80f, dodgeCancel = 0.75f, attack1Cancel = 0.70f, attack2Cancel = 0.70f, attack3Cancel = 0.70f, equipmentCancel = 1f },
             new ActionTiming { state = "DRAW", moveCancel = 0.96f, dodgeCancel = 0.96f, attack1Cancel = 0.96f, attack2Cancel = 0.96f, attack3Cancel = 0.96f, equipmentCancel = 0.45f },
             new ActionTiming { state = "SHEATHE", moveCancel = 0.96f, dodgeCancel = 0.96f, attack1Cancel = 0.96f, attack2Cancel = 0.96f, attack3Cancel = 0.96f, equipmentCancel = 0.45f },
             new ActionTiming { state = "HIT", moveCancel = 0.55f, dodgeCancel = 0.35f, attack1Cancel = 0.85f, attack2Cancel = 0.85f, attack3Cancel = 0.85f },
-            new ActionTiming { state = "ROLL", moveCancel = 1f, dodgeCancel = 1f, attack1Cancel = 1f, attack2Cancel = 1f, attack3Cancel = 1f, equipmentCancel = 1f }
+            new ActionTiming { state = "ROLL", moveCancel = 1f, dodgeCancel = 1f, attack1Cancel = 0.90f, attack2Cancel = 1f, attack3Cancel = 1f, equipmentCancel = 1f }
         };
 
         public ActionTiming Get(string state)

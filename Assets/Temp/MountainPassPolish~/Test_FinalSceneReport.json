@@ -1,0 +1,30 @@
+{
+  "scene": "Assets/Proto/MountainPass/Scenes/MountainPass.unity",
+  "editMode": true,
+  "missingScripts": 0,
+  "trees": 33,
+  "treeColliders": 33,
+  "rearWalls": 3,
+  "outerWalls": 420,
+  "connectionWalls": 88,
+  "stoneRailMeshes": [
+    {
+      "name": "ApproachLeftParapet",
+      "vertices": 2984,
+      "collider": true,
+      "material": "M_StairParapet"
+    },
+    {
+      "name": "ApproachRightParapet",
+      "vertices": 2984,
+      "collider": true,
+      "material": "M_StairParapet"
+    }
+  ],
+  "mistZones": 4,
+  "portalSize": "(7.30, 9.40, 1.00)",
+  "retreatBarrier": "(11.50, 12.00, 0.80)",
+  "player": "(-18.72, 3.53, 100.82)",
+  "cameraEnabled": true,
+  "shaderErrors": 0
+}

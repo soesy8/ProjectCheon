@@ -1,0 +1,191 @@
+var artPath = "Assets/Arts/Characters/JangseungBoss";
+var tempPath = "Assets/Temp/JangseungBossModeling";
+var modelPath = artPath + "/Models/JangseungBoss.fbx";
+var prefabPath = "Assets/Prefabs/Bosses/JangseungBoss.prefab";
+AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
+if (!AssetDatabase.IsValidFolder("Assets/Prefabs/Bosses"))
+    AssetDatabase.CreateFolder("Assets/Prefabs", "Bosses");
+
+var manifest = Newtonsoft.Json.Linq.JObject.Parse(System.IO.File.ReadAllText(tempPath + "/build_manifest.json"));
+var shader = Shader.Find("Cheon/SimpleToon");
+if (shader == null) throw new Exception("Cheon/SimpleToon shader not found.");
+var shaderErrors = ShaderUtil.GetShaderMessages(shader).Where(message => message.severity.ToString() == "Error").ToArray();
+if (shaderErrors.Length > 0) throw new Exception("Toon shader has compile errors.");
+
+var materialMap = new Dictionary<string, Material>();
+foreach (var item in ((Newtonsoft.Json.Linq.JObject)manifest["materialColors"]).Properties())
+{
+    Color color;
+    if (!ColorUtility.TryParseHtmlString("#" + item.Value.ToString(), out color))
+        throw new Exception("Invalid color: " + item.Name);
+    var materialPath = artPath + "/Materials/" + item.Name + ".mat";
+    var material = AssetDatabase.LoadAssetAtPath<Material>(materialPath);
+    if (material == null)
+    {
+        material = new Material(shader);
+        material.name = item.Name;
+        AssetDatabase.CreateAsset(material, materialPath);
+    }
+    material.shader = shader;
+    material.SetColor("_BaseColor", color);
+    material.SetColor("_ShadowColor", new Color(0.40f, 0.33f, 0.26f, 1f));
+    material.SetFloat("_MidTone", 0.74f);
+    material.SetFloat("_ShadowThreshold", 0.18f);
+    material.SetFloat("_HighlightThreshold", 0.66f);
+    material.SetFloat("_AmbientStrength", 0.12f);
+    material.SetFloat("_ReceiveShadows", 1f);
+    material.SetFloat("_VertexTint", 0f);
+    material.SetFloat("_Cull", 2f);
+    if (item.Name == "M_JangseungHat")
+        material.SetColor("_ShadowColor", new Color(0.30f, 0.40f, 0.44f, 1f));
+    if (item.Name == "M_JangseungRed")
+        material.SetColor("_EmissionColor", new Color(0.12f, 0.004f, 0.001f, 1f));
+    EditorUtility.SetDirty(material);
+    materialMap.Add(item.Name, material);
+}
+AssetDatabase.SaveAssets();
+
+var importer = AssetImporter.GetAtPath(modelPath) as ModelImporter;
+if (importer == null) throw new Exception("ModelImporter missing.");
+importer.globalScale = 1f;
+importer.useFileScale = true;
+importer.bakeAxisConversion = true;
+importer.importCameras = false;
+importer.importLights = false;
+importer.importAnimation = false;
+importer.animationType = ModelImporterAnimationType.None;
+importer.importBlendShapes = false;
+importer.importNormals = ModelImporterNormals.Import;
+importer.importTangents = ModelImporterTangents.None;
+importer.meshCompression = ModelImporterMeshCompression.Off;
+importer.isReadable = false;
+importer.materialImportMode = ModelImporterMaterialImportMode.ImportStandard;
+importer.materialLocation = ModelImporterMaterialLocation.InPrefab;
+importer.preserveHierarchy = true;
+foreach (var item in materialMap)
+    importer.AddRemap(new AssetImporter.SourceAssetIdentifier(typeof(Material), item.Key), item.Value);
+importer.SaveAndReimport();
+var model = AssetDatabase.LoadAssetAtPath<GameObject>(modelPath);
+if (model == null) throw new Exception("FBX import failed.");
+
+// 현재 사용자의 씬을 건드리지 않도록 별도 미리보기 씬에서 프리팹을 조립한다.
+var previewScene = UnityEditor.SceneManagement.EditorSceneManager.NewPreviewScene();
+GameObject instance = null;
+GameObject prefab = null;
+Newtonsoft.Json.Linq.JObject report = null;
+try
+{
+    instance = new GameObject("JangseungBoss");
+    UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(instance, previewScene);
+    var visual = (GameObject)PrefabUtility.InstantiatePrefab(model, previewScene);
+    visual.name = "Visual";
+    visual.transform.SetParent(instance.transform, false);
+    // 프리팹의 앞면을 Unity의 +Z 방향과 일치시킨다.
+    visual.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+    instance.transform.position = Vector3.zero;
+    instance.transform.rotation = Quaternion.identity;
+    instance.transform.localScale = Vector3.one;
+    var renderers = instance.GetComponentsInChildren<MeshRenderer>(true);
+    foreach (var renderer in renderers)
+    {
+        renderer.sharedMaterials = renderer.sharedMaterials.Select(material =>
+        {
+            if (material == null) throw new Exception("Missing source material.");
+            var name = material.name.Replace(" (Instance)", "");
+            if (!materialMap.ContainsKey(name)) throw new Exception("Unmapped material: " + name);
+            return materialMap[name];
+        }).ToArray();
+        renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        renderer.receiveShadows = true;
+    }
+    var body = renderers.Single(renderer => renderer.name == "Body");
+    var head = renderers.Single(renderer => renderer.name == "Head");
+    float bodyHeight = body.bounds.size.y;
+    float headHeight = head.bounds.size.y;
+    float ratio = bodyHeight / headHeight;
+    if (Mathf.Abs(bodyHeight - 2.7f) > 0.001f || Mathf.Abs(headHeight - 2f) > 0.001f || Mathf.Abs(ratio - 1.35f) > 0.001f)
+        throw new Exception("Unexpected imported dimensions: " + headHeight + ", " + bodyHeight + ", " + ratio);
+    var filters = instance.GetComponentsInChildren<MeshFilter>(true);
+    var meshStats = filters.Select(filter => new {
+        name = filter.name,
+        vertices = filter.sharedMesh.vertexCount,
+        triangles = Enumerable.Range(0, filter.sharedMesh.subMeshCount).Sum(index => (long)filter.sharedMesh.GetIndexCount(index) / 3),
+        readable = filter.sharedMesh.isReadable
+    }).ToArray();
+    prefab = PrefabUtility.SaveAsPrefabAsset(instance, prefabPath);
+    if (prefab == null) throw new Exception("Prefab save failed.");
+    report = Newtonsoft.Json.Linq.JObject.FromObject(new {
+        prefabPath,
+        modelPath,
+        woodenHeadHeight = headHeight,
+        bodyHeight,
+        bodyToHeadRatio = ratio,
+        meshCount = filters.Length,
+        triangleCount = meshStats.Sum(mesh => mesh.triangles),
+        materials = materialMap.Keys.ToArray(),
+        meshes = meshStats,
+        shaderErrors = shaderErrors.Length,
+        currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().path,
+        currentSceneDirty = UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty
+    });
+    System.IO.File.WriteAllText(tempPath + "/unity_import_report.json", report.ToString());
+}
+finally
+{
+    if (instance != null) UnityEngine.Object.DestroyImmediate(instance);
+    UnityEditor.SceneManagement.EditorSceneManager.ClosePreviewScene(previewScene);
+}
+
+// 최종 Unity 머티리얼을 실제 렌더에 적용해 미리보기를 검증한다.
+var preview = new PreviewRenderUtility();
+var renderScene = UnityEditor.SceneManagement.EditorSceneManager.NewPreviewScene();
+try
+{
+    var previewObject = (GameObject)PrefabUtility.InstantiatePrefab(prefab, renderScene);
+    preview.AddSingleGO(previewObject);
+    preview.camera.orthographic = true;
+    preview.camera.orthographicSize = 3.05f;
+    preview.camera.nearClipPlane = 0.01f;
+    preview.camera.farClipPlane = 100f;
+    preview.camera.clearFlags = CameraClearFlags.SolidColor;
+    preview.camera.backgroundColor = new Color(0.58f, 0.57f, 0.54f, 1f);
+    preview.camera.transform.position = new Vector3(7f, 5.5f, 13f);
+    preview.camera.transform.LookAt(new Vector3(0f, 2.7f, 0f));
+    preview.lights[0].intensity = 1.1f;
+    preview.lights[0].transform.rotation = Quaternion.Euler(35f, 145f, 0f);
+    preview.lights[1].intensity = 0.45f;
+    preview.lights[1].transform.rotation = Quaternion.Euler(20f, 135f, 0f);
+    preview.ambientColor = new Color(0.3f, 0.3f, 0.3f, 1f);
+    preview.BeginStaticPreview(new Rect(0, 0, 1024, 1024));
+    preview.Render(true);
+    var image = preview.EndStaticPreview();
+    System.IO.File.WriteAllBytes(tempPath + "/Preview_Unity.png", image.EncodeToPNG());
+    UnityEngine.Object.DestroyImmediate(image);
+}
+finally
+{
+    preview.Cleanup();
+    UnityEditor.SceneManagement.EditorSceneManager.ClosePreviewScene(renderScene);
+}
+
+AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
+foreach (var path in AssetDatabase.FindAssets("t:Texture2D", new[] { tempPath }).Select(AssetDatabase.GUIDToAssetPath))
+{
+    var textureImporter = AssetImporter.GetAtPath(path) as TextureImporter;
+    if (textureImporter == null) continue;
+    textureImporter.maxTextureSize = 1024;
+    foreach (var platform in new[] { "DefaultTexturePlatform", "Standalone", "Android", "iPhone", "WebGL" })
+    {
+        var settings = textureImporter.GetPlatformTextureSettings(platform);
+        settings.maxTextureSize = 1024;
+        textureImporter.SetPlatformTextureSettings(settings);
+    }
+    textureImporter.SaveAndReimport();
+}
+AssetDatabase.SaveAssets();
+report["currentSceneDirtyAfterPreview"] = UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty;
+System.IO.File.WriteAllText(tempPath + "/unity_import_report.json", report.ToString());
+Selection.activeObject = prefab;
+EditorGUIUtility.PingObject(prefab);
+return report.ToString();
+

@@ -1,0 +1,36 @@
+{
+  "framesAdvancing": true,
+  "records": [
+    {
+      "step": 64,
+      "height": 19.8154278,
+      "clarity": 0.0,
+      "fogTop": 27.8154278
+    },
+    {
+      "step": 73,
+      "height": 22.1056366,
+      "clarity": 0.289381117,
+      "fogTop": 27.7609615
+    },
+    {
+      "step": 82,
+      "height": 24.3958511,
+      "clarity": 0.8677242,
+      "fogTop": 23.4511433
+    },
+    {
+      "step": 89,
+      "height": 26.177124,
+      "clarity": 1.0,
+      "fogTop": 22.02413
+    },
+    {
+      "step": 93,
+      "height": 27.1949978,
+      "clarity": 1.0,
+      "fogTop": 22.0001621
+    }
+  ],
+  "completed": true
+}

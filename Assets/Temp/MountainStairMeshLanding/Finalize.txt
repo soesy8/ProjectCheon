@@ -1,0 +1,39 @@
+if(EditorApplication.isPlaying)throw new Exception("Edit Mode required");
+var scene=UnityEngine.SceneManagement.SceneManager.GetSceneByPath("Assets/Test/CheonMountainMap/Scenes/Test_CheonMountainMap.unity");
+var map=scene.GetRootGameObjects().Single(r=>r.name=="Test_CheonMountainMap");
+if(map.transform.Find("StairStoneLandings")!=null)throw new Exception("Old stone filling is still in the scene");
+var group=map.transform.Find("StairLandingExtensions");if(group==null||group.childCount!=2)throw new Exception("A replacement landing is missing");
+var settings=Newtonsoft.Json.Linq.JObject.Parse(System.IO.File.ReadAllText("Assets/Temp/MountainStairMeshLanding/PlaySettingsBefore.json"));Application.runInBackground=(bool)settings["runInBackground"];
+var autoTick=AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.AutoTickCommand")).First(t=>t!=null);
+autoTick.GetMethod("SetAutoTick",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic).Invoke(null,new object[]{(bool)settings["enabled"],(int)settings["interval"],false});
+AssetDatabase.Refresh();
+foreach(var path in AssetDatabase.GetAllAssetPaths().Where(p=>p.StartsWith("Assets/Temp/MountainStairMeshLanding/")&&p.EndsWith(".png"))){
+ var importer=(TextureImporter)AssetImporter.GetAtPath(path);bool changed=importer.maxTextureSize!=1024;importer.maxTextureSize=1024;
+ var serialized=new SerializedObject(importer);var platforms=serialized.FindProperty("m_PlatformSettings");for(int i=0;i<platforms.arraySize;i++)platforms.GetArrayElementAtIndex(i).FindPropertyRelative("m_MaxTextureSize").intValue=1024;
+ changed|=serialized.ApplyModifiedPropertiesWithoutUndo();if(changed)importer.SaveAndReimport();
+}
+var layout=Newtonsoft.Json.Linq.JObject.Parse(System.IO.File.ReadAllText("Assets/Temp/MountainStairMeshLanding/PlacementReport.json"));
+foreach(var area in layout["landings"]){
+ var landing=group.Find((string)area["name"]);if(landing.childCount!=(int)area["rows"])throw new Exception("A stair stone row is missing");
+ var sourceMaterial=map.transform.Find((string)area["source"]).GetComponent<MeshRenderer>().sharedMaterial;
+ foreach(Transform row in landing){if(row.GetComponent<MeshRenderer>().sharedMaterial!=sourceMaterial)throw new Exception("Stair material changed");if(row.GetComponent<MeshCollider>().sharedMesh!=row.GetComponent<MeshFilter>().sharedMesh)throw new Exception("Stair geometry and collision disagree");}
+ var texture=(Texture2D)sourceMaterial.GetTexture("_BaseMap");if(texture.width>1024||texture.height>1024)throw new Exception("Stair source texture exceeds the texture limit");
+}
+// 제거한 전용 바닥 에셋은 다른 완성본에서 쓰지 않는 경우에만 작업 백업 폴더로 옮긴다.
+var oldArt="Assets/Arts/Environment/StoneStairLanding";var oldPrefab="Assets/Prefabs/Environment/StoneStairLanding.prefab";
+var references=new List<string>();
+foreach(var path in AssetDatabase.GetAllAssetPaths().Where(p=>p.StartsWith("Assets/")&&!p.StartsWith("Assets/Temp/")&&!p.StartsWith(oldArt+"/")&&p!=oldPrefab&&(p.EndsWith(".prefab")||p.EndsWith(".unity")||p.EndsWith(".mat")||p.EndsWith(".asset")))){
+ if(AssetDatabase.GetDependencies(path,false).Any(d=>d.StartsWith(oldArt+"/")||d==oldPrefab))references.Add(path);
+}
+var archived=new List<string>();
+if(references.Count==0){
+ var archive="Assets/Temp/MountainStairMeshLanding/RemovedStoneLandingAssets";
+ if(!AssetDatabase.IsValidFolder(archive))AssetDatabase.CreateFolder("Assets/Temp/MountainStairMeshLanding","RemovedStoneLandingAssets");
+ foreach(var move in new[]{new{from=oldArt,to=archive+"/StoneStairLanding"},new{from=oldPrefab,to=archive+"/StoneStairLanding.prefab"}}){
+  if(AssetDatabase.LoadMainAssetAtPath(move.from)==null)continue;
+  var error=AssetDatabase.MoveAsset(move.from,move.to);if(!string.IsNullOrEmpty(error))throw new Exception(error);archived.Add(move.to);
+ }
+}
+AssetDatabase.SaveAssets();var saved=UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);AssetDatabase.Refresh();
+var report=new{saved,playing=EditorApplication.isPlaying,dirty=scene.isDirty,oldStoneLandingsRemoved=true,landingRows=group.GetComponentsInChildren<MeshRenderer>().Length,landingColliders=group.GetComponentsInChildren<MeshCollider>().Length,originalStairMeshes=layout["landings"].Select(a=>(string)a["sourceMesh"]).ToArray(),archivedOldAssets=archived,remainingOldAssetReferences=references};
+var json=Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented);System.IO.File.WriteAllText("Assets/Temp/MountainStairMeshLanding/FinalVerification.json",json);AssetDatabase.Refresh();return json;

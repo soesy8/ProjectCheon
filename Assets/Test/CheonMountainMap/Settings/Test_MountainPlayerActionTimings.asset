@@ -32,8 +32,8 @@ MonoBehaviour:
     autoReturn: 1
     blendDuration: 0.12
   - state: ATTACK3
-    moveCancel: 0.85
-    dodgeCancel: 0.8
+    moveCancel: 0.8
+    dodgeCancel: 0.75
     attack1Cancel: 0.7
     attack2Cancel: 0.7
     attack3Cancel: 0.7
@@ -70,7 +70,7 @@ MonoBehaviour:
   - state: ROLL
     moveCancel: 1
     dodgeCancel: 1
-    attack1Cancel: 1
+    attack1Cancel: 0.9
     attack2Cancel: 1
     attack3Cancel: 1
     equipmentCancel: 1

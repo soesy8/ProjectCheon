@@ -1,0 +1,28 @@
+var scene = UnityEngine.SceneManagement.SceneManager.GetSceneByPath("Assets/Test/CheonMountainMap/Scenes/Test_CheonMountainMap.unity");
+if (EditorApplication.isPlaying) throw new Exception("Edit Mode required");
+var temp = "Assets/Temp/MountainPassageFix";
+if (!System.IO.File.Exists(temp + "/SceneBefore.unity.txt")) {
+ var backup = temp + "/SceneBefore.unity";
+ UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene, backup, true);
+ System.IO.File.Move(backup, backup + ".txt");
+ if (System.IO.File.Exists(backup + ".meta")) System.IO.File.Move(backup + ".meta", backup + ".txt.meta");
+}
+Func<Vector3,float[]> V = v => new[]{v.x,v.y,v.z};
+var roots = scene.GetRootGameObjects();
+var all = roots.SelectMany(r=>r.GetComponentsInChildren<Transform>(true)).ToArray();
+var objects = all.Where(t=> t.parent == null || t.name.Contains("Stairway") || t.name.Contains("GateWall") || t.name.Contains("EntranceWall")).Select(t=> new {
+ name=t.name, parent=t.parent != null?t.parent.name:"", position=V(t.position), rotation=V(t.eulerAngles), scale=V(t.localScale),
+ renderers=t.GetComponentsInChildren<MeshRenderer>().Select(r=>new {name=r.name, center=V(r.bounds.center),size=V(r.bounds.size), materials=r.sharedMaterials.Select(m=> m==null?"":AssetDatabase.GetAssetPath(m)).ToArray()}).ToArray()
+}).ToArray();
+var probes = new List<object>();
+foreach(var area in new[]{new {name="UpperWall",x=10f,z=-14f,dx=1f,dz=.75f,count=17},new{name="LowerWall",x=-14.8f,z=-10f,dx=-1f,dz=.9f,count=17},new{name="Courtyard",x=2.25f,z=39.5f,dx=.7f,dz=-.7f,count=11},new{name="Gate",x=-6.13f,z=-18.16f,dx=-.7016f,dz=-.7126f,count=9}}){
+ for(int i=-3;i<area.count;i++) {
+  var p=new Vector3(area.x+area.dx*i,120,area.z+area.dz*i);
+  var hits=Physics.RaycastAll(p,Vector3.down,150).Where(h=>h.collider.gameObject.scene==scene).OrderByDescending(h=>h.point.y).Select(h=>new {name=h.collider.name,y=h.point.y}).ToArray();
+  probes.Add(new {area=area.name,i=i,x=p.x,z=p.z,hits});
+ }
+}
+var stairs=all.Where(t=>t.name.StartsWith("Stairway")).Select(t=>new {name=t.name,vertices=t.GetComponent<MeshFilter>().sharedMesh.vertices.Select(v=>t.TransformPoint(v)).OrderByDescending(v=>v.y).Take(50).Select(V).ToArray()}).ToArray();
+var json=Newtonsoft.Json.JsonConvert.SerializeObject(new {objects,probes,stairs},Newtonsoft.Json.Formatting.Indented);
+System.IO.File.WriteAllText(temp+"/Inspection.json",json);
+return json;

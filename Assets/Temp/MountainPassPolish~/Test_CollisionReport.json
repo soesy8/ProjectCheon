@@ -1,0 +1,143 @@
+{
+  "records": [
+    {
+      "name": "rearEndCap",
+      "passed": true,
+      "distance": 0.445349425
+    },
+    {
+      "name": "outerRim_0",
+      "passed": true,
+      "penetration": -1.63549483
+    },
+    {
+      "name": "outerRim_1",
+      "passed": true,
+      "penetration": -0.7350001
+    },
+    {
+      "name": "outerRim_2",
+      "passed": true,
+      "penetration": -0.7349986
+    },
+    {
+      "name": "outerRim_3",
+      "passed": true,
+      "penetration": -0.7350005
+    },
+    {
+      "name": "outerRim_4",
+      "passed": true,
+      "penetration": -0.733857036
+    },
+    {
+      "name": "outerRim_5",
+      "passed": true,
+      "penetration": -1.03546274
+    },
+    {
+      "name": "outerRim_6",
+      "passed": true,
+      "penetration": -0.734994233
+    },
+    {
+      "name": "outerRim_7",
+      "passed": true,
+      "penetration": -0.7349972
+    },
+    {
+      "name": "outerRim_8",
+      "passed": true,
+      "penetration": -0.7317784
+    },
+    {
+      "name": "outerRim_9",
+      "passed": true,
+      "penetration": -0.719215631
+    },
+    {
+      "name": "outerRim_10",
+      "passed": true,
+      "penetration": -1.99999738
+    },
+    {
+      "name": "outerRim_11",
+      "passed": true,
+      "penetration": -0.735000551
+    },
+    {
+      "name": "outerRim_12",
+      "passed": true,
+      "penetration": -0.7349981
+    },
+    {
+      "name": "outerRim_13",
+      "passed": true,
+      "penetration": -0.734997451
+    },
+    {
+      "name": "outerRim_14",
+      "passed": true,
+      "penetration": -0.7349987
+    },
+    {
+      "name": "outerRim_15",
+      "passed": true,
+      "penetration": -0.734999537
+    },
+    {
+      "name": "outerRim_16",
+      "passed": true,
+      "penetration": -1.6800859
+    },
+    {
+      "name": "outerRim_17",
+      "passed": true,
+      "penetration": -0.7350008
+    },
+    {
+      "name": "outerRim_18",
+      "passed": true,
+      "penetration": -0.7349959
+    },
+    {
+      "name": "tree_Pine_02",
+      "passed": true
+    },
+    {
+      "name": "tree_Pine_Shrine_04",
+      "passed": true
+    },
+    {
+      "name": "tree_Pine_Arena_03",
+      "passed": true
+    },
+    {
+      "name": "gateRetreat_-2",
+      "passed": true,
+      "localZ": 0.0100011826
+    },
+    {
+      "name": "gateRetreat_-1",
+      "passed": true,
+      "localZ": 0.0100016594
+    },
+    {
+      "name": "gateRetreat_0",
+      "passed": true,
+      "localZ": 0.0100002512
+    },
+    {
+      "name": "gateRetreat_1",
+      "passed": true,
+      "localZ": 0.009999514
+    },
+    {
+      "name": "gateRetreat_2",
+      "passed": true,
+      "localZ": 0.0100002289
+    }
+  ],
+  "allPassed": true,
+  "completed": true
+}

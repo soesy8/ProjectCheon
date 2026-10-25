@@ -1,0 +1,39 @@
+if(EditorApplication.isPlaying)throw new Exception("Edit Mode required");
+var scene=UnityEngine.SceneManagement.SceneManager.GetSceneByPath("Assets/Test/CheonMountainMap/Scenes/Test_CheonMountainMap.unity");
+var map=scene.GetRootGameObjects().Single(r=>r.name=="Test_CheonMountainMap");
+var settings=Newtonsoft.Json.Linq.JObject.Parse(System.IO.File.ReadAllText("Assets/Temp/MountainLandingRefinement/PlaySettingsBefore.json"));
+Application.runInBackground=(bool)settings["runInBackground"];
+var autoTick=AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.AutoTickCommand")).First(t=>t!=null);
+var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic;
+autoTick.GetMethod("SetAutoTick",flags).Invoke(null,new object[]{(bool)settings["enabled"],(int)settings["interval"],false});
+AssetDatabase.Refresh();
+var backupMaterial="Assets/Temp/MountainLandingRefinement/Before_M_StoneStairLanding.mat";
+if(AssetDatabase.LoadMainAssetAtPath(backupMaterial)!=null)AssetDatabase.MoveAsset(backupMaterial,"Assets/Temp/MountainLandingRefinement/M_BeforeStoneStairLanding.mat");
+var imagePaths=AssetDatabase.GetAllAssetPaths().Where(p=>(p.StartsWith("Assets/Temp/MountainLandingRefinement/")||p.StartsWith("Assets/Arts/Environment/StoneStairLanding/"))&&p.EndsWith(".png")).ToArray();
+foreach(var path in imagePaths){
+ var importer=(TextureImporter)AssetImporter.GetAtPath(path);var serialized=new SerializedObject(importer);var platforms=serialized.FindProperty("m_PlatformSettings");
+ for(int i=0;i<platforms.arraySize;i++)platforms.GetArrayElementAtIndex(i).FindPropertyRelative("m_MaxTextureSize").intValue=1024;
+ bool changed=serialized.ApplyModifiedPropertiesWithoutUndo();
+ if(importer.maxTextureSize!=1024){importer.maxTextureSize=1024;changed=true;}if(changed)importer.SaveAndReimport();
+ var tex=AssetDatabase.LoadAssetAtPath<Texture2D>(path);if(tex.width>1024||tex.height>1024)throw new Exception("Texture resolution limit exceeded: "+path);
+}
+var floorReports=new List<object>();int supportChecks=0;
+foreach(Transform landing in map.transform.Find("StairStoneLandings")){
+ var collider=landing.GetComponent<MeshCollider>();if(collider==null)throw new Exception("Landing collider is missing");
+ foreach(float z in new[]{.05f,.25f,.5f,.75f,.95f})foreach(float x in new[]{-.46f,-.3f,-.15f,0,.15f,.3f,.46f}){
+  var point=landing.TransformPoint(new Vector3(x*Mathf.Lerp(.86f,1,z),0,z));RaycastHit hit;
+  if(!collider.Raycast(new Ray(point+Vector3.up,Vector3.down),out hit,2)||Mathf.Abs(hit.point.y-point.y)>.005f)throw new Exception("Unsupported landing edge: "+landing.name+point);
+  supportChecks++;
+ }
+ var mat=landing.GetComponent<MeshRenderer>().sharedMaterial;var sourceName=landing.name.StartsWith("Arena")?"Stairway_Between_Summits":"Stairway_Winding_Approach";var source=map.transform.Find(sourceName).GetComponent<MeshRenderer>().sharedMaterial;
+ if(mat.shader!=source.shader||mat.GetColor("_BaseColor")!=source.GetColor("_BaseColor"))throw new Exception("Stone shading does not match stairs");
+ floorReports.Add(new{name=landing.name,stair=sourceName,width=landing.localScale.x,entryWidth=landing.localScale.x*.86f,material=AssetDatabase.GetAssetPath(mat)});
+}
+var cap=map.transform.Find("GateSideWalls/GateWall_Upper/GateWall_Upper_End");var rock=map.transform.Find("Summit_Rim_Outcrops_Upper").GetComponent<MeshCollider>();RaycastHit rockHit;
+bool touchesRock=rock.Raycast(new Ray(new Vector3(cap.position.x,70,cap.position.z),Vector3.down),out rockHit,50)&&rockHit.point.y>cap.position.y;
+if(!touchesRock)throw new Exception("Wall end does not meet the selected rock");
+var expected=Newtonsoft.Json.Linq.JObject.Parse(System.IO.File.ReadAllText("Assets/Temp/MountainLandingRefinement/PlacementReport.json"));
+foreach(var item in expected["guids"]){if(AssetDatabase.AssetPathToGUID((string)item["path"])!=(string)item["guid"])throw new Exception("Existing asset GUID changed");}
+AssetDatabase.SaveAssets();var saved=UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);
+var json=Newtonsoft.Json.JsonConvert.SerializeObject(new {saved,dirty=scene.isDirty,playing=EditorApplication.isPlaying,landings=floorReports,edgeSupportChecks=supportChecks,wallEndTouchesRock=touchesRock,wallEndRockHeight=rockHit.point.y,wallColliders=map.transform.Find("GateSideWalls").GetComponentsInChildren<Collider>().Length,preservedGuids=true},Newtonsoft.Json.Formatting.Indented);
+System.IO.File.WriteAllText("Assets/Temp/MountainLandingRefinement/FinalVerification.json",json);AssetDatabase.Refresh();return json;

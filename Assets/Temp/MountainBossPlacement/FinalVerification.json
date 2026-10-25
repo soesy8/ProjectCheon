@@ -1,0 +1,19 @@
+{
+  "scene": "Assets/Test/CheonMountainMap/Scenes/Test_CheonMountainMap.unity",
+  "saved": true,
+  "player": [
+    15.749999,
+    27.1599979,
+    25.0999947
+  ],
+  "boss": [
+    -28.249996199999998,
+    37.1199837,
+    -67.9
+  ],
+  "originalObjectsMovedOrMissing": 0,
+  "originalShrineWallRenderers": 16,
+  "newGateWallRenderers": 16,
+  "newGateWallColliders": 16,
+  "savedContentUnchangedAfterPlay": true
+}

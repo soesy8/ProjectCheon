@@ -1,0 +1,85 @@
+var scene=UnityEngine.SceneManagement.SceneManager.GetSceneByPath("Assets/Test/CheonMountainMap/Scenes/Test_CheonMountainMap.unity");
+if (EditorApplication.isPlaying || !scene.isLoaded) throw new Exception("Mountain scene must be loaded in Edit Mode");
+var roots=scene.GetRootGameObjects();
+var map=roots.Single(r=>r.name=="Test_CheonMountainMap");
+var boss=roots.Single(r=>r.name=="JangseungBoss");
+if(map.transform.Find("StairStoneLandings")!=null) throw new Exception("Landings already exist");
+Action<string> EnsureFolder=null;
+EnsureFolder=path=>{if(AssetDatabase.IsValidFolder(path))return;var parent=System.IO.Path.GetDirectoryName(path).Replace('\\','/');EnsureFolder(parent);AssetDatabase.CreateFolder(parent,System.IO.Path.GetFileName(path));};
+var artFolder="Assets/Arts/Environment/StoneStairLanding";
+EnsureFolder(artFolder);EnsureFolder("Assets/Prefabs/Environment");
+var meshPath=artFolder+"/StoneStairLanding.asset";
+var matPath=artFolder+"/M_StoneStairLanding.mat";
+var prefabPath="Assets/Prefabs/Environment/StoneStairLanding.prefab";
+if(AssetDatabase.LoadMainAssetAtPath(meshPath)!=null || AssetDatabase.LoadMainAssetAtPath(prefabPath)!=null) throw new Exception("Asset path already exists");
+var vertices=new List<Vector3>();var uv=new List<Vector2>();var triangles=new List<int>();
+Action<Vector3,Vector3,Vector3,Vector3,Vector2,Vector2> Quad=(a,b,c,d,uvMin,uvMax)=>{
+ int n=vertices.Count;vertices.AddRange(new[]{a,b,c,d});
+ uv.AddRange(new[]{uvMin,new Vector2(uvMin.x,uvMax.y),uvMax,new Vector2(uvMax.x,uvMin.y)});
+ triangles.AddRange(new[]{n,n+1,n+2,n,n+2,n+3});
+};
+// 표면의 줄눈은 얕게 만들고, 보행용 충돌면은 평평하게 이어 턱에 걸리지 않도록 한다.
+for(int row=0;row<6;row++)for(int column=0;column<4;column++) {
+ float x0=-.5f+column/4f,x1=-.5f+(column+1)/4f,z0=row/6f,z1=(row+1)/6f;
+ float bevel=.0035f,lower=-.007f;
+ var a=new Vector3(x0+bevel,0,z0+bevel);var b=new Vector3(x0+bevel,0,z1-bevel);
+ var c=new Vector3(x1-bevel,0,z1-bevel);var d=new Vector3(x1-bevel,0,z0+bevel);
+ var aa=new Vector3(x0,lower,z0);var bb=new Vector3(x0,lower,z1);var cc=new Vector3(x1,lower,z1);var dd=new Vector3(x1,lower,z0);
+ var min=new Vector2((column*.173f+row*.097f)%.5f,(row*.117f+column*.071f)%.5f);var max=min+new Vector2(.45f,.45f);
+ Quad(a,b,c,d,min,max);
+ Quad(aa,bb,b,a,min,max);Quad(b,bb,cc,c,min,max);Quad(d,c,cc,dd,min,max);Quad(aa,a,d,dd,min,max);
+ var ab=new Vector3(x0,-1,z0);var bc=new Vector3(x0,-1,z1);var cd=new Vector3(x1,-1,z1);var da=new Vector3(x1,-1,z0);
+ Quad(ab,bc,bb,aa,min,max);Quad(bb,bc,cd,cc,min,max);Quad(dd,cc,cd,da,min,max);Quad(ab,aa,dd,da,min,max);
+ Quad(da,cd,bc,ab,min,max);
+}
+var mesh=new Mesh {name="StoneStairLanding"};mesh.SetVertices(vertices);mesh.SetUVs(0,uv);mesh.SetTriangles(triangles,0);mesh.RecalculateNormals();mesh.RecalculateBounds();
+AssetDatabase.CreateAsset(mesh,meshPath);
+var sourceMaterial=AssetDatabase.LoadAssetAtPath<Material>("Assets/Test/CheonMountainMap/Materials/Test_M_Map_LightSandstone.mat");
+var material=new Material(sourceMaterial){name="M_StoneStairLanding"};
+material.SetTexture("_BaseMap",AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Arts/Environment/SelfModeling/Textures/T_WarmSandstone_BaseColor.png"));
+material.SetColor("_BaseColor",new Color(1.12f,1.10f,1.02f,1));
+AssetDatabase.CreateAsset(material,matPath);
+var template=new GameObject("StoneStairLanding");
+try{
+ template.AddComponent<MeshFilter>().sharedMesh=mesh;template.AddComponent<MeshRenderer>().sharedMaterial=material;
+ var box=template.AddComponent<BoxCollider>();box.center=new Vector3(0,-.5f,.5f);box.size=Vector3.one;
+ PrefabUtility.SaveAsPrefabAsset(template,prefabPath);
+}finally{UnityEngine.Object.DestroyImmediate(template);}
+AssetDatabase.SaveAssets();
+var wallAsset=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Environment/SelfModeling/Wall_Middle.prefab");
+var landingAsset=AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+Undo.IncrementCurrentGroup();int undoGroup=Undo.GetCurrentGroup();Undo.SetCurrentGroupName("장승 확대·담 끝 연장·계단 돌 바닥 연결");
+var report=new List<object>();
+Func<Vector3,float[]> V=v=>new[]{v.x,v.y,v.z};
+try{
+ Undo.RecordObject(boss.transform,"장승 보스 3배 확대");boss.transform.localScale=Vector3.one*3;PrefabUtility.RecordPrefabInstancePropertyModifications(boss.transform);
+ foreach(var run in new[]{new{name="Upper",start=new Vector3(10,37.12f,-14),end=new Vector3(14.2f,37.12f,-10.85f)},new{name="Lower",start=new Vector3(-14.8f,37.12f,-10),end=new Vector3(-18.6f,37.12f,-6.58f)}}){
+  var group=map.transform.Find("GateSideWalls/GateWall_"+run.name);
+  var cap=group.Find("GateWall_"+run.name+"_End");var dir=(run.end-run.start).normalized;
+  int count=Mathf.CeilToInt(Vector3.Distance(run.start,run.end)/2.4f);
+  for(int i=0;i<count;i++){
+   var a=Vector3.Lerp(run.start,run.end,i/(float)count);var b=Vector3.Lerp(run.start,run.end,(i+1f)/count);
+   var item=(GameObject)PrefabUtility.InstantiatePrefab(wallAsset,scene);Undo.RegisterCreatedObjectUndo(item,"담 연장 부재");
+   item.name="GateWall_"+run.name+"_Extension_"+(i+1).ToString("00");item.transform.SetParent(group,false);
+   item.transform.SetPositionAndRotation(a-Vector3.up*.025f,Quaternion.LookRotation(Vector3.Cross(-dir,Vector3.up),Vector3.up));
+   item.transform.localScale=new Vector3((Vector3.Distance(a,b)+.07f)/2.4f,1.8f,1);
+   foreach(var mf in item.GetComponentsInChildren<MeshFilter>())if(mf.GetComponent<Collider>()==null){var collider=Undo.AddComponent<MeshCollider>(mf.gameObject);collider.sharedMesh=mf.sharedMesh;}
+   PrefabUtility.RecordPrefabInstancePropertyModifications(item.transform);
+  }
+  Undo.RecordObject(cap,"담 끝 바위 접합");cap.SetPositionAndRotation(run.end-Vector3.up*.025f,Quaternion.LookRotation(Vector3.Cross(dir,Vector3.up),Vector3.up));PrefabUtility.RecordPrefabInstancePropertyModifications(cap);
+  report.Add(new {wall=run.name,start=V(run.start),end=V(run.end),sections=count});
+ }
+ var landings=new GameObject("StairStoneLandings");Undo.RegisterCreatedObjectUndo(landings,"계단 돌 바닥 그룹");Undo.SetTransformParent(landings.transform,map.transform,"계단 돌 바닥 배치");
+ foreach(var placement in new[]{
+  new{name="ArenaGate_StoneLanding",position=new Vector3(-5.0774f,37.135f,-17.0930f),forward=new Vector3(-.7016157f,0,-.7125556f),scale=new Vector3(6.4f,2.8f,7.2f)},
+  new{name="ShrineEntrance_StoneLanding",position=new Vector3(1.99f,27.15f,39.27f),forward=new Vector3(.770f,0,-.638f).normalized,scale=new Vector3(4.5f,2.8f,8.2f)}
+ }){
+  var item=(GameObject)PrefabUtility.InstantiatePrefab(landingAsset,scene);Undo.RegisterCreatedObjectUndo(item,"계단 돌 바닥 연결");
+  item.name=placement.name;item.transform.SetParent(landings.transform,false);item.transform.SetPositionAndRotation(placement.position,Quaternion.LookRotation(placement.forward));item.transform.localScale=placement.scale;
+  PrefabUtility.RecordPrefabInstancePropertyModifications(item.transform);report.Add(new {landing=item.name,position=V(placement.position),forward=V(placement.forward),scale=V(placement.scale)});
+ }
+ Physics.SyncTransforms();UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(scene);
+ UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);Undo.CollapseUndoOperations(undoGroup);
+ var json=Newtonsoft.Json.JsonConvert.SerializeObject(new {bossScale=V(boss.transform.localScale),changes=report,prefab=prefabPath},Newtonsoft.Json.Formatting.Indented);
+ System.IO.File.WriteAllText("Assets/Temp/MountainPassageFix/PlacementReport.json",json);return json;
+}catch{Undo.RevertAllDownToGroup(undoGroup);throw;}

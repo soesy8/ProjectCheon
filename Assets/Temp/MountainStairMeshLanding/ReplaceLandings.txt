@@ -1,0 +1,59 @@
+var scene=UnityEngine.SceneManagement.SceneManager.GetSceneByPath("Assets/Test/CheonMountainMap/Scenes/Test_CheonMountainMap.unity");
+if(EditorApplication.isPlaying||!scene.isLoaded)throw new Exception("Edit Mode required");
+var map=scene.GetRootGameObjects().Single(r=>r.name=="Test_CheonMountainMap");
+var oldLandings=map.transform.Find("StairStoneLandings");
+if(oldLandings==null||map.transform.Find("StairLandingExtensions")!=null)throw new Exception("Inspect the current landing layout before replacing it");
+var art="Assets/Arts/Environment/StairLandingExtensions";
+if(!AssetDatabase.IsValidFolder(art))AssetDatabase.CreateFolder("Assets/Arts/Environment","StairLandingExtensions");
+Undo.IncrementCurrentGroup();int undoGroup=Undo.GetCurrentGroup();Undo.SetCurrentGroupName("기존 계단 석재로 발판 교체");
+var group=new GameObject("StairLandingExtensions");Undo.RegisterCreatedObjectUndo(group,"계단 석재 연결 그룹");Undo.SetTransformParent(group.transform,map.transform,"계단 연결 발판 배치");
+var reports=new List<object>();Func<Vector3,float[]> V=v=>new[]{v.x,v.y,v.z};
+foreach(var area in new[]{
+ new{sourceName="Stairway_Winding_Approach",name="ShrineEntrance_StairLanding",assetName="ApproachStairLandingRow",direction=new Vector3(.7700216f,0,-.6380179f),length=8.1f,widthFactor=1.45f},
+ new{sourceName="Stairway_Between_Summits",name="ArenaGate_StairLanding",assetName="ArenaStairLandingRow",direction=new Vector3(-.6808f,0,-.7325f).normalized,length=7.2f,widthFactor=1.35f}
+}){
+ var sourceTransform=map.transform.Find(area.sourceName);var source=sourceTransform.GetComponent<MeshFilter>().sharedMesh;
+ var vertices=source.vertices;var normals=source.normals;var uvs=source.uv;var indices=source.triangles;
+ var sourceMaterial=sourceTransform.GetComponent<MeshRenderer>().sharedMaterial;
+ var welded=new Dictionary<string,int>();var parents=new int[vertices.Length];
+ for(int i=0;i<vertices.Length;i++){var p=sourceTransform.TransformPoint(vertices[i]);string key=Math.Round(p.x,4)+","+Math.Round(p.y,4)+","+Math.Round(p.z,4);int previous;parents[i]=welded.TryGetValue(key,out previous)?previous:i;welded[key]=parents[i];}
+ Func<int,int> Find=null;Find=i=>parents[i]==i?i:(parents[i]=Find(parents[i]));
+ for(int i=0;i<indices.Length;i+=3){int root=Find(indices[i]);parents[Find(indices[i+1])]=root;parents[Find(indices[i+2])]=root;}
+ float highest=vertices.Max(v=>sourceTransform.TransformPoint(v).y);
+ var selectedRoots=Enumerable.Range(0,vertices.Length).GroupBy(Find).Where(g=>g.Max(i=>sourceTransform.TransformPoint(vertices[i]).y)>highest-.01f).Select(g=>g.Key).ToHashSet();
+ var selected=Enumerable.Range(0,vertices.Length).Where(i=>selectedRoots.Contains(Find(i))).ToArray();
+ if(selectedRoots.Count<1||selected.Length>200)throw new Exception("Unexpected terminal stair mesh selection");
+ var rotation=Quaternion.LookRotation(area.direction);var inverse=Quaternion.Inverse(rotation);
+ var worldCenter=selected.Select(i=>sourceTransform.TransformPoint(vertices[i])).Aggregate(Vector3.zero,(sum,v)=>sum+v)/selected.Length;worldCenter.y=highest;
+ var local=selected.Select(i=>inverse*(sourceTransform.TransformPoint(vertices[i])-worldCenter)).ToArray();
+ float minX=local.Min(v=>v.x),maxX=local.Max(v=>v.x),minZ=local.Min(v=>v.z),maxZ=local.Max(v=>v.z);
+ float width=maxX-minX,depth=maxZ-minZ,height=highest-selected.Min(i=>sourceTransform.TransformPoint(vertices[i]).y);
+ var origin=worldCenter+rotation*new Vector3((minX+maxX)*.5f,0,maxZ);
+ var outputVertices=new List<Vector3>();var outputNormals=new List<Vector3>();var outputUvs=new List<Vector2>();var outputIndices=new List<int>();
+ var indexMap=selected.Select((id,i)=>new{id,i}).ToDictionary(p=>p.id,p=>p.i);var normalMatrix=sourceTransform.localToWorldMatrix.inverse.transpose;
+ // 마지막 계단의 원래 형상과 UV를 그대로 복제한다. 아래 석재는 지형에 묻혀 틈을 받친다.
+ for(int layer=0;layer<5;layer++){
+  int offset=outputVertices.Count;
+  foreach(int id in selected){var point=inverse*(sourceTransform.TransformPoint(vertices[id])-origin);point.y-=layer*(height-.045f);outputVertices.Add(point);outputNormals.Add((inverse*normalMatrix.MultiplyVector(normals[id])).normalized);outputUvs.Add(uvs[id]);}
+  for(int i=0;i<indices.Length;i+=3){if(!selectedRoots.Contains(Find(indices[i])))continue;outputIndices.Add(offset+indexMap[indices[i]]);outputIndices.Add(offset+indexMap[indices[i+1]]);outputIndices.Add(offset+indexMap[indices[i+2]]);}
+ }
+ var meshPath=art+"/"+area.assetName+".asset";
+ if(AssetDatabase.LoadMainAssetAtPath(meshPath)!=null)throw new Exception("Replacement mesh already exists");
+ var mesh=new Mesh{name=area.assetName};mesh.SetVertices(outputVertices);mesh.SetNormals(outputNormals);mesh.SetUVs(0,outputUvs);mesh.SetTriangles(outputIndices,0);mesh.RecalculateBounds();AssetDatabase.CreateAsset(mesh,meshPath);
+ var template=new GameObject(area.assetName);var prefabPath="Assets/Prefabs/Environment/"+area.assetName+".prefab";
+ try{template.AddComponent<MeshFilter>().sharedMesh=mesh;template.AddComponent<MeshRenderer>().sharedMaterial=sourceMaterial;template.AddComponent<MeshCollider>().sharedMesh=mesh;PrefabUtility.SaveAsPrefabAsset(template,prefabPath);}finally{UnityEngine.Object.DestroyImmediate(template);}
+ var prefab=AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+ var landing=new GameObject(area.name);Undo.RegisterCreatedObjectUndo(landing,"기존 계단 석재 배치");Undo.SetTransformParent(landing.transform,group.transform,"계단 발판 그룹");landing.transform.SetPositionAndRotation(origin,rotation);
+ int rows=Mathf.CeilToInt(area.length/1.05f);float stride=area.length/rows;float rowDepth=stride+.12f;float depthScale=rowDepth/depth;
+ for(int row=0;row<rows;row++){
+  var item=(GameObject)PrefabUtility.InstantiatePrefab(prefab,scene);Undo.RegisterCreatedObjectUndo(item,"계단 석재 연장");item.name=area.assetName+"_"+(row+1).ToString("00");item.transform.SetParent(landing.transform,false);
+  item.transform.localPosition=new Vector3(0,0,(row+1)*stride);item.transform.localRotation=Quaternion.identity;
+  item.transform.localScale=new Vector3(area.widthFactor*Mathf.Lerp(1,1.10f,row/(float)(rows-1)),1,depthScale);
+  PrefabUtility.RecordPrefabInstancePropertyModifications(item.transform);
+ }
+ reports.Add(new{name=area.name,source=area.sourceName,sourceMesh=AssetDatabase.GetAssetPath(source),mesh=meshPath,prefab=prefabPath,origin=V(origin),forward=V(area.direction),length=area.length,rows,nativeWidth=width,nativeDepth=depth,width=width*area.widthFactor,endWidth=width*area.widthFactor*1.1f,depthScale,topHeight=highest,copiedStonePieces=selectedRoots.Count,material=AssetDatabase.GetAssetPath(sourceMaterial)});
+}
+// 이전에 채워 넣었던 별도 돌 바닥 두 개를 씬에서 제거한다.
+Undo.DestroyObjectImmediate(oldLandings.gameObject);
+Physics.SyncTransforms();AssetDatabase.SaveAssets();UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(scene);UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);Undo.CollapseUndoOperations(undoGroup);
+var json=Newtonsoft.Json.JsonConvert.SerializeObject(new{scene=scene.path,landings=reports,removedOldLandings=true},Newtonsoft.Json.Formatting.Indented);System.IO.File.WriteAllText("Assets/Temp/MountainStairMeshLanding/PlacementReport.json",json);return json;

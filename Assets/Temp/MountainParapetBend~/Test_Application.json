@@ -1,0 +1,23 @@
+[
+  {
+    "name": "ApproachLeftParapet",
+    "guid": "21b62ca1062db684faadf9e35cfba668",
+    "editedRings": 74,
+    "maxShift": 0.40574342,
+    "movedLamps": [
+      "LeftLantern_65"
+    ],
+    "walls": 17
+  },
+  {
+    "name": "ApproachRightParapet",
+    "guid": "3725ea22013d7a44a9d7955c96bc59fe",
+    "editedRings": 77,
+    "maxShift": 0.7135131,
+    "movedLamps": [
+      "RightLantern_47",
+      "RightLantern_56"
+    ],
+    "walls": 18
+  }
+]

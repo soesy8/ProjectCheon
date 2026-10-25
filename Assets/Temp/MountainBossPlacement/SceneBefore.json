@@ -1,0 +1,1972 @@
+{
+  "roots": [
+    {
+      "name": "Test_CheonMountainMap",
+      "children": 45,
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Test_DirectionalLight",
+      "children": 0,
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Test_MainCamera",
+      "children": 0,
+      "position": [
+        -16.1988316,
+        41.0037766,
+        -16.1988335
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Gate Environment Transition",
+      "children": 0,
+      "position": [
+        -6.75361729,
+        40.9615631,
+        -18.7706776
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "name": "HeightFog_VFX",
+      "children": 1,
+      "position": [
+        -28.0,
+        24.0,
+        -21.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Test_MountainPlayer",
+      "children": 3,
+      "position": [
+        -11.9999981,
+        37.15999,
+        -12.000001
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Test_PlayerControlGuide",
+      "children": 0,
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Test_PlayerActionTimingUI",
+      "children": 0,
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Test_PlayerPlaybackUI",
+      "children": 0,
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Test_ShrineEntranceWalls",
+      "children": 2,
+      "position": [
+        0.0,
+        27.12,
+        37.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "path": "Test_CheonMountainMap",
+      "id": -1638,
+      "active": true,
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "children": 45,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Hanok_Gate_Placement",
+      "id": -1672,
+      "active": true,
+      "position": [
+        -6.75361824,
+        36.9615669,
+        -18.7706757
+      ],
+      "rotation": [
+        270.0,
+        5.930908,
+        0.0
+      ],
+      "scale": [
+        267.0262,
+        267.026337,
+        267.0263
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Hanok_Gate_Placement/Cheon_Gate_Root",
+      "id": -1676,
+      "active": true,
+      "position": [
+        -6.753618,
+        36.9615631,
+        -18.7706776
+      ],
+      "rotation": [
+        270.0,
+        5.930908,
+        0.0
+      ],
+      "scale": [
+        267.026184,
+        267.0263,
+        267.026276
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Hanok_Gate_Placement/Cheon_Gate_Root/Gate_Threshold_1",
+      "id": -1680,
+      "active": true,
+      "position": [
+        -6.03616953,
+        36.9188423,
+        -18.0666656
+      ],
+      "rotation": [
+        270.0,
+        44.5567665,
+        0.0
+      ],
+      "scale": [
+        267.026245,
+        267.0263,
+        315.491577
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer"
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Mountain_Continuous_Core",
+      "id": -1688,
+      "active": true,
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        270.019775,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        100.0,
+        99.9999847,
+        99.9999847
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Pine_Shrine_01",
+      "id": -1930,
+      "active": true,
+      "position": [
+        31.6236954,
+        27.0614548,
+        32.6681328
+      ],
+      "rotation": [
+        270.0,
+        55.0000153,
+        0.0
+      ],
+      "scale": [
+        719.389343,
+        719.389343,
+        719.3892
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer"
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Pine_Shrine_02",
+      "id": -1938,
+      "active": true,
+      "position": [
+        -21.099226,
+        27.0612354,
+        15.8886347
+      ],
+      "rotation": [
+        270.0,
+        30.0000114,
+        0.0
+      ],
+      "scale": [
+        762.2991,
+        762.2993,
+        762.299255
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer"
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Pine_Shrine_03",
+      "id": -1946,
+      "active": true,
+      "position": [
+        22.5303822,
+        27.0615959,
+        -3.28436828
+      ],
+      "rotation": [
+        270.0,
+        300.0,
+        0.0
+      ],
+      "scale": [
+        687.700439,
+        687.700439,
+        687.700439
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer"
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Pine_Shrine_04",
+      "id": -1954,
+      "active": true,
+      "position": [
+        35.3248138,
+        27.0602245,
+        14.7491121
+      ],
+      "rotation": [
+        270.0,
+        335.0,
+        0.0
+      ],
+      "scale": [
+        965.404236,
+        965.404358,
+        965.4043
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer"
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Shrine_Building_Placement",
+      "id": -1972,
+      "active": true,
+      "position": [
+        23.6019573,
+        27.1199989,
+        17.701683
+      ],
+      "rotation": [
+        270.0,
+        314.9149,
+        0.0
+      ],
+      "scale": [
+        55.6258163,
+        55.6258163,
+        55.62582
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Shrine_Building_Placement/BuildingBase_Parts/Walls",
+      "id": -2092,
+      "active": true,
+      "position": [
+        23.6019573,
+        27.1199989,
+        17.701683
+      ],
+      "rotation": [
+        270.0,
+        314.9149,
+        0.0
+      ],
+      "scale": [
+        55.6258163,
+        55.6258163,
+        55.62582
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer"
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Shrine_Floor_Flat_UV",
+      "id": -2100,
+      "active": true,
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        270.019775,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        100.0,
+        99.9999847,
+        99.9999847
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_MainCamera",
+      "id": 49036,
+      "active": true,
+      "position": [
+        -16.1988316,
+        41.0037766,
+        -16.1988335
+      ],
+      "rotation": [
+        24.0000038,
+        45.0000038,
+        9.345716E-07
+      ],
+      "scale": [
+        1.00000012,
+        1.0,
+        0.99999994
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "Camera",
+        "AudioListener",
+        "UniversalAdditionalCameraData",
+        "Test_MountainPlayerCamera"
+      ]
+    },
+    {
+      "path": "Gate Environment Transition",
+      "id": 49946,
+      "active": true,
+      "position": [
+        -6.75361729,
+        40.9615631,
+        -18.7706776
+      ],
+      "rotation": [
+        0.0,
+        224.556778,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "GateEnvironmentTransition"
+      ]
+    },
+    {
+      "path": "Test_MountainPlayer",
+      "id": 49848,
+      "active": true,
+      "position": [
+        -11.9999981,
+        37.15999,
+        -12.000001
+      ],
+      "rotation": [
+        0.0,
+        45.0000038,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "children": 3,
+      "components": [
+        "Transform",
+        "CharacterController",
+        "Test_MountainPlayerMovement"
+      ]
+    },
+    {
+      "path": "Test_MountainPlayer/Test_Player",
+      "id": 50034,
+      "active": true,
+      "position": [
+        -11.9999981,
+        37.15999,
+        -12.000001
+      ],
+      "rotation": [
+        0.0,
+        45.0000038,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_MountainPlayer/Test_Player/Test_CheonPlayer",
+      "id": 49960,
+      "active": true,
+      "position": [
+        -11.9999981,
+        37.15999,
+        -12.000001
+      ],
+      "rotation": [
+        0.0,
+        45.0000038,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "children": 2,
+      "components": [
+        "Transform",
+        "Animator"
+      ]
+    },
+    {
+      "path": "Test_MountainPlayer/Test_Player/Test_CheonPlayer/Armature/mixamorig:Hips/Test_StowedFanSocket/Test_FanMount/Test_FanOpening/PlayerFan_Rig",
+      "id": 50204,
+      "active": true,
+      "position": [
+        -11.9679737,
+        38.0534973,
+        -12.2073812
+      ],
+      "rotation": [
+        313.802277,
+        267.982178,
+        138.491745
+      ],
+      "scale": [
+        0.849999964,
+        0.8499998,
+        0.8499998
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_MountainPlayer/Test_Player/Test_CheonPlayer/Cheon_Player",
+      "id": 49342,
+      "active": true,
+      "position": [
+        -11.9999981,
+        37.15999,
+        -12.000001
+      ],
+      "rotation": [
+        270.0,
+        45.0000038,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        0.9999998,
+        0.9999999
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "SkinnedMeshRenderer"
+      ]
+    },
+    {
+      "path": "Test_PlayerControlGuide",
+      "id": 49754,
+      "active": true,
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "Test_PlayerControlGuide"
+      ]
+    },
+    {
+      "path": "Test_PlayerActionTimingUI",
+      "id": 50190,
+      "active": true,
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "Test_PlayerActionTimingUI"
+      ]
+    },
+    {
+      "path": "Test_PlayerPlaybackUI",
+      "id": 49352,
+      "active": true,
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "Test_PlayerPlaybackUI"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls",
+      "id": 49832,
+      "active": true,
+      "position": [
+        0.0,
+        27.12,
+        37.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "children": 2,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left",
+      "id": 50042,
+      "active": true,
+      "position": [
+        0.0,
+        27.12,
+        37.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "children": 6,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_Middle_01",
+      "id": -1622,
+      "active": true,
+      "position": [
+        11.45,
+        26.8751259,
+        41.95
+      ],
+      "rotation": [
+        -2.66804268E-08,
+        171.52887,
+        355.0716
+      ],
+      "scale": [
+        1.00405753,
+        1.0,
+        1.00000024
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_Middle_01/Wall_Middle_Geometry",
+      "id": 49132,
+      "active": true,
+      "position": [
+        11.45,
+        26.8751259,
+        41.95
+      ],
+      "rotation": [
+        -2.66804268E-08,
+        171.52887,
+        355.0716
+      ],
+      "scale": [
+        1.00405753,
+        1.0,
+        1.00000024
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_Middle_02",
+      "id": -2150,
+      "active": true,
+      "position": [
+        7.50929928,
+        26.6169167,
+        43.8216743
+      ],
+      "rotation": [
+        359.287048,
+        163.231354,
+        357.647766
+      ],
+      "scale": [
+        1.00405729,
+        1.0,
+        0.999999762
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_Middle_02/Wall_Middle_Geometry",
+      "id": 50144,
+      "active": true,
+      "position": [
+        7.50929928,
+        26.6169167,
+        43.8216743
+      ],
+      "rotation": [
+        359.287048,
+        163.231354,
+        357.647766
+      ],
+      "scale": [
+        1.00405729,
+        1.0,
+        0.999999762
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_Middle_03",
+      "id": -1566,
+      "active": true,
+      "position": [
+        5.561,
+        26.4320011,
+        42.716
+      ],
+      "rotation": [
+        358.277161,
+        151.114014,
+        355.381836
+      ],
+      "scale": [
+        1.00405765,
+        1.0,
+        1.00000048
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_Middle_03/Wall_Middle_Geometry",
+      "id": 50236,
+      "active": true,
+      "position": [
+        5.561,
+        26.4320011,
+        42.716
+      ],
+      "rotation": [
+        358.277161,
+        151.114014,
+        355.381836
+      ],
+      "scale": [
+        1.00405765,
+        1.0,
+        1.00000048
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_Middle_04",
+      "id": -1614,
+      "active": true,
+      "position": [
+        4.03042555,
+        26.28782,
+        41.19807
+      ],
+      "rotation": [
+        358.069183,
+        135.35817,
+        355.4647
+      ],
+      "scale": [
+        1.00405741,
+        1.0,
+        1.00000012
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_Middle_04/Wall_Middle_Geometry",
+      "id": 49086,
+      "active": true,
+      "position": [
+        4.03042555,
+        26.28782,
+        41.19807
+      ],
+      "rotation": [
+        358.069183,
+        135.35817,
+        355.4647
+      ],
+      "scale": [
+        1.00405741,
+        1.0,
+        1.00000012
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_End_01",
+      "id": -1526,
+      "active": true,
+      "position": [
+        14.0373821,
+        27.08,
+        42.3353539
+      ],
+      "rotation": [
+        0.0,
+        171.52887,
+        0.0
+      ],
+      "scale": [
+        1.00000024,
+        1.0,
+        1.00000024
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_End_01/Wall_End_Geometry",
+      "id": 49912,
+      "active": true,
+      "position": [
+        14.0373821,
+        27.08,
+        42.3353539
+      ],
+      "rotation": [
+        0.0,
+        171.52887,
+        0.0
+      ],
+      "scale": [
+        1.00000024,
+        1.0,
+        1.00000024
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_End_02",
+      "id": -1574,
+      "active": true,
+      "position": [
+        4.201229,
+        26.2861729,
+        41.36666
+      ],
+      "rotation": [
+        358.069183,
+        135.35817,
+        0.393113971
+      ],
+      "scale": [
+        1.00000024,
+        1.0,
+        1.00000024
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_End_02/Wall_End_Geometry",
+      "id": 49844,
+      "active": true,
+      "position": [
+        4.201229,
+        26.2861729,
+        41.36666
+      ],
+      "rotation": [
+        358.069183,
+        135.35817,
+        0.393113971
+      ],
+      "scale": [
+        1.00000024,
+        1.0,
+        1.00000024
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right",
+      "id": 49548,
+      "active": true,
+      "position": [
+        0.0,
+        27.12,
+        37.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "children": 10,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_01",
+      "id": -2158,
+      "active": true,
+      "position": [
+        -1.80946541,
+        26.6406612,
+        35.4579277
+      ],
+      "rotation": [
+        1.88708162,
+        134.571823,
+        0.4016992
+      ],
+      "scale": [
+        1.16670132,
+        1.0,
+        1.00000012
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_01/Wall_Middle_Geometry",
+      "id": 49020,
+      "active": true,
+      "position": [
+        -1.80946541,
+        26.6406612,
+        35.4579277
+      ],
+      "rotation": [
+        1.88708162,
+        134.571823,
+        0.4016992
+      ],
+      "scale": [
+        1.16670132,
+        1.0,
+        1.00000012
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_02",
+      "id": -1630,
+      "active": true,
+      "position": [
+        -4.09,
+        26.6800652,
+        33.6
+      ],
+      "rotation": [
+        -3.73525978E-07,
+        143.972656,
+        1.56368959
+      ],
+      "scale": [
+        1.16670132,
+        0.99999994,
+        1.0
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_02/Wall_Middle_Geometry",
+      "id": 49266,
+      "active": true,
+      "position": [
+        -4.146107,
+        26.9060669,
+        33.766922
+      ],
+      "rotation": [
+        1.06721707E-07,
+        143.972656,
+        4.978881
+      ],
+      "scale": [
+        1.16611,
+        1.00059152,
+        1.00000036
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_03",
+      "id": -1534,
+      "active": true,
+      "position": [
+        -6.934,
+        27.082,
+        33.164
+      ],
+      "rotation": [
+        -2.13443414E-07,
+        166.056,
+        3.214952
+      ],
+      "scale": [
+        1.2631917,
+        1.0,
+        1.00000024
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_03/Wall_Middle_Geometry",
+      "id": 49250,
+      "active": true,
+      "position": [
+        -6.934,
+        27.082,
+        33.164
+      ],
+      "rotation": [
+        -2.13443414E-07,
+        166.056,
+        3.214952
+      ],
+      "scale": [
+        1.2631917,
+        1.0,
+        1.00000024
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_04",
+      "id": -1542,
+      "active": true,
+      "position": [
+        -8.73,
+        27.079998,
+        34.09
+      ],
+      "rotation": [
+        0.0,
+        212.574036,
+        0.0
+      ],
+      "scale": [
+        0.900417,
+        1.0,
+        1.0
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_04/Wall_Middle_Geometry",
+      "id": 49502,
+      "active": true,
+      "position": [
+        -8.73,
+        27.079998,
+        34.09
+      ],
+      "rotation": [
+        0.0,
+        212.574036,
+        0.0
+      ],
+      "scale": [
+        0.900417,
+        1.0,
+        1.0
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_05",
+      "id": -1606,
+      "active": true,
+      "position": [
+        -10.53,
+        27.079998,
+        35.24
+      ],
+      "rotation": [
+        0.0,
+        212.574036,
+        0.0
+      ],
+      "scale": [
+        0.900417,
+        1.0,
+        1.0
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_05/Wall_Middle_Geometry",
+      "id": 49366,
+      "active": true,
+      "position": [
+        -10.53,
+        27.079998,
+        35.24
+      ],
+      "rotation": [
+        0.0,
+        212.574036,
+        0.0
+      ],
+      "scale": [
+        0.900417,
+        1.0,
+        1.0
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_06",
+      "id": -1582,
+      "active": true,
+      "position": [
+        -12.4299994,
+        27.079998,
+        36.99
+      ],
+      "rotation": [
+        0.0,
+        222.646713,
+        2.11533152E-05
+      ],
+      "scale": [
+        1.0867157,
+        1.0,
+        0.9999999
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_06/Wall_Middle_Geometry",
+      "id": 49094,
+      "active": true,
+      "position": [
+        -12.4299994,
+        27.079998,
+        36.99
+      ],
+      "rotation": [
+        0.0,
+        222.646713,
+        2.11533152E-05
+      ],
+      "scale": [
+        1.0867157,
+        1.0,
+        0.9999999
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_07",
+      "id": -1550,
+      "active": true,
+      "position": [
+        -14.329999,
+        27.08,
+        38.74
+      ],
+      "rotation": [
+        0.0,
+        222.646713,
+        2.11533152E-05
+      ],
+      "scale": [
+        1.0867157,
+        1.0,
+        0.9999999
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_07/Wall_Middle_Geometry",
+      "id": 48940,
+      "active": true,
+      "position": [
+        -14.329999,
+        27.08,
+        38.74
+      ],
+      "rotation": [
+        0.0,
+        222.646713,
+        2.11533152E-05
+      ],
+      "scale": [
+        1.0867157,
+        1.0,
+        0.9999999
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_End_01",
+      "id": -1558,
+      "active": true,
+      "position": [
+        0.304,
+        26.6670017,
+        37.602
+      ],
+      "rotation": [
+        1.88707376,
+        134.571777,
+        348.997467
+      ],
+      "scale": [
+        1.00000012,
+        1.0,
+        1.00000024
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_End_01/Wall_End_Geometry",
+      "id": 49338,
+      "active": true,
+      "position": [
+        0.304,
+        26.6670017,
+        37.602
+      ],
+      "rotation": [
+        1.88707376,
+        134.571777,
+        348.997467
+      ],
+      "scale": [
+        1.00000012,
+        1.0,
+        1.00000024
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_End_04",
+      "id": -1598,
+      "active": true,
+      "position": [
+        -10.3534689,
+        27.079998,
+        35.0774078
+      ],
+      "rotation": [
+        0.0,
+        222.6467,
+        0.0
+      ],
+      "scale": [
+        1.00000012,
+        1.0,
+        1.00000012
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_End_04/Wall_End_Geometry",
+      "id": 50024,
+      "active": true,
+      "position": [
+        -10.3534689,
+        27.079998,
+        35.0774078
+      ],
+      "rotation": [
+        0.0,
+        222.6467,
+        0.0
+      ],
+      "scale": [
+        1.00000012,
+        1.0,
+        1.00000012
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_End_05",
+      "id": -1590,
+      "active": true,
+      "position": [
+        -15.2234688,
+        27.08,
+        38.8374062
+      ],
+      "rotation": [
+        0.0,
+        222.6467,
+        0.0
+      ],
+      "scale": [
+        1.00000012,
+        1.0,
+        1.00000012
+      ],
+      "children": 1,
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_End_05/Wall_End_Geometry",
+      "id": 48902,
+      "active": true,
+      "position": [
+        -15.2234688,
+        27.08,
+        38.8374062
+      ],
+      "rotation": [
+        0.0,
+        222.6467,
+        0.0
+      ],
+      "scale": [
+        1.00000012,
+        1.0,
+        1.00000012
+      ],
+      "children": 0,
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer",
+        "MeshCollider"
+      ]
+    }
+  ],
+  "colliders": [
+    {
+      "path": "Test_CheonMountainMap/Arena_Floor_Flat_UV",
+      "type": "MeshCollider",
+      "size": [
+        134.76619,
+        0.1800232,
+        118.005722
+      ],
+      "center": [
+        -26.0081177,
+        37.02998,
+        -67.1531
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Granite_Cliff_Lower",
+      "type": "MeshCollider",
+      "size": [
+        90.81806,
+        30.19077,
+        72.84735
+      ],
+      "center": [
+        7.36784,
+        23.54259,
+        22.2913437
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Granite_Cliff_Upper",
+      "type": "MeshCollider",
+      "size": [
+        157.415421,
+        30.6954422,
+        134.17749
+      ],
+      "center": [
+        -27.89714,
+        29.4527435,
+        -68.44031
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Mountain_Continuous_Core",
+      "type": "MeshCollider",
+      "size": [
+        194.507111,
+        37.00004,
+        252.152237
+      ],
+      "center": [
+        -28.41732,
+        18.4999924,
+        -20.8223953
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Rocky_Ledges_And_Foothills",
+      "type": "MeshCollider",
+      "size": [
+        189.379944,
+        32.7433777,
+        209.396179
+      ],
+      "center": [
+        -25.900383,
+        15.0902061,
+        -37.1206627
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Shrine_Floor_Flat_UV",
+      "type": "MeshCollider",
+      "size": [
+        62.16975,
+        0.180007935,
+        52.4232521
+      ],
+      "center": [
+        7.0569706,
+        27.0299969,
+        18.87774
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Stairway_Between_Summits",
+      "type": "MeshCollider",
+      "size": [
+        16.1903439,
+        10.2450027,
+        22.96835
+      ],
+      "center": [
+        0.6240175,
+        32.02249,
+        -7.351751
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Stairway_Winding_Approach",
+      "type": "MeshCollider",
+      "size": [
+        32.9422073,
+        24.1650066,
+        66.19516
+      ],
+      "center": [
+        -12.8826084,
+        15.0625067,
+        70.4939
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Summit_Rim_Outcrops_Lower",
+      "type": "MeshCollider",
+      "size": [
+        69.74755,
+        11.7996483,
+        62.1559029
+      ],
+      "center": [
+        7.3431673,
+        27.6630878,
+        17.0170956
+      ]
+    },
+    {
+      "path": "Test_CheonMountainMap/Summit_Rim_Outcrops_Upper",
+      "type": "MeshCollider",
+      "size": [
+        148.075912,
+        11.513298,
+        126.847992
+      ],
+      "center": [
+        -26.1997757,
+        37.7702637,
+        -67.5155945
+      ]
+    },
+    {
+      "path": "Test_MountainPlayer",
+      "type": "CharacterController",
+      "size": [
+        0.56,
+        1.8,
+        0.56
+      ],
+      "center": [
+        -11.9999981,
+        38.05999,
+        -12.000001
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_Middle_01/Wall_Middle_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        2.75910759,
+        2.399231,
+        1.7075882
+      ],
+      "center": [
+        12.5438328,
+        28.0747414,
+        42.11291
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_Middle_02/Wall_Middle_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        2.78610229,
+        2.31389618,
+        1.97955322
+      ],
+      "center": [
+        8.614605,
+        27.7655239,
+        44.1696548
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_Middle_03/Wall_Middle_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        2.93458557,
+        2.42644882,
+        2.36660767
+      ],
+      "center": [
+        6.517643,
+        27.62507,
+        43.2847748
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_Middle_04/Wall_Middle_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        2.82194424,
+        2.4278183,
+        2.7155838
+      ],
+      "center": [
+        4.79490328,
+        27.4791431,
+        42.0094948
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_End_01/Wall_End_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        0.684764862,
+        2.27000046,
+        1.43526459
+      ],
+      "center": [
+        13.7965384,
+        28.215,
+        42.2994843
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Left/Test_Wall_End_02/Wall_End_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        1.35736465,
+        2.318447,
+        1.38777924
+      ],
+      "center": [
+        4.00661039,
+        27.4221725,
+        41.2282867
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_01/Wall_Middle_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        2.98159671,
+        2.26286316,
+        2.975357
+      ],
+      "center": [
+        -0.79594624,
+        27.7303982,
+        36.43555
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_02/Wall_Middle_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        3.19793415,
+        2.43622971,
+        2.83654022
+      ],
+      "center": [
+        -2.941421,
+        27.8812885,
+        34.643055
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_03/Wall_Middle_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        3.38052845,
+        2.3669014,
+        2.06032562
+      ],
+      "center": [
+        -5.40527248,
+        28.09543,
+        33.5435677
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_04/Wall_Middle_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        2.5428853,
+        2.20034027,
+        2.29325867
+      ],
+      "center": [
+        -7.81946564,
+        28.1801682,
+        33.50827
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_05/Wall_Middle_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        2.54288673,
+        2.20034027,
+        2.29325867
+      ],
+      "center": [
+        -9.619466,
+        28.1801682,
+        34.65827
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_06/Wall_Middle_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        2.82668114,
+        2.200344,
+        2.75308228
+      ],
+      "center": [
+        -11.4708052,
+        28.1801682,
+        36.1065331
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_Middle_07/Wall_Middle_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        2.82668114,
+        2.200344,
+        2.75308228
+      ],
+      "center": [
+        -13.3708048,
+        28.18017,
+        37.8565331
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_End_01/Wall_End_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        1.57096457,
+        2.36535645,
+        1.66547394
+      ],
+      "center": [
+        0.009275317,
+        27.734087,
+        37.2527428
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_End_04/Wall_End_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        1.2921524,
+        2.27000046,
+        1.34392548
+      ],
+      "center": [
+        -10.5325737,
+        28.2149982,
+        35.2423744
+      ]
+    },
+    {
+      "path": "Test_ShrineEntranceWalls/Test_EntranceWall_Right/Test_Wall_End_05/Wall_End_Geometry",
+      "type": "MeshCollider",
+      "size": [
+        1.29215145,
+        2.27000046,
+        1.34392548
+      ],
+      "center": [
+        -15.4025726,
+        28.215,
+        39.0023727
+      ]
+    }
+  ]
+}

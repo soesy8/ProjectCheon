@@ -1,0 +1,11 @@
+var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+if(EditorApplication.isPlaying || scene.path!="Assets/Proto/MountainPass/Scenes/MountainPass.unity") throw new InvalidOperationException("프로토타입 편집 씬 확인 필요");
+var mist=UnityEngine.Object.FindFirstObjectByType<Cheon.Prototype.MountainPass.PassMountainMist>();
+var rear=new SerializedObject(mist.RearFog);
+var boundary=(Transform)rear.FindProperty("densityBoundary").objectReferenceValue;
+var upper=new SerializedObject(mist);
+var report=new{scene=scene.path,editMode=!EditorApplication.isPlaying,width=rear.FindProperty("boundaryFade").floatValue,position=new[]{boundary.position.x,boundary.position.y,boundary.position.z},roughness=rear.FindProperty("boundaryRoughness").floatValue,floorHeight=rear.FindProperty("boundaryFloorHeight").floatValue,densityMultiplier=rear.FindProperty("densityMultiplier").floatValue,summitFadeHeight=upper.FindProperty("summitFadeHeight").floatValue,summitClearLeadHeight=upper.FindProperty("summitClearLeadHeight").floatValue,shaderErrors=UnityEditor.ShaderUtil.GetShaderMessages(Shader.Find("Cheon/Prototype/LocalMountainFog")).Count(m=>m.severity==UnityEditor.Rendering.ShaderCompilerMessageSeverity.Error)};
+if(Mathf.Abs(report.width-.8f)>.001f) throw new InvalidOperationException("안개 경계 값이 저장되지 않았습니다");
+UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);
+System.IO.File.WriteAllText("Assets/Temp/MountainMistFrontBlend~/Test_FinalReport.json",Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented));
+return report;

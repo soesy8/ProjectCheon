@@ -1,0 +1,15 @@
+var map=GameObject.Find("Test_CheonMountainMap");var report=new List<object>();
+Func<Vector3,float[]> V=v=>new[]{v.x,v.y,v.z};
+foreach(var name in new[]{"Summit_Rim_Outcrops_Upper","Granite_Cliff_Upper"}){
+ var t=map.transform.Find(name);var mesh=t.GetComponent<MeshFilter>().sharedMesh;var vertices=mesh.vertices;var triangles=mesh.triangles;
+ var positions=new Dictionary<string,int>();var parents=new int[vertices.Length];
+ for(int i=0;i<vertices.Length;i++){var p=t.TransformPoint(vertices[i]);var key=Math.Round(p.x,3)+","+Math.Round(p.y,3)+","+Math.Round(p.z,3);int previous;parents[i]=positions.TryGetValue(key,out previous)?previous:i;positions[key]=parents[i];}
+ Func<int,int> Find=null;Find=i=>parents[i]==i?i:(parents[i]=Find(parents[i]));
+ for(int i=0;i<triangles.Length;i+=3){int a=Find(triangles[i]);parents[Find(triangles[i+1])]=a;parents[Find(triangles[i+2])]=a;}
+ var groups=Enumerable.Range(0,vertices.Length).GroupBy(Find);
+ foreach(var group in groups){var bounds=new Bounds(t.TransformPoint(vertices[group.First()]),Vector3.zero);foreach(int i in group)bounds.Encapsulate(t.TransformPoint(vertices[i]));
+  if(bounds.center.x>8&&bounds.center.x<35&&bounds.center.z>-35&&bounds.center.z<-8&&bounds.max.y>36)
+   report.Add(new{name,center=V(bounds.center),min=V(bounds.min),max=V(bounds.max)});
+ }
+}
+return Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented);

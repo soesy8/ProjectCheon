@@ -1,0 +1,26 @@
+{
+  "saved": true,
+  "dirty": false,
+  "playing": false,
+  "landings": [
+    {
+      "name": "ArenaGate_StoneLanding",
+      "stair": "Stairway_Between_Summits",
+      "width": 9.4,
+      "entryWidth": 8.084,
+      "material": "Assets/Arts/Environment/StoneStairLanding/M_ArenaStoneStairLanding.mat"
+    },
+    {
+      "name": "ShrineEntrance_StoneLanding",
+      "stair": "Stairway_Winding_Approach",
+      "width": 8.0,
+      "entryWidth": 6.88,
+      "material": "Assets/Arts/Environment/StoneStairLanding/M_StoneStairLanding.mat"
+    }
+  ],
+  "edgeSupportChecks": 70,
+  "wallEndTouchesRock": true,
+  "wallEndRockHeight": 39.15764,
+  "wallColliders": 28,
+  "preservedGuids": true
+}

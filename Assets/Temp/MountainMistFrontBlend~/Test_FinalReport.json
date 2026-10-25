@@ -1,0 +1,16 @@
+{
+  "scene": "Assets/Proto/MountainPass/Scenes/MountainPass.unity",
+  "editMode": true,
+  "width": 0.8,
+  "position": [
+    -18.4638557,
+    3.47948265,
+    100.9532
+  ],
+  "roughness": 0.32,
+  "floorHeight": 3.33,
+  "densityMultiplier": 18.0,
+  "summitFadeHeight": 7.0,
+  "summitClearLeadHeight": 1.5,
+  "shaderErrors": 0
+}

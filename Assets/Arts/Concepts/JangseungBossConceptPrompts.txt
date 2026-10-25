@@ -1,0 +1,25 @@
+Jangseung boss concept — generation prompts
+Mode: built-in image_gen
+Final artwork: T_JangseungBossConcept.png (1024 x 1024)
+
+Initial generation
+
+Use case: stylized-concept.
+Asset type: game boss character concept sheet, square 1024 x 1024.
+Primary request: Design a Korean jangseung wooden village guardian totem as a threatening game boss. The design must be SIMPLE, immediately readable, and look achievable as an actual low-poly game model with cel shading.
+
+Design: A single massive upright, roughly octagonal wooden pillar forms the long head and torso, with the fiercely carved FACE dominating the upper half. Preserve the recognizable Korean jangseung look: a simple low stepped wooden cap, huge bulging angular eyes under very heavy inward-sloping eyebrows, a long wide protruding carved nose, and a broad rectangular snarling mouth showing a few oversized crooked square wooden teeth. Deep almost-black carved eye and mouth cavities. Small dark red pupils add menace without elaborate effects. The facial carving should feel savage, stern and intimidating, not cute. Two short chunky block-carved arms and heavy squared fists flank the pillar; two very short split-wood feet make the boss mobile without losing the pillar silhouette. Broad and heavy, but unmistakably a jangseung rather than a humanoid warrior.
+
+Style/medium: clean stylized 3D low-poly game render, chunky flat polygon planes, hard edges, two or three discrete cel-shaded light bands, restrained dark outline. Warm weathered brown timber, pale exposed cut surfaces and dark brown carved recesses. Only a few large wood cracks and simplified grooves; almost no fine surface noise. Every important facial feature is modeled in large geometric planes, clearly legible at small gameplay scale.
+Composition: one coherent design presented as a professional, spacious model reference sheet on a plain warm light gray background. Large full-body three-quarter hero render on the left, occupying about two thirds of the sheet; two smaller consistent front and side orthographic views stacked on the right. Keep all views fully visible with breathing room. The same proportions, face, cap and arms in every view. A very subtle grounding shadow.
+Constraints: minimal ornamentation; no weapons, no armor, no foliage, no ropes, no extra characters, no scene, no UI, no watermark, no labels or text. Do not add horns, samurai styling or a Japanese oni mask. No photorealism, smooth high-poly sculpt, soft gradient shading or realistic bark texture. Strongest visual priority: the fearsome jangseung face, then the simple wooden pillar silhouette.
+
+Final simplification edit
+
+Use case: style-transfer.
+Edit the supplied Korean jangseung boss concept sheet.
+Preserve the exact character design, fierce facial expression, giant eyebrows, long carved nose, uneven square teeth, pillar proportions, short arms and feet, wooden cap, view layout, warm wood palette and plain background.
+Change ONLY the surface rendering and geometric detail to make this a much simpler actual LOW POLY CEL SHADED GAME MODEL:
+Remove nearly all of the busy painted wood grain, flecks, tiny chips and tiny polygon details. Large, quiet flat brown surfaces. Retain only three or four bold cracks per major wooden body section. Reduce the number of small facets in the fists and nose. Make broad planar low-poly facets visible. Shade with exactly three crisp flat value bands per material with clear hard shadow boundaries, no smoothly blended lighting, no ambient-occlusion gradients. Restrained dark silhouette outlines. The result should feel like a direct screenshot of a simple flat-shaded toon game boss, with the face readable from far away. Keep the mouth and eyes dark, threatening and angular. Do not make it cute.
+Output a clean square 1024 x 1024 model reference concept sheet. Same one large three-quarter view on the left, same smaller front and side views stacked on the right, with fully visible silhouettes. No text or new objects.
+

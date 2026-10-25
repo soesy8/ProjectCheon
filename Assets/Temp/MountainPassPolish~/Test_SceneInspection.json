@@ -1,0 +1,1477 @@
+{
+  "scene": "Assets/Proto/MountainPass/Scenes/MountainPass.unity",
+  "isDirty": false,
+  "playing": false,
+  "roots": [
+    {
+      "name": "MountainPassEnvironment",
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "name": "Test_DirectionalLight",
+      "components": [
+        "Transform",
+        "Light",
+        "UniversalAdditionalLightData"
+      ]
+    },
+    {
+      "name": "PlayerCamera",
+      "components": [
+        "Transform",
+        "Camera",
+        "AudioListener",
+        "UniversalAdditionalCameraData",
+        "PassCamera"
+      ]
+    },
+    {
+      "name": "Gate Environment Transition",
+      "components": [
+        "Transform",
+        "PassWorldTransition"
+      ]
+    },
+    {
+      "name": "HeightFog_VFX",
+      "components": [
+        "Transform",
+        "PassHeightFog"
+      ]
+    },
+    {
+      "name": "Player",
+      "components": [
+        "Transform",
+        "CharacterController",
+        "PassPlayerMovement",
+        "PassHealth",
+        "PassPlayerCombat"
+      ]
+    },
+    {
+      "name": "Test_ShrineEntranceWalls",
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "name": "JangseungBoss",
+      "components": [
+        "Transform",
+        "CapsuleCollider",
+        "PassHealth",
+        "PassBossController",
+        "Animator"
+      ]
+    },
+    {
+      "name": "MountainPassSystems",
+      "components": [
+        "Transform",
+        "PassGameFlow",
+        "PassEffects",
+        "PassAudio",
+        "PassHud"
+      ]
+    },
+    {
+      "name": "MountainShrineInteraction",
+      "components": [
+        "Transform",
+        "PassShrineInteraction"
+      ]
+    },
+    {
+      "name": "ShrineStairWalkwayCollider",
+      "components": [
+        "Transform",
+        "MeshCollider"
+      ]
+    },
+    {
+      "name": "ApproachSafetyWalls",
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "name": "ApproachStoneParapets",
+      "components": [
+        "Transform"
+      ]
+    },
+    {
+      "name": "ApproachLanterns",
+      "components": [
+        "Transform",
+        "PassStairAtmosphere"
+      ]
+    },
+    {
+      "name": "BossGateEntrance",
+      "components": [
+        "Transform",
+        "PassBossEntrance",
+        "PlayableDirector"
+      ]
+    },
+    {
+      "name": "ShrinePorchThresholdSteps",
+      "components": [
+        "Transform",
+        "MeshFilter",
+        "MeshRenderer"
+      ]
+    },
+    {
+      "name": "BossIntroductionRig",
+      "components": [
+        "Transform",
+        "Animator"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Arena_Floor_Flat_UV",
+      "parent": "MountainPassEnvironment",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(100.00, 100.00, 100.00)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-93.39, 36.94, -126.16)",
+      "max": "(41.37, 37.12, -8.15)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_UpperGround.mat"
+      ]
+    },
+    {
+      "name": "Granite_Cliff_Lower",
+      "parent": "MountainPassEnvironment",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(100.00, 100.00, 100.00)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-38.04, 8.45, -14.13)",
+      "max": "(52.78, 38.64, 58.72)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_LowerCliffs.mat"
+      ]
+    },
+    {
+      "name": "Granite_Cliff_Upper",
+      "parent": "MountainPassEnvironment",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(100.00, 100.00, 100.00)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-106.60, 14.11, -135.53)",
+      "max": "(50.81, 44.80, -1.35)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_UpperCliffs.mat"
+      ]
+    },
+    {
+      "name": "Hanok_Gate_Placement",
+      "parent": "MountainPassEnvironment",
+      "position": "(-6.75, 36.96, -18.77)",
+      "scale": "(267.03, 267.03, 267.03)",
+      "mesh": "",
+      "min": "",
+      "max": "",
+      "collider": "",
+      "material": null
+    },
+    {
+      "name": "Gate_Threshold_1",
+      "parent": "Cheon_Gate_Root",
+      "position": "(-6.04, 36.92, -18.07)",
+      "scale": "(267.03, 267.03, 315.49)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-12.29, 36.71, -24.28)",
+      "max": "(0.03, 48.04, -12.04)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_IndigoRoofTile.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_LightSandstone.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_OrangeWood.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_VermilionWood.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_OchreGold.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_IvoryHanji.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_WarmHanji.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_TealDancheong.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_WarmSandstone.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_JadeDancheong.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_DarkIron.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_RoofTileLight.mat"
+      ]
+    },
+    {
+      "name": "Mountain_Continuous_Core",
+      "parent": "MountainPassEnvironment",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(100.00, 100.00, 100.00)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-125.67, 0.00, -146.90)",
+      "max": "(68.84, 37.00, 105.25)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_MountainSlope.mat"
+      ]
+    },
+    {
+      "name": "Pine_01",
+      "parent": "MountainPassEnvironment",
+      "position": "(30.78, 27.06, 4.06)",
+      "scale": "(958.70, 958.70, 958.70)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(25.26, 27.07, -0.50)",
+      "max": "(36.31, 36.27, 8.63)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_02",
+      "parent": "MountainPassEnvironment",
+      "position": "(34.97, 27.06, 24.51)",
+      "scale": "(729.45, 729.45, 729.45)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(31.13, 27.07, 20.30)",
+      "max": "(38.81, 34.07, 28.71)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_03",
+      "parent": "MountainPassEnvironment",
+      "position": "(25.73, 27.06, 38.25)",
+      "scale": "(864.91, 864.91, 864.91)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(21.21, 27.07, 35.35)",
+      "max": "(30.25, 35.37, 41.15)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_04",
+      "parent": "MountainPassEnvironment",
+      "position": "(11.12, 27.06, 42.28)",
+      "scale": "(625.24, 625.24, 625.24)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(8.33, 27.06, 38.73)",
+      "max": "(13.90, 33.06, 45.84)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_05",
+      "parent": "MountainPassEnvironment",
+      "position": "(-19.53, 27.06, 26.33)",
+      "scale": "(771.13, 771.13, 771.13)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-23.98, 27.07, 22.45)",
+      "max": "(-15.06, 34.47, 30.21)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_06",
+      "parent": "MountainPassEnvironment",
+      "position": "(-18.66, 27.06, 5.13)",
+      "scale": "(812.81, 812.81, 812.81)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-22.53, 27.06, 0.45)",
+      "max": "(-14.79, 34.86, 9.81)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_07",
+      "parent": "MountainPassEnvironment",
+      "position": "(14.04, 27.06, -2.69)",
+      "scale": "(708.60, 708.60, 708.60)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(10.48, 27.07, -6.79)",
+      "max": "(17.61, 33.87, 1.41)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_08",
+      "parent": "MountainPassEnvironment",
+      "position": "(31.27, 37.06, -21.84)",
+      "scale": "(771.13, 771.13, 771.13)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(26.97, 37.06, -25.01)",
+      "max": "(35.57, 44.47, -18.66)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_09",
+      "parent": "MountainPassEnvironment",
+      "position": "(37.23, 37.06, -57.66)",
+      "scale": "(937.86, 937.86, 937.86)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(31.80, 37.06, -62.38)",
+      "max": "(42.66, 46.06, -52.94)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_10",
+      "parent": "MountainPassEnvironment",
+      "position": "(26.07, 37.06, -108.88)",
+      "scale": "(833.65, 833.65, 833.65)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(22.94, 37.07, -113.40)",
+      "max": "(29.19, 45.07, -104.36)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_11",
+      "parent": "MountainPassEnvironment",
+      "position": "(-25.41, 37.06, -122.03)",
+      "scale": "(989.96, 989.96, 989.96)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-30.39, 37.07, -127.76)",
+      "max": "(-20.43, 46.57, -116.30)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_12",
+      "parent": "MountainPassEnvironment",
+      "position": "(-81.10, 37.06, -87.34)",
+      "scale": "(917.02, 917.02, 917.02)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-86.33, 37.06, -92.34)",
+      "max": "(-75.87, 45.87, -82.34)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_13",
+      "parent": "MountainPassEnvironment",
+      "position": "(-76.03, 37.06, -38.71)",
+      "scale": "(937.86, 937.86, 937.86)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-81.38, 37.06, -43.83)",
+      "max": "(-70.68, 46.06, -33.60)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_14",
+      "parent": "MountainPassEnvironment",
+      "position": "(-53.61, 37.06, -19.03)",
+      "scale": "(781.55, 781.55, 781.55)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-58.13, 37.06, -22.96)",
+      "max": "(-49.08, 44.56, -15.10)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_15",
+      "parent": "MountainPassEnvironment",
+      "position": "(-18.29, 37.06, -12.64)",
+      "scale": "(698.18, 698.18, 698.18)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-20.91, 37.06, -16.42)",
+      "max": "(-15.67, 43.77, -8.85)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_16",
+      "parent": "MountainPassEnvironment",
+      "position": "(35.26, 7.53, 59.99)",
+      "scale": "(541.87, 541.87, 541.87)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(32.32, 7.53, 57.96)",
+      "max": "(38.20, 12.73, 62.03)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_17",
+      "parent": "MountainPassEnvironment",
+      "position": "(-24.81, 3.98, 63.02)",
+      "scale": "(604.40, 604.40, 604.40)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-27.69, 3.99, 59.54)",
+      "max": "(-21.93, 9.79, 66.50)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_18",
+      "parent": "MountainPassEnvironment",
+      "position": "(-40.53, 24.07, -3.64)",
+      "scale": "(593.98, 593.98, 593.98)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-43.77, 24.08, -7.03)",
+      "max": "(-37.29, 29.78, -0.25)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_19",
+      "parent": "MountainPassEnvironment",
+      "position": "(48.29, 18.28, -14.33)",
+      "scale": "(573.14, 573.14, 573.14)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(45.93, 18.28, -17.52)",
+      "max": "(50.65, 23.78, -11.13)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_20",
+      "parent": "MountainPassEnvironment",
+      "position": "(-93.94, 21.82, -105.98)",
+      "scale": "(573.14, 573.14, 573.14)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-97.06, 21.82, -109.25)",
+      "max": "(-90.81, 27.32, -102.71)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_Arena_01",
+      "parent": "MountainPassEnvironment",
+      "position": "(-30.58, 37.06, -15.00)",
+      "scale": "(704.80, 704.80, 704.80)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-33.23, 37.06, -18.82)",
+      "max": "(-27.94, 43.83, -11.18)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_Arena_02",
+      "parent": "MountainPassEnvironment",
+      "position": "(-64.85, 37.06, -22.24)",
+      "scale": "(716.72, 716.72, 716.72)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-69.00, 37.06, -25.84)",
+      "max": "(-60.70, 43.94, -18.63)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_Arena_03",
+      "parent": "MountainPassEnvironment",
+      "position": "(-85.09, 37.06, -59.25)",
+      "scale": "(916.24, 916.24, 916.24)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-90.31, 37.06, -64.24)",
+      "max": "(-79.86, 45.86, -54.25)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_Arena_04",
+      "parent": "MountainPassEnvironment",
+      "position": "(-64.59, 37.06, -103.60)",
+      "scale": "(969.08, 969.08, 969.08)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-70.11, 37.07, -108.88)",
+      "max": "(-59.06, 46.36, -98.31)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_Arena_05",
+      "parent": "MountainPassEnvironment",
+      "position": "(-49.72, 37.06, -115.02)",
+      "scale": "(980.64, 980.64, 980.64)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-55.32, 37.06, -120.37)",
+      "max": "(-44.13, 46.48, -109.67)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_Arena_06",
+      "parent": "MountainPassEnvironment",
+      "position": "(-11.71, 37.06, -121.98)",
+      "scale": "(960.63, 960.63, 960.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-16.54, 37.06, -127.54)",
+      "max": "(-6.87, 46.28, -116.43)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_Arena_07",
+      "parent": "MountainPassEnvironment",
+      "position": "(4.70, 37.06, -119.49)",
+      "scale": "(1014.99, 1014.99, 1014.99)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-0.40, 37.06, -125.36)",
+      "max": "(9.81, 46.81, -113.62)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_Arena_08",
+      "parent": "MountainPassEnvironment",
+      "position": "(34.29, 37.06, -84.72)",
+      "scale": "(855.58, 855.58, 855.58)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(31.08, 37.07, -89.35)",
+      "max": "(37.50, 45.28, -80.07)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_Arena_09",
+      "parent": "MountainPassEnvironment",
+      "position": "(37.64, 37.06, -36.17)",
+      "scale": "(991.17, 991.17, 991.17)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(31.90, 37.07, -41.15)",
+      "max": "(43.37, 46.58, -31.18)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_Shrine_01",
+      "parent": "MountainPassEnvironment",
+      "position": "(31.62, 27.06, 32.67)",
+      "scale": "(719.39, 719.39, 719.39)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(27.84, 27.07, 28.52)",
+      "max": "(35.41, 33.97, 36.82)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_Shrine_02",
+      "parent": "MountainPassEnvironment",
+      "position": "(-21.10, 27.06, 15.89)",
+      "scale": "(762.30, 762.30, 762.30)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-25.51, 27.07, 12.05)",
+      "max": "(-16.69, 34.38, 19.72)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_Shrine_03",
+      "parent": "MountainPassEnvironment",
+      "position": "(22.53, 27.06, -3.28)",
+      "scale": "(687.70, 687.70, 687.70)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(19.07, 27.06, -7.26)",
+      "max": "(25.99, 33.66, 0.70)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Pine_Shrine_04",
+      "parent": "MountainPassEnvironment",
+      "position": "(35.32, 27.06, 14.75)",
+      "scale": "(965.40, 965.40, 965.40)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(29.77, 27.06, 10.15)",
+      "max": "(40.89, 36.33, 19.35)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat"
+      ]
+    },
+    {
+      "name": "Rocky_Ledges_And_Foothills",
+      "parent": "MountainPassEnvironment",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(100.00, 100.00, 100.00)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-120.59, -1.28, -141.82)",
+      "max": "(68.79, 31.46, 67.58)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_FoothillRocks.mat"
+      ]
+    },
+    {
+      "name": "Shrine_Building_Placement",
+      "parent": "MountainPassEnvironment",
+      "position": "(23.60, 27.12, 17.70)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "",
+      "min": "",
+      "max": "",
+      "collider": "",
+      "material": null
+    },
+    {
+      "name": "Altar",
+      "parent": "BuildingBase_Parts",
+      "position": "(23.60, 27.12, 17.70)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(21.93, 28.54, 14.51)",
+      "max": "(26.79, 29.47, 19.38)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Altar_Wood.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Altar_Edge.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Altar_DarkWood.mat"
+      ]
+    },
+    {
+      "name": "Beams",
+      "parent": "BuildingBase_Parts",
+      "position": "(23.60, 27.12, 17.70)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(17.33, 32.65, 11.52)",
+      "max": "(29.78, 33.59, 23.98)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_UpperBeam_Green.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_RedBrown_Timber.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Bracket_Teal.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Rafter_WarmTimber.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Dancheong_Ochre.mat"
+      ]
+    },
+    {
+      "name": "Candles",
+      "parent": "BuildingBase_Parts",
+      "position": "(23.60, 27.12, 17.70)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(22.68, 29.47, 15.40)",
+      "max": "(25.91, 30.19, 18.62)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_CandleHolder_Brass.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Candle_Wax.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Altar_DarkWood.mat"
+      ]
+    },
+    {
+      "name": "DoorFrame",
+      "parent": "BuildingBase_Parts",
+      "position": "(23.60, 27.12, 17.70)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(18.53, 28.67, 17.13)",
+      "max": "(24.16, 32.80, 22.78)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Door_Frame.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Door_Timber.mat"
+      ]
+    },
+    {
+      "name": "Doors_Left",
+      "parent": "BuildingBase_Parts",
+      "position": "(23.22, 28.74, 21.84)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(22.42, 28.74, 21.03)",
+      "max": "(24.03, 32.56, 22.65)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Door_Timber.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Door_LowerPanel.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Door_Paper.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Door_Iron.mat"
+      ]
+    },
+    {
+      "name": "Doors_Right",
+      "parent": "BuildingBase_Parts",
+      "position": "(19.46, 28.74, 18.07)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(18.66, 28.74, 17.26)",
+      "max": "(20.27, 32.56, 18.87)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Door_Timber.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Door_LowerPanel.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Door_Paper.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Door_Iron.mat"
+      ]
+    },
+    {
+      "name": "Floor",
+      "parent": "BuildingBase_Parts",
+      "position": "(23.60, 27.12, 17.70)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(18.31, 28.23, 12.51)",
+      "max": "(28.79, 28.67, 22.99)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Timber_EndBlocks.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_RedBrown_Timber.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Wood_Floor.mat"
+      ]
+    },
+    {
+      "name": "Foundation",
+      "parent": "BuildingBase_Parts",
+      "position": "(23.60, 27.12, 17.70)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(16.56, 27.12, 10.66)",
+      "max": "(30.64, 28.23, 24.74)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Foundation_Stone.mat"
+      ]
+    },
+    {
+      "name": "Incense",
+      "parent": "BuildingBase_Parts",
+      "position": "(23.60, 27.12, 17.70)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(23.71, 29.47, 16.28)",
+      "max": "(25.02, 30.21, 17.60)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Incense_Bronze.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Incense_Ash.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Incense_Stick.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Incense_Ember.mat"
+      ]
+    },
+    {
+      "name": "Offerings",
+      "parent": "BuildingBase_Parts",
+      "position": "(23.60, 27.12, 17.70)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(23.19, 29.47, 16.18)",
+      "max": "(25.12, 29.65, 18.12)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_CandleHolder_Brass.mat"
+      ]
+    },
+    {
+      "name": "Painting",
+      "parent": "BuildingBase_Parts",
+      "position": "(23.60, 27.12, 17.70)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(23.25, 29.55, 13.71)",
+      "max": "(27.60, 32.59, 18.07)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Altar_DarkWood.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Altar_Wood.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_SanshinPainting.mat"
+      ]
+    },
+    {
+      "name": "Pillars",
+      "parent": "BuildingBase_Parts",
+      "position": "(23.60, 27.12, 17.70)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(17.84, 28.23, 12.04)",
+      "max": "(29.26, 32.95, 23.47)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Foundation_Stone.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pillar_Plinth.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Pillar_Red_Timber.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Bracket_Teal.mat"
+      ]
+    },
+    {
+      "name": "Roof",
+      "parent": "BuildingBase_Parts",
+      "position": "(23.60, 27.12, 17.70)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(15.90, 33.45, 10.10)",
+      "max": "(31.20, 36.71, 25.40)",
+      "collider": "",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Roof_UnderTile.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Roof_Slate.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Roof_Slate_Light.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Roof_Slate_Dark.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_RedBrown_Timber.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Rafter_WarmTimber.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_UpperBeam_Green.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Warm_Wall.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Dancheong_Ochre.mat"
+      ]
+    },
+    {
+      "name": "Stairs",
+      "parent": "BuildingBase_Parts",
+      "position": "(23.60, 27.12, 17.70)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(17.89, 27.12, 19.24)",
+      "max": "(22.05, 27.83, 23.41)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Foundation_Stone.mat"
+      ]
+    },
+    {
+      "name": "Walls",
+      "parent": "BuildingBase_Parts",
+      "position": "(23.60, 27.12, 17.70)",
+      "scale": "(55.63, 55.63, 55.63)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(18.66, 28.49, 12.50)",
+      "max": "(28.80, 32.94, 22.65)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Warm_Wall.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_Timber_EndBlocks.mat",
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_RedBrown_Timber.mat"
+      ]
+    },
+    {
+      "name": "Shrine_Floor_Flat_UV",
+      "parent": "MountainPassEnvironment",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(100.00, 100.00, 100.00)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-24.03, 26.94, -7.33)",
+      "max": "(38.14, 27.12, 45.09)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_ShrineGround.mat"
+      ]
+    },
+    {
+      "name": "Stairway_Between_Summits",
+      "parent": "MountainPassEnvironment",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(100.00, 100.00, 100.00)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-7.47, 26.90, -18.84)",
+      "max": "(8.72, 37.15, 4.13)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_SummitStairs.mat"
+      ]
+    },
+    {
+      "name": "Stairway_Winding_Approach",
+      "parent": "MountainPassEnvironment",
+      "position": "(-1.88, 0.00, 17.16)",
+      "scale": "(100.00, 100.00, 100.00)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-29.35, 2.98, 37.40)",
+      "max": "(3.59, 27.15, 103.59)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_ApproachStairs.mat"
+      ]
+    },
+    {
+      "name": "Summit_Rim_Outcrops_Lower",
+      "parent": "MountainPassEnvironment",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(100.00, 100.00, 100.00)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-27.53, 21.76, -14.06)",
+      "max": "(42.22, 33.56, 48.10)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_LowerRocks.mat"
+      ]
+    },
+    {
+      "name": "Summit_Rim_Outcrops_Upper",
+      "parent": "MountainPassEnvironment",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(100.00, 100.00, 100.00)",
+      "mesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "min": "(-100.24, 32.01, -130.94)",
+      "max": "(47.84, 43.53, -4.09)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_UpperRocks.mat"
+      ]
+    },
+    {
+      "name": "GateSideWalls",
+      "parent": "MountainPassEnvironment",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(1.00, 1.00, 1.00)",
+      "mesh": "",
+      "min": "",
+      "max": "",
+      "collider": "",
+      "material": null
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Upper_01",
+      "position": "(-2.96, 36.92, -21.28)",
+      "scale": "(0.89, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(-3.66, 36.92, -23.25)",
+      "max": "(-0.98, 41.05, -20.58)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Upper_02",
+      "position": "(-1.50, 37.09, -22.72)",
+      "scale": "(0.89, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(-1.86, 37.09, -23.29)",
+      "max": "(0.67, 41.06, -21.01)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Upper_03",
+      "position": "(0.25, 37.09, -21.61)",
+      "scale": "(0.89, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(-0.11, 37.09, -22.18)",
+      "max": "(2.42, 41.06, -19.90)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Upper_04",
+      "position": "(2.00, 37.09, -20.50)",
+      "scale": "(0.77, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(1.56, 37.09, -21.00)",
+      "max": "(3.83, 41.06, -18.78)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Upper_05",
+      "position": "(3.33, 37.09, -19.33)",
+      "scale": "(0.77, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(2.89, 37.09, -19.84)",
+      "max": "(5.16, 41.06, -17.62)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Upper_06",
+      "position": "(4.67, 37.09, -18.17)",
+      "scale": "(0.77, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(4.23, 37.09, -18.67)",
+      "max": "(6.49, 41.06, -16.45)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Upper_07",
+      "position": "(6.00, 37.09, -17.00)",
+      "scale": "(0.72, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(5.60, 37.09, -17.54)",
+      "max": "(7.79, 41.06, -15.42)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Upper_08",
+      "position": "(7.33, 37.09, -16.00)",
+      "scale": "(0.72, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(6.93, 37.09, -16.54)",
+      "max": "(9.12, 41.06, -14.42)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Upper_09",
+      "position": "(8.67, 37.09, -15.00)",
+      "scale": "(0.72, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(8.26, 37.09, -15.54)",
+      "max": "(10.46, 41.06, -13.42)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_End_Geometry",
+      "parent": "GateWall_Upper_End",
+      "position": "(14.20, 37.10, -10.85)",
+      "scale": "(1.00, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_End.fbx",
+      "min": "(13.79, 37.10, -11.40)",
+      "max": "(15.00, 41.18, -10.01)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_End.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Upper_Extension_01",
+      "position": "(10.00, 37.10, -14.00)",
+      "scale": "(0.76, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(9.60, 37.10, -14.54)",
+      "max": "(11.86, 41.06, -12.37)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Upper_Extension_02",
+      "position": "(11.40, 37.10, -12.95)",
+      "scale": "(0.76, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(11.00, 37.10, -13.49)",
+      "max": "(13.26, 41.06, -11.32)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Upper_Extension_03",
+      "position": "(12.80, 37.10, -11.90)",
+      "scale": "(0.76, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(12.40, 37.10, -12.44)",
+      "max": "(14.66, 41.06, -10.27)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Lower_01",
+      "position": "(-9.29, 36.91, -15.05)",
+      "scale": "(0.90, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(-11.32, 36.91, -15.58)",
+      "max": "(-8.78, 40.90, -13.06)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Lower_02",
+      "position": "(-10.71, 36.93, -13.69)",
+      "scale": "(0.86, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(-12.69, 36.93, -14.38)",
+      "max": "(-10.04, 41.03, -11.81)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Lower_03",
+      "position": "(-11.80, 37.09, -12.70)",
+      "scale": "(0.59, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(-13.30, 37.09, -13.20)",
+      "max": "(-11.35, 41.06, -11.25)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Lower_04",
+      "position": "(-12.80, 37.09, -11.80)",
+      "scale": "(0.59, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(-14.30, 37.09, -12.30)",
+      "max": "(-12.35, 41.06, -10.35)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Lower_05",
+      "position": "(-13.80, 37.09, -10.90)",
+      "scale": "(0.59, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(-15.30, 37.09, -11.40)",
+      "max": "(-13.35, 41.06, -9.45)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_End_Geometry",
+      "parent": "GateWall_Lower_End",
+      "position": "(-18.60, 37.10, -6.58)",
+      "scale": "(1.00, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_End.fbx",
+      "min": "(-19.42, 37.10, -7.09)",
+      "max": "(-18.14, 41.18, -5.74)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_End.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Lower_Extension_01",
+      "position": "(-14.80, 37.10, -10.00)",
+      "scale": "(0.74, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(-16.57, 37.10, -10.50)",
+      "max": "(-14.35, 41.06, -8.31)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Lower_Extension_02",
+      "position": "(-16.07, 37.10, -8.86)",
+      "scale": "(0.74, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(-17.83, 37.10, -9.36)",
+      "max": "(-15.62, 41.06, -7.17)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "Wall_Middle_Geometry",
+      "parent": "GateWall_Lower_Extension_03",
+      "position": "(-17.33, 37.10, -7.72)",
+      "scale": "(0.74, 1.80, 1.00)",
+      "mesh": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+      "min": "(-19.10, 37.10, -8.22)",
+      "max": "(-16.88, 41.06, -6.03)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat"
+      ]
+    },
+    {
+      "name": "StairLandingExtensions",
+      "parent": "MountainPassEnvironment",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(1.00, 1.00, 1.00)",
+      "mesh": "",
+      "min": "",
+      "max": "",
+      "collider": "",
+      "material": null
+    },
+    {
+      "name": "ApproachStairLandingRow_01",
+      "parent": "ShrineEntrance_StairLanding",
+      "position": "(2.93, 27.15, 38.49)",
+      "scale": "(2.28, 1.00, 1.65)",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ApproachStairLandingRow.asset",
+      "min": "(-1.30, 24.83, 34.45)",
+      "max": "(6.28, 27.15, 43.26)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_ApproachStairs.mat"
+      ]
+    },
+    {
+      "name": "ApproachStairLandingRow_02",
+      "parent": "ShrineEntrance_StairLanding",
+      "position": "(3.71, 27.15, 37.85)",
+      "scale": "(2.06, 1.00, 1.65)",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ApproachStairLandingRowSolid.asset",
+      "min": "(-0.18, 24.83, 34.20)",
+      "max": "(6.72, 27.15, 42.21)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_ApproachStairs.mat"
+      ]
+    },
+    {
+      "name": "ApproachStairLandingRow_03",
+      "parent": "ShrineEntrance_StairLanding",
+      "position": "(4.49, 27.15, 37.20)",
+      "scale": "(2.12, 1.00, 1.65)",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ApproachStairLandingRow.asset",
+      "min": "(0.51, 24.83, 33.45)",
+      "max": "(7.59, 27.15, 41.67)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_ApproachStairs.mat"
+      ]
+    },
+    {
+      "name": "ApproachStairLandingRow_04",
+      "parent": "ShrineEntrance_StairLanding",
+      "position": "(5.27, 27.15, 36.55)",
+      "scale": "(1.83, 1.00, 1.65)",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ApproachStairLandingRowSolid.asset",
+      "min": "(1.70, 24.83, 33.31)",
+      "max": "(7.95, 27.15, 40.52)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_ApproachStairs.mat"
+      ]
+    },
+    {
+      "name": "ApproachStairLandingRow_05",
+      "parent": "ShrineEntrance_StairLanding",
+      "position": "(6.04, 27.15, 35.91)",
+      "scale": "(1.96, 1.00, 1.65)",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ApproachStairLandingRow.asset",
+      "min": "(2.30, 24.83, 32.44)",
+      "max": "(8.91, 27.15, 40.09)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_ApproachStairs.mat"
+      ]
+    },
+    {
+      "name": "ApproachStairLandingRow_06",
+      "parent": "ShrineEntrance_StairLanding",
+      "position": "(6.82, 27.15, 35.26)",
+      "scale": "(1.74, 1.00, 1.65)",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ApproachStairLandingRowSolid.asset",
+      "min": "(3.40, 24.83, 32.18)",
+      "max": "(9.38, 27.15, 39.06)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_ApproachStairs.mat"
+      ]
+    },
+    {
+      "name": "ApproachStairLandingRow_07",
+      "parent": "ShrineEntrance_StairLanding",
+      "position": "(7.60, 27.15, 34.62)",
+      "scale": "(2.11, 1.00, 1.65)",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ApproachStairLandingRow.asset",
+      "min": "(3.63, 24.83, 30.88)",
+      "max": "(10.70, 27.15, 39.08)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_ApproachStairs.mat"
+      ]
+    },
+    {
+      "name": "ApproachStairLandingRow_08",
+      "parent": "ShrineEntrance_StairLanding",
+      "position": "(8.38, 27.15, 33.97)",
+      "scale": "(1.83, 1.00, 1.65)",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ApproachStairLandingRowSolid.asset",
+      "min": "(4.82, 24.83, 30.73)",
+      "max": "(11.07, 27.15, 37.94)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_ApproachStairs.mat"
+      ]
+    },
+    {
+      "name": "ArenaStairLandingRow_01",
+      "parent": "ArenaGate_StairLanding",
+      "position": "(-6.22, 37.15, -17.78)",
+      "scale": "(1.35, 1.00, 1.74)",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ArenaStairLandingRow.asset",
+      "min": "(-8.96, 34.91, -20.32)",
+      "max": "(-2.71, 37.15, -14.39)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_SummitStairs.mat"
+      ]
+    },
+    {
+      "name": "ArenaStairLandingRow_02",
+      "parent": "ArenaGate_StairLanding",
+      "position": "(-6.92, 37.15, -18.53)",
+      "scale": "(1.37, 1.00, 1.74)",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ArenaStairLandingRowSolid.asset",
+      "min": "(-9.71, 34.91, -21.12)",
+      "max": "(-3.36, 37.15, -15.11)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_SummitStairs.mat"
+      ]
+    },
+    {
+      "name": "ArenaStairLandingRow_03",
+      "parent": "ArenaGate_StairLanding",
+      "position": "(-7.62, 37.15, -19.29)",
+      "scale": "(1.76, 1.00, 1.74)",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ArenaStairLandingRow.asset",
+      "min": "(-11.20, 34.91, -22.60)",
+      "max": "(-3.27, 37.15, -15.13)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_SummitStairs.mat"
+      ]
+    },
+    {
+      "name": "ArenaStairLandingRow_04",
+      "parent": "ArenaGate_StairLanding",
+      "position": "(-8.32, 37.15, -20.04)",
+      "scale": "(1.94, 1.00, 1.74)",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ArenaStairLandingRowSolid.asset",
+      "min": "(-12.26, 34.91, -23.70)",
+      "max": "(-3.60, 37.15, -15.54)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_SummitStairs.mat"
+      ]
+    },
+    {
+      "name": "ArenaStairLandingRow_05",
+      "parent": "ArenaGate_StairLanding",
+      "position": "(-9.03, 37.15, -20.79)",
+      "scale": "(1.68, 1.00, 1.74)",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ArenaStairLandingRow.asset",
+      "min": "(-12.44, 34.91, -23.96)",
+      "max": "(-4.83, 37.15, -16.78)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_SummitStairs.mat"
+      ]
+    },
+    {
+      "name": "ArenaStairLandingRow_06",
+      "parent": "ArenaGate_StairLanding",
+      "position": "(-9.73, 37.15, -21.55)",
+      "scale": "(1.74, 1.00, 1.74)",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ArenaStairLandingRowSolid.asset",
+      "min": "(-13.26, 34.91, -24.83)",
+      "max": "(-5.41, 37.15, -17.42)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_SummitStairs.mat"
+      ]
+    },
+    {
+      "name": "ArenaStairLandingRow_07",
+      "parent": "ArenaGate_StairLanding",
+      "position": "(-10.43, 37.15, -22.30)",
+      "scale": "(1.39, 1.00, 1.74)",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ArenaStairLandingRow.asset",
+      "min": "(-13.25, 34.91, -24.92)",
+      "max": "(-6.82, 37.15, -18.84)",
+      "collider": "MeshCollider",
+      "material": [
+        "Assets/Test/CheonMountainMap/Materials/Test_M_Map_SummitStairs.mat"
+      ]
+    }
+  ]
+}

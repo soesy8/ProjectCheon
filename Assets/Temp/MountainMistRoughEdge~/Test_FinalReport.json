@@ -1,0 +1,9 @@
+{
+  "scene": "Assets/Proto/MountainPass/Scenes/MountainPass.unity",
+  "editMode": true,
+  "transitionWidth": 0.48,
+  "roughness": 0.32,
+  "scale": 1.8,
+  "drift": 0.08,
+  "shaderErrors": 0
+}

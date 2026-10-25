@@ -1,0 +1,27 @@
+if(EditorApplication.isPlaying)throw new Exception("Must finish in Edit Mode");
+var scene=UnityEngine.SceneManagement.SceneManager.GetSceneByPath("Assets/Test/CheonMountainMap/Scenes/Test_CheonMountainMap.unity");
+var settings=Newtonsoft.Json.Linq.JObject.Parse(System.IO.File.ReadAllText("Assets/Temp/MountainPassageFix/PlaySettingsBefore.json"));
+Application.runInBackground=(bool)settings["runInBackground"];
+var type=AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.AutoTickCommand")).First(t=>t!=null);
+var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic;
+type.GetMethod("SetAutoTick",flags).Invoke(null,new object[]{(bool)settings["enabled"],(int)settings["interval"],false});
+AssetDatabase.Refresh();
+foreach(var path in AssetDatabase.GetAllAssetPaths().Where(p=>p.StartsWith("Assets/Temp/MountainPassageFix/")&&p.EndsWith(".png"))){
+ var importer=(TextureImporter)AssetImporter.GetAtPath(path);bool changed=importer.maxTextureSize!=1024;importer.maxTextureSize=1024;
+ foreach(var platform in new[]{"Standalone","Android","iPhone","WebGL"}){var platformSettings=importer.GetPlatformTextureSettings(platform);changed|=platformSettings.maxTextureSize!=1024;platformSettings.maxTextureSize=1024;importer.SetPlatformTextureSettings(platformSettings);}
+ if(changed)importer.SaveAndReimport();
+}
+Func<Vector3,float[]> V=v=>new[]{v.x,v.y,v.z};
+var boss=scene.GetRootGameObjects().Single(r=>r.name=="JangseungBoss");
+if(Vector3.Distance(boss.transform.localScale,Vector3.one*3)>.001f)throw new Exception("Boss scale did not persist");
+var bounds=boss.GetComponentsInChildren<Renderer>().First().bounds;foreach(var r in boss.GetComponentsInChildren<Renderer>())bounds.Encapsulate(r.bounds);
+var map=scene.GetRootGameObjects().Single(r=>r.name=="Test_CheonMountainMap");
+var landings=map.transform.Find("StairStoneLandings");
+if(landings.childCount!=2)throw new Exception("A landing is missing");
+if(map.transform.Find("GateSideWalls").GetComponentsInChildren<Collider>().Length!=22)throw new Exception("A wall collider is missing");
+var texture=AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Arts/Environment/SelfModeling/Textures/T_WarmSandstone_BaseColor.png");
+var textureImporter=(TextureImporter)AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(texture));
+if(texture.width>1024||texture.height>1024||textureImporter.maxTextureSize>1024)throw new Exception("Stone texture is above the resolution limit");
+var saved=UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();
+var json=Newtonsoft.Json.JsonConvert.SerializeObject(new {saved,scene=scene.path,playing=EditorApplication.isPlaying,dirty=scene.isDirty,bossScale=V(boss.transform.localScale),bossHeight=bounds.size.y,bossBase=bounds.min.y,landings=landings.Cast<Transform>().Select(t=>new{name=t.name,position=V(t.position),size=V(t.localScale),collider=t.GetComponent<BoxCollider>()!=null}).ToArray(),wallColliders=22,originalCourtyardWalls=scene.GetRootGameObjects().Single(r=>r.name=="Test_ShrineEntranceWalls").GetComponentsInChildren<Renderer>().Length},Newtonsoft.Json.Formatting.Indented);
+System.IO.File.WriteAllText("Assets/Temp/MountainPassageFix/FinalVerification.json",json);AssetDatabase.Refresh();return json;

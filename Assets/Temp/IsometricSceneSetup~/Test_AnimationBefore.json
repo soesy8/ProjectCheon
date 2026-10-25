@@ -1,0 +1,59 @@
+{
+    "characterAnimator": {
+        "instanceID": 49964
+    },
+    "fanAttachment": {
+        "instanceID": 49258
+    },
+    "attack1Speed": 1.7999999523162842,
+    "attack2Speed": 1.2999999523162842,
+    "attack3Speed": 1.5,
+    "attack1Clip": {
+        "instanceID": 50338
+    },
+    "attack1StartFrame": 6,
+    "attack1EndFrame": 68,
+    "attack2Clip": {
+        "instanceID": 50340
+    },
+    "attack2StartFrame": 20,
+    "attack2EndFrame": 95,
+    "attack3Clip": {
+        "instanceID": 50342
+    },
+    "attack3StartFrame": 5,
+    "attack3EndFrame": 75,
+    "rollClip": {
+        "instanceID": 50344
+    },
+    "rollSpeed": 1.25,
+    "rollStartFrame": 0,
+    "rollEndFrame": 28,
+    "run2Clip": {
+        "instanceID": 50346
+    },
+    "run2Speed": 1.600000023841858,
+    "run2StartFrame": 0,
+    "run2EndFrame": 21,
+    "transitionDuration": 0.09000000357627869,
+    "returnBlendDuration": 0.18000000715255738,
+    "locomotionBlendDuration": 0.11999999731779099,
+    "drawSpeed": 1.0,
+    "sheatheSpeed": 1.0,
+    "equipmentClipLength": 1.2333333492279053,
+    "drawGrabTime": 0.47999998927116396,
+    "drawOpenStart": 0.6200000047683716,
+    "drawOpenEnd": 0.9399999976158142,
+    "sheatheCloseStart": 0.05999999865889549,
+    "sheatheCloseEnd": 0.3799999952316284,
+    "sheatheStowTime": 0.5199999809265137,
+    "repeatSelectedAnimation": false,
+    "enableKeyboardShortcuts": false,
+    "timingSettings": {
+        "instanceID": 47482
+    },
+    "equipmentWhileMoving": true,
+    "playbackSettings": {
+        "instanceID": 47746
+    }
+}

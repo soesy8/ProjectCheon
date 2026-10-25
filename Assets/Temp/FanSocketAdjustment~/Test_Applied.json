@@ -1,9 +1,0 @@
-{
-  "scene": "Assets/Test/PlayerFanAnimation/Scenes/Test_PlayerFanAnimation.unity",
-  "socket": "Test_RightHandFanSocket",
-  "beforePosition": "(0.008971, -0.015314, -0.001120)",
-  "afterPosition": "(-0.006029, -0.015314, -0.001120)",
-  "beforeEuler": "(0.000, 203.127, 270.000)",
-  "afterEuler": "(0.000, 203.127, 282.000)",
-  "sceneSaved": false
-}

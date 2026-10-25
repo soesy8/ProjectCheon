@@ -1,9 +1,0 @@
-{
-  "playing": true,
-  "runInBackground": false,
-  "selectedState": "DRAWN_IDLE",
-  "paused": false,
-  "socketPosition": "(-0.006029, -0.015314, -0.001120)",
-  "socketEuler": "(0.000, 203.127, 282.000)",
-  "scene": "Assets/Test/PlayerFanAnimation/Scenes/Test_PlayerFanAnimation.unity"
-}

@@ -1,0 +1,97 @@
+var scene=UnityEngine.SceneManagement.SceneManager.GetSceneByPath("Assets/Test/CheonMountainMap/Scenes/Test_CheonMountainMap.unity");
+if(!scene.isLoaded||EditorApplication.isPlaying)throw new Exception("Edit Mode required");
+var map=scene.GetRootGameObjects().Single(r=>r.name=="Test_CheonMountainMap");
+var art="Assets/Arts/Environment/StoneStairLanding";
+var prefabPath="Assets/Prefabs/Environment/StoneStairLanding.prefab";
+var meshPath=art+"/StoneStairLanding.asset";
+var materialPath=art+"/M_StoneStairLanding.mat";
+var mesh=AssetDatabase.LoadAssetAtPath<Mesh>(meshPath);
+var material=AssetDatabase.LoadAssetAtPath<Material>(materialPath);
+foreach(var assetPath in new[]{meshPath,materialPath,prefabPath}){
+ var backup="Assets/Temp/MountainLandingRefinement/Before_"+System.IO.Path.GetFileName(assetPath);
+ if(AssetDatabase.LoadMainAssetAtPath(backup)==null)AssetDatabase.CopyAsset(assetPath,backup);
+}
+var originalGuids=new[]{meshPath,materialPath,prefabPath}.Select(p=>new{path=p,guid=AssetDatabase.AssetPathToGUID(p)}).ToArray();
+var uvPatches=new Dictionary<string,List<Rect>>();
+foreach(var name in new[]{"Stairway_Winding_Approach","Stairway_Between_Summits"}){
+ var t=map.transform.Find(name);var source=t.GetComponent<MeshFilter>().sharedMesh;var v=source.vertices;var uv=source.uv;var indices=source.triangles;var patches=new List<Rect>();
+ for(int i=0;i<indices.Length;i+=3){int a=indices[i],b=indices[i+1],c=indices[i+2];
+  var normal=Vector3.Cross(t.TransformPoint(v[b])-t.TransformPoint(v[a]),t.TransformPoint(v[c])-t.TransformPoint(v[a])).normalized;
+  if(normal.y<.99f)continue;
+  var min=Vector2.Min(uv[a],Vector2.Min(uv[b],uv[c]));var max=Vector2.Max(uv[a],Vector2.Max(uv[b],uv[c]));var extent=max-min;
+  if(extent.x<.005f||extent.y<.005f)continue;
+  // 계단의 실제 석재 UV 안쪽을 사용해 같은 색과 미세한 질감을 이어 준다.
+  min+=extent*.18f;max-=extent*.18f;patches.Add(Rect.MinMaxRect(min.x,min.y,max.x,max.y));
+ }
+ if(patches.Count==0)throw new Exception("No safe stone UV region found");uvPatches[name]=patches;
+}
+Func<string,Mesh> BuildMesh=stairName=>{
+ var vertices=new List<Vector3>();var uvs=new List<Vector2>();var triangles=new List<int>();var patches=uvPatches[stairName];
+ Action<Vector3,Vector3,Vector3,Vector3,Rect> Quad=(a,b,c,d,uv)=>{int n=vertices.Count;vertices.AddRange(new[]{a,b,c,d});uvs.AddRange(new[]{new Vector2(uv.xMin,uv.yMin),new Vector2(uv.xMin,uv.yMax),new Vector2(uv.xMax,uv.yMax),new Vector2(uv.xMax,uv.yMin)});triangles.AddRange(new[]{n,n+1,n+2,n,n+2,n+3});};
+ Func<float,float,float,Vector3> P=(x,y,z)=>new Vector3(x*Mathf.Lerp(.86f,1f,z),y,z);
+ for(int row=0;row<8;row++)for(int col=0;col<6;col++){
+  float x0=-.5f+col/6f,x1=-.5f+(col+1)/6f,z0=row/8f,z1=(row+1)/8f,b=.002f;
+  var a=P(x0+b,0,z0+b);var bb=P(x0+b,0,z1-b);var c=P(x1-b,0,z1-b);var d=P(x1-b,0,z0+b);
+  var aa=P(x0,-.004f,z0);var bc=P(x0,-.004f,z1);var cc=P(x1,-.004f,z1);var dd=P(x1,-.004f,z0);
+  var uv=patches[(row*17+col*31)%patches.Count];
+  Quad(a,bb,c,d,uv);Quad(aa,bc,bb,a,uv);Quad(bb,bc,cc,c,uv);Quad(d,c,cc,dd,uv);Quad(aa,a,d,dd,uv);
+  var ab=P(x0,-1,z0);var cb=P(x0,-1,z1);var cd=P(x1,-1,z1);var da=P(x1,-1,z0);
+  Quad(ab,cb,bc,aa,uv);Quad(bc,cb,cd,cc,uv);Quad(dd,cc,cd,da,uv);Quad(ab,aa,dd,da,uv);Quad(da,cd,cb,ab,uv);
+ }
+ var result=new Mesh();result.SetVertices(vertices);result.SetUVs(0,uvs);result.SetTriangles(triangles,0);result.RecalculateNormals();result.RecalculateBounds();return result;
+};
+var approachMesh=BuildMesh("Stairway_Winding_Approach");
+var arenaMesh=BuildMesh("Stairway_Between_Summits");arenaMesh.name="ArenaStoneStairLanding";
+var colliderMesh=new Mesh{name="StoneStairLandingCollision"};
+colliderMesh.vertices=new[]{new Vector3(-.43f,0,0),new Vector3(-.5f,0,1),new Vector3(.5f,0,1),new Vector3(.43f,0,0),new Vector3(-.43f,-1,0),new Vector3(-.5f,-1,1),new Vector3(.5f,-1,1),new Vector3(.43f,-1,0)};
+colliderMesh.triangles=new[]{0,1,2,0,2,3,4,0,3,4,3,7,5,4,7,5,7,6,1,5,6,1,6,2,4,5,1,4,1,0,3,2,6,3,6,7};colliderMesh.RecalculateNormals();colliderMesh.RecalculateBounds();
+var arenaMeshPath=art+"/ArenaStoneStairLanding.asset";var colliderPath=art+"/StoneStairLandingCollision.asset";var arenaMaterialPath=art+"/M_ArenaStoneStairLanding.mat";
+if(AssetDatabase.LoadMainAssetAtPath(arenaMeshPath)!=null)throw new Exception("Refinement has already been applied");
+AssetDatabase.CreateAsset(arenaMesh,arenaMeshPath);AssetDatabase.CreateAsset(colliderMesh,colliderPath);
+var materials=new List<Material>();
+foreach(var item in new[]{new{stair="Stairway_Winding_Approach",textureName="T_ShrineStoneLanding.png",material=material},new{stair="Stairway_Between_Summits",textureName="T_ArenaStoneLanding.png",material=new Material(map.transform.Find("Stairway_Between_Summits").GetComponent<MeshRenderer>().sharedMaterial){name="M_ArenaStoneStairLanding"}}}){
+ var source=map.transform.Find(item.stair).GetComponent<MeshRenderer>().sharedMaterial;
+ var texturePath=art+"/"+item.textureName;var sourceTexture=source.GetTexture("_BaseMap");
+ if(!AssetDatabase.CopyAsset(AssetDatabase.GetAssetPath(sourceTexture),texturePath))throw new Exception("Stone texture copy failed");
+ var importer=(TextureImporter)AssetImporter.GetAtPath(texturePath);importer.maxTextureSize=1024;
+ foreach(var platform in new[]{"Standalone","Android","iPhone","WebGL"}){var options=importer.GetPlatformTextureSettings(platform);options.maxTextureSize=1024;importer.SetPlatformTextureSettings(options);}importer.SaveAndReimport();
+ item.material.CopyPropertiesFromMaterial(source);item.material.SetTexture("_BaseMap",AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath));EditorUtility.SetDirty(item.material);materials.Add(item.material);
+}
+AssetDatabase.CreateAsset(materials[1],arenaMaterialPath);
+Undo.IncrementCurrentGroup();int undoGroup=Undo.GetCurrentGroup();Undo.SetCurrentGroupName("돌 바닥 재질·폭 정리 및 왼쪽 담 바위 연결");
+Undo.RecordObject(mesh,"돌 바닥 부채꼴 확장");EditorUtility.CopySerialized(approachMesh,mesh);mesh.name="StoneStairLanding";EditorUtility.SetDirty(mesh);UnityEngine.Object.DestroyImmediate(approachMesh);
+var prefab=PrefabUtility.LoadPrefabContents(prefabPath);
+try{
+ prefab.GetComponent<MeshFilter>().sharedMesh=mesh;prefab.GetComponent<MeshRenderer>().sharedMaterial=material;
+ var oldCollider=prefab.GetComponent<BoxCollider>();if(oldCollider!=null)UnityEngine.Object.DestroyImmediate(oldCollider);
+ var collider=prefab.GetComponent<MeshCollider>();if(collider==null)collider=prefab.AddComponent<MeshCollider>();collider.sharedMesh=colliderMesh;
+ PrefabUtility.SaveAsPrefabAsset(prefab,prefabPath);
+}finally{PrefabUtility.UnloadPrefabContents(prefab);}
+var landings=map.transform.Find("StairStoneLandings");
+var approach=landings.Find("ShrineEntrance_StoneLanding");var arena=landings.Find("ArenaGate_StoneLanding");
+foreach(var t in new[]{approach,arena}){
+ Undo.RecordObject(t,"돌 바닥 양옆 확장");var scale=t.localScale;scale.x=t==approach?8f:9.4f;t.localScale=scale;PrefabUtility.RecordPrefabInstancePropertyModifications(t);
+}
+var arenaFilter=arena.GetComponent<MeshFilter>();var arenaRenderer=arena.GetComponent<MeshRenderer>();
+Undo.RecordObject(arenaFilter,"광장 계단 표면 맞추기");arenaFilter.sharedMesh=arenaMesh;PrefabUtility.RecordPrefabInstancePropertyModifications(arenaFilter);
+Undo.RecordObject(arenaRenderer,"광장 계단 재질 맞추기");arenaRenderer.sharedMaterial=materials[1];PrefabUtility.RecordPrefabInstancePropertyModifications(arenaRenderer);
+var wallGroup=map.transform.Find("GateSideWalls/GateWall_Upper");var cap=wallGroup.Find("GateWall_Upper_End");
+var path=new[]{cap.position+Vector3.up*.025f,new Vector3(19f,37.12f,-13f),new Vector3(25.6f,37.12f,-15f)};
+var wallAsset=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Environment/SelfModeling/Wall_Middle.prefab");int count=0;
+for(int edge=0;edge<path.Length-1;edge++){
+ var a=path[edge];var b=path[edge+1];int parts=Mathf.CeilToInt(Vector3.Distance(a,b)/2.4f);
+ for(int i=0;i<parts;i++){
+  var start=Vector3.Lerp(a,b,i/(float)parts);var end=Vector3.Lerp(a,b,(i+1f)/parts);var direction=(end-start).normalized;
+  var item=(GameObject)PrefabUtility.InstantiatePrefab(wallAsset,scene);Undo.RegisterCreatedObjectUndo(item,"왼쪽 담 추가 연장");item.name="GateWall_Upper_RockConnection_"+(++count).ToString("00");item.transform.SetParent(wallGroup,false);
+  var forward=Vector3.Cross(-direction,Vector3.up).normalized;item.transform.SetPositionAndRotation(start-Vector3.up*.025f,Quaternion.LookRotation(forward,Vector3.Cross(forward,-direction)));
+  item.transform.localScale=new Vector3((Vector3.Distance(start,end)+.07f)/2.4f,1.8f,1);
+  foreach(var filter in item.GetComponentsInChildren<MeshFilter>())if(filter.GetComponent<Collider>()==null){var collider=Undo.AddComponent<MeshCollider>(filter.gameObject);collider.sharedMesh=filter.sharedMesh;}
+  PrefabUtility.RecordPrefabInstancePropertyModifications(item.transform);
+ }
+}
+Undo.RecordObject(cap,"담 끝 큰 바위 접합");var tangent=(path[path.Length-1]-path[path.Length-2]).normalized;
+cap.SetPositionAndRotation(path[path.Length-1]-Vector3.up*.025f,Quaternion.LookRotation(Vector3.Cross(tangent,Vector3.up),Vector3.up));PrefabUtility.RecordPrefabInstancePropertyModifications(cap);
+Physics.SyncTransforms();EditorUtility.SetDirty(material);AssetDatabase.SaveAssets();UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(scene);UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);Undo.CollapseUndoOperations(undoGroup);
+Func<Vector3,float[]> V=v=>new[]{v.x,v.y,v.z};
+var report=new {scene=scene.path,guids=originalGuids,widths=new[]{new{name=approach.name,width=approach.localScale.x,stairEndWidth=approach.localScale.x*.86f},new{name=arena.name,width=arena.localScale.x,stairEndWidth=arena.localScale.x*.86f}},wallEnd=V(cap.position),addedWallSections=count,uvPatchCounts=uvPatches.Select(p=>new{name=p.Key,count=p.Value.Count}).ToArray()};
+var json=Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented);System.IO.File.WriteAllText("Assets/Temp/MountainLandingRefinement/PlacementReport.json",json);return json;

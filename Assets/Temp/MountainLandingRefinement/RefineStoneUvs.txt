@@ -1,0 +1,20 @@
+var map=GameObject.Find("Test_CheonMountainMap");
+var mesh=AssetDatabase.LoadAssetAtPath<Mesh>("Assets/Arts/Environment/StoneStairLanding/StoneStairLanding.asset");
+var arena=AssetDatabase.LoadAssetAtPath<Mesh>("Assets/Arts/Environment/StoneStairLanding/ArenaStoneStairLanding.asset");
+var t=map.transform.Find("Stairway_Winding_Approach");var source=t.GetComponent<MeshFilter>().sharedMesh;var v=source.vertices;var uv=source.uv;var indices=source.triangles;var patches=new List<Rect>();
+for(int i=0;i<indices.Length;i+=3){int a=indices[i],b=indices[i+1],c=indices[i+2];
+ if(Vector3.Cross(t.TransformPoint(v[b])-t.TransformPoint(v[a]),t.TransformPoint(v[c])-t.TransformPoint(v[a])).normalized.y<.99f)continue;
+ var min=Vector2.Min(uv[a],Vector2.Min(uv[b],uv[c]));var max=Vector2.Max(uv[a],Vector2.Max(uv[b],uv[c]));var extent=max-min;if(extent.x<.005f||extent.y<.005f)continue;
+ min+=extent*.18f;max-=extent*.18f;patches.Add(Rect.MinMaxRect(min.x,min.y,max.x,max.y));
+}
+var mapped=new List<Vector2>();
+for(int row=0;row<8;row++)for(int col=0;col<6;col++){
+ var patch=patches[(row*17+col*31)%patches.Count];
+ for(int face=0;face<10;face++)mapped.AddRange(new[]{new Vector2(patch.xMin,patch.yMin),new Vector2(patch.xMax,patch.yMin),new Vector2(patch.xMax,patch.yMax),new Vector2(patch.xMin,patch.yMax)});
+}
+Undo.RecordObject(mesh,"계단 UV 방향과 질감 맞추기");mesh.Clear();mesh.vertices=arena.vertices;mesh.triangles=arena.triangles;mesh.normals=arena.normals;mesh.SetUVs(0,mapped);mesh.RecalculateBounds();EditorUtility.SetDirty(mesh);
+Undo.RecordObject(arena,"광장 석재 결 방향 맞추기");var arenaUvs=arena.uv;
+for(int i=0;i<arenaUvs.Length;i+=4){var swap=arenaUvs[i+1];arenaUvs[i+1]=arenaUvs[i+3];arenaUvs[i+3]=swap;}
+arena.uv=arenaUvs;EditorUtility.SetDirty(arena);AssetDatabase.SaveAssets();
+UnityEditor.SceneManagement.EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetSceneByPath("Assets/Test/CheonMountainMap/Scenes/Test_CheonMountainMap.unity"));
+return new {approachVertices=mesh.vertexCount,arenaVertices=arena.vertexCount,uvCount=mapped.Count};

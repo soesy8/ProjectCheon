@@ -1,0 +1,11 @@
+{
+  "scene": "Assets/Test/CheonMountainMap/Scenes/Test_CheonMountainMap.unity",
+  "saved": true,
+  "afterReload": true,
+  "restoresAfterReload": true,
+  "reappliesAfterReload": true,
+  "playerPosition": "(-18.7239, 3.5295, 100.8249)",
+  "cameraRotation": "(35.2644, 135.0000, 0.0000)",
+  "scriptPath": "Assets/Test/CheonMountainMap/Scripts/Test_IsometricView.cs",
+  "backgroundRestored": true
+}

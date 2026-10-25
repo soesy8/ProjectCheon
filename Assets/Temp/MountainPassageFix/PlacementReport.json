@@ -1,0 +1,74 @@
+{
+  "bossScale": [
+    3.0,
+    3.0,
+    3.0
+  ],
+  "changes": [
+    {
+      "wall": "Upper",
+      "start": [
+        10.0,
+        37.12,
+        -14.0
+      ],
+      "end": [
+        14.2,
+        37.12,
+        -10.85
+      ],
+      "sections": 3
+    },
+    {
+      "wall": "Lower",
+      "start": [
+        -14.8,
+        37.12,
+        -10.0
+      ],
+      "end": [
+        -18.6,
+        37.12,
+        -6.58
+      ],
+      "sections": 3
+    },
+    {
+      "landing": "ArenaGate_StoneLanding",
+      "position": [
+        -5.0774,
+        37.135,
+        -17.093
+      ],
+      "forward": [
+        -0.7016157,
+        0.0,
+        -0.7125556
+      ],
+      "scale": [
+        6.4,
+        2.8,
+        7.2
+      ]
+    },
+    {
+      "landing": "ShrineEntrance_StoneLanding",
+      "position": [
+        1.99,
+        27.15,
+        39.27
+      ],
+      "forward": [
+        0.770021558,
+        0.0,
+        -0.6380179
+      ],
+      "scale": [
+        4.5,
+        2.8,
+        8.2
+      ]
+    }
+  ],
+  "prefab": "Assets/Prefabs/Environment/StoneStairLanding.prefab"
+}

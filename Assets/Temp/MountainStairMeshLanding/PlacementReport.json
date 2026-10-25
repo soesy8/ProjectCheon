@@ -1,0 +1,62 @@
+{
+  "scene": "Assets/Test/CheonMountainMap/Scenes/Test_CheonMountainMap.unity",
+  "landings": [
+    {
+      "name": "ShrineEntrance_StairLanding",
+      "source": "Stairway_Winding_Approach",
+      "sourceMesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ApproachStairLandingRow.asset",
+      "prefab": "Assets/Prefabs/Environment/ApproachStairLandingRow.prefab",
+      "origin": [
+        2.14641762,
+        27.1450043,
+        39.13793
+      ],
+      "forward": [
+        0.7700216,
+        0.0,
+        -0.6380179
+      ],
+      "length": 8.1,
+      "rows": 8,
+      "nativeWidth": 4.599398,
+      "nativeDepth": 0.6863619,
+      "width": 6.66912746,
+      "endWidth": 7.3360405,
+      "depthScale": 1.65000427,
+      "topHeight": 27.1450043,
+      "copiedStonePieces": 2,
+      "material": "Assets/Test/CheonMountainMap/Materials/Test_M_Map_ApproachStairs.mat",
+      "alternateMesh": "Assets/Arts/Environment/StairLandingExtensions/ApproachStairLandingRowSolid.asset"
+    },
+    {
+      "name": "ArenaGate_StairLanding",
+      "source": "Stairway_Between_Summits",
+      "sourceMesh": "Assets/Test/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+      "mesh": "Assets/Arts/Environment/StairLandingExtensions/ArenaStairLandingRow.asset",
+      "prefab": "Assets/Prefabs/Environment/ArenaStairLandingRow.prefab",
+      "origin": [
+        -5.523979,
+        37.1449966,
+        -17.0259056
+      ],
+      "forward": [
+        -0.6807847,
+        0.0,
+        -0.7324835
+      ],
+      "length": 7.2,
+      "rows": 7,
+      "nativeWidth": 5.5339756,
+      "nativeDepth": 0.6590287,
+      "width": 7.470867,
+      "endWidth": 8.217954,
+      "depthScale": 1.74282444,
+      "topHeight": 37.1449966,
+      "copiedStonePieces": 2,
+      "material": "Assets/Test/CheonMountainMap/Materials/Test_M_Map_SummitStairs.mat",
+      "alternateMesh": "Assets/Arts/Environment/StairLandingExtensions/ArenaStairLandingRowSolid.asset"
+    }
+  ],
+  "removedOldLandings": true
+}

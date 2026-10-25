@@ -1,0 +1,4 @@
+var mist=UnityEngine.Object.FindFirstObjectByType<Cheon.Prototype.MountainPass.PassMountainMist>();var fog=mist.RearFog;var values=new SerializedObject(fog);
+var data=Newtonsoft.Json.Linq.JArray.Parse(System.IO.File.ReadAllText("Assets/Temp/MountainPassRefinement~/Test_StepGeometry.json"));var a=data[0]["center"];var b=data[1]["center"];var start=new Vector3((float)a[0],(float)a[1],(float)a[2]);var backward=new Vector3((float)a[0]-(float)b[0],0,(float)a[2]-(float)b[2]).normalized;
+var boundary=(Transform)values.FindProperty("densityBoundary").objectReferenceValue;Undo.RecordObject(boundary,"계단 끝 안개 경계 유지");boundary.SetPositionAndRotation(start+backward*.28f,Quaternion.LookRotation(backward));fog.ApplySettings();
+var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(scene);UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);return boundary.position.ToString();

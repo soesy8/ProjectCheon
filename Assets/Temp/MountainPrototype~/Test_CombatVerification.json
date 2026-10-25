@@ -1,0 +1,99 @@
+{
+  "checks": [
+    {
+      "name": "start_grounded",
+      "passed": true,
+      "value": "(-18.72, 3.51, 100.82)"
+    },
+    {
+      "name": "healing",
+      "passed": true,
+      "value": {
+        "health": 100.0,
+        "Flasks": 2
+      }
+    },
+    {
+      "name": "pause",
+      "passed": true,
+      "value": 0.0
+    },
+    {
+      "name": "shrine_checkpoint",
+      "passed": true,
+      "value": {
+        "ReachedShrine": true,
+        "Flasks": 3
+      }
+    },
+    {
+      "name": "encounter",
+      "passed": true,
+      "value": "Pursuing"
+    },
+    {
+      "name": "attack_1",
+      "passed": true,
+      "value": {
+        "accepted": true,
+        "damage": 22.0
+      }
+    },
+    {
+      "name": "attack_2",
+      "passed": true,
+      "value": {
+        "accepted": true,
+        "damage": 28.0
+      }
+    },
+    {
+      "name": "attack_3",
+      "passed": true,
+      "value": {
+        "accepted": true,
+        "damage": 40.0
+      }
+    },
+    {
+      "name": "boss_slam",
+      "passed": true,
+      "value": 72.0
+    },
+    {
+      "name": "dodge_invulnerability",
+      "passed": true,
+      "value": {
+        "rolled": true,
+        "hp": 100.0
+      }
+    },
+    {
+      "name": "boss_wave",
+      "passed": true,
+      "value": 78.0
+    },
+    {
+      "name": "defeat",
+      "passed": true,
+      "value": "Defeat"
+    },
+    {
+      "name": "retry",
+      "passed": true,
+      "value": {
+        "state": "Playing",
+        "hp": 100.0,
+        "bossHp": 420.0
+      }
+    },
+    {
+      "name": "victory",
+      "passed": true,
+      "value": "Victory"
+    }
+  ],
+  "failures": [],
+  "complete": true,
+  "frame": 25821
+}

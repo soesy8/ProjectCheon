@@ -1,0 +1,22 @@
+Jangseung boss concept v4 — revision prompt
+Mode: built-in image_gen edit
+Input artwork: T_JangseungBossConcept_v3.png
+Final artwork: T_JangseungBossConcept_v4.png (1024 x 1024)
+Revision: projecting wooden chin and slightly inset trunk to distinguish the face from the body.
+
+Use case: precise-object-edit.
+Asset type: Korean jangseung boss concept sheet, revision v4.
+Edit the supplied v3 character sheet. Make a focused geometric change ONLY where the lower face meets the wooden body.
+
+User request: clearly distinguish the face region by bringing the CHIN forward and recessing the BODY slightly.
+
+Geometry changes:
+- Build a broad, solid, angular wooden lower jaw and CHIN directly beneath the open mouth and lower teeth. It must visibly PROJECT FORWARD from the pillar, with a thick blunt faceted lower edge and short flat underside. Keep it close to the mouth rather than adding a hanging beard. The chin and jaw define the bottom boundary of the face.
+- Immediately BELOW this projecting chin, step the body front surface BACK about 12–15% of the pillar depth, and narrow the plain body slightly, about 8–10% relative to the face width. A modest chamfered step under the jaw makes the face overhang the body. Keep that slightly inset body section continuous down to the flat bottom.
+- This must read as an actual three-dimensional silhouette change, not merely a painted outline. In the SIDE VIEW the forward-projecting chin and the front body plane recessed behind it must be unambiguous. In the THREE-QUARTER VIEW show the chin's underside, with a restrained hard cel-shaded contact shadow that clearly separates face and body.
+- Keep one continuous wooden guardian post: no human neck, separate head joint, clothing collar, plinth, roots, beard, extra appendage or decorative border. The recess is modest, and the chin is a simple chunky low-poly carving.
+
+Preserve all other design choices EXACTLY: overall height and elongated proportions, dark charcoal-blue winged official-style hat, long carved ears, eye/eyebrow/nose shapes, red pupils, aggressive expression, open mouth and blocky crooked teeth, wood colors, sparse cracks, low-poly planes and cel-shading style. No arms or legs. Do not lengthen or shorten the body, ears or hat.
+
+Composition: preserve the same square reference-sheet layout: one large complete three-quarter render on the left, smaller front and side views stacked on the right. Apply the same projecting jaw and inset trunk consistently in ALL THREE VIEWS. Keep every silhouette and hat wing fully visible. Light gray studio background, subtle ground shadow. Target 1024 x 1024. No labels, text or watermark.
+

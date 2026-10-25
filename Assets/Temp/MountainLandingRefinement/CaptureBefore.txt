@@ -1,0 +1,18 @@
+var scene=UnityEngine.SceneManagement.SceneManager.GetSceneByPath("Assets/Test/CheonMountainMap/Scenes/Test_CheonMountainMap.unity");
+var views=new[]{
+ new{name="LeftWallBefore",target=new Vector3(-25f,38.8f,-9.7f),rotation=new Vector3(15f,180f,0f),size=8f},
+ new{name="LeftWallTopBefore",target=new Vector3(-23f,38f,-10f),rotation=new Vector3(65f,225f,0f),size=13f},
+ new{name="CourtyardBefore",target=new Vector3(3.8f,27f,37.2f),rotation=new Vector3(27f,315f,0f),size=7f},
+ new{name="ArenaBefore",target=new Vector3(-7f,37f,-19f),rotation=new Vector3(30f,45f,0f),size=9f}
+};
+foreach(var view in views){
+ var go=new GameObject("LandingRefinementPreviewCamera");go.hideFlags=HideFlags.HideAndDontSave;UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go,scene);
+ var c=go.AddComponent<Camera>();var rt=new RenderTexture(1024,600,24,RenderTextureFormat.ARGB32);rt.antiAliasing=4;var previous=RenderTexture.active;
+ try{c.orthographic=true;c.orthographicSize=view.size;c.nearClipPlane=.1f;c.farClipPlane=1000;c.clearFlags=CameraClearFlags.SolidColor;c.backgroundColor=new Color(.48f,.60f,.63f);
+ c.transform.rotation=Quaternion.Euler(view.rotation);c.transform.position=view.target-c.transform.forward*300;
+ var data=go.AddComponent<UnityEngine.Rendering.Universal.UniversalAdditionalCameraData>();data.renderPostProcessing=false;data.renderShadows=true;
+ c.targetTexture=rt;c.Render();RenderTexture.active=rt;var tex=new Texture2D(1024,600,TextureFormat.RGB24,false);tex.ReadPixels(new Rect(0,0,1024,600),0,0);tex.Apply();
+ System.IO.File.WriteAllBytes("Assets/Temp/MountainLandingRefinement/"+view.name+".png",tex.EncodeToPNG());UnityEngine.Object.DestroyImmediate(tex);
+ }finally{c.targetTexture=null;RenderTexture.active=previous;rt.Release();UnityEngine.Object.DestroyImmediate(rt);UnityEngine.Object.DestroyImmediate(go);}
+}
+return "Captured landing and left-wall views";
