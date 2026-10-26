@@ -19135,6 +19135,7 @@ MonoBehaviour:
   timingSettings: {fileID: 11400000, guid: e659e93314df9cb4fbf84d8b274c5db1, type: 2}
   equipmentWhileMoving: 1
   playbackSettings: {fileID: 11400000, guid: 673d8868f2a78a943a18f262d0b47e76, type: 2}
+  reactionSettings: {fileID: 0}
 --- !u!114 &633025448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46315,7 +46316,7 @@ MonoBehaviour:
     windup: 1
     jumpInterval: 0.5
     attackGap: 0.5
-    cooldown: 12
+    cooldown: 6
     startTimeout: 3
     teleportSideDistance: 4
     teleportDuration: 0.25

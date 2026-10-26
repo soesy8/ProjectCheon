@@ -81,10 +81,13 @@ namespace Cheon.Prototype.MountainPass
             Vector3 right = Vector3.ProjectOnPlane(view.right, Vector3.up).normalized;
             Vector3 direction = Vector3.ClampMagnitude(forward * input.y + right * input.x, 1f);
             inputDirection = direction;
+            // 강피격 중 회피 입력은 일어나기에만 소비해 같은 키로 곧바로 구르지 않도록 한다.
+            bool recovering = !typing && animationControl.TryRecoverFromHeavy(direction.sqrMagnitude > 0.01f,
+                keyboard != null && keyboard.spaceKey.wasPressedThisFrame);
             bool sprint = keyboard != null && (keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed);
             IsSprinting = sprint && direction.sqrMagnitude > 0.01f;
             ValidatePendingAction();
-            if (typing || animationControl.IsPaused) ClearPendingAction();
+            if (typing || animationControl.IsPaused || recovering) ClearPendingAction();
             else
             {
                 CollectActionInput(keyboard, mouse);
@@ -275,6 +278,7 @@ namespace Cheon.Prototype.MountainPass
             verticalSpeed = 0f;
             ClearPendingAction();
             dodgeProgress = 0f;
+            animationControl.ResetReactions();
             animationControl.PlayIdle();
         }
     }

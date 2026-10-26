@@ -23,7 +23,7 @@ namespace Cheon.Tests.FanAttackVfx
             owner = player;
             if (wind != null) windStreaks = wind;
             if (dust != null) groundDust = dust;
-            ConfigureSystem(windStreaks, settings.windParticleMaterial, true);
+            ConfigureSystem(windStreaks, settings.GetWindParticleMaterial(), true);
             ConfigureSystem(groundDust, settings.dustMaterial, false);
         }
 

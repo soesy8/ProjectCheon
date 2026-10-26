@@ -383,9 +383,66 @@ MonoBehaviour:
     heightMultiplier: 1
     archHeight: 0.18
     tailLength: 1
-    fadeSeconds: 0.18
-    color: {r: 0.55, g: 1, b: 0.88, a: 0.8}
-    intensity: 1.5
+    fadeSeconds: 0.26
+    color: {r: 0.12, g: 0.78, b: 0.73, a: 0.95}
+    intensity: 1.2
+    shapedRibbon: 1
+    ribbonWidth:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.32
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.2
+        value: 0.76
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.5
+        value: 1.2
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.8
+        value: 0.76
+        inSlope: -2
+        outSlope: -2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0.32
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    middleBulge: 0.55
+    endExtension: 60
+    lowerArcHeightScale: 0.52
+    surfaceFill: 0.48
+    tipSerration: 0.085
     hitStartFrame: -1
     hitEndFrame: -1
     verticalHitHalfWidth: 0.6
@@ -651,10 +708,40 @@ MonoBehaviour:
     heightOffset: 0
     heightMultiplier: 1
     archHeight: 0.18
-    tailLength: 0.62
-    fadeSeconds: 0.14
-    color: {r: 0.55, g: 1, b: 0.88, a: 0.8}
-    intensity: 1.5
+    tailLength: 0.86
+    fadeSeconds: 0.22
+    color: {r: 0.13, g: 0.77, b: 0.72, a: 0.95}
+    intensity: 1.2
+    shapedRibbon: 0
+    ribbonWidth:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    middleBulge: 0
+    endExtension: 0
+    lowerArcHeightScale: 1
+    surfaceFill: 0
+    tipSerration: 0
     hitStartFrame: -1
     hitEndFrame: -1
     verticalHitHalfWidth: 0.6
@@ -1424,10 +1511,40 @@ MonoBehaviour:
     heightOffset: 0
     heightMultiplier: 1
     archHeight: 0.18
-    tailLength: 0.78
-    fadeSeconds: 0.14
-    color: {r: 0.55, g: 1, b: 0.88, a: 0.8}
-    intensity: 1.5
+    tailLength: 0.94
+    fadeSeconds: 0.28
+    color: {r: 0.17, g: 0.82, b: 0.75, a: 0.95}
+    intensity: 1.2
+    shapedRibbon: 0
+    ribbonWidth:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    middleBulge: 0
+    endExtension: 0
+    lowerArcHeightScale: 1
+    surfaceFill: 0
+    tipSerration: 0
     hitStartFrame: -1
     hitEndFrame: -1
     verticalHitHalfWidth: 0.6
@@ -1464,13 +1581,14 @@ MonoBehaviour:
       m_RotationOrder: 4
     height: 0.3
     conformToGround: 0
-    fadeSeconds: 0.18
+    fadeSeconds: 0.24
     waveLength: 0.48
-    color: {r: 0.58, g: 0.9, b: 0.81, a: 0.68}
-    intensity: 1.1
-    particlesPerSecond: 95
+    color: {r: 0.16, g: 0.76, b: 0.7, a: 0.88}
+    intensity: 1.2
+    particlesPerSecond: 20
     speed: 20
-    size: {x: 0.2, y: 0.45}
+    size: {x: 0.4, y: 0.75}
+    branchCount: 3
   wind:
     startFrame: 20
     endFrame: 40
@@ -1504,13 +1622,14 @@ MonoBehaviour:
       m_RotationOrder: 4
     height: 0.65
     conformToGround: 1
-    fadeSeconds: 0.28
+    fadeSeconds: 0.32
     waveLength: 0.7
-    color: {r: 0.58, g: 0.9, b: 0.81, a: 0.68}
-    intensity: 1.1
-    particlesPerSecond: 130
+    color: {r: 0.16, g: 0.76, b: 0.7, a: 0.88}
+    intensity: 1.2
+    particlesPerSecond: 32
     speed: 18
-    size: {x: 0.3, y: 0.65}
+    size: {x: 0.55, y: 1}
+    branchCount: 5
   dust:
     particlesPerSecond: 95
     size: {x: 0.38, y: 0.95}
@@ -1527,7 +1646,13 @@ MonoBehaviour:
     endBurstCount: 20
     frontSpeed: 1.8
   sweepMaterial: {fileID: 2100000, guid: 924a2dde59514154282c9e0941ba48a2, type: 2}
-  windMaterial: {fileID: 2100000, guid: f9667f3c7483c604b98527bcbaa0048a, type: 2}
-  windParticleMaterial: {fileID: 2100000, guid: 8cd6f98e133cfad498610bdfcb08d74d, type: 2}
+  attack1SweepMaterial: {fileID: 2100000, guid: ef4daaea45b126c44ae5e8067b07c6a9, type: 2}
+  attack2SweepMaterial: {fileID: 2100000, guid: f9e7f55da505d8a48bb226e28de4a205, type: 2}
+  attack3SweepMaterial: {fileID: 2100000, guid: cd18ecf480872be47af43879d6a27fa2, type: 2}
+  windDesign: 1
+  windMaterial: {fileID: 2100000, guid: 51c6370dfb68cdb499b49e3a7774fdc1, type: 2}
+  windMaterialB: {fileID: 2100000, guid: 46f211583986fce4d86fd48658d2cfff, type: 2}
+  windParticleMaterial: {fileID: 2100000, guid: 01cc05f21c871c04cbb575861c598bd3, type: 2}
+  windParticleMaterialB: {fileID: 2100000, guid: 2f631bc427724fa428218bb0054c3836, type: 2}
   dustMaterial: {fileID: 2100000, guid: a184db06911cf5346b937d4d4c3a3e28, type: 2}
   layoutVersion: 4

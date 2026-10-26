@@ -135,16 +135,16 @@ namespace Cheon.Prototype.MountainPass
             telegraph.enabled = false; audioControl.Slam(); view.AddShake(0.8f);
             if (waveAttack) { State = BossState.Wave; timer = 0f; wavePassedPlayer = false; return; }
             Vector3 difference = player.transform.position - slamPosition; difference.y = 0f;
-            if (difference.magnitude <= slamRadius + 0.25f) DamagePlayer(slamDamage);
+            if (difference.magnitude <= slamRadius + 0.25f) DamagePlayer(slamDamage, true);
             effects.Impact(slamPosition, new Color(1f, 0.35f, 0.12f), slamRadius + 1f);
             visual.localRotation = visualRotation * Quaternion.Euler(15f, 0f, 0f);
             Recover();
         }
-        private void DamagePlayer(float damage)
+        private void DamagePlayer(float damage, bool heavyHit = false)
         {
             // 구르기 초중반은 무적이며, 일어나는 후반에는 공격을 받을 수 있다.
             if (player.AnimationControl.IsDodging && player.AnimationControl.PlaybackProgress < 0.78f) return;
-            if (Mathf.Abs(player.transform.position.y - home.y) < 4f) playerHealth.TakeDamage(damage);
+            if (Mathf.Abs(player.transform.position.y - home.y) < 4f) playerHealth.TakeDamage(damage, heavyHit);
         }
         private void Recover() { State = BossState.Recovering; timer = 0f; wave.enabled = false; }
         private void OnDamaged(float damage) { flash = 1f; }

@@ -43,7 +43,7 @@ namespace Cheon.Tests.PlayerReactions
         [Min(0)] public int landingFrame = 26;
         [Tooltip("배속에 영향을 받지 않는 실제 시간입니다.")]
         [Range(0f, 2f)] public float landedRecoveryDelay = 0.5f;
-        [Range(0f, 1f)] public float getUpDodgeCancelProgress = 0.55f;
+        [Range(0f, 1f)] public float getUpDodgeCancelProgress = 0.45f;
         [Range(0f, 1f)] public float getUpMoveCancelProgress = 0.9f;
         [Header("일어나기 머리 자세 보정")]
         [Tooltip("목과 머리에 나누어 적용하는 추가 숙임 각도입니다. 대기 자세에는 적용하지 않습니다.")]

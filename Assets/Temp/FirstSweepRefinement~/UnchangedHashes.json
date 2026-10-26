@@ -1,0 +1,22 @@
+﻿[
+    {
+        "Path":  "D:\\project\\ProjectCheon\\Assets\\Test\\FanAttackVfx\\Meshes\\Test_Attack2_Sweep.asset",
+        "Hash":  "74FA53279CA0FBC524D47956F056C66F45AD79AC6301C8A482C7C3A30698BD2B"
+    },
+    {
+        "Path":  "D:\\project\\ProjectCheon\\Assets\\Test\\FanAttackVfx\\Meshes\\Test_Attack3_Sweep.asset",
+        "Hash":  "0342A3BABA7575CF93E4D1E5B5270265710B884C38D0AED2B39DA143777DF84C"
+    },
+    {
+        "Path":  "D:\\project\\ProjectCheon\\Assets\\Test\\FanAttackVfx\\Materials\\Test_M_FanSweep.mat",
+        "Hash":  "71D944B4FCD717D739F0400AE7BF9599F12AC9066F29F2023739D39AEAE02BA1"
+    },
+    {
+        "Path":  "D:\\project\\ProjectCheon\\Assets\\Test\\FanAttackVfx\\Scenes\\Test_FanAttackVfx.unity",
+        "Hash":  "DF57180E6CC09B2FE106B51D49952885781FB5C4DAC1F859DA0B01AAC171D85C"
+    },
+    {
+        "Path":  "D:\\project\\ProjectCheon\\Assets\\Test\\FanAttackVfx\\Prefabs\\Test_FanAttackVfx.prefab",
+        "Hash":  "F5EA60DFBE70546D1B502B5F3DE75745B25B85E3D23F4EAB07B5A0D75B085C4D"
+    }
+]

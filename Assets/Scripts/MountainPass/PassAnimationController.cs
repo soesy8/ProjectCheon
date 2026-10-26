@@ -58,6 +58,8 @@ namespace Cheon.Prototype.MountainPass
         [SerializeField] private bool equipmentWhileMoving;
         [Header("맵 플레이용 재생 수치")]
         [SerializeField] private PassPlaybackSettings playbackSettings;
+        [Header("강피격 · 일어나기 · 사망")]
+        [SerializeField] private PassPlayerReactionSettings reactionSettings;
 
         private PassActionTimings runtimeTimings;
         private int equipmentLayerIndex = -1;
@@ -67,6 +69,8 @@ namespace Cheon.Prototype.MountainPass
         private bool hasLocomotionTime;
         private bool movingDrawActive;
         private float movingDrawProgress;
+        private float reactionFrame, landedSeconds = -1f, downHoldElapsed, fadingReactionFrame, reactionFadeRemaining;
+        private string fadingReactionState;
 
         private string selectedState = "SHEATHED_IDLE";
         private bool combatRequested, running, paused;
@@ -89,27 +93,41 @@ namespace Cheon.Prototype.MountainPass
         public bool IsDodging => selectedState == "ROLL";
         public uint PlaybackSequence { get; private set; }
         public event System.Action BeforeAutomaticReturn;
+        public event System.Action<string, string, float> StateChanging;
+        public PassPlayerReactionSettings ReactionSettings => reactionSettings;
+        public bool IsReactionPlaying => reactionSettings != null && IsReactionState(selectedState);
+        public float ReactionFrame => reactionFrame;
+        public float LandedSeconds => Mathf.Max(0f, landedSeconds);
+        public bool CanRecoverFromHeavy => reactionSettings != null && selectedState == "HEAVY_HIT" && !paused && landedSeconds >= reactionSettings.landedRecoveryDelay;
         public float RollDuration => rollClip != null ?
             (GetPlaybackEndFrame(4) - GetPlaybackStartFrame(4)) / rollClip.frameRate / Mathf.Max(0.05f, rollSpeed) : 1f;
-        public bool CanAttack => combatRequested && (runtimeTimings == null || !paused);
-        public bool IsActionPlaying => IsAction(selectedState) || IsEquipmentTransition;
+        public bool CanAttack => !IsReactionPlaying && combatRequested && (runtimeTimings == null || !paused);
+        public bool IsActionPlaying => IsReactionPlaying || IsAction(selectedState) || IsEquipmentTransition;
         public PassActionTimings RuntimeTimings => runtimeTimings;
         public PassActionTimings SavedTimings => timingSettings;
         public PassPlaybackSettings SavedPlaybackSettings => playbackSettings;
         public bool UsesUpperBodyEquipment => equipmentWhileMoving && equipmentLayerIndex >= 0;
-        public bool CanMove => !paused && (UsesUpperBodyEquipment && IsEquipmentTransition || CurrentTiming == null || PlaybackProgress >= CurrentTiming.moveCancel);
-        public bool CanDodge => !paused && !IsStatePlaying("ROLL") && (CurrentTiming == null || PlaybackProgress >= CurrentTiming.dodgeCancel);
-        public bool CanChangeEquipment => !paused && (CurrentTiming == null || PlaybackProgress >= CurrentTiming.equipmentCancel);
+        public bool CanMove => !paused && (IsReactionPlaying ? selectedState == "GET_UP" && PlaybackProgress + 0.00001f >= reactionSettings.getUpMoveCancelProgress :
+            UsesUpperBodyEquipment && IsEquipmentTransition || CurrentTiming == null || PlaybackProgress >= CurrentTiming.moveCancel);
+        public bool CanDodge => !paused && !IsStatePlaying("ROLL") && (IsReactionPlaying ? selectedState == "GET_UP" && PlaybackProgress + 0.00001f >= reactionSettings.getUpDodgeCancelProgress :
+            CurrentTiming == null || PlaybackProgress >= CurrentTiming.dodgeCancel);
+        public bool CanChangeEquipment => !IsReactionPlaying && !paused && (CurrentTiming == null || PlaybackProgress >= CurrentTiming.equipmentCancel);
         private PassActionTimings.ActionTiming CurrentTiming => runtimeTimings != null ? runtimeTimings.Get(selectedState) : null;
         public bool IsEquipmentTransition => selectedState == "DRAW" || selectedState == "SHEATHE";
         public bool CanPreviewFan => combatRequested && !IsEquipmentTransition;
         public bool RepeatSelectedAnimation { get => repeatSelectedAnimation; set => repeatSelectedAnimation = value; }
-        public float NormalizedTime => TryGetSelectedState(out var state) ? state.normalizedTime : 0f;
+        public float NormalizedTime => IsReactionPlaying ? reactionFrame / (reactionSettings.GetRange(selectedState).FrameRate * reactionSettings.GetRange(selectedState).clip.length) :
+            TryGetSelectedState(out var state) ? state.normalizedTime : 0f;
         public float EquipmentProgress => Mathf.Clamp01(selectedState == "SHEATHE" ? 1f - NormalizedTime : NormalizedTime);
         public float PlaybackProgress
         {
             get
             {
+                if (IsReactionPlaying)
+                {
+                    var range = reactionSettings.GetRange(selectedState);
+                    return Mathf.InverseLerp(range.startFrame, range.endFrame, reactionFrame);
+                }
                 var clip = PlaybackClip(selectedState);
                 if (clip == null) return IsEquipmentTransition ? EquipmentProgress :
                     IsAction(selectedState) ? Mathf.Clamp01(NormalizedTime) : Mathf.Repeat(NormalizedTime, 1f);
@@ -139,6 +157,7 @@ namespace Cheon.Prototype.MountainPass
 
         public float SecondsUntilDodgeCancel()
         {
+            if (IsReactionPlaying) return CanDodge ? 0f : float.PositiveInfinity;
             if (paused || IsStatePlaying("ROLL") || !characterAnimator.HasState(0, Animator.StringToHash("ROLL")))
                 return float.PositiveInfinity;
             return SecondsUntilCancel(CurrentTiming != null ? CurrentTiming.dodgeCancel : 0f);
@@ -146,7 +165,7 @@ namespace Cheon.Prototype.MountainPass
 
         public float SecondsUntilEquipmentCancel()
         {
-            return paused ? float.PositiveInfinity : SecondsUntilCancel(CurrentTiming != null ? CurrentTiming.equipmentCancel : 0f);
+            return paused || IsReactionPlaying ? float.PositiveInfinity : SecondsUntilCancel(CurrentTiming != null ? CurrentTiming.equipmentCancel : 0f);
         }
 
         private float SecondsUntilCancel(float cancelProgress)
@@ -183,6 +202,7 @@ namespace Cheon.Prototype.MountainPass
             playbackSettings = settings;
             ReloadSavedPlaybackSettings();
         }
+        public void ConfigureReactions(PassPlayerReactionSettings settings) => reactionSettings = settings;
 
         public void CopyPlaybackTo(PassPlaybackSettings settings)
         {
@@ -245,6 +265,7 @@ namespace Cheon.Prototype.MountainPass
 
         private void Update()
         {
+            UpdateReactionPlayback(Time.deltaTime);
             ApplyAttackSpeeds();
             if (enableKeyboardShortcuts) ReadKeyboard();
             if (!paused) characterAnimator.SetFloat(MoveAmount, running ? 1f : 0f, locomotionBlendDuration, Time.deltaTime);
@@ -282,6 +303,14 @@ namespace Cheon.Prototype.MountainPass
 
         private void LateUpdate()
         {
+            if (IsReactionPlaying)
+            {
+                if (!paused && selectedState == "HEAVY_HIT" && reactionFrame >= reactionSettings.heavyHit.endFrame &&
+                    downHoldElapsed >= reactionSettings.downHoldSeconds && CanRecoverFromHeavy) BeginGetUp();
+                else if (!paused && selectedState == "GET_UP" && PlaybackProgress + 0.00001f >= reactionSettings.getUpMoveCancelProgress)
+                    BeginState(combatRequested ? "DRAWN_IDLE" : "SHEATHED_IDLE", reactionSettings.returnToIdleSeconds);
+                return;
+            }
             if (paused || !TryGetSelectedState(out var state)) return;
             // 예약을 먼저 소비해 캔슬 100%와 자동 복귀가 같은 프레임에 겹쳐도 입력을 잃지 않는다.
             uint sequence = PlaybackSequence;
@@ -349,7 +378,19 @@ namespace Cheon.Prototype.MountainPass
         private void BeginState(string state, float blendDuration, float offsetSeconds = -1f)
         {
             movingDrawActive = false;
-            if (CurrentTiming != null) blendDuration = CurrentTiming.blendDuration;
+            if (CurrentTiming != null && !IsReactionState(state)) blendDuration = CurrentTiming.blendDuration;
+            if (reactionSettings != null && selectedState == "GET_UP" && (state == "ROLL" || running))
+                blendDuration = reactionSettings.inputTransitionSeconds;
+            StateChanging?.Invoke(selectedState, state, blendDuration);
+            if (IsReactionPlaying && selectedState != state)
+            { fadingReactionState = selectedState; fadingReactionFrame = reactionFrame; reactionFadeRemaining = blendDuration; }
+            if (reactionSettings != null && IsReactionState(state))
+            {
+                reactionFrame = reactionSettings.GetRange(state).startFrame;
+                if (state != "GET_UP") landedSeconds = state == "HEAVY_HIT" && reactionFrame >= reactionSettings.landingFrame ? 0f : -1f;
+                downHoldElapsed = 0f;
+                SetReactionFrame(state, reactionFrame);
+            }
             upperBodyBlendDuration = blendDuration;
             PlaybackSequence++;
             selectedState = state; paused = false;
@@ -514,10 +555,61 @@ namespace Cheon.Prototype.MountainPass
         }
         public void PlayHit()
         {
-            if (IsStatePlaying("HIT")) return;
+            if (IsReactionPlaying || IsStatePlaying("HIT")) return;
             running = false;
             fanAttachment.SetSequencePose(combatRequested, combatRequested ? 1f : 0f);
             BeginState("HIT", transitionDuration);
+        }
+
+        public static bool IsReactionState(string state) => state == "HEAVY_HIT" || state == "GET_UP" || state == "DEATH";
+        public AnimationClip ReactionPoseClip(string state) => reactionSettings == null ? null : IsReactionState(state) ? reactionSettings.GetRange(state).clip :
+            state == "DRAWN_IDLE" ? reactionSettings.drawnIdleClip : state == "SHEATHED_IDLE" ? reactionSettings.sheathedIdleClip : PlaybackClip(state);
+        public float ReactionPoseStartTime(string state) => IsReactionState(state) && reactionSettings != null ?
+            reactionSettings.GetRange(state).startFrame / reactionSettings.GetRange(state).FrameRate : PlaybackStartTime(state);
+        public void PlayHeavyHit(bool lethal = false)
+        {
+            if (reactionSettings == null) { PlayHit(); return; }
+            running = false;
+            fanAttachment.SetSequencePose(combatRequested, combatRequested ? 1f : 0f);
+            if (UsesUpperBodyEquipment) characterAnimator.SetLayerWeight(equipmentLayerIndex, 0f);
+            BeginState(lethal ? "DEATH" : "HEAVY_HIT", reactionSettings.transitionSeconds);
+        }
+        public bool TryRecoverFromHeavy(bool movement, bool dodge)
+        {
+            if (!CanRecoverFromHeavy || !movement && !dodge) return false;
+            BeginGetUp(); return true;
+        }
+        private void BeginGetUp() => BeginState("GET_UP", reactionSettings.transitionSeconds);
+        public void ResetReactions()
+        {
+            fadingReactionState = null; reactionFadeRemaining = 0f; landedSeconds = -1f; downHoldElapsed = 0f;
+            GetComponent<PassPlayerReactionPose>()?.ResetPose();
+        }
+        private void UpdateReactionPlayback(float seconds)
+        {
+            if (reactionSettings == null || paused || seconds <= 0f) return;
+            if (reactionFadeRemaining > 0f && !string.IsNullOrEmpty(fadingReactionState))
+            {
+                var fading = reactionSettings.GetRange(fadingReactionState);
+                fadingReactionFrame = Mathf.Min(fading.endFrame, fadingReactionFrame + seconds * fading.FrameRate * fading.speed);
+                SetReactionFrame(fadingReactionState, fadingReactionFrame);
+                reactionFadeRemaining -= seconds;
+            }
+            if (!IsReactionPlaying) return;
+            var range = reactionSettings.GetRange(selectedState);
+            float previousFrame = reactionFrame;
+            reactionFrame = Mathf.Min(range.endFrame, reactionFrame + seconds * range.FrameRate * range.speed);
+            SetReactionFrame(selectedState, reactionFrame);
+            if (selectedState != "HEAVY_HIT") return;
+            if (landedSeconds >= 0f) landedSeconds += seconds;
+            else if (reactionFrame >= reactionSettings.landingFrame)
+                landedSeconds = Mathf.Max(0f, seconds - (reactionSettings.landingFrame - previousFrame) / (range.FrameRate * range.speed));
+            if (previousFrame >= range.endFrame) downHoldElapsed += seconds;
+        }
+        private void SetReactionFrame(string state, float frame)
+        {
+            var range = reactionSettings.GetRange(state);
+            characterAnimator.SetFloat(state == "GET_UP" ? "GetUpTime" : state == "DEATH" ? "DeathTime" : "HeavyTime", frame / (range.FrameRate * range.clip.length));
         }
         public void TogglePause()
         {

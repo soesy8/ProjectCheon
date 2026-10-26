@@ -33,7 +33,7 @@ MonoBehaviour:
   idleClip: {fileID: -203655887218126122, guid: d712b7f2d7c5b6e4c89af0ad585d29cf, type: 3}
   landingFrame: 26
   landedRecoveryDelay: 0.5
-  getUpDodgeCancelProgress: 0.55
+  getUpDodgeCancelProgress: 0.45
   getUpMoveCancelProgress: 0.9
   getUpHeadBowDegrees: 10
   dodge:

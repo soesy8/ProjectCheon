@@ -59,8 +59,8 @@ MonoBehaviour:
     autoReturn: 1
     blendDuration: 0.12
   - state: HIT
-    moveCancel: 0.55
-    dodgeCancel: 0.35
+    moveCancel: 0.3
+    dodgeCancel: 0.1
     attack1Cancel: 0.85
     attack2Cancel: 0.85
     attack3Cancel: 0.85

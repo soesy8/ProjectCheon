@@ -13,6 +13,8 @@ namespace Cheon.Tests.PlayerReactions
         [SerializeField] private TMP_FontAsset font;
         [SerializeField] private TMP_Settings textSettings;
         private TMP_Text status, frameLabel, rangeLabel, saveMessage, pauseLabel, repeatLabel, cancelStatus;
+        private Test_GourdDrinking gourdDrinking;
+        private TMP_Text gourdStatus;
         private TMP_InputField startInput, endInput, speedInput, landingInput, headBowInput;
         private UnityEngine.UI.Slider startSlider, endSlider, speedSlider, timeline;
         private int selectedRange;
@@ -91,7 +93,7 @@ namespace Cheon.Tests.PlayerReactions
             saveMessage = Label("SaveStatus", panel, "", 22, 800, 406, 44, 14, Paper);
 
             status = Label("PlaybackStatus", root.transform, "", 520, 35, 1020, 65, 22, Paper);
-            Label("ViewHint", root.transform, "WASD / 방향키: 이동 · Space: 회피\n착지 + 0.5초 → 일어나기 · 일어나기 55% → 회피 / 90% → 이동·대기", 520, 103, 1020, 65, 17, Jade);
+            Label("ViewHint", root.transform, "WASD / 방향키: 이동 · Space: 회피\n착지 + 0.5초 → 일어나기 · 일어나기 45% → 회피 / 90% → 이동·대기", 520, 103, 1020, 65, 17, Jade);
             cancelStatus = Label("CancelStatus", root.transform, "", 520, 180, 610, 75, 16, Paper);
             Label("LandingCaption", root.transform, "착지 프레임", 1160, 180, 160, 34, 16, Paper);
             landingInput = Input("LandingFrame", root.transform, 1340, 180, 160, value =>
@@ -104,6 +106,15 @@ namespace Cheon.Tests.PlayerReactions
             Button("BackView", root.transform, "후면", 740, 820, 100, 40, () => preview.SetView(0, 5.5f));
             Button("CloseView", root.transform, "가까이", 850, 820, 100, 40, () => preview.SetView(155, 3.7f));
             Button("WideView", root.transform, "전체", 960, 820, 100, 40, () => preview.SetView(155, 7.5f));
+            gourdDrinking = GetComponent<Test_GourdDrinking>();
+            if (gourdDrinking != null)
+            {
+                var gourdPanel = Box("GourdControls", root.transform, 1160, 310, 380, 216, new Color(0.035f, 0.065f, 0.075f, 0.94f));
+                Label("GourdTitle", gourdPanel, "왼손 호리병 · 이동 중 마시기", 16, 12, 348, 30, 20, Jade);
+                Button("DrinkGourd", gourdPanel, "호리병 꺼내서 마시기  [G]", 16, 52, 348, 40, gourdDrinking.PlayDrinking, true);
+                Button("CancelGourd", gourdPanel, "호리병 동작 취소", 16, 101, 348, 34, gourdDrinking.CancelDrinking);
+                gourdStatus = Label("GourdStatus", gourdPanel, "", 16, 147, 348, 55, 15, Paper);
+            }
             Refresh();
         }
 
@@ -115,6 +126,8 @@ namespace Cheon.Tests.PlayerReactions
         private void Update()
         {
             if (status == null) return;
+            if (gourdStatus != null) gourdStatus.text = gourdDrinking.Status +
+                (gourdDrinking.IsPlaying ? $"\n현재 구간 {gourdDrinking.Progress * 100f:0}% · WASD 이동 가능" : "\n꺼내기 → 마시기 → 허리춤에 수납");
             string phase = preview.Phase switch
             {
                 Test_PlayerReactionPreview.PreviewPhase.Idle => "대기",

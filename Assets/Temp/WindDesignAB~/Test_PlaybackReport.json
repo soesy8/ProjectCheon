@@ -1,0 +1,18 @@
+[
+  {
+    "design": "A",
+    "count": 5,
+    "visible": 12,
+    "framesAdvanced": 96,
+    "elapsed": 2.02988815,
+    "material": "Test_M_CloudWindGust"
+  },
+  {
+    "design": "B",
+    "count": 5,
+    "visible": 13,
+    "framesAdvanced": 96,
+    "elapsed": 2.05134,
+    "material": "Test_M_RollingWindGust_B"
+  }
+]

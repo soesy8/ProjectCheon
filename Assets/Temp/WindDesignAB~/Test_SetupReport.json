@@ -1,0 +1,10 @@
+{
+  "currentDesign": "B",
+  "firstBranches": 3,
+  "thirdBranches": 5,
+  "originalAMaterialsPreserved": true,
+  "meleeAndHitSettingsUnchanged": true,
+  "materialA": "Assets/Test/FanAttackVfx/Materials/Test_M_CloudWindGust.mat",
+  "materialB": "Assets/Test/FanAttackVfx/Materials/Test_M_RollingWindGust_B.mat",
+  "shaderErrors": false
+}

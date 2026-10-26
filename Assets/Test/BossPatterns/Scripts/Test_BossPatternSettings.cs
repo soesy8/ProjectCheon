@@ -143,7 +143,7 @@ namespace Cheon.Tests.BossPatterns
             [InspectorName("첫 점프 전 대기"), Min(0)] public float windup = 1f;
             [InspectorName("잡몹 점프 시작 간격"), Min(0)] public float jumpInterval = .5f;
             [InspectorName("마지막 착지 후 본체 타격 판정까지"), Min(0)] public float attackGap = .5f;
-            [InspectorName("종료 후 쿨타임"), Min(0)] public float cooldown = 12f;
+            [InspectorName("종료 후 쿨타임"), Min(0)] public float cooldown = 6f;
             [InspectorName("안전한 점프 지점 탐색 제한"), Min(.1f)] public float startTimeout = 3f;
             [InspectorName("순간이동 좌우 간격"), Min(.1f)] public float teleportSideDistance = 4f;
             [InspectorName("순간이동 전체 시간"), Min(.01f)]

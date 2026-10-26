@@ -7,6 +7,11 @@ namespace Cheon.Tests.FanAttackVfx
     public class Test_FanAttackVfxProfile : ScriptableObject
     {
         public enum SweepPlane { Horizontal, Vertical }
+        public enum WindDesign
+        {
+            [InspectorName("A안 · 구름 갈래")] A,
+            [InspectorName("B안 · 말려 흐르는 바람")] B
+        }
 
         [Serializable]
         public class Sweep
@@ -38,6 +43,16 @@ namespace Cheon.Tests.FanAttackVfx
             [Min(.01f)] public float fadeSeconds = .14f;
             [ColorUsage(true, true)] public Color color = new Color(.55f, 1f, .88f, .8f);
             [Range(0f, 5f)] public float intensity = 1.5f;
+            [Header("궤적 면의 외형 — 타격 범위에는 영향 없음")]
+            public bool shapedRibbon;
+            [Tooltip("시작부터 끝까지의 폭 배율입니다. 양끝을 낮추면 중간이 넓은 초승달 형태가 됩니다.")]
+            public AnimationCurve ribbonWidth = AnimationCurve.Linear(0, 1, 1, 1);
+            [Min(0)] public float middleBulge;
+            [Range(0, 90)] public float endExtension;
+            [Tooltip("중심 아래쪽 곡선의 높이 배율입니다. 끝을 늘려도 바닥에 묻히지 않게 조절합니다.")]
+            [Range(.1f, 1f)] public float lowerArcHeightScale = 1f;
+            [Range(0, 1)] public float surfaceFill;
+            [Range(0, .15f)] public float tipSerration;
             [Header("타격 구간 — 음수이면 궤적 표시 구간과 동일")]
             public float hitStartFrame = -1;
             public float hitEndFrame = -1;
@@ -68,6 +83,8 @@ namespace Cheon.Tests.FanAttackVfx
             [Min(0)] public float particlesPerSecond = 170f;
             [Min(.1f)] public float speed = 20f;
             public Vector2 size = new Vector2(.3f, .65f);
+            [Header("바람 디자인 — A/B 공통")]
+            [Range(3, 5)] public int branchCount = 3;
 
             public float EvaluateTravel(float time) => Mathf.Clamp01(travelProgress.Evaluate(Mathf.Clamp01(time)));
 
@@ -115,14 +132,35 @@ namespace Cheon.Tests.FanAttackVfx
         public Dust dust = new Dust();
         [Header("테스트 전용 머티리얼")]
         public Material sweepMaterial;
+        [Tooltip("1타에만 적용하는 구름 문양입니다. 비워 두면 기존 공용 머티리얼을 사용합니다.")]
+        public Material attack1SweepMaterial;
+        [Tooltip("2타의 가로 베기에 적용하는 구름 문양입니다. 비워 두면 공용 머티리얼을 사용합니다.")]
+        public Material attack2SweepMaterial;
+        [Tooltip("3타의 넓은 회전 궤적에 적용하는 구름 문양입니다. 비워 두면 공용 머티리얼을 사용합니다.")]
+        public Material attack3SweepMaterial;
+        [Header("바람 추가타 — A/B 선택")]
+        public WindDesign windDesign;
+        [Tooltip("A안: 기존 구름 머리와 꼬리 형태입니다.")]
         public Material windMaterial;
+        [Tooltip("B안: 길게 흐르다가 끝에서 말리는 바람 띠입니다.")]
+        public Material windMaterialB;
         public Material windParticleMaterial;
+        public Material windParticleMaterialB;
         public Material dustMaterial;
         public int Revision { get; private set; }
         [HideInInspector] public int layoutVersion;
 
         public Sweep GetSweep(int attack) => attack == 1 ? attack1 : attack == 2 ? attack2 : attack3;
+        public Material GetSweepMaterial(int attack)
+        {
+            var material = attack == 1 ? attack1SweepMaterial : attack == 2 ? attack2SweepMaterial : attack3SweepMaterial;
+            return material != null ? material : sweepMaterial;
+        }
+
         public Wind GetWind(int attack) => attack == 1 ? attack1Wind : attack == 3 ? wind : null;
+        public Material GetWindMaterial() => windDesign == WindDesign.B && windMaterialB != null ? windMaterialB : windMaterial;
+        public Material GetWindParticleMaterial() => windDesign == WindDesign.B && windParticleMaterialB != null
+            ? windParticleMaterialB : windParticleMaterial;
 
         public void NotifyChanged() => OnValidate();
 
@@ -139,6 +177,7 @@ namespace Cheon.Tests.FanAttackVfx
             {
                 gust.radius = Mathf.Max(gust.startRadius + .1f, gust.radius);
                 gust.forwardScale = Mathf.Max(.1f, gust.forwardScale);
+                gust.branchCount = Mathf.Clamp(gust.branchCount, 3, 5);
                 if (gust.travelProgress == null || gust.travelProgress.length < 2) gust.travelProgress = CreateWindTravelCurve();
                 gust.size.y = Mathf.Max(gust.size.x, gust.size.y);
                 gust.endFrame = Mathf.Max(gust.startFrame + 1, gust.endFrame);

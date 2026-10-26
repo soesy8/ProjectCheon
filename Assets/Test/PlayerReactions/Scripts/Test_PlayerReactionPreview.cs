@@ -58,6 +58,10 @@ namespace Cheon.Tests.PlayerReactions
         public int ActiveRangeIndex { get; private set; }
         public PreviewMode Mode => mode;
         public Animator CharacterAnimator => characterAnimator;
+        public AnimatorControllerPlayable AnimationController => controller;
+        public event System.Action<float> BeforePoseEvaluation;
+        public event System.Action AfterPoseEvaluation;
+        public event System.Action PreviewReset;
         public string AnimatorState => graph.IsValid() ? activeState : "";
         public float LandedSeconds => Mathf.Max(0f, landedElapsed);
         public bool CanRecover => mode != PreviewMode.Death && landedElapsed + 0.00001f >= Settings.landedRecoveryDelay &&
@@ -199,7 +203,7 @@ namespace Cheon.Tests.PlayerReactions
         }
         private void BeginDodge()
         {
-            LastInputResult = Phase == PreviewPhase.GetUp || fadingRangeIndex == 1 ? "일어나기 55% 이후 → 회피 캔슬" : "회피";
+            LastInputResult = Phase == PreviewPhase.GetUp || fadingRangeIndex == 1 ? "일어나기 45% 이후 → 회피 캔슬" : "회피";
             dodgeDirection = InputDirection();
             if (dodgeDirection.sqrMagnitude < 0.01f) dodgeDirection = characterAnimator.transform.forward;
             actorRotation = Quaternion.LookRotation(dodgeDirection);
@@ -288,12 +292,14 @@ namespace Cheon.Tests.PlayerReactions
                 if (head != null) head.localRotation = headBeforeBow;
                 headAdjusted = false;
             }
+            BeforePoseEvaluation?.Invoke(seconds);
             graph.Evaluate(seconds);
             float blend = blendDuration <= 0f ? 1f : Mathf.Clamp01(blendElapsed / blendDuration);
             appliedRootOffset = Vector3.Lerp(previousRootOffset, currentRootOffset, blend);
             characterAnimator.transform.localPosition = actorPosition + appliedRootOffset;
             characterAnimator.transform.localRotation = actorRotation;
             ApplyGetUpHeadBow(blend);
+            AfterPoseEvaluation?.Invoke();
         }
         private void ApplyGetUpHeadBow(float blend)
         {
@@ -377,6 +383,7 @@ namespace Cheon.Tests.PlayerReactions
         public void StepFrame(int index, int direction) => Scrub(index, (index == ActiveRangeIndex ? Mathf.Round(currentFrame) : Settings.GetRange(index).startFrame) + direction);
         public void ResetPreview()
         {
+            PreviewReset?.Invoke();
             if (!graph.IsValid()) return;
             Phase = PreviewPhase.Idle; paused = false; currentFrame = 0f; phaseElapsed = 0f;
             actorPosition = Vector3.zero; actorRotation = Quaternion.identity;

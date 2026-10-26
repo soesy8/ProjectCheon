@@ -82,7 +82,11 @@ namespace Cheon.Tests.FanAttackVfx
         public void RefreshGeometry()
         {
             if (profile == null || sweeps == null || sweeps.Length != 3 || windSector == null) return;
-            for (int i = 0; i < sweeps.Length; i++) sweeps[i].Rebuild(profile.GetSweep(i + 1), profile.sweepMaterial);
+            for (int i = 0; i < sweeps.Length; i++)
+            {
+                // 같은 구름 문양도 각 타격의 폭과 크기에 맞춘 머티리얼로 조절한다.
+                sweeps[i].Rebuild(profile.GetSweep(i + 1), profile.GetSweepMaterial(i + 1));
+            }
             RebuildWind(windSector, profile.wind);
             if (attack1WindSector != null) RebuildWind(attack1WindSector, profile.attack1Wind);
             particles.Configure(profile, playerRoot);
@@ -96,7 +100,8 @@ namespace Cheon.Tests.FanAttackVfx
                 radius = wind.radius, angle = wind.angle, innerRadius = wind.startRadius,
                 height = AnimationCurve.Linear(0, wind.height, 1, wind.height), archHeight = 0
             };
-            mesh.Rebuild(style, profile.windMaterial, true, wind.forwardScale);
+            mesh.Rebuild(style, profile.GetWindMaterial(), true, wind.forwardScale);
+            mesh.SetWindBranches(wind.branchCount);
         }
 
         private void LateUpdate()
@@ -239,6 +244,19 @@ namespace Cheon.Tests.FanAttackVfx
         public void PreviewAttack2() => PlayPreview(2);
         [ContextMenu("미리보기/3타 재생")]
         public void PreviewAttack3() => PlayPreview(3);
+        [ContextMenu("미리보기/바람 A안 · 3타")]
+        public void PreviewWindA() => PreviewWindDesign(Test_FanAttackVfxProfile.WindDesign.A);
+        [ContextMenu("미리보기/바람 B안 · 3타")]
+        public void PreviewWindB() => PreviewWindDesign(Test_FanAttackVfxProfile.WindDesign.B);
+
+        private void PreviewWindDesign(Test_FanAttackVfxProfile.WindDesign design)
+        {
+            if (!Application.isPlaying || profile == null) return;
+            profile.windDesign = design;
+            profile.NotifyChanged();
+            PlayPreview(3);
+        }
+
         [ContextMenu("미리보기/일시정지 해제")]
         public void ResumePreview()
         {

@@ -123,9 +123,13 @@ namespace Cheon.Prototype.MountainPass
         private void OnPlayerDamaged(float damage)
         {
             view.AddShake(0.9f); audioControl.Hurt(); hud.FlashDamage();
-            if (!playerHealth.IsDead) player.AnimationControl.PlayHit();
+            if (!playerHealth.IsDead)
+            {
+                if (playerHealth.LastDamageWasHeavy) player.AnimationControl.PlayHeavyHit();
+                else player.AnimationControl.PlayHit();
+            }
         }
-        private void OnDefeat() { State = RunState.Defeat; player.InputEnabled = false; player.AnimationControl.PlayHit(); }
+        private void OnDefeat() { State = RunState.Defeat; player.InputEnabled = false; player.AnimationControl.PlayHeavyHit(true); }
         private void OnVictory() { State = RunState.Victory; player.InputEnabled = false; player.AnimationControl.PlayIdle(); audioControl.Bell(); }
         private void OnFall() { playerHealth.TakeDamage(20f); view.SnapBehind(); hud.Notify(ReachedShrine ? "산신각으로 돌아왔습니다" : "산길 입구로 돌아왔습니다", 2f); }
         private void OnDestroy()

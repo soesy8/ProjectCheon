@@ -1,0 +1,235 @@
+{
+  "status": "passed",
+  "stage": 15,
+  "checks": [
+    "메인 일어나기 회피 기준 45%",
+    "일반 피격 이동 30%·회피 10%",
+    "일반 피격의 공격·장비 캔슬 기존 값 유지",
+    "일반 피해는 기존 일반 피격 재생",
+    "일반 피격 9.9% 회피 차단",
+    "일반 피격 10.1% 회피 허용",
+    "일반 피격 29.9% 이동 차단",
+    "일반 피격 30.1% 이동 허용",
+    "일반 피격에서 실제 Space 입력으로 구르기",
+    "일반 피격 이동 캔슬 실제 W 입력",
+    "일반 피격 캔슬 뒤 실제 이동",
+    "실제 보스 내려찍기 명중 시 메인 강피격 재생",
+    "강피격 착지 +0.5초 후 W 입력으로 일어나기",
+    "강피격 수평 이동을 실제 캐릭터 몸체에 전달",
+    "일어나기 이동 캔슬 90% 유지",
+    "착지 +0.5초 전 실제 Space 차단",
+    "강피격 후 Space는 일어나기에 소비",
+    "일어나기 45% 이전 실제 Space 차단",
+    "일어나기 45% 이후 실제 Space 회피 캔슬",
+    "메인 실제 프레임에서 강피격 91프레임 쓰러진 자세",
+    "무입력 전체 피격 후 90%에서 대기 전환",
+    "메인 실제 대기 자세 복귀",
+    "일반 공격도 치명타이면 강피격 사망 재생",
+    "사망 마지막 프레임에서 이동·회피 차단",
+    "사망 후 새 입력에도 마지막 자세 유지",
+    "재시작 시 사망·위치 보정 해제 및 입력 복구",
+    "재시작 뒤 모델 원점 복구"
+  ],
+  "samples": [
+    {
+      "label": "Normal hit dodge",
+      "frame": 2267,
+      "state": "ROLL",
+      "reactionFrame": 0.0,
+      "progress": 0.0,
+      "landed": 0.0,
+      "hipAboveRoot": 0.746406555,
+      "headAboveRoot": 1.21414185,
+      "root": [
+        -16.4106236,
+        37.1499863,
+        -45.65091
+      ],
+      "visualOffset": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "Main heavy to get up",
+      "frame": 2439,
+      "state": "GET_UP",
+      "reactionFrame": 0.0,
+      "progress": 0.0,
+      "landed": 0.5003442,
+      "hipAboveRoot": 0.208351135,
+      "headAboveRoot": 0.257453918,
+      "root": [
+        -14.4494953,
+        37.1499863,
+        -41.8620567
+      ],
+      "visualOffset": [
+        -0.0262360927,
+        0.0,
+        1.13493669
+      ]
+    },
+    {
+      "label": "Get up move cancel",
+      "frame": 2543,
+      "state": "SHEATHED_IDLE",
+      "reactionFrame": 52.41135,
+      "progress": 0.0,
+      "landed": 0.5003442,
+      "hipAboveRoot": 0.8455391,
+      "headAboveRoot": 1.443306,
+      "root": [
+        -14.426609,
+        37.1499863,
+        -41.89814
+      ],
+      "visualOffset": [
+        0.0369761959,
+        0.0,
+        -0.04165202
+      ]
+    },
+    {
+      "label": "Main Space recovery",
+      "frame": 2641,
+      "state": "GET_UP",
+      "reactionFrame": 0.0,
+      "progress": 0.0,
+      "landed": 0.5504563,
+      "hipAboveRoot": 0.209594727,
+      "headAboveRoot": 0.262531281,
+      "root": [
+        -14.4561892,
+        37.1499863,
+        -41.87814
+      ],
+      "visualOffset": [
+        -0.022385899,
+        0.0,
+        1.1240015
+      ]
+    },
+    {
+      "label": "Main get up dodge",
+      "frame": 2696,
+      "state": "ROLL",
+      "reactionFrame": 27.4952812,
+      "progress": 0.0,
+      "landed": 0.5504563,
+      "hipAboveRoot": 0.6220741,
+      "headAboveRoot": 1.1265564,
+      "root": [
+        -14.5785637,
+        37.1499863,
+        -42.1204453
+      ],
+      "visualOffset": [
+        0.0132586351,
+        0.0,
+        -0.0144617353
+      ]
+    },
+    {
+      "label": "Main full heavy hit down",
+      "frame": 2923,
+      "state": "HEAVY_HIT",
+      "reactionFrame": 91.0,
+      "progress": 1.0,
+      "landed": 2.16750026,
+      "hipAboveRoot": 0.192436218,
+      "headAboveRoot": 0.131122589,
+      "root": [
+        -14.4293184,
+        37.1499863,
+        -41.8749542
+      ],
+      "visualOffset": [
+        -0.072350584,
+        0.0,
+        1.18779421
+      ]
+    },
+    {
+      "label": "Main natural idle",
+      "frame": 3050,
+      "state": "SHEATHED_IDLE",
+      "reactionFrame": 52.4955559,
+      "progress": 0.0,
+      "landed": 2.53358674,
+      "hipAboveRoot": 0.8400154,
+      "headAboveRoot": 1.43281555,
+      "root": [
+        -14.3801146,
+        37.1499863,
+        -41.8591232
+      ],
+      "visualOffset": [
+        -0.02820336,
+        0.0,
+        -0.0460472852
+      ]
+    },
+    {
+      "label": "Main death full clip",
+      "frame": 3246,
+      "state": "DEATH",
+      "reactionFrame": 91.0,
+      "progress": 1.0,
+      "landed": 0.0,
+      "hipAboveRoot": 0.192436218,
+      "headAboveRoot": 0.131122589,
+      "root": [
+        -14.4293184,
+        37.2,
+        -41.8749542
+      ],
+      "visualOffset": [
+        -0.030767547,
+        0.0,
+        1.236886
+      ]
+    },
+    {
+      "label": "Main death held",
+      "frame": 3290,
+      "state": "DEATH",
+      "reactionFrame": 91.0,
+      "progress": 1.0,
+      "landed": 0.0,
+      "hipAboveRoot": 0.192436218,
+      "headAboveRoot": 0.131122589,
+      "root": [
+        -14.4293184,
+        37.2,
+        -41.8749542
+      ],
+      "visualOffset": [
+        -0.0307675488,
+        0.0,
+        1.236886
+      ]
+    },
+    {
+      "label": "Finished",
+      "frame": 3306,
+      "state": "SHEATHED_IDLE",
+      "reactionFrame": 91.0,
+      "progress": 0.131021455,
+      "landed": 0.0,
+      "hipAboveRoot": 0.899558067,
+      "headAboveRoot": 1.51925993,
+      "root": [
+        -19.418211,
+        3.76034212,
+        100.262291
+      ],
+      "visualOffset": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

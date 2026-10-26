@@ -16,6 +16,10 @@ namespace Cheon.Tests.FanAttackVfx
         private static readonly int Tint = Shader.PropertyToID("_Color");
         private static readonly int Opacity = Shader.PropertyToID("_Opacity");
         private static readonly int Intensity = Shader.PropertyToID("_Intensity");
+        private static readonly int RibbonShape = Shader.PropertyToID("_RibbonShape");
+        private static readonly int SurfaceFill = Shader.PropertyToID("_SurfaceFill");
+        private static readonly int TipSerration = Shader.PropertyToID("_TipSerration");
+        private static readonly int BranchCount = Shader.PropertyToID("_BranchCount");
         public bool IsVisible => meshRenderer != null && meshRenderer.enabled;
 
         public static Mesh CreateGeometry(Test_FanAttackVfxProfile.Sweep style, bool wind = false, float forwardScale = 1)
@@ -25,23 +29,35 @@ namespace Cheon.Tests.FanAttackVfx
             var vertices = new Vector3[(segments + 1) * (rings + 1)];
             var uv = new Vector2[vertices.Length];
             var triangles = new int[segments * rings * 6];
+            bool shaped = !wind && style.shapedRibbon;
+            float visualAngle = style.angle + (shaped ? style.endExtension : 0f);
             for (int segment = 0; segment <= segments; segment++)
             {
                 float progress = segment / (float)segments;
                 float sweep = style.reverse ? 1 - progress : progress;
                 float radians = ((sweep - .5f) * style.angle + style.yawOffset) * Mathf.Deg2Rad;
                 Vector3 direction = new Vector3(Mathf.Sin(radians), 0, Mathf.Cos(radians));
+                float outerRadius = style.radius;
+                float innerRadius = style.innerRadius;
+                if (shaped)
+                {
+                    // 시작 위치의 외곽은 유지하고, 중앙만 부풀리면서 양끝의 면 폭을 줄인다.
+                    outerRadius += Mathf.Sin(sweep * Mathf.PI) * style.middleBulge;
+                    float width = (style.radius - style.innerRadius) * Mathf.Max(.01f, style.ribbonWidth.Evaluate(sweep));
+                    innerRadius = Mathf.Max(0, outerRadius - width);
+                }
                 for (int ring = 0; ring <= rings; ring++)
                 {
                     float radial = ring / (float)rings;
                     int index = segment * (rings + 1) + ring;
-                    float radius = Mathf.Lerp(style.innerRadius, style.radius, radial);
+                    float radius = Mathf.Lerp(innerRadius, outerRadius, radial);
                     float height = style.height.Evaluate(progress) * style.heightMultiplier + style.heightOffset;
                     height += Mathf.Sin(radial * Mathf.PI) * style.archHeight;
                     if (!wind && style.plane == Test_FanAttackVfxProfile.SweepPlane.Vertical)
                     {
-                        float pitch = (style.startPitch - sweep * style.angle) * Mathf.Deg2Rad;
+                        float pitch = (style.startPitch - sweep * visualAngle) * Mathf.Deg2Rad;
                         Vector3 arc = new Vector3(0, Mathf.Sin(pitch), Mathf.Cos(pitch)) * radius;
+                        if (shaped && arc.y < 0) arc.y *= style.lowerArcHeightScale;
                         arc = Quaternion.Euler(0, style.yawOffset, style.roll) * arc;
                         vertices[index] = arc + Vector3.up * (style.pivotHeight + style.heightOffset);
                     }
@@ -76,6 +92,10 @@ namespace Cheon.Tests.FanAttackVfx
             runtimeMesh.hideFlags = HideFlags.DontSave;
             meshFilter.sharedMesh = runtimeMesh;
             meshRenderer.sharedMaterial = material;
+            properties.SetFloat(RibbonShape, !wind && style.shapedRibbon ? 1f : 0f);
+            properties.SetFloat(SurfaceFill, !wind && style.shapedRibbon ? style.surfaceFill : 0f);
+            properties.SetFloat(TipSerration, !wind && style.shapedRibbon ? style.tipSerration : 0f);
+            meshRenderer.SetPropertyBlock(properties);
         }
 
         public void Show(float head, float tail, Color color, float opacity, float intensity)
@@ -88,6 +108,14 @@ namespace Cheon.Tests.FanAttackVfx
             properties.SetFloat(Intensity, intensity);
             meshRenderer.SetPropertyBlock(properties);
             meshRenderer.enabled = opacity > .001f;
+        }
+
+        public void SetWindBranches(int count)
+        {
+            EnsureRenderer();
+            // 표시 갈래 수는 타격 범위를 바꾸지 않으며 두 디자인에 동일하게 전달한다.
+            properties.SetFloat(BranchCount, Mathf.Clamp(count, 3, 5));
+            meshRenderer.SetPropertyBlock(properties);
         }
 
         public void Hide() { EnsureRenderer(); meshRenderer.enabled = false; }

@@ -1,0 +1,19 @@
+{
+  "scene": "Assets/Scenes/MountainPass/MountainPass.unity",
+  "firstFrame": 3113,
+  "success": true,
+  "stage": "completed",
+  "crackSteps": 5,
+  "jumps": 1,
+  "heavyHit": true,
+  "getUp": true,
+  "minions": 2,
+  "linkedAttacks": 1,
+  "linkedJumps": 2,
+  "cooldownRemaining": 6.0,
+  "deathPowder": 305,
+  "modelHidden": true,
+  "reset": true,
+  "playerDeath": true,
+  "lastFrame": 4632
+}

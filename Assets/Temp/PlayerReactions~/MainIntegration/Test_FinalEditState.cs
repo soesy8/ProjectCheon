@@ -1,0 +1,10 @@
+﻿var mainPath="Assets/Scenes/MountainPass/MountainPass.unity";
+var previous=SessionState.GetString("PlayerReactions_PreviousPlayScene","");
+UnityEditor.SceneManagement.EditorSceneManager.playModeStartScene=string.IsNullOrEmpty(previous)?null:AssetDatabase.LoadAssetAtPath<SceneAsset>(previous);
+SessionState.EraseString("PlayerReactions_PreviousPlayScene");
+bool anyDirty=Enumerable.Range(0,UnityEngine.SceneManagement.SceneManager.sceneCount).Any(i=>UnityEngine.SceneManagement.SceneManager.GetSceneAt(i).isDirty);
+if(!anyDirty)UnityEditor.SceneManagement.EditorSceneManager.OpenScene(mainPath);
+var main=AssetDatabase.LoadAssetAtPath<Cheon.Prototype.MountainPass.PassPlayerReactionSettings>("Assets/Settings/MountainPass/MountainPlayerReactions.asset");
+var test=AssetDatabase.LoadAssetAtPath<Cheon.Tests.PlayerReactions.Test_PlayerReactionSettings>("Assets/Test/PlayerReactions/Settings/Test_PlayerReactionSettings.asset");
+var timings=AssetDatabase.LoadAssetAtPath<Cheon.Prototype.MountainPass.PassActionTimings>("Assets/Settings/MountainPass/MountainActionTimings.asset").Get("HIT");
+return new{playing=EditorApplication.isPlaying,mainScene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().path,dirty=UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty,mainDodge=main.getUpDodgeCancelProgress,testDodge=test.getUpDodgeCancelProgress,timings.moveCancel,timings.dodgeCancel,timings.attack1Cancel,timings.attack2Cancel,timings.attack3Cancel,timings.equipmentCancel};
