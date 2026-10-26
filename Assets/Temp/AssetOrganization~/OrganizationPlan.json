@@ -1,0 +1,822 @@
+{
+  "moves": [
+    {
+      "from": "Assets/Proto/Arts/Materials",
+      "to": "Assets/Arts/Materials/Gameplay"
+    },
+    {
+      "from": "Assets/Proto/MountainPass/Environment",
+      "to": "Assets/Arts/Environment/MountainPass/Meshes"
+    },
+    {
+      "from": "Assets/Proto/MountainPass/Materials",
+      "to": "Assets/Arts/Environment/MountainPass/Materials"
+    },
+    {
+      "from": "Assets/Proto/MountainPass/Shaders",
+      "to": "Assets/Arts/Shaders/MountainPass"
+    },
+    {
+      "from": "Assets/Proto/MountainPass/Scripts",
+      "to": "Assets/Scripts/MountainPass"
+    },
+    {
+      "from": "Assets/Proto/MountainPass/Scenes",
+      "to": "Assets/Scenes/MountainPass"
+    },
+    {
+      "from": "Assets/Proto/MountainPass/Settings/MountainActionTimings.asset",
+      "to": "Assets/Settings/MountainPass/MountainActionTimings.asset"
+    },
+    {
+      "from": "Assets/Proto/MountainPass/Settings/MountainKorean.asset",
+      "to": "Assets/Arts/Fonts/MountainPass/MountainKorean.asset"
+    },
+    {
+      "from": "Assets/Proto/MountainPass/Settings/MountainKorean.ttf",
+      "to": "Assets/Arts/Fonts/MountainPass/MountainKorean.ttf"
+    },
+    {
+      "from": "Assets/Proto/MountainPass/Settings/MountainPlayback.asset",
+      "to": "Assets/Settings/MountainPass/MountainPlayback.asset"
+    },
+    {
+      "from": "Assets/Proto/MountainPass/Settings/MountainPlayer.controller",
+      "to": "Assets/Arts/Characters/Player/Animations/MountainPass/MountainPlayer.controller"
+    },
+    {
+      "from": "Assets/Proto/MountainPass/Settings/MountainTextSettings.asset",
+      "to": "Assets/Settings/MountainPass/MountainTextSettings.asset"
+    },
+    {
+      "from": "Assets/Proto/MountainPass/Timelines/BossAwakening.anim",
+      "to": "Assets/Arts/Animations/MountainPass/BossAwakening.anim"
+    },
+    {
+      "from": "Assets/Proto/MountainPass/Timelines/BossIntroduction.playable",
+      "to": "Assets/Arts/Timelines/MountainPass/BossIntroduction.playable"
+    },
+    {
+      "from": "Assets/Proto/MountainPass/Timelines/BossIntroductionCamera.anim",
+      "to": "Assets/Arts/Animations/MountainPass/BossIntroductionCamera.anim"
+    },
+    {
+      "from": "Assets/Test/Cheon/Arts/EnvironmentModels",
+      "to": "Assets/Arts/Environment/Cheon/EnvironmentModels"
+    },
+    {
+      "from": "Assets/Test/Cheon/Arts/ReferenceEnvironment",
+      "to": "Assets/Arts/Environment/Cheon/ReferenceEnvironment"
+    },
+    {
+      "from": "Assets/Test/Cheon/Arts/Meshes",
+      "to": "Assets/Arts/Environment/Cheon/Concepts/Meshes"
+    },
+    {
+      "from": "Assets/Test/Cheon/Arts/Materials",
+      "to": "Assets/Arts/Environment/Cheon/Concepts/Materials"
+    },
+    {
+      "from": "Assets/Test/Cheon/Arts/Fonts",
+      "to": "Assets/Arts/Fonts/Cheon"
+    },
+    {
+      "from": "Assets/Test/Cheon/Arts/TextShaders",
+      "to": "Assets/Arts/Shaders/TextMeshPro"
+    },
+    {
+      "from": "Assets/Test/Cheon/Arts/Test_ConceptAtmosphere.asset",
+      "to": "Assets/Settings/Volumes/Test_ConceptAtmosphere.asset"
+    },
+    {
+      "from": "Assets/Test/Cheon/Arts/Test_S_CheonSpirit.shader",
+      "to": "Assets/Arts/Shaders/Cheon/Test_S_CheonSpirit.shader"
+    },
+    {
+      "from": "Assets/Test/Cheon/Arts/Test_S_CheonToon.shader",
+      "to": "Assets/Arts/Shaders/Cheon/Test_S_CheonToon.shader"
+    },
+    {
+      "from": "Assets/Test/Cheon/Arts/Test_S_ConceptSky.shader",
+      "to": "Assets/Arts/Shaders/Cheon/Test_S_ConceptSky.shader"
+    },
+    {
+      "from": "Assets/Test/Cheon/Arts/Test_S_ConceptSurface.shader",
+      "to": "Assets/Arts/Shaders/Cheon/Test_S_ConceptSurface.shader"
+    },
+    {
+      "from": "Assets/Test/CheonMountainMap/Models",
+      "to": "Assets/Arts/Environment/CheonMountainMap/Models"
+    },
+    {
+      "from": "Assets/Test/CheonMountainMap/Materials",
+      "to": "Assets/Arts/Environment/CheonMountainMap/Materials"
+    },
+    {
+      "from": "Assets/Test/CheonMountainMap/Textures",
+      "to": "Assets/Arts/Environment/CheonMountainMap/Textures"
+    },
+    {
+      "from": "Assets/Test/CheonMountainMap/Prefabs",
+      "to": "Assets/Prefabs/Environment/CheonMountainMap"
+    },
+    {
+      "from": "Assets/Test/CheonMountainMap/Animations",
+      "to": "Assets/Arts/Characters/Player/Animations/MountainMap"
+    },
+    {
+      "from": "Assets/Test/CheonMountainMap/Arts/Fonts",
+      "to": "Assets/Arts/Fonts/CheonMountainMap"
+    },
+    {
+      "from": "Assets/Test/PlayerFanAnimation/Models",
+      "to": "Assets/Arts/Characters/Player/Models"
+    },
+    {
+      "from": "Assets/Test/PlayerFanAnimation/Materials",
+      "to": "Assets/Arts/Characters/Player/Materials"
+    },
+    {
+      "from": "Assets/Test/PlayerFanAnimation/Textures",
+      "to": "Assets/Arts/Characters/Player/Textures"
+    },
+    {
+      "from": "Assets/Test/PlayerFanAnimation/Animations",
+      "to": "Assets/Arts/Characters/Player/Animations/Fan"
+    },
+    {
+      "from": "Assets/Test/PlayerFanAnimation/Fonts",
+      "to": "Assets/Arts/Fonts/Player"
+    },
+    {
+      "from": "Assets/Test/PlayerFanAnimation/Shaders",
+      "to": "Assets/Arts/Shaders/Combat"
+    },
+    {
+      "from": "Assets/Arts/Environment/Cheon/ReferenceEnvironment/Prefabs",
+      "to": "Assets/Prefabs/Environment/Cheon/ReferenceEnvironment"
+    },
+    {
+      "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Test_Cheon_Lantern.fbx",
+      "to": "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Models/Test_Cheon_Lantern.fbx"
+    },
+    {
+      "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Test_Cheon_Lantern.prefab",
+      "to": "Assets/Prefabs/Environment/Cheon/EnvironmentModels/Test_Cheon_Lantern.prefab"
+    },
+    {
+      "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/02_Grass/Test_Cheon_Grass.fbx",
+      "to": "Assets/Arts/Environment/Cheon/EnvironmentModels/02_Grass/Models/Test_Cheon_Grass.fbx"
+    },
+    {
+      "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/02_Grass/Test_Cheon_Grass.prefab",
+      "to": "Assets/Prefabs/Environment/Cheon/EnvironmentModels/Test_Cheon_Grass.prefab"
+    },
+    {
+      "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/03_Flowers/Test_Cheon_Flowers.fbx",
+      "to": "Assets/Arts/Environment/Cheon/EnvironmentModels/03_Flowers/Models/Test_Cheon_Flowers.fbx"
+    },
+    {
+      "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/03_Flowers/Test_Cheon_Flowers.prefab",
+      "to": "Assets/Prefabs/Environment/Cheon/EnvironmentModels/Test_Cheon_Flowers.prefab"
+    },
+    {
+      "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Test_Cheon_Gate.fbx",
+      "to": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Models/Test_Cheon_Gate.fbx"
+    },
+    {
+      "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Test_Cheon_Gate.prefab",
+      "to": "Assets/Prefabs/Environment/Cheon/EnvironmentModels/Test_Cheon_Gate.prefab"
+    },
+    {
+      "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Test_Cheon_Wall.fbx",
+      "to": "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Models/Test_Cheon_Wall.fbx"
+    },
+    {
+      "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Test_Cheon_Wall.prefab",
+      "to": "Assets/Prefabs/Environment/Cheon/EnvironmentModels/Test_Cheon_Wall.prefab"
+    },
+    {
+      "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Test_Cheon_BellPavilion.fbx",
+      "to": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Models/Test_Cheon_BellPavilion.fbx"
+    },
+    {
+      "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Test_Cheon_BellPavilion.prefab",
+      "to": "Assets/Prefabs/Environment/Cheon/EnvironmentModels/Test_Cheon_BellPavilion.prefab"
+    },
+    {
+      "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Test_Cheon_MountainSpiritShrine.fbx",
+      "to": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Models/Test_Cheon_MountainSpiritShrine.fbx"
+    },
+    {
+      "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Test_Cheon_MountainSpiritShrine.prefab",
+      "to": "Assets/Prefabs/Environment/Cheon/EnvironmentModels/Test_Cheon_MountainSpiritShrine.prefab"
+    },
+    {
+      "from": "Assets/InputSystem_Actions.inputactions",
+      "to": "Assets/Settings/Input/InputSystem_Actions.inputactions"
+    },
+    {
+      "from": "Assets/New Terrain.asset",
+      "to": "Assets/Arts/Environment/Terrain/New Terrain.asset"
+    }
+  ],
+  "duplicates": [
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Textures/Test_T_BronzeRim_BaseColor.png",
+      "guid": "729787497da64654d83dda20718f958e",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_BronzeRim_BaseColor.png",
+      "keepGuid": "bfc637c35b4796c4794d69a2f51694c8",
+      "keepHash": "7090d93d2eb4b8da6f023d93ab9126c8983850ab2bc5a60bd9da030e500657d0",
+      "hash": "7090d93d2eb4b8da6f023d93ab9126c8983850ab2bc5a60bd9da030e500657d0",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Textures/Test_T_BronzeRim_BaseColor.png",
+      "guid": "b2e41b1715ff28c4a8b06ea1a6dc8c99",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_BronzeRim_BaseColor.png",
+      "keepGuid": "bfc637c35b4796c4794d69a2f51694c8",
+      "keepHash": "7090d93d2eb4b8da6f023d93ab9126c8983850ab2bc5a60bd9da030e500657d0",
+      "hash": "7090d93d2eb4b8da6f023d93ab9126c8983850ab2bc5a60bd9da030e500657d0",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Textures/Test_T_Bronze_BaseColor.png",
+      "guid": "2a6f5cee4a121394596bae6c448e7f3b",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_Bronze_BaseColor.png",
+      "keepGuid": "a713fdea1b12dca468eb40c7b41a4970",
+      "keepHash": "6d8affb8b4bdde8429ef75d9642cff391d71820ec70ca6e34142991e208c0a54",
+      "hash": "6d8affb8b4bdde8429ef75d9642cff391d71820ec70ca6e34142991e208c0a54",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Textures/Test_T_Bronze_BaseColor.png",
+      "guid": "bc4bd296885910349bb45bd1962630fa",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_Bronze_BaseColor.png",
+      "keepGuid": "a713fdea1b12dca468eb40c7b41a4970",
+      "keepHash": "6d8affb8b4bdde8429ef75d9642cff391d71820ec70ca6e34142991e208c0a54",
+      "hash": "6d8affb8b4bdde8429ef75d9642cff391d71820ec70ca6e34142991e208c0a54",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Textures/Test_T_IndigoRoofTile_BaseColor.png",
+      "guid": "bc07c28b10b8fdb4686354b4c516779a",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_IndigoRoofTile_BaseColor.png",
+      "keepGuid": "b9d7f18602c722d4c98ba06edd26d579",
+      "keepHash": "6c78611874e4b5c168d3dccda09493669f3733d2d57d143d4619a540eb54b905",
+      "hash": "6c78611874e4b5c168d3dccda09493669f3733d2d57d143d4619a540eb54b905",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Textures/Test_T_IndigoRoofTile_BaseColor.png",
+      "guid": "dcb5bd86a4b9aa244997e708a074be82",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_IndigoRoofTile_BaseColor.png",
+      "keepGuid": "b9d7f18602c722d4c98ba06edd26d579",
+      "keepHash": "6c78611874e4b5c168d3dccda09493669f3733d2d57d143d4619a540eb54b905",
+      "hash": "6c78611874e4b5c168d3dccda09493669f3733d2d57d143d4619a540eb54b905",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Textures/Test_T_IndigoRoofTile_BaseColor.png",
+      "guid": "b7af1b66bdd0abe4d83d346794751821",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_IndigoRoofTile_BaseColor.png",
+      "keepGuid": "b9d7f18602c722d4c98ba06edd26d579",
+      "keepHash": "6c78611874e4b5c168d3dccda09493669f3733d2d57d143d4619a540eb54b905",
+      "hash": "6c78611874e4b5c168d3dccda09493669f3733d2d57d143d4619a540eb54b905",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Textures/Test_T_IndigoRoofTile_BaseColor.png",
+      "guid": "b6192d8adde645749b53cd7fd8af1824",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_IndigoRoofTile_BaseColor.png",
+      "keepGuid": "b9d7f18602c722d4c98ba06edd26d579",
+      "keepHash": "6c78611874e4b5c168d3dccda09493669f3733d2d57d143d4619a540eb54b905",
+      "hash": "6c78611874e4b5c168d3dccda09493669f3733d2d57d143d4619a540eb54b905",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Textures/Test_T_IndigoRoofTile_BaseColor.png",
+      "guid": "69e35945e19ecb347bb1dd74bd92720f",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_IndigoRoofTile_BaseColor.png",
+      "keepGuid": "b9d7f18602c722d4c98ba06edd26d579",
+      "keepHash": "6c78611874e4b5c168d3dccda09493669f3733d2d57d143d4619a540eb54b905",
+      "hash": "6c78611874e4b5c168d3dccda09493669f3733d2d57d143d4619a540eb54b905",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Textures/Test_T_IvoryHanji_BaseColor.png",
+      "guid": "d494158ebe4cf5a4c8e80b7b190cbb5e",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_IvoryHanji_BaseColor.png",
+      "keepGuid": "03f05373f4518834fb6c5eed2cb06856",
+      "keepHash": "6d04b17e2fc9a145b663ec2accb7e2f05cbbd9955e3e6dd9f96d594686b3103e",
+      "hash": "6d04b17e2fc9a145b663ec2accb7e2f05cbbd9955e3e6dd9f96d594686b3103e",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Textures/Test_T_IvoryHanji_BaseColor.png",
+      "guid": "8518b55562e6c444caed36ea4eba4e86",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_IvoryHanji_BaseColor.png",
+      "keepGuid": "03f05373f4518834fb6c5eed2cb06856",
+      "keepHash": "6d04b17e2fc9a145b663ec2accb7e2f05cbbd9955e3e6dd9f96d594686b3103e",
+      "hash": "6d04b17e2fc9a145b663ec2accb7e2f05cbbd9955e3e6dd9f96d594686b3103e",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Textures/Test_T_JadeDancheong_BaseColor.png",
+      "guid": "6d0779c4740f69744b24966cd209f324",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_JadeDancheong_BaseColor.png",
+      "keepGuid": "5e6d9a94537899d4e9f154f2f29c3b6b",
+      "keepHash": "5a556f05f486d6b6c3ffdc4e629bd81d88fb6f5015dd0e1dad4630cff31bae0d",
+      "hash": "5a556f05f486d6b6c3ffdc4e629bd81d88fb6f5015dd0e1dad4630cff31bae0d",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Textures/Test_T_JadeDancheong_BaseColor.png",
+      "guid": "a36453ed6e426324bb103edf37bdfdaa",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_JadeDancheong_BaseColor.png",
+      "keepGuid": "5e6d9a94537899d4e9f154f2f29c3b6b",
+      "keepHash": "5a556f05f486d6b6c3ffdc4e629bd81d88fb6f5015dd0e1dad4630cff31bae0d",
+      "hash": "5a556f05f486d6b6c3ffdc4e629bd81d88fb6f5015dd0e1dad4630cff31bae0d",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Textures/Test_T_JadeDancheong_BaseColor.png",
+      "guid": "18c2d3e06b0a5224b98c57b5606a3264",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_JadeDancheong_BaseColor.png",
+      "keepGuid": "5e6d9a94537899d4e9f154f2f29c3b6b",
+      "keepHash": "5a556f05f486d6b6c3ffdc4e629bd81d88fb6f5015dd0e1dad4630cff31bae0d",
+      "hash": "5a556f05f486d6b6c3ffdc4e629bd81d88fb6f5015dd0e1dad4630cff31bae0d",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Textures/Test_T_LightSandstone_BaseColor.png",
+      "guid": "ff26f9d75637a554f9c7ee38419e4335",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_LightSandstone_BaseColor.png",
+      "keepGuid": "b209a65c5befe3f4aaaedf08e9cde3b1",
+      "keepHash": "7006d478f5b2a0a7be4b1d6a12ff984dbdb38c0888828fd6fcb49c4579736fee",
+      "hash": "7006d478f5b2a0a7be4b1d6a12ff984dbdb38c0888828fd6fcb49c4579736fee",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Textures/Test_T_LightSandstone_BaseColor.png",
+      "guid": "458d4c61e80909441863e9cc9f7a04e2",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_LightSandstone_BaseColor.png",
+      "keepGuid": "b209a65c5befe3f4aaaedf08e9cde3b1",
+      "keepHash": "7006d478f5b2a0a7be4b1d6a12ff984dbdb38c0888828fd6fcb49c4579736fee",
+      "hash": "7006d478f5b2a0a7be4b1d6a12ff984dbdb38c0888828fd6fcb49c4579736fee",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Textures/Test_T_LightSandstone_BaseColor.png",
+      "guid": "076f9694f27b6524c943a37a5f230ff4",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_LightSandstone_BaseColor.png",
+      "keepGuid": "b209a65c5befe3f4aaaedf08e9cde3b1",
+      "keepHash": "7006d478f5b2a0a7be4b1d6a12ff984dbdb38c0888828fd6fcb49c4579736fee",
+      "hash": "7006d478f5b2a0a7be4b1d6a12ff984dbdb38c0888828fd6fcb49c4579736fee",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Textures/Test_T_LightSandstone_BaseColor.png",
+      "guid": "26753bfd1b146554183866e07e381c66",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_LightSandstone_BaseColor.png",
+      "keepGuid": "b209a65c5befe3f4aaaedf08e9cde3b1",
+      "keepHash": "7006d478f5b2a0a7be4b1d6a12ff984dbdb38c0888828fd6fcb49c4579736fee",
+      "hash": "7006d478f5b2a0a7be4b1d6a12ff984dbdb38c0888828fd6fcb49c4579736fee",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Textures/Test_T_LightSandstone_BaseColor.png",
+      "guid": "91ca3334b471c304698403dd076bf4ef",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_LightSandstone_BaseColor.png",
+      "keepGuid": "b209a65c5befe3f4aaaedf08e9cde3b1",
+      "keepHash": "7006d478f5b2a0a7be4b1d6a12ff984dbdb38c0888828fd6fcb49c4579736fee",
+      "hash": "7006d478f5b2a0a7be4b1d6a12ff984dbdb38c0888828fd6fcb49c4579736fee",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/03_Flowers/Textures/Test_T_OchreGold_BaseColor.png",
+      "guid": "f0d2e7542478ecd42ab31acf582d77fe",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_OchreGold_BaseColor.png",
+      "keepGuid": "ac4e277c9b32f14448c7374613e01bf6",
+      "keepHash": "4bb9804928c09d7807457c3033f7cc8667963c87998ba31f32a8ee0f9dc978d2",
+      "hash": "4bb9804928c09d7807457c3033f7cc8667963c87998ba31f32a8ee0f9dc978d2",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Textures/Test_T_OchreGold_BaseColor.png",
+      "guid": "916b45cea54395745b751b2d6717ebf9",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_OchreGold_BaseColor.png",
+      "keepGuid": "ac4e277c9b32f14448c7374613e01bf6",
+      "keepHash": "4bb9804928c09d7807457c3033f7cc8667963c87998ba31f32a8ee0f9dc978d2",
+      "hash": "4bb9804928c09d7807457c3033f7cc8667963c87998ba31f32a8ee0f9dc978d2",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Textures/Test_T_OchreGold_BaseColor.png",
+      "guid": "2b2e630883fbbdf4eb0ef78c2d8b7694",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_OchreGold_BaseColor.png",
+      "keepGuid": "ac4e277c9b32f14448c7374613e01bf6",
+      "keepHash": "4bb9804928c09d7807457c3033f7cc8667963c87998ba31f32a8ee0f9dc978d2",
+      "hash": "4bb9804928c09d7807457c3033f7cc8667963c87998ba31f32a8ee0f9dc978d2",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Textures/Test_T_OchreGold_BaseColor.png",
+      "guid": "850182b5c35f7e74eb55211cf9018211",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_OchreGold_BaseColor.png",
+      "keepGuid": "ac4e277c9b32f14448c7374613e01bf6",
+      "keepHash": "4bb9804928c09d7807457c3033f7cc8667963c87998ba31f32a8ee0f9dc978d2",
+      "hash": "4bb9804928c09d7807457c3033f7cc8667963c87998ba31f32a8ee0f9dc978d2",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Textures/Test_T_OchreGold_BaseColor.png",
+      "guid": "85c638e0c4c64bf4f98a1006a9a1cd47",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_OchreGold_BaseColor.png",
+      "keepGuid": "ac4e277c9b32f14448c7374613e01bf6",
+      "keepHash": "4bb9804928c09d7807457c3033f7cc8667963c87998ba31f32a8ee0f9dc978d2",
+      "hash": "4bb9804928c09d7807457c3033f7cc8667963c87998ba31f32a8ee0f9dc978d2",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Textures/Test_T_OrangeWood_BaseColor.png",
+      "guid": "c32444376c0bdbe4b9b296f0dd1e609a",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_OrangeWood_BaseColor.png",
+      "keepGuid": "3a0fe7bc1e5499b48ae378d225bb04a6",
+      "keepHash": "781db348ca3a42b21e260c9b3f5b2623f9667488653f71ad533c3d6391c70715",
+      "hash": "781db348ca3a42b21e260c9b3f5b2623f9667488653f71ad533c3d6391c70715",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Textures/Test_T_OrangeWood_BaseColor.png",
+      "guid": "4ffb35f1a9236a240822da1598d6c142",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_OrangeWood_BaseColor.png",
+      "keepGuid": "3a0fe7bc1e5499b48ae378d225bb04a6",
+      "keepHash": "781db348ca3a42b21e260c9b3f5b2623f9667488653f71ad533c3d6391c70715",
+      "hash": "781db348ca3a42b21e260c9b3f5b2623f9667488653f71ad533c3d6391c70715",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Textures/Test_T_OrangeWood_BaseColor.png",
+      "guid": "b8d91e976530a6544a91e9b72da94e62",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_OrangeWood_BaseColor.png",
+      "keepGuid": "3a0fe7bc1e5499b48ae378d225bb04a6",
+      "keepHash": "781db348ca3a42b21e260c9b3f5b2623f9667488653f71ad533c3d6391c70715",
+      "hash": "781db348ca3a42b21e260c9b3f5b2623f9667488653f71ad533c3d6391c70715",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Textures/Test_T_OrangeWood_BaseColor.png",
+      "guid": "6f3a52069ae37974cb6173e46772cfbe",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_OrangeWood_BaseColor.png",
+      "keepGuid": "3a0fe7bc1e5499b48ae378d225bb04a6",
+      "keepHash": "781db348ca3a42b21e260c9b3f5b2623f9667488653f71ad533c3d6391c70715",
+      "hash": "781db348ca3a42b21e260c9b3f5b2623f9667488653f71ad533c3d6391c70715",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Textures/Test_T_OrangeWood_BaseColor.png",
+      "guid": "113c377d66c702f42a6767cad11c6b9c",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_OrangeWood_BaseColor.png",
+      "keepGuid": "3a0fe7bc1e5499b48ae378d225bb04a6",
+      "keepHash": "781db348ca3a42b21e260c9b3f5b2623f9667488653f71ad533c3d6391c70715",
+      "hash": "781db348ca3a42b21e260c9b3f5b2623f9667488653f71ad533c3d6391c70715",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Textures/Test_T_RoofTileLight_BaseColor.png",
+      "guid": "6dad2c4fe823c7244ba5b8cc172de754",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_RoofTileLight_BaseColor.png",
+      "keepGuid": "03c996513c62c91429870e3dbe7f3ca6",
+      "keepHash": "be2a4d988efd3259595fad773e28cba8bcd9b6d6103942cb2fb886e8c01c0917",
+      "hash": "be2a4d988efd3259595fad773e28cba8bcd9b6d6103942cb2fb886e8c01c0917",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Textures/Test_T_RoofTileLight_BaseColor.png",
+      "guid": "49cfecdb6199daa4d8c5f3b9c891b44e",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_RoofTileLight_BaseColor.png",
+      "keepGuid": "03c996513c62c91429870e3dbe7f3ca6",
+      "keepHash": "be2a4d988efd3259595fad773e28cba8bcd9b6d6103942cb2fb886e8c01c0917",
+      "hash": "be2a4d988efd3259595fad773e28cba8bcd9b6d6103942cb2fb886e8c01c0917",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Textures/Test_T_RoofTileLight_BaseColor.png",
+      "guid": "52e82b18ecc48614d8022fb2ea460ac3",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_RoofTileLight_BaseColor.png",
+      "keepGuid": "03c996513c62c91429870e3dbe7f3ca6",
+      "keepHash": "be2a4d988efd3259595fad773e28cba8bcd9b6d6103942cb2fb886e8c01c0917",
+      "hash": "be2a4d988efd3259595fad773e28cba8bcd9b6d6103942cb2fb886e8c01c0917",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Textures/Test_T_RoofTileLight_BaseColor.png",
+      "guid": "bbe606b862518a64baaf9ee53068883b",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_RoofTileLight_BaseColor.png",
+      "keepGuid": "03c996513c62c91429870e3dbe7f3ca6",
+      "keepHash": "be2a4d988efd3259595fad773e28cba8bcd9b6d6103942cb2fb886e8c01c0917",
+      "hash": "be2a4d988efd3259595fad773e28cba8bcd9b6d6103942cb2fb886e8c01c0917",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Textures/Test_T_RoofTileLight_BaseColor.png",
+      "guid": "d84db32feda85d44bbcc4120fdae5dc6",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_RoofTileLight_BaseColor.png",
+      "keepGuid": "03c996513c62c91429870e3dbe7f3ca6",
+      "keepHash": "be2a4d988efd3259595fad773e28cba8bcd9b6d6103942cb2fb886e8c01c0917",
+      "hash": "be2a4d988efd3259595fad773e28cba8bcd9b6d6103942cb2fb886e8c01c0917",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Textures/Test_T_TealDancheong_BaseColor.png",
+      "guid": "402618faac8df4841ac22be142b44272",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_TealDancheong_BaseColor.png",
+      "keepGuid": "4472fb50a0c92c44c933be3ce309ab0d",
+      "keepHash": "9b4c4d331bdca6c7904756f31c9fec5213c40c909eab7fc87457ee9944f7af9a",
+      "hash": "9b4c4d331bdca6c7904756f31c9fec5213c40c909eab7fc87457ee9944f7af9a",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Textures/Test_T_TealDancheong_BaseColor.png",
+      "guid": "bb8411d3eb4c4a34bb18866f2261f97c",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_TealDancheong_BaseColor.png",
+      "keepGuid": "4472fb50a0c92c44c933be3ce309ab0d",
+      "keepHash": "9b4c4d331bdca6c7904756f31c9fec5213c40c909eab7fc87457ee9944f7af9a",
+      "hash": "9b4c4d331bdca6c7904756f31c9fec5213c40c909eab7fc87457ee9944f7af9a",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Textures/Test_T_TealDancheong_BaseColor.png",
+      "guid": "cbfa9c15102f5e54fa3a663459c5f911",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_TealDancheong_BaseColor.png",
+      "keepGuid": "4472fb50a0c92c44c933be3ce309ab0d",
+      "keepHash": "9b4c4d331bdca6c7904756f31c9fec5213c40c909eab7fc87457ee9944f7af9a",
+      "hash": "9b4c4d331bdca6c7904756f31c9fec5213c40c909eab7fc87457ee9944f7af9a",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Textures/Test_T_VermilionWood_BaseColor.png",
+      "guid": "1abd78ac56322ef40800d94adf621867",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_VermilionWood_BaseColor.png",
+      "keepGuid": "fbe568867fdbf5e4e9da9d62615e2e41",
+      "keepHash": "3cb4d5af35987d55c72839d527683291f94f7e2f00ef3308750a14dc9121d0d1",
+      "hash": "3cb4d5af35987d55c72839d527683291f94f7e2f00ef3308750a14dc9121d0d1",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Textures/Test_T_VermilionWood_BaseColor.png",
+      "guid": "79f4be964492eb2499880e0b56c3d5f9",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_VermilionWood_BaseColor.png",
+      "keepGuid": "fbe568867fdbf5e4e9da9d62615e2e41",
+      "keepHash": "3cb4d5af35987d55c72839d527683291f94f7e2f00ef3308750a14dc9121d0d1",
+      "hash": "3cb4d5af35987d55c72839d527683291f94f7e2f00ef3308750a14dc9121d0d1",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Textures/Test_T_VermilionWood_BaseColor.png",
+      "guid": "89a0845f7ae85b343ab6b727fee85b36",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_VermilionWood_BaseColor.png",
+      "keepGuid": "fbe568867fdbf5e4e9da9d62615e2e41",
+      "keepHash": "3cb4d5af35987d55c72839d527683291f94f7e2f00ef3308750a14dc9121d0d1",
+      "hash": "3cb4d5af35987d55c72839d527683291f94f7e2f00ef3308750a14dc9121d0d1",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Textures/Test_T_VermilionWood_BaseColor.png",
+      "guid": "614f87b77d62da24a967903d1dbc6e0b",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_VermilionWood_BaseColor.png",
+      "keepGuid": "fbe568867fdbf5e4e9da9d62615e2e41",
+      "keepHash": "3cb4d5af35987d55c72839d527683291f94f7e2f00ef3308750a14dc9121d0d1",
+      "hash": "3cb4d5af35987d55c72839d527683291f94f7e2f00ef3308750a14dc9121d0d1",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Textures/Test_T_VermilionWood_BaseColor.png",
+      "guid": "787633771e9453b4eacb1bd45b6914d6",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_VermilionWood_BaseColor.png",
+      "keepGuid": "fbe568867fdbf5e4e9da9d62615e2e41",
+      "keepHash": "3cb4d5af35987d55c72839d527683291f94f7e2f00ef3308750a14dc9121d0d1",
+      "hash": "3cb4d5af35987d55c72839d527683291f94f7e2f00ef3308750a14dc9121d0d1",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Textures/Test_T_Walnut_BaseColor.png",
+      "guid": "f4e33de49a747ba46b58c534b61340a3",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_Walnut_BaseColor.png",
+      "keepGuid": "8898b4646526da64199d00267db95be3",
+      "keepHash": "34b87f477cbb44c46ff67d5abee29cae921eb268c0d693ae1850e20e5402f6d4",
+      "hash": "34b87f477cbb44c46ff67d5abee29cae921eb268c0d693ae1850e20e5402f6d4",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Textures/Test_T_Walnut_BaseColor.png",
+      "guid": "69523eaeb5df1e243a38c0753844d5fe",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_Walnut_BaseColor.png",
+      "keepGuid": "8898b4646526da64199d00267db95be3",
+      "keepHash": "34b87f477cbb44c46ff67d5abee29cae921eb268c0d693ae1850e20e5402f6d4",
+      "hash": "34b87f477cbb44c46ff67d5abee29cae921eb268c0d693ae1850e20e5402f6d4",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/SelfModeling/Textures/T_WarmHanji_BaseColor.png",
+      "guid": "37fee6c3c9488614c8f21295a4835f70",
+      "keepPath": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Textures/Test_T_WarmHanji_BaseColor.png",
+      "keepGuid": "38568a0c40dfa9543b2be98f3130a91d",
+      "keepHash": "2130fb9670b72b565c5102fdfdeb4868719c68cdee17a6c4e6f1ea581a1114d3",
+      "hash": "2130fb9670b72b565c5102fdfdeb4868719c68cdee17a6c4e6f1ea581a1114d3",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Textures/Test_T_WarmHanji_BaseColor.png",
+      "guid": "36f2b3d064945bb49a7762a2461b02df",
+      "keepPath": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Textures/Test_T_WarmHanji_BaseColor.png",
+      "keepGuid": "38568a0c40dfa9543b2be98f3130a91d",
+      "keepHash": "2130fb9670b72b565c5102fdfdeb4868719c68cdee17a6c4e6f1ea581a1114d3",
+      "hash": "2130fb9670b72b565c5102fdfdeb4868719c68cdee17a6c4e6f1ea581a1114d3",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Textures/Test_T_WarmSandstone_BaseColor.png",
+      "guid": "2aff9c2b9aa88614381cd43420fe8a65",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_WarmSandstone_BaseColor.png",
+      "keepGuid": "3de6bf6a99e82e243a7797f7701e9212",
+      "keepHash": "591342d6045355271f51c9281e3018fb1da8c63172f7ec7dc613b7deaeeee4e7",
+      "hash": "591342d6045355271f51c9281e3018fb1da8c63172f7ec7dc613b7deaeeee4e7",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Textures/Test_T_WarmSandstone_BaseColor.png",
+      "guid": "e0f60f3d8ace5414c86319b4ca5950ad",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_WarmSandstone_BaseColor.png",
+      "keepGuid": "3de6bf6a99e82e243a7797f7701e9212",
+      "keepHash": "591342d6045355271f51c9281e3018fb1da8c63172f7ec7dc613b7deaeeee4e7",
+      "hash": "591342d6045355271f51c9281e3018fb1da8c63172f7ec7dc613b7deaeeee4e7",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Textures/Test_T_WarmSandstone_BaseColor.png",
+      "guid": "1e5bbadaba6ff524a833ab6b324c3851",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_WarmSandstone_BaseColor.png",
+      "keepGuid": "3de6bf6a99e82e243a7797f7701e9212",
+      "keepHash": "591342d6045355271f51c9281e3018fb1da8c63172f7ec7dc613b7deaeeee4e7",
+      "hash": "591342d6045355271f51c9281e3018fb1da8c63172f7ec7dc613b7deaeeee4e7",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Textures/Test_T_WarmSandstone_BaseColor.png",
+      "guid": "88e9141a1f27b7645a829afadc3626a8",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_WarmSandstone_BaseColor.png",
+      "keepGuid": "3de6bf6a99e82e243a7797f7701e9212",
+      "keepHash": "591342d6045355271f51c9281e3018fb1da8c63172f7ec7dc613b7deaeeee4e7",
+      "hash": "591342d6045355271f51c9281e3018fb1da8c63172f7ec7dc613b7deaeeee4e7",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Textures/Test_T_WarmSandstone_BaseColor.png",
+      "guid": "0503108a171173245b98d8e37b8cbea8",
+      "keepPath": "Assets/Arts/Environment/SelfModeling/Textures/T_WarmSandstone_BaseColor.png",
+      "keepGuid": "3de6bf6a99e82e243a7797f7701e9212",
+      "keepHash": "591342d6045355271f51c9281e3018fb1da8c63172f7ec7dc613b7deaeeee4e7",
+      "hash": "591342d6045355271f51c9281e3018fb1da8c63172f7ec7dc613b7deaeeee4e7",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Fonts/Cheon/Test_CheonKorean.ttf",
+      "guid": "07a44d31385f10249999f5d721812d32",
+      "keepPath": "Assets/Arts/Fonts/MountainPass/MountainKorean.ttf",
+      "keepGuid": "91205291fb1f91b4c866b8d97a4779e7",
+      "keepHash": "7a183cf1c6c56b9609fcc16eda8b5229fbc11758a21e669ec00343239b02192f",
+      "hash": "7a183cf1c6c56b9609fcc16eda8b5229fbc11758a21e669ec00343239b02192f",
+      "reason": "identical-bytes"
+    },
+    {
+      "path": "Assets/Arts/Characters/Player/Animations/MountainPass/MountainPlayer.controller",
+      "guid": "71c7aeda878c0e04889d1244b67d6d9b",
+      "keepPath": "Assets/Arts/Characters/Player/Animations/MountainMap/Test_MountainPlayer.controller",
+      "keepGuid": "7159f4864fda39e4999eb535febf8f8d",
+      "keepHash": "ac1609a12e0b3cce8599218d5fa63b7d403200b9c28510e050f1f3f2c0984d48",
+      "hash": "eb9853c798d42868901c1aab23b2373e37d72bde476dcab70a056491fff6a6f8",
+      "reason": "controller-except-name"
+    }
+  ],
+  "keepRelocations": [
+    {
+      "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Textures/Test_T_WarmHanji_BaseColor.png",
+      "to": "Assets/Arts/Environment/SelfModeling/Textures/T_WarmHanji_BaseColor.png",
+      "guid": "38568a0c40dfa9543b2be98f3130a91d"
+    }
+  ],
+  "referrers": [
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_BronzeRim_411061cc.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_BronzeRim_b6a65f23.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_Bronze_4a00b0e3.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_Bronze_5001a2d0.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_IndigoRoofTile_401daf21.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_IndigoRoofTile_43673a2c.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_IndigoRoofTile_6bc5622b.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_IndigoRoofTile_b3268034.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_IndigoRoofTile_b463743f.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_IvoryHanji_01d8e963.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_IvoryHanji_d1885226.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_JadeDancheong_479345ab.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_JadeDancheong_9a895595.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_JadeDancheong_afa012fe.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_LightSandstone_1a7c8f50.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_LightSandstone_1b6a2d09.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_LightSandstone_68b3fe6a.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_LightSandstone_f7ab2f0a.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_LightSandstone_fb089dce.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_OchreGold_03158283.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_OchreGold_212f02e5.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_OchreGold_21d65aec.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_OchreGold_45524f53.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_OchreGold_8c69e027.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_OrangeWood_0bc2fee0.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_OrangeWood_b03026ac.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_OrangeWood_b45d92a4.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_OrangeWood_be16158c.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_OrangeWood_e8415253.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_RoofTileLight_294a6024.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_RoofTileLight_5d876eb6.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_RoofTileLight_98861649.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_RoofTileLight_c4e6cb9f.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_RoofTileLight_fab21ed0.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_TealDancheong_3410206f.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_TealDancheong_c584fb4a.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_TealDancheong_d91812ef.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_VermilionWood_5d46a0a5.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_VermilionWood_6bcb4b77.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_VermilionWood_bb7a149c.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_VermilionWood_f4c696a0.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_VermilionWood_faf8f67a.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_Walnut_322cd437.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_Walnut_5ed7dabf.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_WarmHanji_63211d14.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_WarmSandstone_00f5de15.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_WarmSandstone_44a56218.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_WarmSandstone_46d4cbd9.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_WarmSandstone_4fd11a2b.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_WarmSandstone_9bcc655a.mat",
+    "Assets/Prefabs/WindCombo/WindComboPlayer.prefab",
+    "Assets/Scenes/MountainPass/MountainPass.unity",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Materials/Test_M_IndigoRoofTile.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Materials/Test_M_LightSandstone.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Materials/Test_M_OrangeWood.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Materials/Test_M_RoofTileLight.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Materials/Test_M_VermilionWood.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Materials/Test_M_WarmHanji.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Materials/Test_M_WarmSandstone.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/03_Flowers/Materials/Test_M_OchreGold.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Materials/Test_M_IndigoRoofTile.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Materials/Test_M_IvoryHanji.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Materials/Test_M_JadeDancheong.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Materials/Test_M_LightSandstone.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Materials/Test_M_OchreGold.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Materials/Test_M_OrangeWood.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Materials/Test_M_RoofTileLight.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Materials/Test_M_TealDancheong.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Materials/Test_M_VermilionWood.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Materials/Test_M_WarmSandstone.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Materials/Test_M_IndigoRoofTile.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Materials/Test_M_LightSandstone.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Materials/Test_M_OchreGold.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Materials/Test_M_OrangeWood.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Materials/Test_M_RoofTileLight.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Materials/Test_M_VermilionWood.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Materials/Test_M_WarmSandstone.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Materials/Test_M_Bronze.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Materials/Test_M_BronzeRim.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Materials/Test_M_IndigoRoofTile.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Materials/Test_M_JadeDancheong.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Materials/Test_M_LightSandstone.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Materials/Test_M_OchreGold.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Materials/Test_M_OrangeWood.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Materials/Test_M_RoofTileLight.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Materials/Test_M_TealDancheong.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Materials/Test_M_VermilionWood.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Materials/Test_M_Walnut.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Materials/Test_M_WarmSandstone.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Materials/Test_M_Bronze.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Materials/Test_M_BronzeRim.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Materials/Test_M_IndigoRoofTile.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Materials/Test_M_IvoryHanji.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Materials/Test_M_JadeDancheong.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Materials/Test_M_LightSandstone.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Materials/Test_M_OchreGold.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Materials/Test_M_OrangeWood.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Materials/Test_M_RoofTileLight.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Materials/Test_M_TealDancheong.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Materials/Test_M_VermilionWood.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Materials/Test_M_Walnut.mat",
+    "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Materials/Test_M_WarmSandstone.mat",
+    "Assets/Arts/Fonts/Cheon/Test_CheonKorean.asset",
+    "Assets/Arts/Fonts/CheonMountainMap/Test_MountainPlayerKorean.asset",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_WarmHanji.mat",
+    "Assets/Arts/Fonts/Player/Test_PlayerFanKorean.asset"
+  ],
+  "deleteFolders": [
+    "Assets/Test",
+    "Assets/Proto"
+  ]
+}

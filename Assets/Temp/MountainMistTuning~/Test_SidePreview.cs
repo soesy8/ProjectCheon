@@ -1,1 +1,0 @@
-var game=UnityEngine.Object.FindFirstObjectByType<Cheon.Prototype.MountainPass.PassGameFlow>();var player=game.Player;var view=game.View;view.enabled=false;view.transform.SetPositionAndRotation(player.position+new Vector3(4.8f,5.5f,-1.5f),Quaternion.LookRotation(new Vector3(-4.8f,-4.7f,1.5f)));return true;

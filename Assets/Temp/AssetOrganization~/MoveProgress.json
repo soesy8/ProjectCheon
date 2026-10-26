@@ -1,0 +1,222 @@
+[
+  {
+    "from": "Assets/Proto/Arts/Materials",
+    "to": "Assets/Arts/Materials/Gameplay"
+  },
+  {
+    "from": "Assets/Proto/MountainPass/Environment",
+    "to": "Assets/Arts/Environment/MountainPass/Meshes"
+  },
+  {
+    "from": "Assets/Proto/MountainPass/Materials",
+    "to": "Assets/Arts/Environment/MountainPass/Materials"
+  },
+  {
+    "from": "Assets/Proto/MountainPass/Shaders",
+    "to": "Assets/Arts/Shaders/MountainPass"
+  },
+  {
+    "from": "Assets/Proto/MountainPass/Scripts",
+    "to": "Assets/Scripts/MountainPass"
+  },
+  {
+    "from": "Assets/Proto/MountainPass/Scenes",
+    "to": "Assets/Scenes/MountainPass"
+  },
+  {
+    "from": "Assets/Proto/MountainPass/Settings/MountainActionTimings.asset",
+    "to": "Assets/Settings/MountainPass/MountainActionTimings.asset"
+  },
+  {
+    "from": "Assets/Proto/MountainPass/Settings/MountainKorean.asset",
+    "to": "Assets/Arts/Fonts/MountainPass/MountainKorean.asset"
+  },
+  {
+    "from": "Assets/Proto/MountainPass/Settings/MountainKorean.ttf",
+    "to": "Assets/Arts/Fonts/MountainPass/MountainKorean.ttf"
+  },
+  {
+    "from": "Assets/Proto/MountainPass/Settings/MountainPlayback.asset",
+    "to": "Assets/Settings/MountainPass/MountainPlayback.asset"
+  },
+  {
+    "from": "Assets/Proto/MountainPass/Settings/MountainPlayer.controller",
+    "to": "Assets/Arts/Characters/Player/Animations/MountainPass/MountainPlayer.controller"
+  },
+  {
+    "from": "Assets/Proto/MountainPass/Settings/MountainTextSettings.asset",
+    "to": "Assets/Settings/MountainPass/MountainTextSettings.asset"
+  },
+  {
+    "from": "Assets/Proto/MountainPass/Timelines/BossAwakening.anim",
+    "to": "Assets/Arts/Animations/MountainPass/BossAwakening.anim"
+  },
+  {
+    "from": "Assets/Proto/MountainPass/Timelines/BossIntroduction.playable",
+    "to": "Assets/Arts/Timelines/MountainPass/BossIntroduction.playable"
+  },
+  {
+    "from": "Assets/Proto/MountainPass/Timelines/BossIntroductionCamera.anim",
+    "to": "Assets/Arts/Animations/MountainPass/BossIntroductionCamera.anim"
+  },
+  {
+    "from": "Assets/Test/Cheon/Arts/EnvironmentModels",
+    "to": "Assets/Arts/Environment/Cheon/EnvironmentModels"
+  },
+  {
+    "from": "Assets/Test/Cheon/Arts/ReferenceEnvironment",
+    "to": "Assets/Arts/Environment/Cheon/ReferenceEnvironment"
+  },
+  {
+    "from": "Assets/Test/Cheon/Arts/Meshes",
+    "to": "Assets/Arts/Environment/Cheon/Concepts/Meshes"
+  },
+  {
+    "from": "Assets/Test/Cheon/Arts/Materials",
+    "to": "Assets/Arts/Environment/Cheon/Concepts/Materials"
+  },
+  {
+    "from": "Assets/Test/Cheon/Arts/Fonts",
+    "to": "Assets/Arts/Fonts/Cheon"
+  },
+  {
+    "from": "Assets/Test/Cheon/Arts/TextShaders",
+    "to": "Assets/Arts/Shaders/TextMeshPro"
+  },
+  {
+    "from": "Assets/Test/Cheon/Arts/Test_ConceptAtmosphere.asset",
+    "to": "Assets/Settings/Volumes/Test_ConceptAtmosphere.asset"
+  },
+  {
+    "from": "Assets/Test/Cheon/Arts/Test_S_CheonSpirit.shader",
+    "to": "Assets/Arts/Shaders/Cheon/Test_S_CheonSpirit.shader"
+  },
+  {
+    "from": "Assets/Test/Cheon/Arts/Test_S_CheonToon.shader",
+    "to": "Assets/Arts/Shaders/Cheon/Test_S_CheonToon.shader"
+  },
+  {
+    "from": "Assets/Test/Cheon/Arts/Test_S_ConceptSky.shader",
+    "to": "Assets/Arts/Shaders/Cheon/Test_S_ConceptSky.shader"
+  },
+  {
+    "from": "Assets/Test/Cheon/Arts/Test_S_ConceptSurface.shader",
+    "to": "Assets/Arts/Shaders/Cheon/Test_S_ConceptSurface.shader"
+  },
+  {
+    "from": "Assets/Test/CheonMountainMap/Models",
+    "to": "Assets/Arts/Environment/CheonMountainMap/Models"
+  },
+  {
+    "from": "Assets/Test/CheonMountainMap/Materials",
+    "to": "Assets/Arts/Environment/CheonMountainMap/Materials"
+  },
+  {
+    "from": "Assets/Test/CheonMountainMap/Textures",
+    "to": "Assets/Arts/Environment/CheonMountainMap/Textures"
+  },
+  {
+    "from": "Assets/Test/CheonMountainMap/Prefabs",
+    "to": "Assets/Prefabs/Environment/CheonMountainMap"
+  },
+  {
+    "from": "Assets/Test/CheonMountainMap/Animations",
+    "to": "Assets/Arts/Characters/Player/Animations/MountainMap"
+  },
+  {
+    "from": "Assets/Test/CheonMountainMap/Arts/Fonts",
+    "to": "Assets/Arts/Fonts/CheonMountainMap"
+  },
+  {
+    "from": "Assets/Test/PlayerFanAnimation/Models",
+    "to": "Assets/Arts/Characters/Player/Models"
+  },
+  {
+    "from": "Assets/Test/PlayerFanAnimation/Materials",
+    "to": "Assets/Arts/Characters/Player/Materials"
+  },
+  {
+    "from": "Assets/Test/PlayerFanAnimation/Textures",
+    "to": "Assets/Arts/Characters/Player/Textures"
+  },
+  {
+    "from": "Assets/Test/PlayerFanAnimation/Animations",
+    "to": "Assets/Arts/Characters/Player/Animations/Fan"
+  },
+  {
+    "from": "Assets/Test/PlayerFanAnimation/Fonts",
+    "to": "Assets/Arts/Fonts/Player"
+  },
+  {
+    "from": "Assets/Test/PlayerFanAnimation/Shaders",
+    "to": "Assets/Arts/Shaders/Combat"
+  },
+  {
+    "from": "Assets/Arts/Environment/Cheon/ReferenceEnvironment/Prefabs",
+    "to": "Assets/Prefabs/Environment/Cheon/ReferenceEnvironment"
+  },
+  {
+    "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Test_Cheon_Lantern.fbx",
+    "to": "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Models/Test_Cheon_Lantern.fbx"
+  },
+  {
+    "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Test_Cheon_Lantern.prefab",
+    "to": "Assets/Prefabs/Environment/Cheon/EnvironmentModels/Test_Cheon_Lantern.prefab"
+  },
+  {
+    "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/02_Grass/Test_Cheon_Grass.fbx",
+    "to": "Assets/Arts/Environment/Cheon/EnvironmentModels/02_Grass/Models/Test_Cheon_Grass.fbx"
+  },
+  {
+    "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/02_Grass/Test_Cheon_Grass.prefab",
+    "to": "Assets/Prefabs/Environment/Cheon/EnvironmentModels/Test_Cheon_Grass.prefab"
+  },
+  {
+    "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/03_Flowers/Test_Cheon_Flowers.fbx",
+    "to": "Assets/Arts/Environment/Cheon/EnvironmentModels/03_Flowers/Models/Test_Cheon_Flowers.fbx"
+  },
+  {
+    "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/03_Flowers/Test_Cheon_Flowers.prefab",
+    "to": "Assets/Prefabs/Environment/Cheon/EnvironmentModels/Test_Cheon_Flowers.prefab"
+  },
+  {
+    "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Test_Cheon_Gate.fbx",
+    "to": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Models/Test_Cheon_Gate.fbx"
+  },
+  {
+    "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Test_Cheon_Gate.prefab",
+    "to": "Assets/Prefabs/Environment/Cheon/EnvironmentModels/Test_Cheon_Gate.prefab"
+  },
+  {
+    "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Test_Cheon_Wall.fbx",
+    "to": "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Models/Test_Cheon_Wall.fbx"
+  },
+  {
+    "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/05_Wall/Test_Cheon_Wall.prefab",
+    "to": "Assets/Prefabs/Environment/Cheon/EnvironmentModels/Test_Cheon_Wall.prefab"
+  },
+  {
+    "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Test_Cheon_BellPavilion.fbx",
+    "to": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Models/Test_Cheon_BellPavilion.fbx"
+  },
+  {
+    "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Test_Cheon_BellPavilion.prefab",
+    "to": "Assets/Prefabs/Environment/Cheon/EnvironmentModels/Test_Cheon_BellPavilion.prefab"
+  },
+  {
+    "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Test_Cheon_MountainSpiritShrine.fbx",
+    "to": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Models/Test_Cheon_MountainSpiritShrine.fbx"
+  },
+  {
+    "from": "Assets/Arts/Environment/Cheon/EnvironmentModels/07_Mountain_Spirit_Shrine/Test_Cheon_MountainSpiritShrine.prefab",
+    "to": "Assets/Prefabs/Environment/Cheon/EnvironmentModels/Test_Cheon_MountainSpiritShrine.prefab"
+  },
+  {
+    "from": "Assets/InputSystem_Actions.inputactions",
+    "to": "Assets/Settings/Input/InputSystem_Actions.inputactions"
+  },
+  {
+    "from": "Assets/New Terrain.asset",
+    "to": "Assets/Arts/Environment/Terrain/New Terrain.asset"
+  }
+]

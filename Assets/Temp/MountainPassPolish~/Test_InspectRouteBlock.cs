@@ -1,1 +1,0 @@
-var game=UnityEngine.Object.FindFirstObjectByType<Cheon.Prototype.MountainPass.PassGameFlow>();var p=game.Player.position;var hits=Physics.SphereCastAll(p+Vector3.up,.28f,Vector3.back,2f,~0,QueryTriggerInteraction.Ignore);return hits.Select(h=>new{h.collider.name,parent=h.collider.transform.parent?.name,d=h.distance,bounds=h.collider.bounds.ToString()}).ToArray();

@@ -1,0 +1,72 @@
+﻿{
+  "success": true,
+  "command": "command run_script",
+  "data": {
+    "command": "run_script",
+    "parameters": {
+      "file": "Assets/Temp/AssetOrganization~/AssetOrganization.cs",
+      "entry": "AssetOrganization.CleanEmptyFolders",
+      "timeout_ms": "30000"
+    },
+    "result": {
+      "diagnostics": [],
+      "compileMs": 150,
+      "executeMs": 166,
+      "assemblyName": "PipelineRunScript_AssetOrganization_fce72bf6941b442685e3d3376466ea10",
+      "success": true,
+      "result": {
+        "removedFolders": [
+          "Assets/Arts/Characters/Player/Animations/MountainPass",
+          "Assets/Arts/Environment/Cheon/EnvironmentModels/01_Lantern/Textures",
+          "Assets/Arts/Environment/Cheon/EnvironmentModels/04_Gate/Textures",
+          "Assets/Arts/Environment/Cheon/EnvironmentModels/06_Bell_Pavilion/Textures"
+        ],
+        "editor": {
+          "compiling": false,
+          "compilationFailed": false,
+          "scenes": [
+            {
+              "path": "Assets/Scenes/MountainPass/MountainPass.unity",
+              "isDirty": false,
+              "objects": 1182,
+              "missingScripts": 0,
+              "animators": [
+                {
+                  "name": "Test_CheonPlayer",
+                  "controller": "Assets/Arts/Characters/Player/Animations/MountainMap/Test_MountainPlayer.controller"
+                },
+                {
+                  "name": "Test_FanClosed",
+                  "controller": ""
+                },
+                {
+                  "name": "Test_FanOpen",
+                  "controller": ""
+                },
+                {
+                  "name": "Test_FanOpening",
+                  "controller": "Assets/Arts/Characters/Player/Animations/Fan/Test_Fan.controller"
+                },
+                {
+                  "name": "JangseungBoss",
+                  "controller": ""
+                },
+                {
+                  "name": "BossIntroductionRig",
+                  "controller": ""
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "D:\\project\\ProjectCheon"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

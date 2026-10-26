@@ -1,0 +1,61 @@
+{
+  "saved": true,
+  "checks": [
+    {
+      "name": "ApproachLeftParapet",
+      "outsidePreserved": true,
+      "colliderMatches": true,
+      "metaPreserved": true
+    },
+    {
+      "name": "ApproachRightParapet",
+      "outsidePreserved": true,
+      "colliderMatches": true,
+      "metaPreserved": true
+    }
+  ],
+  "samples": 477,
+  "newMissing": 0,
+  "widths": [
+    {
+      "step": 48,
+      "before": 4.83992624,
+      "after": 4.83992624
+    },
+    {
+      "step": 51,
+      "before": 4.66283751,
+      "after": 4.75030375
+    },
+    {
+      "step": 54,
+      "before": 4.30980825,
+      "after": 4.574384
+    },
+    {
+      "step": 55,
+      "before": 4.2600894,
+      "after": 4.55571842
+    },
+    {
+      "step": 56,
+      "before": 4.3100605,
+      "after": 4.60569
+    },
+    {
+      "step": 59,
+      "before": 4.720035,
+      "after": 4.87003136
+    },
+    {
+      "step": 63,
+      "before": 4.79805756,
+      "after": 4.79805756
+    },
+    {
+      "step": 65,
+      "before": 4.668146,
+      "after": 4.668146
+    }
+  ]
+}

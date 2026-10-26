@@ -1,8 +1,0 @@
-{
-  "skipReturnsToPlay": true,
-  "gameplayCamera": true,
-  "cinemaDisabled": true,
-  "playerInput": true,
-  "invulnerabilityReleased": true,
-  "barrier": true
-}

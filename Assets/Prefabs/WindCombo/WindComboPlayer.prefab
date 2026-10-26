@@ -478,7 +478,7 @@ MonoBehaviour:
   cameraOffset: {x: 7, y: 9, z: -10}
   followCamera: 1
   showGuide: 1
-  guideFont: {fileID: 12800000, guid: 07a44d31385f10249999f5d721812d32, type: 3}
+  guideFont: {fileID: 12800000, guid: 91205291fb1f91b4c866b8d97a4779e7, type: 3}
 --- !u!1 &1305547036540625591
 GameObject:
   m_ObjectHideFlags: 0

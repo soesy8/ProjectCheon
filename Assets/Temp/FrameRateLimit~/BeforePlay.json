@@ -1,0 +1,27 @@
+﻿{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "return new { runInBackground = UnityEngine.Application.runInBackground, targetFrameRate = UnityEngine.Application.targetFrameRate, vSyncCount = UnityEngine.QualitySettings.vSyncCount };"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "runInBackground": true,
+        "targetFrameRate": -1,
+        "vSyncCount": 0
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "D:\\project\\ProjectCheon"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

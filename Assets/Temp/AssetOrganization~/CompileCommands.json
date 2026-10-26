@@ -1,0 +1,83 @@
+﻿{
+  "success": true,
+  "command": "command",
+  "data": {
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "D:\\project\\ProjectCheon"
+    },
+    "server": {
+      "version": "0.0.1",
+      "port": 7800
+    },
+    "commands": [
+      {
+        "name": "recompile",
+        "description": "Force a script recompile (works while unfocused/minimized). Poll recompile_status for completion.",
+        "tags": [
+          "scripts/compile"
+        ],
+        "package": "Unity.Pipeline.Editor",
+        "mainThreadRequired": true,
+        "parameters": [
+          {
+            "name": "focus",
+            "description": "If true, bring the Editor to the foreground before compiling. Off by default.",
+            "type": "Boolean",
+            "required": false,
+            "defaultValue": false
+          }
+        ],
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "title": "recompile",
+          "description": "Force a script recompile (works while unfocused/minimized). Poll recompile_status for completion.",
+          "properties": {
+            "focus": {
+              "type": "boolean",
+              "description": "If true, bring the Editor to the foreground before compiling. Off by default.",
+              "default": false
+            }
+          },
+          "required": [],
+          "additionalProperties": false,
+          "x-command-metadata": {
+            "mainThreadRequired": true,
+            "methodName": "Unity.Pipeline.Editor.Commands.RecompileCommand.Recompile"
+          }
+        }
+      },
+      {
+        "name": "recompile_status",
+        "description": "Get the status of the last recompile: idle | triggered | compiling | completed | up_to_date.",
+        "tags": [
+          "scripts/compile"
+        ],
+        "package": "Unity.Pipeline.Editor",
+        "mainThreadRequired": false,
+        "parameters": [],
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "title": "recompile_status",
+          "description": "Get the status of the last recompile: idle | triggered | compiling | completed | up_to_date.",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false,
+          "x-command-metadata": {
+            "mainThreadRequired": false,
+            "methodName": "Unity.Pipeline.Editor.Commands.RecompileCommand.RecompileStatus"
+          }
+        }
+      }
+    ],
+    "count": 2,
+    "total": 2,
+    "offset": 0,
+    "limit": null
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,1 +1,0 @@
-var clip=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/Proto/MountainPass/Timelines/BossIntroductionCamera.anim");return AnimationUtility.GetCurveBindings(clip).Select(b=>new{b.propertyName,keys=AnimationUtility.GetEditorCurve(clip,b).keys.Select(k=>new{k.time,k.value}).ToArray()}).ToArray();

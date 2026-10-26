@@ -1,0 +1,38 @@
+{
+  "compiling": false,
+  "compilationFailed": false,
+  "scenes": [
+    {
+      "path": "Assets/Proto/MountainPass/Scenes/MountainPass.unity",
+      "isDirty": false,
+      "objects": 1182,
+      "missingScripts": 0,
+      "animators": [
+        {
+          "name": "Test_CheonPlayer",
+          "controller": "Assets/Proto/MountainPass/Settings/MountainPlayer.controller"
+        },
+        {
+          "name": "Test_FanClosed",
+          "controller": ""
+        },
+        {
+          "name": "Test_FanOpen",
+          "controller": ""
+        },
+        {
+          "name": "Test_FanOpening",
+          "controller": "Assets/Test/PlayerFanAnimation/Animations/Test_Fan.controller"
+        },
+        {
+          "name": "JangseungBoss",
+          "controller": ""
+        },
+        {
+          "name": "BossIntroductionRig",
+          "controller": ""
+        }
+      ]
+    }
+  ]
+}

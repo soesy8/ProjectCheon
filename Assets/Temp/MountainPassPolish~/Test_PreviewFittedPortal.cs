@@ -1,1 +1,0 @@
-var g=UnityEngine.Object.FindFirstObjectByType<Cheon.Prototype.MountainPass.PassGameFlow>();g.BeginJourney();g.Boss.enabled=false;g.View.enabled=false;var gate=g.Entrance.transform;g.View.transform.SetPositionAndRotation(gate.position-gate.forward*14f+Vector3.up*.8f,Quaternion.LookRotation(gate.forward+Vector3.down*.03f));return true;
