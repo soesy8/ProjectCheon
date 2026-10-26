@@ -1,0 +1,32 @@
+{
+  "stage": "complete",
+  "completed": true,
+  "frame": 771,
+  "failures": [],
+  "results": [
+    {
+      "stage": "explosion",
+      "times": [
+        0.51131916,
+        0.66799736,
+        0.8162203,
+        0.96805954,
+        1.11712933
+      ],
+      "windup": 0.51131916,
+      "maxForward": 19.9265118,
+      "minBackward": -29.98233,
+      "damage": 18.0,
+      "captured": true
+    },
+    {
+      "stage": "death_finished",
+      "tint": 0.6002157,
+      "dissolve": 0.505733252,
+      "powder": 182,
+      "restored": true,
+      "survivingMinis": 0,
+      "state": "Playing"
+    }
+  ]
+}

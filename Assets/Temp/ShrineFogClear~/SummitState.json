@@ -1,0 +1,36 @@
+﻿{
+  "success": true,
+  "command": "command run_script",
+  "data": {
+    "command": "run_script",
+    "parameters": {
+      "file": "Assets/Temp/ShrineFogClear~/ShrineFogSetup.cs",
+      "entry": "ShrineFogSetup.State"
+    },
+    "result": {
+      "diagnostics": [],
+      "compileMs": 24,
+      "executeMs": 0,
+      "assemblyName": "PipelineRunScript_ShrineFogSetup_55d204e91d114baa974c3d4362d31916",
+      "success": true,
+      "result": {
+        "frame": 512,
+        "playerHeight": 27.2249985,
+        "density": 0,
+        "rendererEnabled": false,
+        "SummitClarity": 0.286549628,
+        "globalFog": true,
+        "globalFogDensity": 0.0035,
+        "fogMode": "ExponentialSquared",
+        "compilationFailed": false
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "D:\\project\\ProjectCheon"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

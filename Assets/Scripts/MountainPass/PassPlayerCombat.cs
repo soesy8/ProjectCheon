@@ -6,23 +6,23 @@ namespace Cheon.Prototype.MountainPass
     [DefaultExecutionOrder(-15)]
     public class PassPlayerCombat : MonoBehaviour
     {
-        [SerializeField] private PassAnimationController animationControl;
-        [SerializeField] private PassBossController boss;
-        [SerializeField] private PassGameFlow game;
-        [SerializeField] private PassEffects effects;
-        [SerializeField] private PassCamera view;
-        [SerializeField] private PassAudio audioControl;
+        [SerializeField] protected PassAnimationController animationControl;
+        [SerializeField] protected PassBossController boss;
+        [SerializeField] protected PassGameFlow game;
+        [SerializeField] protected PassEffects effects;
+        [SerializeField] protected PassCamera view;
+        [SerializeField] protected PassAudio audioControl;
         [SerializeField] private Vector3 attackDamage = new Vector3(22f, 28f, 40f);
         [SerializeField] private Vector3 attackReach = new Vector3(4.2f, 4.8f, 5.3f);
         private uint sequence;
         private float previousFrame;
         private bool hit;
-        public int HitsLanded { get; private set; }
+        public int HitsLanded { get; protected set; }
 
         public void Configure(PassAnimationController animation, PassBossController enemy, PassGameFlow flow, PassEffects visuals, PassCamera cameraControl, PassAudio sounds)
         { animationControl = animation; boss = enemy; game = flow; effects = visuals; view = cameraControl; audioControl = sounds; }
 
-        private void LateUpdate()
+        protected virtual void LateUpdate()
         {
             if (game == null || !game.IsRunning || !game.InEncounter || boss == null || boss.Health.IsDead) return;
             int attack = animationControl.SelectedState == "ATTACK1" ? 1 : animationControl.SelectedState == "ATTACK2" ? 2 : animationControl.SelectedState == "ATTACK3" ? 3 : 0;
@@ -58,6 +58,6 @@ namespace Cheon.Prototype.MountainPass
             previousFrame = frame;
         }
 
-        public void ResetHits() => HitsLanded = 0;
+        public virtual void ResetHits() => HitsLanded = 0;
     }
 }

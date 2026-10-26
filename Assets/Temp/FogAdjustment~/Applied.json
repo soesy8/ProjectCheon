@@ -1,0 +1,85 @@
+﻿{
+  "success": true,
+  "command": "command run_script",
+  "data": {
+    "command": "run_script",
+    "parameters": {
+      "file": "Assets/Temp/FogAdjustment~/FogAdjustment.cs",
+      "entry": "FogAdjustment.Apply"
+    },
+    "result": {
+      "diagnostics": [],
+      "compileMs": 115,
+      "executeMs": 267,
+      "assemblyName": "PipelineRunScript_FogAdjustment_38f820c44bcf49879eb86bb02b340c82",
+      "success": true,
+      "result": {
+        "name": "RearMistCurtain",
+        "before": {
+          "area": [
+            10,
+            10
+          ],
+          "depth": 10,
+          "position": [
+            -17.6906719,
+            5.67948246,
+            101.53894
+          ]
+        },
+        "after": {
+          "area": [
+            20,
+            20
+          ],
+          "depth": 20,
+          "position": [
+            -17.6906719,
+            6.69948769,
+            101.53894
+          ]
+        },
+        "playerHeadHeight": 5.69948769,
+        "topAboveHead": 1,
+        "bounds": {
+          "min": [
+            -27.6906719,
+            -13.3005123,
+            91.53894
+          ],
+          "max": [
+            -7.690672,
+            6.69948769,
+            111.53894
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "boundary": {
+          "name": "RearFogBoundary",
+          "position": [
+            -18.4638557,
+            4.499488,
+            100.9532
+          ],
+          "forward": [
+            0.797098458,
+            0,
+            0.6038494
+          ]
+        },
+        "isDirty": false
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "D:\\project\\ProjectCheon"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -57,7 +57,21 @@ namespace Cheon.Prototype.MountainPass
         public void ConfigureBoundary(Transform boundary, float feather, float multiplier, float floorHeight = -10000f)
         { densityBoundary = boundary; boundaryFade = feather; densityMultiplier = multiplier; boundaryFloorHeight = floorHeight; ApplySettings(); }
 
+        // 기존 볼륨 안에서 무늬와 밀도를 양옆으로 이동시킨다. 이동 거리가 0이면 원래 안개를 유지한다.
+        public void SetSidewaysOpening(Vector3 center, Vector3 right, float distance, float feather)
+        {
+            openingCenter = center;
+            openingRight = Vector3.ProjectOnPlane(right, Vector3.up).normalized;
+            if (openingRight.sqrMagnitude < 0.001f) openingRight = Vector3.right;
+            openingDistance = Mathf.Max(0f, distance);
+            openingFeather = Mathf.Max(0.1f, feather);
+        }
+
         private MaterialPropertyBlock properties;
+        private Vector3 openingCenter;
+        private Vector3 openingRight = Vector3.right;
+        private float openingDistance;
+        private float openingFeather = 4f;
 
         private static readonly int VolumeMinId = Shader.PropertyToID("_VolumeMin");
         private static readonly int VolumeMaxId = Shader.PropertyToID("_VolumeMax");
@@ -69,6 +83,9 @@ namespace Cheon.Prototype.MountainPass
         private static readonly int NoiseScaleId = Shader.PropertyToID("_NoiseScale");
         private static readonly int NoiseStrengthId = Shader.PropertyToID("_NoiseStrength");
         private static readonly int WindVelocityId = Shader.PropertyToID("_WindVelocity");
+        private static readonly int OpeningPlaneId = Shader.PropertyToID("_OpeningPlane");
+        private static readonly int OpeningDistanceId = Shader.PropertyToID("_OpeningDistance");
+        private static readonly int OpeningFeatherId = Shader.PropertyToID("_OpeningFeather");
 
         private void OnEnable()
         {
@@ -120,6 +137,9 @@ namespace Cheon.Prototype.MountainPass
             properties.SetFloat(NoiseScaleId, noiseScale);
             properties.SetFloat(NoiseStrengthId, noiseStrength);
             properties.SetVector(WindVelocityId, new Vector4(windVelocity.x, windVelocity.y, 0f, 0f));
+            properties.SetVector(OpeningPlaneId, new Vector4(openingRight.x, openingRight.y, openingRight.z, -Vector3.Dot(openingRight, openingCenter)));
+            properties.SetFloat(OpeningDistanceId, openingDistance);
+            properties.SetFloat(OpeningFeatherId, openingFeather);
             properties.SetVector("_ClearCenter", clearTarget != null ? clearTarget.position + Vector3.up : Vector3.zero);
             properties.SetFloat("_ClearRadius", clearRadius);
             properties.SetFloat("_ClearStrength", clearTarget != null ? clearStrength : 0f);

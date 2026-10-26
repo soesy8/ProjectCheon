@@ -1,0 +1,12 @@
+﻿var path="Assets/Temp/PlayerReactionRawProbe/Test_GetUpNeutral.fbx";
+var importer=(UnityEditor.ModelImporter)UnityEditor.AssetImporter.GetAtPath(path);
+var original=(UnityEditor.ModelImporter)UnityEditor.AssetImporter.GetAtPath("Assets/Test/PlayerReactions/Animations/Test_GetUp.fbx");
+var reference=(UnityEditor.ModelImporter)UnityEditor.AssetImporter.GetAtPath("Assets/Arts/Characters/Player/Models/Test_CheonPlayer.fbx");
+var neutralBones=reference.humanDescription.skeleton.ToDictionary(b=>b.name);
+var description=original.humanDescription;
+description.skeleton=description.skeleton.Select(b=>{if(neutralBones.TryGetValue(b.name,out var neutral)){b.rotation=neutral.rotation;b.position=neutral.position;b.scale=neutral.scale;}return b;}).ToArray();
+description.human=reference.humanDescription.human;
+importer.animationType=UnityEditor.ModelImporterAnimationType.Human;
+importer.avatarSetup=UnityEditor.ModelImporterAvatarSetup.CreateFromThisModel;
+importer.sourceAvatar=null;importer.humanDescription=description;importer.clipAnimations=original.clipAnimations;importer.SaveAndReimport();
+return UnityEditor.AssetDatabase.LoadAllAssetsAtPath(path).Select(o=>new {o.name,type=o.GetType().Name}).ToArray();

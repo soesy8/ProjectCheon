@@ -1,0 +1,4 @@
+﻿var paths=new[]{"Assets/Test/PlayerReactions/Animations/Test_HeavyHit.fbx","Assets/Test/PlayerReactions/Animations/Test_GetUp.fbx"};
+var result=paths.Select(path=>{var avatar=UnityEditor.AssetDatabase.LoadAllAssetsAtPath(path).OfType<Avatar>().Single();var clip=UnityEditor.AssetDatabase.LoadAllAssetsAtPath(path).OfType<AnimationClip>().Single(c=>!c.name.StartsWith("__"));return new{path,guid=UnityEditor.AssetDatabase.AssetPathToGUID(path),avatarValid=avatar.isValid&&avatar.isHuman,clip.length};}).ToArray();
+UnityEditor.Selection.activeObject=UnityEditor.AssetDatabase.LoadAssetAtPath<Cheon.Tests.PlayerReactions.Test_PlayerReactionSettings>(Cheon.Tests.PlayerReactions.Editor.Test_PlayerReactionSceneBuilder.SettingsPath);
+return new {playing=UnityEditor.EditorApplication.isPlaying,motions=result};

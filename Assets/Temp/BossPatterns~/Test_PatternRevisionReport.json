@@ -1,0 +1,32 @@
+{
+  "stage": "complete",
+  "finished": true,
+  "frame": 1013,
+  "failures": [],
+  "results": [
+    {
+      "enemy": "boss",
+      "largestTrackingError": 0.0279764552,
+      "fallDuration": 0.116291642,
+      "cooldown": 4.12600565,
+      "turnDuration": 0.21609211,
+      "turnPeakHeight": 0.999961853,
+      "horizontalDrift": 0.0,
+      "turnFacingError": 0.0,
+      "jumpFlight": 0.499629021,
+      "expectedFlight": 0.48603043
+    },
+    {
+      "enemy": "minion",
+      "largestTrackingError": 0.0279764552,
+      "fallDuration": 0.110184669,
+      "cooldown": 5.73844337,
+      "turnDuration": 0.200456619,
+      "turnPeakHeight": 0.9999962,
+      "horizontalDrift": 0.0,
+      "turnFacingError": 0.0,
+      "jumpFlight": 0.6006241,
+      "expectedFlight": 0.594832
+    }
+  ]
+}

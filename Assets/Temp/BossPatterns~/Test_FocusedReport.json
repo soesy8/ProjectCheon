@@ -1,0 +1,59 @@
+{
+  "done": true,
+  "frames": 1070,
+  "elapsed": 36.0404434,
+  "overlap": 0.0,
+  "failures": [],
+  "cooldowns": [
+    {
+      "enemy": "Test_MiniJangseung_Right",
+      "pattern": "jump",
+      "cooldown": 1.5
+    },
+    {
+      "enemy": "Test_MiniJangseung_Left",
+      "pattern": "jump",
+      "cooldown": 1.5
+    },
+    {
+      "enemy": "Test_MiniJangseung_Right",
+      "pattern": "fall",
+      "cooldown": 6.737385
+    },
+    {
+      "enemy": "Test_MiniJangseung_Left",
+      "pattern": "fall",
+      "cooldown": 6.68983459
+    },
+    {
+      "enemy": "Test_MiniJangseung_Left",
+      "pattern": "jump",
+      "cooldown": 1.5
+    },
+    {
+      "enemy": "Test_MiniJangseung_Right",
+      "pattern": "jump",
+      "cooldown": 1.5
+    },
+    {
+      "enemy": "Test_MiniJangseung_Right",
+      "pattern": "jump",
+      "cooldown": 1.5
+    },
+    {
+      "enemy": "Test_MiniJangseung_Left",
+      "pattern": "jump",
+      "cooldown": 1.5
+    },
+    {
+      "enemy": "Test_MiniJangseung_Right",
+      "pattern": "fall",
+      "cooldown": 7.98675537
+    },
+    {
+      "enemy": "Test_MiniJangseung_Left",
+      "pattern": "fall",
+      "cooldown": 6.04416275
+    }
+  ]
+}

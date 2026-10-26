@@ -1,0 +1,44 @@
+[
+  {
+    "name": "JangseungBoss",
+    "directHit": true,
+    "distance": 2.00999951,
+    "flags": "5",
+    "along": 1.299999,
+    "enemyLayer": 0,
+    "playerLayer": 0,
+    "bodyActive": true,
+    "bodyEnabled": true,
+    "bodyTrigger": false,
+    "bodyScale": "(1.00, 1.00, 1.00)",
+    "detect": true
+  },
+  {
+    "name": "Test_MiniJangseung_Left",
+    "directHit": true,
+    "distance": 2.75249743,
+    "flags": "5",
+    "along": 0.5575039,
+    "enemyLayer": 0,
+    "playerLayer": 0,
+    "bodyActive": true,
+    "bodyEnabled": true,
+    "bodyTrigger": false,
+    "bodyScale": "(1.00, 1.00, 1.00)",
+    "detect": true
+  },
+  {
+    "name": "Test_MiniJangseung_Right",
+    "directHit": true,
+    "distance": 2.75249743,
+    "flags": "5",
+    "along": 0.5575039,
+    "enemyLayer": 0,
+    "playerLayer": 0,
+    "bodyActive": true,
+    "bodyEnabled": true,
+    "bodyTrigger": false,
+    "bodyScale": "(1.00, 1.00, 1.00)",
+    "detect": true
+  }
+]

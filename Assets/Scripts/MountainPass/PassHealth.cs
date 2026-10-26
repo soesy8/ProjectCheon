@@ -27,6 +27,8 @@ namespace Cheon.Prototype.MountainPass
             return true;
         }
         public void Heal(float amount) { if (!IsDead) Current = Mathf.Min(maximum, Current + Mathf.Max(0f, amount)); }
+        // 전투 종료에 따른 동시 사망은 피격 무적 시간과 관계없이 처리한다.
+        public void Kill() { if (IsDead) return; Current = 0f; Died?.Invoke(); }
         public void Restore() { Current = maximum; nextDamageTime = 0f; Invulnerable = false; }
     }
 }

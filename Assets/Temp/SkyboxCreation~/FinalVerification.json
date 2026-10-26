@@ -1,0 +1,35 @@
+{
+  "maxTextureSize": 1024,
+  "legacyMaxTextureSize": 1024,
+  "platforms": [
+    {
+      "name": "DefaultTexturePlatform",
+      "maxSize": 1024
+    },
+    {
+      "name": "Standalone",
+      "maxSize": 1024
+    },
+    {
+      "name": "Android",
+      "maxSize": 1024
+    },
+    {
+      "name": "iPhone",
+      "maxSize": 1024
+    },
+    {
+      "name": "WebGL",
+      "maxSize": 1024
+    }
+  ],
+  "previews": [
+    "Assets/Temp/SkyboxCreation~/T_Preview_Forward.png",
+    "Assets/Temp/SkyboxCreation~/T_Preview_Back.png",
+    "Assets/Temp/SkyboxCreation~/T_Preview_Seam.png",
+    "Assets/Temp/SkyboxCreation~/T_Preview_Up.png",
+    "Assets/Temp/SkyboxCreation~/T_Preview_Down.png"
+  ],
+  "sceneDirty": false,
+  "shaderMessages": []
+}

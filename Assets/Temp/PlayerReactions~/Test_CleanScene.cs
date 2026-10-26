@@ -1,0 +1,11 @@
+﻿var scene = UnityEngine.SceneManagement.SceneManager.GetSceneByPath(Cheon.Tests.PlayerReactions.Editor.Test_PlayerReactionSceneBuilder.ScenePath);
+if(!scene.IsValid() || !scene.isLoaded) scene=UnityEditor.SceneManagement.EditorSceneManager.OpenScene(Cheon.Tests.PlayerReactions.Editor.Test_PlayerReactionSceneBuilder.ScenePath,UnityEditor.SceneManagement.OpenSceneMode.Additive);
+if(UnityEditor.EditorApplication.isPlaying) throw new Exception("Edit Mode required");
+var allowed = new [] {"Test_Player","Test_PreviewStage","Test_KeyLight","Test_PreviewCamera","Test_PlayerReactionLab"};
+var extra = scene.GetRootGameObjects().Where(o=>!allowed.Contains(o.name)).ToArray();
+if(extra.Length>0) UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene,"Assets/Temp/PlayerReactions~/Test_BeforeSceneCleanup.unity",true);
+foreach(var root in extra) UnityEngine.Object.DestroyImmediate(root);
+UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(scene);
+UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);
+UnityEditor.SceneManagement.EditorSceneManager.playModeStartScene=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEditor.SceneAsset>(Cheon.Tests.PlayerReactions.Editor.Test_PlayerReactionSceneBuilder.ScenePath);
+return new { roots=scene.GetRootGameObjects().Select(o=>o.name).ToArray(),preservedExtraRoots=extra.Length };

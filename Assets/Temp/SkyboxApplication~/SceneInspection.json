@@ -1,0 +1,137 @@
+{
+  "activeScene": "Assets/Test/BossPatterns/Scenes/Test_BossPatterns.unity",
+  "scenes": [
+    {
+      "path": "Assets/Scenes/MountainPass/MountainPass.unity",
+      "wasLoaded": false,
+      "isDirty": false,
+      "skybox": null,
+      "cameras": [
+        {
+          "path": "PlayerCamera",
+          "enabled": true,
+          "activeInHierarchy": true,
+          "clearFlags": "SolidColor",
+          "renderType": "Base",
+          "overrideMaterial": null,
+          "position": [
+            -13.8020163,
+            8.400518,
+            105.268944
+          ],
+          "rotation": [
+            28.0,
+            230.946,
+            0.0
+          ]
+        },
+        {
+          "path": "BossIntroductionRig/BossIntroductionCamera",
+          "enabled": false,
+          "activeInHierarchy": true,
+          "clearFlags": "SolidColor",
+          "renderType": "Base",
+          "overrideMaterial": null,
+          "position": [
+            -13.8020163,
+            8.400518,
+            105.268944
+          ],
+          "rotation": [
+            28.0,
+            230.946,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "path": "Assets/Test/BossPatterns/Scenes/Test_BossPatterns.unity",
+      "wasLoaded": true,
+      "isDirty": true,
+      "skybox": null,
+      "cameras": [
+        {
+          "path": "PlayerCamera",
+          "enabled": true,
+          "activeInHierarchy": true,
+          "clearFlags": "SolidColor",
+          "renderType": "Base",
+          "overrideMaterial": null,
+          "position": [
+            -13.8020163,
+            8.400518,
+            105.268944
+          ],
+          "rotation": [
+            28.0,
+            230.946,
+            0.0
+          ]
+        },
+        {
+          "path": "BossIntroductionRig/BossIntroductionCamera",
+          "enabled": false,
+          "activeInHierarchy": true,
+          "clearFlags": "SolidColor",
+          "renderType": "Base",
+          "overrideMaterial": null,
+          "position": [
+            -13.8020163,
+            8.400518,
+            105.268944
+          ],
+          "rotation": [
+            28.0,
+            230.946,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "path": "Assets/Test/FanAttackVfx/Scenes/Test_FanAttackVfx.unity",
+      "wasLoaded": false,
+      "isDirty": false,
+      "skybox": null,
+      "cameras": [
+        {
+          "path": "PlayerCamera",
+          "enabled": true,
+          "activeInHierarchy": true,
+          "clearFlags": "SolidColor",
+          "renderType": "Base",
+          "overrideMaterial": null,
+          "position": [
+            -13.8020163,
+            8.400518,
+            105.268944
+          ],
+          "rotation": [
+            28.0,
+            230.946,
+            0.0
+          ]
+        },
+        {
+          "path": "BossIntroductionRig/BossIntroductionCamera",
+          "enabled": false,
+          "activeInHierarchy": true,
+          "clearFlags": "SolidColor",
+          "renderType": "Base",
+          "overrideMaterial": null,
+          "position": [
+            -13.8020163,
+            8.400518,
+            105.268944
+          ],
+          "rotation": [
+            28.0,
+            230.946,
+            0.0
+          ]
+        }
+      ]
+    }
+  ]
+}

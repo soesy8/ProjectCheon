@@ -1,0 +1,4 @@
+﻿var p=UnityEngine.Object.FindFirstObjectByType<Cheon.Tests.PlayerReactions.Test_PlayerReactionPreview>();
+var playable=(UnityEngine.Animations.AnimatorControllerPlayable)typeof(Cheon.Tests.PlayerReactions.Test_PlayerReactionPreview).GetField("controller",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).GetValue(p);
+return new {frame=Time.frameCount,playing=UnityEditor.EditorApplication.isPlaying,phase=p.Phase.ToString(),scriptState=p.AnimatorState,playableHeavy=playable.GetCurrentAnimatorStateInfo(0).IsName("HEAVY_HIT"),nativeIdle=p.CharacterAnimator.GetCurrentAnimatorStateInfo(0).IsName("IDLE"),nativeController=p.CharacterAnimator.runtimeAnimatorController==null?"null":p.CharacterAnimator.runtimeAnimatorController.name,hip=p.CharacterAnimator.GetBoneTransform(HumanBodyBones.Hips).position.ToString()};
+

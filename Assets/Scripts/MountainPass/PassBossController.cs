@@ -6,13 +6,13 @@ namespace Cheon.Prototype.MountainPass
     public class PassBossController : MonoBehaviour
     {
         public enum BossState { Dormant, Pursuing, Windup, Wave, Recovering, Defeated }
-        [SerializeField] private PassPlayerMovement player;
-        [SerializeField] private PassHealth playerHealth;
-        [SerializeField] private PassGameFlow game;
-        [SerializeField] private PassEffects effects;
-        [SerializeField] private PassCamera view;
-        [SerializeField] private PassAudio audioControl;
-        [SerializeField] private Transform visual;
+        [SerializeField] protected PassPlayerMovement player;
+        [SerializeField] protected PassHealth playerHealth;
+        [SerializeField] protected PassGameFlow game;
+        [SerializeField] protected PassEffects effects;
+        [SerializeField] protected PassCamera view;
+        [SerializeField] protected PassAudio audioControl;
+        [SerializeField] protected Transform visual;
         [SerializeField, Min(0.1f)] private float moveSpeed = 2.6f;
         [SerializeField, Min(1f)] private float slamRadius = 3.5f;
         [SerializeField, Min(0.2f)] private float windupDuration = 1.35f;
@@ -28,16 +28,16 @@ namespace Cheon.Prototype.MountainPass
         private Color[][] originalColors;
         private MaterialPropertyBlock properties;
         public PassHealth Health { get; private set; }
-        public BossState State { get; private set; }
-        public bool Enraged => Health != null && Health.Fraction <= 0.5f;
-        public int AttacksPerformed => attackCount;
-        public string AttackLabel => State == BossState.Windup ? (waveAttack ? "귀기 파동 · 파동이 닿기 직전에 구르세요" : "천근 내려찍기 · 붉은 원에서 벗어나세요")
+        public BossState State { get; protected set; }
+        public virtual bool Enraged => Health != null && Health.Fraction <= 0.5f;
+        public virtual int AttacksPerformed => attackCount;
+        public virtual string AttackLabel => State == BossState.Windup ? (waveAttack ? "귀기 파동 · 파동이 닿기 직전에 구르세요" : "천근 내려찍기 · 붉은 원에서 벗어나세요")
             : State == BossState.Wave ? "귀기 파동 · 구르기로 통과하세요" : State == BossState.Recovering ? "공격의 틈 · 부채 연격" : "";
 
         public void Configure(PassPlayerMovement target, PassHealth vitality, PassGameFlow flow, PassEffects visuals, PassCamera cameraControl, PassAudio sounds, Transform model)
         { player = target; playerHealth = vitality; game = flow; effects = visuals; view = cameraControl; audioControl = sounds; visual = model; }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             Health = GetComponent<PassHealth>(); home = transform.position; homeRotation = transform.rotation;
             visualPosition = visual.localPosition; visualRotation = visual.localRotation;
@@ -52,13 +52,13 @@ namespace Cheon.Prototype.MountainPass
             }
             Health.Damaged += OnDamaged; Health.Died += OnDefeated;
         }
-        private void Start()
+        protected virtual void Start()
         {
             telegraph = effects.CreateRing("GuardianAttackWarning", new Color(1f, 0.28f, 0.12f));
             wave = effects.CreateRing("GuardianSpiritWave", new Color(1f, 0.55f, 0.2f));
             ResetEncounter();
         }
-        public void ResetEncounter()
+        public virtual void ResetEncounter()
         {
             Health.Restore(); Health.Invulnerable = true;
             transform.SetPositionAndRotation(home, homeRotation);
@@ -69,10 +69,10 @@ namespace Cheon.Prototype.MountainPass
             if (wave != null) wave.enabled = false;
             Tint(Color.white);
         }
-        public void WakeUp()
+        public virtual void WakeUp()
         { if (State != BossState.Dormant) return; Health.Invulnerable = false; State = BossState.Pursuing; nextAttack = Time.time + 2f; audioControl.Bell(); }
 
-        private void Update()
+        protected virtual void Update()
         {
             if (State == BossState.Defeated)
             {
@@ -148,7 +148,7 @@ namespace Cheon.Prototype.MountainPass
         }
         private void Recover() { State = BossState.Recovering; timer = 0f; wave.enabled = false; }
         private void OnDamaged(float damage) { flash = 1f; }
-        private void OnDefeated()
+        protected virtual void OnDefeated()
         {
             State = BossState.Defeated; timer = 0f;
             if (telegraph != null) telegraph.enabled = false;
@@ -167,6 +167,6 @@ namespace Cheon.Prototype.MountainPass
                     renderers[i].SetPropertyBlock(properties, slot);
                 }
         }
-        private void OnDestroy() { if (Health != null) { Health.Damaged -= OnDamaged; Health.Died -= OnDefeated; } }
+        protected virtual void OnDestroy() { if (Health != null) { Health.Damaged -= OnDamaged; Health.Died -= OnDefeated; } }
     }
 }

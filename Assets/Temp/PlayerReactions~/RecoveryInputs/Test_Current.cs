@@ -1,0 +1,2 @@
+﻿var p=UnityEngine.Object.FindFirstObjectByType<Cheon.Tests.PlayerReactions.Test_PlayerReactionPreview>();
+return new {p.enabled,p.Phase,p.AnimatorState,p.CurrentFrame,p.IsPaused,keyboard=UnityEngine.InputSystem.Keyboard.current?.name,w=UnityEngine.InputSystem.Keyboard.current?.wKey.isPressed,inputEnabled=p.GetComponent<Cheon.Tests.PlayerReactions.Test_PlayerReactionInput>().enabled,Application.runInBackground,Time.frameCount};

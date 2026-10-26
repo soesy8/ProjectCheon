@@ -21,6 +21,9 @@ Shader "Cheon/Prototype/LocalMountainFog"
         _NoiseScale ("Noise Scale", Float) = 0.035
         _NoiseStrength ("Noise Strength", Range(0, 1)) = 0.65
         _WindVelocity ("Wind XZ", Vector) = (0.7, 0.3, 0, 0)
+        [HideInInspector] _OpeningPlane ("Sideways Opening Plane", Vector) = (1,0,0,0)
+        [HideInInspector] _OpeningDistance ("Sideways Opening Distance", Float) = 0
+        [HideInInspector] _OpeningFeather ("Sideways Opening Feather", Float) = 4
         [HideInInspector] _VolumeMin ("Volume Minimum", Vector) = (-250, -86, -290, 0)
         [HideInInspector] _VolumeMax ("Volume Maximum", Vector) = (250, 24, 290, 0)
     }
@@ -77,6 +80,9 @@ Shader "Cheon/Prototype/LocalMountainFog"
                 float4 _VolumeMin;
                 float4 _VolumeMax;
                 float4 _WindVelocity;
+                float4 _OpeningPlane;
+                float _OpeningDistance;
+                float _OpeningFeather;
                 float _Density;
                 float _HeightFade;
                 float _EdgeFade;
@@ -126,7 +132,11 @@ Shader "Cheon/Prototype/LocalMountainFog"
 
             float SampleFog(float3 position)
             {
-                float2 noisePosition = (position.xz - _WindVelocity.xy * _Time.y) * _NoiseScale;
+                float sideways = dot(position, _OpeningPlane.xyz) + _OpeningPlane.w;
+                float side = sideways < 0.0 ? -1.0 : 1.0;
+                // 양쪽 무늬를 반대 방향으로 이류시켜 안개 덩어리가 실제로 밀려나는 흐름을 만든다.
+                float3 movingPosition = position - _OpeningPlane.xyz * side * _OpeningDistance;
+                float2 noisePosition = (movingPosition.xz - _WindVelocity.xy * _Time.y) * _NoiseScale;
                 noisePosition += position.y * float2(0.018, -0.012);
                 float noise = SmoothNoise(noisePosition) * 0.7 + SmoothNoise(noisePosition * 2.07 + 13.5) * 0.3;
                 // 흐르는 무늬에 따라 안개 윗면이 흔들리되 지정한 상한 높이를 넘지 않는다.
@@ -140,7 +150,16 @@ Shader "Cheon/Prototype/LocalMountainFog"
                 float boundaryMask = 1.0;
                 if (_BoundaryEnabled > 0.5)
                     boundaryMask = smoothstep(-_BoundaryFade * 0.5, _BoundaryFade * 0.5, BoundaryDistance(position));
-                return _Density * _DensityMultiplier * heightMask * bottomMask * edgeMask * variation * clearMask * boundaryMask;
+                float openingMask = 1.0;
+                if (_OpeningDistance > 0.0001)
+                {
+                    float feather = max(0.1, _OpeningFeather);
+                    float unevenEdge = abs(sideways) + (noise - 0.5) * feather;
+                    float banks = smoothstep(_OpeningDistance - feather, _OpeningDistance + feather, unevenEdge);
+                    // 열리기 시작하는 순간 중심이 갑자기 사라지지 않도록 서서히 연결한다.
+                    openingMask = lerp(1.0, banks, saturate(_OpeningDistance / feather));
+                }
+                return _Density * _DensityMultiplier * heightMask * bottomMask * edgeMask * variation * clearMask * boundaryMask * openingMask;
             }
 
             half4 Frag(Varyings input) : SV_Target

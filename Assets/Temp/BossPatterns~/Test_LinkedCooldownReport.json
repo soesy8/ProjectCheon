@@ -1,0 +1,105 @@
+{
+  "stage": "complete",
+  "finished": true,
+  "frame": 886,
+  "failures": [],
+  "results": [
+    {
+      "stage": "linked_attack",
+      "completed": 1,
+      "orderedJumps": 2,
+      "events": [
+        {
+          "time": 0.0858579949,
+          "enemy": "JangseungBoss",
+          "phase": "Idle"
+        },
+        {
+          "time": 0.0858579949,
+          "enemy": "Test_MiniJangseung_Left",
+          "phase": "Idle"
+        },
+        {
+          "time": 0.0858579949,
+          "enemy": "Test_MiniJangseung_Right",
+          "phase": "Idle"
+        },
+        {
+          "time": 0.09526699,
+          "enemy": "JangseungBoss",
+          "phase": "LinkedAttack"
+        },
+        {
+          "time": 1.12379587,
+          "enemy": "Test_MiniJangseung_Left",
+          "phase": "JumpWindup"
+        },
+        {
+          "time": 2.13242,
+          "enemy": "Test_MiniJangseung_Left",
+          "phase": "JumpFlight"
+        },
+        {
+          "time": 3.04667044,
+          "enemy": "Test_MiniJangseung_Left",
+          "phase": "JumpRecovery"
+        },
+        {
+          "time": 3.57952738,
+          "enemy": "Test_MiniJangseung_Right",
+          "phase": "JumpWindup"
+        },
+        {
+          "time": 4.579989,
+          "enemy": "Test_MiniJangseung_Right",
+          "phase": "JumpFlight"
+        },
+        {
+          "time": 5.495955,
+          "enemy": "Test_MiniJangseung_Right",
+          "phase": "JumpRecovery"
+        },
+        {
+          "time": 5.56276274,
+          "enemy": "Test_MiniJangseung_Left",
+          "phase": "Idle"
+        },
+        {
+          "time": 8.007412,
+          "enemy": "Test_MiniJangseung_Right",
+          "phase": "Idle"
+        },
+        {
+          "time": 8.091331,
+          "enemy": "JangseungBoss",
+          "phase": "FallWindup"
+        },
+        {
+          "time": 9.577549,
+          "enemy": "JangseungBoss",
+          "phase": "Falling"
+        },
+        {
+          "time": 9.843454,
+          "enemy": "JangseungBoss",
+          "phase": "FallHold"
+        },
+        {
+          "time": 11.8438,
+          "enemy": "JangseungBoss",
+          "phase": "Rising"
+        },
+        {
+          "time": 12.8607645,
+          "enemy": "JangseungBoss",
+          "phase": "FallRecovery"
+        },
+        {
+          "time": 14.8738861,
+          "enemy": "JangseungBoss",
+          "phase": "Idle"
+        }
+      ]
+    }
+  ]
+}

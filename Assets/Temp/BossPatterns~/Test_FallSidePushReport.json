@@ -1,0 +1,57 @@
+{
+  "stage": "complete",
+  "completed": true,
+  "failures": [],
+  "results": [
+    {
+      "stage": "boss_6_0",
+      "damage": 28.0,
+      "minFoot": 0.0,
+      "maxPenetration": 0.0,
+      "finalLateral": 1.35000038,
+      "pushed": 1.35000038,
+      "hitAnimation": true,
+      "ignored": false
+    },
+    {
+      "stage": "boss_10_0",
+      "damage": 28.0,
+      "minFoot": 0.0,
+      "maxPenetration": 0.0,
+      "finalLateral": 1.35000038,
+      "pushed": 1.35000038,
+      "hitAnimation": true,
+      "ignored": false
+    },
+    {
+      "stage": "boss_6_-0.2",
+      "damage": 28.0,
+      "minFoot": 0.0,
+      "maxPenetration": 0.0,
+      "finalLateral": -1.35000014,
+      "pushed": 1.35000014,
+      "hitAnimation": true,
+      "ignored": false
+    },
+    {
+      "stage": "mini_1.5_0",
+      "damage": 12.0,
+      "minFoot": 0.0,
+      "maxPenetration": 0.0,
+      "finalLateral": 1.0,
+      "pushed": 1.0,
+      "hitAnimation": true,
+      "ignored": false
+    },
+    {
+      "stage": "mini_2.4_-0.15",
+      "damage": 12.0,
+      "minFoot": 3.81469727E-06,
+      "maxPenetration": 0.0,
+      "finalLateral": -1.000001,
+      "pushed": 1.000001,
+      "hitAnimation": true,
+      "ignored": false
+    }
+  ]
+}

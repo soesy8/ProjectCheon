@@ -1,0 +1,39 @@
+﻿{
+  "success": true,
+  "command": "command run_script",
+  "data": {
+    "command": "run_script",
+    "parameters": {
+      "file": "Assets/Temp/SummitMistReveal~/SummitMistSetup.cs",
+      "entry": "SummitMistSetup.RuntimeState"
+    },
+    "result": {
+      "diagnostics": [],
+      "compileMs": 79,
+      "executeMs": 0,
+      "assemblyName": "PipelineRunScript_SummitMistSetup_0e3322836eab4f74bdef29a72e0b8786",
+      "success": true,
+      "result": {
+        "frame": 2819,
+        "player": [
+          1.64881539,
+          27.2249985,
+          39.0751953
+        ],
+        "SummitClarity": 0.9999988,
+        "openingDistance": 31.9999619,
+        "density": 0.110000156,
+        "fogTop": 49.22496,
+        "fogCount": 4,
+        "compilationFailed": false
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "D:\\project\\ProjectCheon"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
