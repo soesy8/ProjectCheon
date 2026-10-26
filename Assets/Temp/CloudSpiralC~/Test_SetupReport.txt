@@ -1,0 +1,5 @@
+PASS
+C selected in profile
+Source textures/materials/meshes reused
+Existing A/B materials and sweep/wind/dust settings preserved
+C adapter attached to test prefab and scene

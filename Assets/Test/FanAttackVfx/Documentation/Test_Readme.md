@@ -14,6 +14,14 @@
 
 ## 조절하는 곳
 
+### C안 · 청록 구름 소용돌이
+
+`Settings/Test_FanAttackVfxProfile.asset`의 **Wind Design → C안**을 선택합니다. 기존 A·B안도 같은 항목에서 선택할 수 있습니다. C안은 새 구름 원화로 1·2·3타 궤적을 표시하고, 1타는 3갈래, 3타는 5갈래 바람을 방출합니다. 공격 표시 프레임, 바람 이동 곡선, 피해 범위와 먼지 설정은 기존 값을 사용합니다.
+
+**Cloud Spiral**에서 궤적 크기·투명도와 바람 길이·투명도를 조절합니다. C안 궤적은 시작한 위치·방향·크기에 고정되며, 모션의 진행률에 맞춰 지나간 부분부터 나타납니다. 각 부분은 Attack 1/2/3의 **Fade Seconds** 동안 따로 흐려지고 이미지 자체는 회전하거나 확대되지 않습니다. 원화는 `Assets/Arts/Effects/CloudSpiral/Textures/`를 참조하며, 테스트용 머티리얼은 `Materials/Test_M_CloudSpiralSlash_C.mat`, `Materials/Test_M_CloudSpiralWind_C.mat`입니다. `Test_FanAttackVfx` 컴포넌트 메뉴의 **미리보기 → C안 · 1타/2타/3타**로 각각 재생할 수 있습니다.
+
+1타 바람의 전방 끝은 3.9m에서 **4.4m**로 늘렸습니다. Radius와 Angle은 유지하고 Forward Scale을 약 **1.466667**로 조정해 좌우 폭을 유지하면서 표시 범위와 타격 판정의 전방 끝을 함께 늘렸습니다.
+
 `Settings/Test_FanAttackVfxProfile.asset`을 선택합니다. Play Mode에서도 변경 내용을 즉시 반영합니다. **설정 에셋의 변경은 Play 종료 후에도 유지**되므로 값을 되돌리려면 실행 전에 에셋을 복제해 두세요.
 
 | 항목 | 역할 |

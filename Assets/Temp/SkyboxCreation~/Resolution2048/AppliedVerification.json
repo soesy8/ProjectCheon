@@ -1,0 +1,60 @@
+{
+  "texturePath": "Assets/Arts/Environment/Cheon/Skyboxes/T_CheonMountainClouds_Panorama.png",
+  "textureGuid": "73d4088881615074e8ee40399af24018",
+  "width": 2048,
+  "height": 1024,
+  "maxTextureSize": 2048,
+  "materialPath": "Assets/Arts/Environment/Cheon/Skyboxes/M_CheonMountainClouds_Skybox.mat",
+  "materialGuid": "301519cddb9212146b7bd4e275d7817c",
+  "shader": "Skybox/Panoramic",
+  "platforms": [
+    {
+      "name": "DefaultTexturePlatform",
+      "maxTextureSize": 2048,
+      "overridden": false,
+      "format": "AutomaticCompressed"
+    },
+    {
+      "name": "Standalone",
+      "maxTextureSize": 2048,
+      "overridden": true,
+      "format": "RGB24"
+    },
+    {
+      "name": "Android",
+      "maxTextureSize": 2048,
+      "overridden": true,
+      "format": "RGB24"
+    },
+    {
+      "name": "iOS",
+      "maxTextureSize": 2048,
+      "overridden": true,
+      "format": "RGB24"
+    },
+    {
+      "name": "WebGL",
+      "maxTextureSize": 2048,
+      "overridden": true,
+      "format": "RGB24"
+    }
+  ],
+  "sharedScenes": [
+    "Assets/Scenes/MountainPass/MountainPass.unity",
+    "Assets/Test/BossPatterns/Scenes/Test_BossPatterns.unity",
+    "Assets/Test/FanAttackVfx/Scenes/Test_FanAttackVfx.unity"
+  ],
+  "scenesBefore": [
+    {
+      "path": "Assets/Test/FanAttackVfx/Scenes/Test_FanAttackVfx.unity",
+      "isDirty": false
+    }
+  ],
+  "playing": true,
+  "runtimeSkybox": "M_CheonMountainClouds_Skybox",
+  "runtimeTexture": {
+    "width": 2048,
+    "height": 1024,
+    "path": "Assets/Arts/Environment/Cheon/Skyboxes/T_CheonMountainClouds_Panorama.png"
+  }
+}

@@ -1,0 +1,9 @@
+Tool: built-in image_gen, followed by bicubic normalization to the requested exact resolution.
+Edit target: Assets/Arts/Environment/Cheon/Skyboxes/T_CheonMountainClouds_Panorama.png
+Before: 1024 x 512
+Final: 2048 x 1024
+Final texture: Assets/Arts/Environment/Cheon/Skyboxes/T_CheonMountainClouds_Panorama.png
+Original texture and .meta backup are in this directory.
+
+Final prompt:
+Edit target: the referenced existing 1024x512 PNG is the exact skybox currently used by a Unity game. TASK IS RESOLUTION UPSCALING ONLY. Produce a 2048 x 1024 PNG (exact 2:1 aspect ratio). Faithfully upscale this same image, preserving its exact composition, every mountain peak and cloud placement, horizon height, perspective/equirectangular mapping, warm cream-and-blue palette, overall brightness and painterly style. Do not redraw the scene, add or remove objects, reinterpret, crop, zoom, change framing, alter silhouette edges, or introduce new mountains/clouds. Keep original left and right border continuity and quiet uniform polar regions suitable for its existing seamless panoramic skybox mapping. Refine only pixel clarity during the 2x upscaling; no new creative content. Output a single opaque panoramic texture.

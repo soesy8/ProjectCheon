@@ -1554,7 +1554,7 @@ MonoBehaviour:
     radius: 3
     angle: 35
     startRadius: 0.5
-    forwardScale: 1.3
+    forwardScale: 1.4666666
     travelProgress:
       serializedVersion: 2
       m_Curve:
@@ -1649,10 +1649,19 @@ MonoBehaviour:
   attack1SweepMaterial: {fileID: 2100000, guid: ef4daaea45b126c44ae5e8067b07c6a9, type: 2}
   attack2SweepMaterial: {fileID: 2100000, guid: f9e7f55da505d8a48bb226e28de4a205, type: 2}
   attack3SweepMaterial: {fileID: 2100000, guid: cd18ecf480872be47af43879d6a27fa2, type: 2}
-  windDesign: 1
+  windDesign: 2
   windMaterial: {fileID: 2100000, guid: 51c6370dfb68cdb499b49e3a7774fdc1, type: 2}
   windMaterialB: {fileID: 2100000, guid: 46f211583986fce4d86fd48658d2cfff, type: 2}
   windParticleMaterial: {fileID: 2100000, guid: 01cc05f21c871c04cbb575861c598bd3, type: 2}
   windParticleMaterialB: {fileID: 2100000, guid: 2f631bc427724fa428218bb0054c3836, type: 2}
   dustMaterial: {fileID: 2100000, guid: a184db06911cf5346b937d4d4c3a3e28, type: 2}
+  cloudSpiral:
+    slashMaterial: {fileID: 2100000, guid: ec0c463b9f6c72440b89641c51726e11, type: 2}
+    windMaterial: {fileID: 2100000, guid: c37d58937de1e7d4da7f70abacfd288a, type: 2}
+    slashMesh: {fileID: 4300000, guid: 98955d8d8b0f82f428bda270bf900d23, type: 2}
+    windMesh: {fileID: 4300000, guid: 4255b92c25529ef4eb8b9dadbf7a0d5c, type: 2}
+    sweepScale: 1
+    sweepOpacity: 1
+    windLength: 2.7
+    windOpacity: 0.95
   layoutVersion: 4

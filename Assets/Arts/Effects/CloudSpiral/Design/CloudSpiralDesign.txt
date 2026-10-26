@@ -1,0 +1,39 @@
+구름 · 소용돌이 공격 VFX
+
+디자인
+- 레퍼런스의 둥근 구름 말림과 청록색 나선의 회전감을 조합했다.
+- 궤적: 초승달의 날카로운 앞날, 안쪽의 구름 말림, 가는 보조 원호.
+- 바람: 둥근 구름 머리, 중심이 열린 나선, 뒤로 흐르는 세 갈래 꼬리.
+- 하늘색 몸체 / 밝은 청록색 날 / 짙은 푸른 테두리로 형태를 구분한다.
+- 투명도 혼합을 사용해 밝은 배경에서도 푸른 테두리가 유지되게 했다.
+
+파일
+- Textures/T_CloudSpiralSlash.png: 1024 × 1024 RGBA
+- Textures/T_CloudSpiralWind.png: 1024 × 427 RGBA
+- Design/T_CloudSpiralDesign.png: 디자인 보드
+- Materials/M_CloudSpiralSlash.mat, M_CloudSpiralWind.mat
+- Unity 기본 Universal Render Pipeline/Particles/Unlit 셰이더: 양면, 알파 혼합
+- Assets/Prefabs/Effects/CloudSpiral/CloudSpiralSlash.prefab
+- Assets/Prefabs/Effects/CloudSpiral/CloudSpiralWind.prefab
+
+프리팹 사용
+- 프리팹의 원점은 플레이어 발 위치, +Z는 공격 진행 방향이다.
+- 플레이어 위치와 바라보는 방향으로 생성하면 자동 재생된다.
+- 프리팹은 독립형 시각 효과이며 공격 판정이나 피해 처리를 포함하지 않는다.
+- 기존 공격 이벤트에는 아직 연결하지 않았다.
+- 로컬 공간에서 재생하므로 이동하는 플레이어에 계속 붙이지 않고 생성하는 사용법을 권장한다.
+- 기본 높이 0.95m와 전방 오프셋은 Particle System > Shape > Position에서 조정한다.
+- 크기는 Transform Scale 또는 Main > Start Size에서 조정한다.
+- 파티클 수명, 회전, 속도, 페이드는 Inspector의 각 모듈에서 조정한다.
+- 한 번 재생한 뒤 자동 제거된다. 재사용 풀을 쓰면 Main > Stop Action을 None으로 바꾼다.
+
+궤적 기본 연출
+- 수명 0.22초, 시작 크기 3.1m, 빠른 확장, 약 34도 회전 후 소멸.
+- 반대 방향 베기는 Rotation over Lifetime의 Y와 Main의 Start Rotation Y 부호를 반전한다.
+
+바람 기본 연출
+- 수명 0.58초, 시작 길이 2.8m, 전방 속도 5.5m/s.
+- 커지면서 전진한 뒤 서서히 사라진다. 바람 원화의 종횡비를 유지한다.
+
+원화 제작: 내장 image_gen 사용. 생성 프롬프트는 CloudSpiralPrompts.txt에 보관했다.
+Unity 텍스처 기본 및 플랫폼별 Max Size: 1024.

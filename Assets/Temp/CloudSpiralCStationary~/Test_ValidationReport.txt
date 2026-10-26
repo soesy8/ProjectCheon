@@ -1,0 +1,5 @@
+PASS
+Attacks 1/2/3: world position, rotation and scale unchanged while owner moves
+Earlier sections fade independently; newly revealed sections brighter; future sections hidden
+Visible sections fully fade after their own lifetime
+First wind forward extent: 4.4m

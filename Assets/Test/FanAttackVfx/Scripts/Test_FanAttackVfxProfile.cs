@@ -10,7 +10,21 @@ namespace Cheon.Tests.FanAttackVfx
         public enum WindDesign
         {
             [InspectorName("A안 · 구름 갈래")] A,
-            [InspectorName("B안 · 말려 흐르는 바람")] B
+            [InspectorName("B안 · 말려 흐르는 바람")] B,
+            [InspectorName("C안 · 청록 구름 소용돌이")] C
+        }
+
+        [Serializable]
+        public class CloudSpiral
+        {
+            public Material slashMaterial;
+            public Material windMaterial;
+            public Mesh slashMesh;
+            public Mesh windMesh;
+            [Range(.5f, 1.5f)] public float sweepScale = 1f;
+            [Range(0, 1)] public float sweepOpacity = 1f;
+            [Min(.2f)] public float windLength = 2.7f;
+            [Range(0, 1)] public float windOpacity = .95f;
         }
 
         [Serializable]
@@ -83,7 +97,7 @@ namespace Cheon.Tests.FanAttackVfx
             [Min(0)] public float particlesPerSecond = 170f;
             [Min(.1f)] public float speed = 20f;
             public Vector2 size = new Vector2(.3f, .65f);
-            [Header("바람 디자인 — A/B 공통")]
+            [Header("바람 디자인 — A/B/C 공통")]
             [Range(3, 5)] public int branchCount = 3;
 
             public float EvaluateTravel(float time) => Mathf.Clamp01(travelProgress.Evaluate(Mathf.Clamp01(time)));
@@ -138,7 +152,7 @@ namespace Cheon.Tests.FanAttackVfx
         public Material attack2SweepMaterial;
         [Tooltip("3타의 넓은 회전 궤적에 적용하는 구름 문양입니다. 비워 두면 공용 머티리얼을 사용합니다.")]
         public Material attack3SweepMaterial;
-        [Header("바람 추가타 — A/B 선택")]
+        [Header("이펙트 디자인 — A/B/C 선택")]
         public WindDesign windDesign;
         [Tooltip("A안: 기존 구름 머리와 꼬리 형태입니다.")]
         public Material windMaterial;
@@ -147,6 +161,8 @@ namespace Cheon.Tests.FanAttackVfx
         public Material windParticleMaterial;
         public Material windParticleMaterialB;
         public Material dustMaterial;
+        [Header("C안 — 구름 궤적 / 소용돌이 바람")]
+        public CloudSpiral cloudSpiral = new CloudSpiral();
         public int Revision { get; private set; }
         [HideInInspector] public int layoutVersion;
 

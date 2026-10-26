@@ -17,6 +17,7 @@ namespace Cheon.Tests.FanAttackVfx
         [SerializeField] private Test_FanSweepMesh windSector;
         [SerializeField] private Test_FanSweepMesh attack1WindSector;
         [SerializeField] private Test_FanWindParticles particles;
+        [SerializeField] private Test_FanCloudSpiralVfx cloudSpiral;
         [Header("미리보기")]
         [Tooltip("테스트 씬 시작 시 인트로를 넘기고 부채를 꺼냅니다.")]
         [SerializeField] private bool prepareOnStart = true;
@@ -34,7 +35,9 @@ namespace Cheon.Tests.FanAttackVfx
         private Quaternion emissionRotation;
         public float CurrentFrame { get; private set; }
         public int CurrentAttack => attack;
-        public bool IsSweepVisible => attack > 0 && sweeps[attack - 1].IsVisible;
+        public bool IsSweepVisible => attack > 0 && (profile.windDesign == Test_FanAttackVfxProfile.WindDesign.C
+            ? cloudSpiral != null && cloudSpiral.IsSweepVisible : sweeps[attack - 1].IsVisible);
+        public int CloudWindBranchCount => cloudSpiral != null ? cloudSpiral.VisibleWindBranches : 0;
         public int WindParticleCount => particles != null ? particles.WindCount : 0;
         public int DustParticleCount => particles != null ? particles.DustCount : 0;
         public int FrontDustCount => particles != null ? particles.FrontDustCount : 0;
@@ -82,6 +85,11 @@ namespace Cheon.Tests.FanAttackVfx
         public void RefreshGeometry()
         {
             if (profile == null || sweeps == null || sweeps.Length != 3 || windSector == null) return;
+            HideAll();
+            if (cloudSpiral == null) cloudSpiral = GetComponent<Test_FanCloudSpiralVfx>();
+            if (cloudSpiral == null && profile.windDesign == Test_FanAttackVfxProfile.WindDesign.C)
+                cloudSpiral = gameObject.AddComponent<Test_FanCloudSpiralVfx>();
+            if (cloudSpiral != null) cloudSpiral.Configure(profile.cloudSpiral, playerRoot);
             for (int i = 0; i < sweeps.Length; i++)
             {
                 // 같은 구름 문양도 각 타격의 폭과 크기에 맞춘 머티리얼로 조절한다.
@@ -155,15 +163,24 @@ namespace Cheon.Tests.FanAttackVfx
                 }
                 float progress = crossedWindow ? 1 : Mathf.InverseLerp(start, end, CurrentFrame);
                 lastHead = Mathf.Clamp01(style.motionProgress.Evaluate(progress));
-                sweeps[attack - 1].Show(lastHead, style.tailLength, style.color, 1, style.intensity);
+                ShowSweep(style, 1);
                 fadeAge = 0;
             }
             else if (emitting && CurrentFrame > end)
             {
                 fadeAge += Time.deltaTime;
                 float opacity = 1 - Mathf.Clamp01(fadeAge / Mathf.Max(.01f, style.fadeSeconds));
-                sweeps[attack - 1].Show(lastHead, style.tailLength, style.color, opacity, style.intensity);
+                ShowSweep(style, opacity);
             }
+        }
+
+        private void ShowSweep(Test_FanAttackVfxProfile.Sweep style, float opacity)
+        {
+            if (profile.windDesign == Test_FanAttackVfxProfile.WindDesign.C)
+            {
+                if (cloudSpiral != null) cloudSpiral.ShowSweep(style, lastHead, opacity);
+            }
+            else sweeps[attack - 1].Show(lastHead, style.tailLength, style.color, opacity, style.intensity);
         }
 
         private void UpdateWind()
@@ -190,7 +207,7 @@ namespace Cheon.Tests.FanAttackVfx
                 float travelTime = crossedWindow ? 1 : Mathf.InverseLerp(start, end, CurrentFrame);
                 float progress = wind.EvaluateTravel(travelTime);
                 mesh.transform.SetPositionAndRotation(emissionOrigin, emissionRotation);
-                mesh.Show(progress, wind.waveLength, wind.color, 1, wind.intensity);
+                ShowWind(mesh, wind, progress, 1);
                 particles.Emit(Time.deltaTime, progress, emissionOrigin, emissionRotation, wind, travelTime);
                 if (progress >= 1 && !endDustSent)
                 {
@@ -208,8 +225,18 @@ namespace Cheon.Tests.FanAttackVfx
                 }
                 windFadeAge += Time.deltaTime;
                 mesh.transform.SetPositionAndRotation(emissionOrigin, emissionRotation);
-                mesh.Show(1, wind.waveLength, wind.color, 1 - Mathf.Clamp01(windFadeAge / wind.fadeSeconds), wind.intensity);
+                ShowWind(mesh, wind, 1, 1 - Mathf.Clamp01(windFadeAge / wind.fadeSeconds));
             }
+        }
+
+        private void ShowWind(Test_FanSweepMesh mesh, Test_FanAttackVfxProfile.Wind wind, float progress, float opacity)
+        {
+            if (profile.windDesign == Test_FanAttackVfxProfile.WindDesign.C)
+            {
+                if (cloudSpiral != null)
+                    cloudSpiral.ShowWind(wind, progress, emissionOrigin, emissionRotation, profile.dust.groundMask, opacity);
+            }
+            else mesh.Show(progress, wind.waveLength, wind.color, opacity, wind.intensity);
         }
 
         private void HideAll()
@@ -217,6 +244,7 @@ namespace Cheon.Tests.FanAttackVfx
             if (sweeps != null) foreach (var sweep in sweeps) if (sweep != null) sweep.Hide();
             if (windSector != null) windSector.Hide();
             if (attack1WindSector != null) attack1WindSector.Hide();
+            if (cloudSpiral != null) cloudSpiral.Hide();
         }
 
         public void PlayPreview(int index, float holdAtFrame = -1)
@@ -248,13 +276,19 @@ namespace Cheon.Tests.FanAttackVfx
         public void PreviewWindA() => PreviewWindDesign(Test_FanAttackVfxProfile.WindDesign.A);
         [ContextMenu("미리보기/바람 B안 · 3타")]
         public void PreviewWindB() => PreviewWindDesign(Test_FanAttackVfxProfile.WindDesign.B);
+        [ContextMenu("미리보기/C안 · 1타")]
+        public void PreviewCloudSpiral1() => PreviewWindDesign(Test_FanAttackVfxProfile.WindDesign.C, 1);
+        [ContextMenu("미리보기/C안 · 2타")]
+        public void PreviewCloudSpiral2() => PreviewWindDesign(Test_FanAttackVfxProfile.WindDesign.C, 2);
+        [ContextMenu("미리보기/C안 · 3타")]
+        public void PreviewCloudSpiral3() => PreviewWindDesign(Test_FanAttackVfxProfile.WindDesign.C, 3);
 
-        private void PreviewWindDesign(Test_FanAttackVfxProfile.WindDesign design)
+        private void PreviewWindDesign(Test_FanAttackVfxProfile.WindDesign design, int index = 3)
         {
             if (!Application.isPlaying || profile == null) return;
             profile.windDesign = design;
             profile.NotifyChanged();
-            PlayPreview(3);
+            PlayPreview(index);
         }
 
         [ContextMenu("미리보기/일시정지 해제")]

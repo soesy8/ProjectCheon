@@ -81,7 +81,9 @@ namespace Cheon.Tests.FanAttackVfx
         public void Emit(float delta, float progress, Vector3 origin, Quaternion rotation, Test_FanAttackVfxProfile.Wind wind, float travelTime = 0)
         {
             if (profile == null || delta <= 0) return;
-            windBudget += delta * Mathf.Max(0, wind.particlesPerSecond);
+            // C안은 별도의 구름 원화 갈래를 사용한다. 지면 먼지는 같은 경로로 계속 발생시킨다.
+            if (profile.windDesign != Test_FanAttackVfxProfile.WindDesign.C)
+                windBudget += delta * Mathf.Max(0, wind.particlesPerSecond);
             dustBudget += delta * Mathf.Max(0, profile.dust.particlesPerSecond);
             int windCount = Mathf.Min(64, Mathf.FloorToInt(windBudget));
             int dustCount = Mathf.Min(48, Mathf.FloorToInt(dustBudget));
