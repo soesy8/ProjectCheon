@@ -1,0 +1,44 @@
+{
+  "divList": [
+    "타격음",
+    "연주"
+  ],
+  "list": [
+    {
+      "instrCd": 19859,
+      "mntnSeq": 2334,
+      "division": "타격음",
+      "subDivision": "강",
+      "mp3FileName": "Jing_1.mp3",
+      "wavFileName": "Jing_1.wav",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": 19859,
+      "mntnSeq": 2335,
+      "division": "타격음",
+      "subDivision": "약",
+      "mp3FileName": "Jing_2.mp3",
+      "wavFileName": "Jing_2.wav",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": 19859,
+      "mntnSeq": 2336,
+      "division": "연주",
+      "subDivision": "대취타",
+      "mp3FileName": "Jing_3.mp3",
+      "wavFileName": "Jing_3.wav",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": 19859,
+      "mntnSeq": 2337,
+      "division": "연주",
+      "subDivision": "대금 십차",
+      "mp3FileName": "Jing_4.mp3",
+      "wavFileName": "Jing_4.wav",
+      "instrDivCd": "INDV0002"
+    }
+  ]
+}

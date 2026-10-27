@@ -1,0 +1,33 @@
+{
+  "originalAudioDisabled": true,
+  "stoneWalk": true,
+  "stoneClip": "Test_FootstepStone_03",
+  "dirtWalk": true,
+  "dirtSprint": true,
+  "dirtClip": "Test_FootstepDirt_04",
+  "rollAudibleWithoutFootsteps": true,
+  "attack2Accepted": true,
+  "pauseDelaysPendingSwing": true,
+  "swingFrame": 27.2721062,
+  "hitFrame": 28.7145023,
+  "damage": 15.0,
+  "swingBeforeContact": true,
+  "singleSwingAndHit": true,
+  "hitInsideVisualSweep": true,
+  "cancelClearsPendingSound": true,
+  "newEffectsOutput": true,
+  "effectPeaks": [
+    0.147827089,
+    0.0540041551,
+    0.235174909,
+    0.171888471
+  ],
+  "jingStillPlayingHalfway": true,
+  "jingStopsWithin2_9Seconds": true,
+  "naturalBossCue": "Test_CueHeavy",
+  "bossCueAudible": true,
+  "pauseStopsCueAndFoley": true,
+  "framesAdvance": true,
+  "failures": [],
+  "passed": true
+}

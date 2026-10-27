@@ -1,0 +1,106 @@
+[
+  {
+    "file": "Test_CueCrack.wav",
+    "same": true
+  },
+  {
+    "file": "Test_CueHeavy.wav",
+    "same": true
+  },
+  {
+    "file": "Test_CueJump.wav",
+    "same": true
+  },
+  {
+    "file": "Test_Defeat.wav",
+    "same": true
+  },
+  {
+    "file": "Test_DodgeCloth.wav",
+    "same": true
+  },
+  {
+    "file": "Test_FanEquip.wav",
+    "same": true
+  },
+  {
+    "file": "Test_FanSwing.wav",
+    "same": true
+  },
+  {
+    "file": "Test_Footstep.wav",
+    "same": true
+  },
+  {
+    "file": "Test_FootstepDirt_01.wav",
+    "same": true
+  },
+  {
+    "file": "Test_FootstepDirt_02.wav",
+    "same": true
+  },
+  {
+    "file": "Test_FootstepDirt_03.wav",
+    "same": true
+  },
+  {
+    "file": "Test_FootstepDirt_04.wav",
+    "same": true
+  },
+  {
+    "file": "Test_FootstepStone_01.wav",
+    "same": true
+  },
+  {
+    "file": "Test_FootstepStone_02.wav",
+    "same": true
+  },
+  {
+    "file": "Test_FootstepStone_03.wav",
+    "same": true
+  },
+  {
+    "file": "Test_FootstepStone_04.wav",
+    "same": true
+  },
+  {
+    "file": "Test_GourdRestore.wav",
+    "same": true
+  },
+  {
+    "file": "Test_GuardianSlam.wav",
+    "same": true
+  },
+  {
+    "file": "Test_MenuGayageum.wav",
+    "same": true
+  },
+  {
+    "file": "Test_MountainAir.wav",
+    "same": true
+  },
+  {
+    "file": "Test_PlayerHurt.wav",
+    "same": true
+  },
+  {
+    "file": "Test_ShrineJing.wav",
+    "same": true
+  },
+  {
+    "file": "Test_SpiritAwaken.wav",
+    "same": true
+  },
+  {
+    "file": "Test_Victory.wav",
+    "same": true
+  },
+  {
+    "file": "Test_WindImpact.wav",
+    "same": true
+  },
+  {
+    "file": "Test_WoodImpact.wav",
+    "same": true
+  }
+]

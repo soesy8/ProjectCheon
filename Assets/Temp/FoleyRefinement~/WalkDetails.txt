@@ -1,0 +1,3 @@
+Stone sprint=False success=True mode=True correct=True count=4 peak=0.08597265 distance=4.339807 clips=Test_FootstepStone_02,Test_FootstepStone_03,Test_FootstepStone_04
+Dirt sprint=False success=True mode=True correct=True count=4 peak=0.06586169 distance=6.585977 clips=Test_FootstepDirt_01,Test_FootstepDirt_03,Test_FootstepDirt_04
+Dirt sprint=True success=True mode=True correct=True count=5 peak=0.0990399 distance=10.66594 clips=Test_FootstepDirt_01,Test_FootstepDirt_02,Test_FootstepDirt_04,Test_FootstepDirt_03,Test_FootstepDirt_04

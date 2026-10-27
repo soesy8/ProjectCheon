@@ -1,0 +1,31 @@
+<color=#D6B06E><size=25>01  타이틀 · 장승 격파 후</size></color>
+<size=29>우리네 소리를 듣다</size>
+저작자: 임다솔   |   CC BY 4.0
+출처: 한국저작권위원회 공유마당
+<link="https://gongu.copyright.or.kr/gongu/wrt/wrt/view.do?menuNo=200020&wrtSn=13048780"><color=#59E0BA><u>우리네 소리를 듣다 · 원문</u></color></link>
+
+<color=#D6B06E><size=25>02  일반 필드</size></color>
+<size=29>7월 7석, 구름 저편의 약속</size>
+저작자: 정혁준   |   CC BY 4.0
+출처: 한국저작권위원회 공유마당
+<link="https://gongu.copyright.or.kr/gongu/wrt/wrt/view.do?menuNo=200020&wrtSn=13048797"><color=#59E0BA><u>7월 7석, 구름 저편의 약속 · 원문</u></color></link>
+
+<color=#D6B06E><size=25>03  장승 보스전</size></color>
+<size=29>LSMBG0704_사물놀이</size>
+저작자: 한국저작권위원회   |   CC BY 4.0
+출처: 한국저작권위원회 공유마당
+<link="https://gongu.copyright.or.kr/gongu/wrt/wrt/view.do?menuNo=200020&wrtSn=13312616"><color=#59E0BA><u>사물놀이 · 원문</u></color></link>
+
+<color=#D6B06E><size=25>04  보관 음원 · 현재 미사용</size></color>
+<size=29>LSMBG0702_도깨비</size>
+저작자: 한국저작권위원회   |   CC BY 4.0
+출처: 한국저작권위원회 공유마당
+프로젝트에 보관하며, 현재 씬에는 연결하거나 재생하지 않습니다.
+<link="https://gongu.copyright.or.kr/gongu/wrt/wrt/view.do?menuNo=200020&wrtSn=13312614"><color=#59E0BA><u>도깨비 · 원문</u></color></link>
+
+<color=#D6B06E><size=25>이용조건 · 적용 방식</size></color>
+위 네 곡: Creative Commons 저작자표시 4.0 국제 (CC BY 4.0)
+<link="https://creativecommons.org/licenses/by/4.0/deed.ko"><color=#59E0BA><u>CC BY 4.0 이용조건 보기</u></color></link>
+공식 배포 원본을 보관했습니다. 재생하는 세 곡은 원곡의 속도와 구성을 유지하고, 게임 안에서 음량 조절·반복 재생·곡 전환 시 페이드를 적용합니다. Unity 임포트 과정에서 재생용 압축을 적용합니다.
+도깨비는 보관만 하며 음악 편집을 하지 않았습니다.
+저작자 및 제공기관의 후원·제휴를 의미하지 않습니다.

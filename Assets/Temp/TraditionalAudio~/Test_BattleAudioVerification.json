@@ -1,0 +1,13 @@
+{
+  "combatOnly": true,
+  "combatLoop": true,
+  "impactDucksMusic": true,
+  "musicRecoversAfterImpact": true,
+  "naturalBossWarning": true,
+  "lastWarning": "Test_CueJump",
+  "warningDucksMusic": true,
+  "pauseStopsWarning": true,
+  "endingStopsLoopMusic": true,
+  "retryRestartsMusic": true,
+  "passed": true
+}

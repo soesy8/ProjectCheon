@@ -1,0 +1,30 @@
+천 · 테스트 재질 효과음 (2026-10-27)
+
+사용 원음과 라이선스
+1. Kenney — RPG Audio / CC0
+   https://kenney.nl/assets/rpg-audio
+   cloth1, cloth3, creak3, chop
+2. Kenney — Impact Sounds / CC0
+   https://kenney.nl/assets/impact-sounds
+   footstep_concrete_000~003, footstep_grass_000~004,
+   impactSoft_medium_001, impactSoft_heavy_000~004,
+   impactWood_light_003, impactPlank_medium_002
+3. TinyWorlds — Different steps on wood, stone, leaves, gravel and mud / CC0
+   https://opengameart.org/content/different-steps-on-wood-stone-leaves-gravel-and-mud
+   stone01, gravel (원 게시물: pdsounds.org 녹음을 편집한 Minetest용 효과음)
+
+가공: 접촉음 추출, 주파수·속도·음량 조절, 재질음 레이어링, 끝부분 페이드.
+폭발·충격파는 짧게 하강하는 저음, 저역 잡음, 공기 파열음을 직접 합성했습니다.
+착지·내려찍기는 순간적인 충격을 분명하게, 준비 동작은 그보다 약하게 섞었습니다.
+위 재료로 돌/흙 발걸음 각 4종, 흙·옷 구르기, 나무 파절 피격,
+장승 점프/넘어찍기/추적/균열/소환 재질음을 구성했습니다.
+
+산신각 Test_ShrineJing은 기존 국립국악원 징 편집본의 음높이를 유지한 채
+5.5초에서 2.75초로 단축하고 마지막 0.65초를 감쇠시켰습니다.
+전통 악기 음원 출처와 배경음악 정보는 Test_AudioCredits.txt를 참조하세요.
+
+적용 범위: Assets/Test/CombatPresentation의 테스트 씬과 전용 에셋.
+Test_PlayerFoley가 비활성화된 기존 PassPlayerAudio 대신 동작 소리를 처리합니다.
+Test_FootstepSurface가 붙은 돌계단/석재 바닥에서는 돌 소리, 그 외 바닥에서는 흙 소리입니다.
+공격 2타 소리: 전체 재생 구간 20%(35프레임) → VFX 시작보다 1프레임 앞(27프레임).
+2타 피해 판정은 실제 명중 28.7프레임으로 확인되어 기존 28~34프레임 구간을 유지합니다.

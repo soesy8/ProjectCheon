@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "woodClip": "Test_WoodImpact",
+  "windHitSameAsWood": true,
+  "stoneChecks": [
+    {
+      "clip": "Test_FootstepStone_01",
+      "seconds": 0.24,
+      "channels": 1,
+      "peak": 0.442749023
+    },
+    {
+      "clip": "Test_FootstepStone_02",
+      "seconds": 0.24,
+      "channels": 1,
+      "peak": 0.4604187
+    },
+    {
+      "clip": "Test_FootstepStone_03",
+      "seconds": 0.24,
+      "channels": 1,
+      "peak": 0.4560547
+    },
+    {
+      "clip": "Test_FootstepStone_04",
+      "seconds": 0.24,
+      "channels": 1,
+      "peak": 0.470947266
+    }
+  ],
+  "oldPlayerAudioDisabled": true,
+  "archiveReferenced": false,
+  "saved": false
+}

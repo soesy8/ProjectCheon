@@ -1,0 +1,97 @@
+{
+  "checks": {
+    "walkCount": 3,
+    "walkProducedSteps": true,
+    "sprintCount": 5,
+    "sprintProducedSteps": true,
+    "walkAfterSprintCount": 3,
+    "walkAfterSprintProducedSteps": true,
+    "aligned": true,
+    "alternatingAcrossSpeedChange": true,
+    "allDirtClips": true,
+    "noConsecutiveRepeat": true,
+    "moving": true,
+    "audioPeak": 0.0660378039,
+    "audible": true,
+    "passed": true
+  },
+  "contacts": [
+    {
+      "mode": "walk",
+      "foot": "right",
+      "frame": 18.733284,
+      "error": 0.233284,
+      "clip": "Test_FootstepDirt_02"
+    },
+    {
+      "mode": "walk",
+      "foot": "left",
+      "frame": 8.247726,
+      "error": 0.24772644,
+      "clip": "Test_FootstepDirt_01"
+    },
+    {
+      "mode": "walk",
+      "foot": "right",
+      "frame": 18.7464027,
+      "error": 0.24640274,
+      "clip": "Test_FootstepDirt_04"
+    },
+    {
+      "mode": "sprint",
+      "foot": "left",
+      "frame": 8.037382,
+      "error": 0.0373821259,
+      "clip": "Test_FootstepDirt_03"
+    },
+    {
+      "mode": "sprint",
+      "foot": "right",
+      "frame": 19.2429,
+      "error": 0.742900848,
+      "clip": "Test_FootstepDirt_04"
+    },
+    {
+      "mode": "sprint",
+      "foot": "left",
+      "frame": 8.639087,
+      "error": 0.6390867,
+      "clip": "Test_FootstepDirt_02"
+    },
+    {
+      "mode": "sprint",
+      "foot": "right",
+      "frame": 19.03509,
+      "error": 0.5350895,
+      "clip": "Test_FootstepDirt_03"
+    },
+    {
+      "mode": "sprint",
+      "foot": "left",
+      "frame": 8.430574,
+      "error": 0.430574417,
+      "clip": "Test_FootstepDirt_02"
+    },
+    {
+      "mode": "walkAfterSprint",
+      "foot": "right",
+      "frame": 18.83904,
+      "error": 0.339040756,
+      "clip": "Test_FootstepDirt_04"
+    },
+    {
+      "mode": "walkAfterSprint",
+      "foot": "left",
+      "frame": 8.340552,
+      "error": 0.34055233,
+      "clip": "Test_FootstepDirt_01"
+    },
+    {
+      "mode": "walkAfterSprint",
+      "foot": "right",
+      "frame": 18.8539543,
+      "error": 0.353954315,
+      "clip": "Test_FootstepDirt_03"
+    }
+  ]
+}

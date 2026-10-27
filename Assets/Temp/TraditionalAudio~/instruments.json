@@ -1,0 +1,358 @@
+{
+  "list": [
+    {
+      "instrCd": "19856",
+      "instrName": "금",
+      "instrDesc": "<p>황종 = C</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0003"
+    },
+    {
+      "instrCd": "19863",
+      "instrName": "슬",
+      "instrDesc": "<p>황종 = C</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0003"
+    },
+    {
+      "instrCd": "19897",
+      "instrName": "25현가야금",
+      "instrDesc": "<p>황종 = E♭</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0003"
+    },
+    {
+      "instrCd": "19824",
+      "instrName": "건고",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19827",
+      "instrName": "교방고",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19828",
+      "instrName": "꽹과리",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19857",
+      "instrName": "나각",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19858",
+      "instrName": "나발",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19994",
+      "instrName": "남창",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0004"
+    },
+    {
+      "instrCd": "19829",
+      "instrName": "노고",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19831",
+      "instrName": "노도",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19860",
+      "instrName": "단소",
+      "instrDesc": "<p>황종 = E♭</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19899",
+      "instrName": "당피리",
+      "instrDesc": "<p>황종 = C</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19996",
+      "instrName": "대피리",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19833",
+      "instrName": "바라",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19834",
+      "instrName": "박",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19839",
+      "instrName": "방향",
+      "instrDesc": "<p>황종 = C</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19835",
+      "instrName": "부",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19836",
+      "instrName": "삭고",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19913",
+      "instrName": "산조가야금",
+      "instrDesc": "<p>본청 = C</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0003"
+    },
+    {
+      "instrCd": "19915",
+      "instrName": "산조대금",
+      "instrDesc": "<p>본청 = C</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19861",
+      "instrName": "산조아쟁",
+      "instrDesc": "<p>본청 = C</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0003"
+    },
+    {
+      "instrCd": "19990",
+      "instrName": "생황",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19901",
+      "instrName": "세피리",
+      "instrDesc": "<p>황종 = E♭</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19862",
+      "instrName": "소",
+      "instrDesc": "<p>황종 = C</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19991",
+      "instrName": "소금",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19866",
+      "instrName": "약",
+      "instrDesc": "<p>황종 = C</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19993",
+      "instrName": "양금",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0003"
+    },
+    {
+      "instrCd": "19840",
+      "instrName": "어",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19995",
+      "instrName": "여창",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0004"
+    },
+    {
+      "instrCd": "19841",
+      "instrName": "영고",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19842",
+      "instrName": "영도",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19843",
+      "instrName": "용고",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19844",
+      "instrName": "응고",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19847",
+      "instrName": "장구",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19867",
+      "instrName": "적",
+      "instrDesc": "<p>황종 = C</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19848",
+      "instrName": "절고",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19914",
+      "instrName": "정악가야금",
+      "instrDesc": "<p>황종 = E♭</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0003"
+    },
+    {
+      "instrCd": "19988",
+      "instrName": "정악거문고",
+      "instrDesc": "<p>황종=E♭</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0003"
+    },
+    {
+      "instrCd": "19917",
+      "instrName": "정악대금",
+      "instrDesc": "<p>황종 = E♭</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19864",
+      "instrName": "정악아쟁",
+      "instrDesc": "<p>황종 = E♭</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0003"
+    },
+    {
+      "instrCd": "19849",
+      "instrName": "좌고",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19868",
+      "instrName": "지",
+      "instrDesc": "<p>황종 = C</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19850",
+      "instrName": "진고",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19859",
+      "instrName": "징",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19851",
+      "instrName": "축",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19992",
+      "instrName": "태평소",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19869",
+      "instrName": "퉁소",
+      "instrDesc": "<p>본청 = C</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19852",
+      "instrName": "특경",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19853",
+      "instrName": "특종",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19854",
+      "instrName": "편경",
+      "instrDesc": "<p>황종 = C</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19855",
+      "instrName": "편종",
+      "instrDesc": "<p>황종 = C</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0002"
+    },
+    {
+      "instrCd": "19870",
+      "instrName": "해금",
+      "instrDesc": "<p>황종 = E♭</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0003"
+    },
+    {
+      "instrCd": "19912",
+      "instrName": "향피리",
+      "instrDesc": "<p>황종 = E♭</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    },
+    {
+      "instrCd": "19911",
+      "instrName": "훈",
+      "instrDesc": "<p>황종 = C</p>  ",
+      "instrNuryTyp": "1",
+      "instrDivCd": "INDV0001"
+    }
+  ]
+}

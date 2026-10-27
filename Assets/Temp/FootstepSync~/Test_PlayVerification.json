@@ -1,0 +1,116 @@
+{
+  "checks": {
+    "walkAligned": true,
+    "walkAlternating": true,
+    "walkStone": true,
+    "walkMaxFrameError": 0.153646469,
+    "walkStepCount": 4,
+    "walkProducedSteps": true,
+    "sprintAligned": true,
+    "sprintAlternating": true,
+    "sprintStone": true,
+    "sprintMaxFrameError": 0.748035431,
+    "sprintStepCount": 5,
+    "sprintProducedSteps": true,
+    "pauseSilent": true,
+    "resumeAligned": true,
+    "resumeAlternating": true,
+    "resumeStone": true,
+    "resumeMaxFrameError": 0.254588127,
+    "idleSilent": true,
+    "rollHasNoFootsteps": true,
+    "airborneSilent": true,
+    "originalPlayerAudioDisabled": true,
+    "passed": true
+  },
+  "contacts": [
+    {
+      "mode": "walk",
+      "foot": "right",
+      "frame": 18.6430931,
+      "error": 0.143093109,
+      "height": 0.00575256348,
+      "clip": "Test_FootstepStone_02"
+    },
+    {
+      "mode": "walk",
+      "foot": "left",
+      "frame": 8.149585,
+      "error": 0.14958477,
+      "height": 0.0230808258,
+      "clip": "Test_FootstepStone_01"
+    },
+    {
+      "mode": "walk",
+      "foot": "right",
+      "frame": 18.6536465,
+      "error": 0.153646469,
+      "height": 0.023147583,
+      "clip": "Test_FootstepStone_03"
+    },
+    {
+      "mode": "walk",
+      "foot": "left",
+      "frame": 8.142402,
+      "error": 0.1424017,
+      "height": 0.02498436,
+      "clip": "Test_FootstepStone_04"
+    },
+    {
+      "mode": "sprint",
+      "foot": "left",
+      "frame": 8.152555,
+      "error": 0.152555466,
+      "height": 0.009080887,
+      "clip": "Test_FootstepStone_03"
+    },
+    {
+      "mode": "sprint",
+      "foot": "right",
+      "frame": 18.5559387,
+      "error": 0.05593872,
+      "height": 0.0206737518,
+      "clip": "Test_FootstepStone_04"
+    },
+    {
+      "mode": "sprint",
+      "foot": "left",
+      "frame": 8.748035,
+      "error": 0.748035431,
+      "height": 0.0205135345,
+      "clip": "Test_FootstepStone_03"
+    },
+    {
+      "mode": "sprint",
+      "foot": "right",
+      "frame": 19.1397419,
+      "error": 0.6397419,
+      "height": 0.0213890076,
+      "clip": "Test_FootstepStone_02"
+    },
+    {
+      "mode": "sprint",
+      "foot": "left",
+      "frame": 8.537185,
+      "error": 0.5371847,
+      "height": 0.0208396912,
+      "clip": "Test_FootstepStone_03"
+    },
+    {
+      "mode": "resume",
+      "foot": "left",
+      "frame": 8.254588,
+      "error": 0.254588127,
+      "height": 0.01969719,
+      "clip": "Test_FootstepStone_03"
+    },
+    {
+      "mode": "resume",
+      "foot": "right",
+      "frame": 18.7450352,
+      "error": 0.245035172,
+      "height": 0.022441864,
+      "clip": "Test_FootstepStone_04"
+    }
+  ]
+}

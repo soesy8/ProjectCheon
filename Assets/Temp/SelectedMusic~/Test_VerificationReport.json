@@ -1,0 +1,87 @@
+{
+  "passed": true,
+  "maximumConcurrent": 1,
+  "sampledFrames": 749,
+  "steps": [
+    {
+      "step": "title",
+      "state": "Intro",
+      "actual": "Test_Bgm_OurSounds",
+      "playing": 1,
+      "looping": true,
+      "volume": 0.269280016,
+      "outputPeak": 0.0,
+      "inEncounter": false
+    },
+    {
+      "step": "field",
+      "state": "Playing",
+      "actual": "Test_Bgm_SeventhNight",
+      "playing": 1,
+      "looping": true,
+      "volume": 0.374,
+      "outputPeak": 0.0,
+      "inEncounter": false
+    },
+    {
+      "step": "boss",
+      "state": "Playing",
+      "actual": "Test_Bgm_Samulnori",
+      "playing": 1,
+      "looping": true,
+      "volume": 0.231880009,
+      "outputPeak": 0.0,
+      "inEncounter": true
+    },
+    {
+      "step": "pause",
+      "state": "Paused",
+      "actual": "Test_Bgm_Samulnori",
+      "playing": 1,
+      "looping": true,
+      "volume": 0.104720004,
+      "outputPeak": 0.0547925755,
+      "inEncounter": true
+    },
+    {
+      "step": "resume",
+      "state": "Playing",
+      "actual": "Test_Bgm_Samulnori",
+      "playing": 1,
+      "looping": true,
+      "volume": 0.374,
+      "outputPeak": 0.110332742,
+      "inEncounter": true
+    },
+    {
+      "step": "victory",
+      "state": "Victory",
+      "actual": "Test_Bgm_OurSounds",
+      "playing": 1,
+      "looping": true,
+      "volume": 0.374,
+      "outputPeak": 0.002543209,
+      "inEncounter": true
+    },
+    {
+      "step": "retry",
+      "state": "Playing",
+      "actual": "Test_Bgm_Samulnori",
+      "playing": 1,
+      "looping": true,
+      "volume": 0.231880009,
+      "outputPeak": 0.083632946,
+      "inEncounter": true
+    },
+    {
+      "step": "defeat",
+      "state": "Defeat",
+      "actual": null,
+      "playing": 0,
+      "looping": true,
+      "volume": 0.0,
+      "outputPeak": 0.0,
+      "inEncounter": true
+    }
+  ]
+}

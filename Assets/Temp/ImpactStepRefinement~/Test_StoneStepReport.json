@@ -1,0 +1,66 @@
+{
+  "Test_FootstepStone_01.wav": {
+    "before": {
+      "seconds": 0.29,
+      "peak": 0.669952392578125,
+      "rms": 0.04480181600238575,
+      "above_2000_hz_energy": 0.034333978763604965,
+      "spectral_centroid_hz": 356.39068222097205
+    },
+    "after": {
+      "seconds": 0.24,
+      "peak": 0.4427490234375,
+      "rms": 0.04299517150563608,
+      "above_2000_hz_energy": 2.3231145228157895e-06,
+      "spectral_centroid_hz": 235.5501551490084
+    }
+  },
+  "Test_FootstepStone_02.wav": {
+    "before": {
+      "seconds": 0.29,
+      "peak": 0.669952392578125,
+      "rms": 0.04028574714197759,
+      "above_2000_hz_energy": 0.04942606918527065,
+      "spectral_centroid_hz": 421.41958341662115
+    },
+    "after": {
+      "seconds": 0.24,
+      "peak": 0.460418701171875,
+      "rms": 0.042994657206634666,
+      "above_2000_hz_energy": 8.247479452748331e-07,
+      "spectral_centroid_hz": 275.66037860008925
+    }
+  },
+  "Test_FootstepStone_03.wav": {
+    "before": {
+      "seconds": 0.29,
+      "peak": 0.669952392578125,
+      "rms": 0.03687418368590411,
+      "above_2000_hz_energy": 0.06212257419656907,
+      "spectral_centroid_hz": 464.25656500830104
+    },
+    "after": {
+      "seconds": 0.24,
+      "peak": 0.4560546875,
+      "rms": 0.04299497454526868,
+      "above_2000_hz_energy": 4.445432434008424e-07,
+      "spectral_centroid_hz": 280.83443463441034
+    }
+  },
+  "Test_FootstepStone_04.wav": {
+    "before": {
+      "seconds": 0.29,
+      "peak": 0.669952392578125,
+      "rms": 0.04172273871296377,
+      "above_2000_hz_energy": 0.052177993254683266,
+      "spectral_centroid_hz": 382.7121047725085
+    },
+    "after": {
+      "seconds": 0.24,
+      "peak": 0.470947265625,
+      "rms": 0.04299508244872694,
+      "above_2000_hz_energy": 1.5145470643345138e-06,
+      "spectral_centroid_hz": 263.23931675728267
+    }
+  }
+}

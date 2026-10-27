@@ -1,0 +1,33 @@
+{
+  "framesAdvance": true,
+  "explorationOnly": true,
+  "singleListener": true,
+  "explorationLoop": true,
+  "immediatePause": true,
+  "blackPanel70": true,
+  "pauseMusicQuiet": true,
+  "pauseStopsGameplayTails": true,
+  "musicContinuesDuringPause": true,
+  "resumeMusic": true,
+  "reenableNoDuplicateMusic": true,
+  "effectPeakLevels": [
+    0.132647783,
+    0.21293661,
+    0.154268757,
+    0.203998834,
+    0.287522227,
+    0.186077148,
+    0.134433761,
+    0.152348042,
+    0.07328911,
+    0.2160381,
+    0.217851579,
+    0.137585774,
+    0.08128849
+  ],
+  "audibleEffectMethods": 13,
+  "allEffectsOutputSignal": true,
+  "sampledMixPeak": 0.388066053,
+  "sampledMixHasHeadroom": true,
+  "passed": true
+}

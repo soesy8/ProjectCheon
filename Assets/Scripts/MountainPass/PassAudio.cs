@@ -9,6 +9,7 @@ namespace Cheon.Prototype.MountainPass
         [SerializeField, InspectorName("부채 휘두르기")] private AudioClip fanWhoosh;
         [SerializeField, InspectorName("나무 직접 타격")] private AudioClip strike;
         [SerializeField, InspectorName("바람 적중")] private AudioClip windHit;
+        [SerializeField, InspectorName("바람 적중음 재생")] private bool playWindImpact = true;
         [SerializeField, InspectorName("플레이어 피격")] private AudioClip hurt;
         [SerializeField, InspectorName("장승 내려찍기")] private AudioClip slam;
         [SerializeField, InspectorName("산신각 종소리")] private AudioClip bell;
@@ -56,6 +57,8 @@ namespace Cheon.Prototype.MountainPass
         }
         public void Strike(bool isWind = false, int attack = 1)
         {
+            // 바람 적중음을 끈 경우 직접 타격용 나무 소리로도 대체하지 않는다.
+            if (isWind && !playWindImpact) return;
             if (effects == null || Time.unscaledTime < nextStrikeTime) return;
             nextStrikeTime = Time.unscaledTime + 0.035f;
             Play(isWind && windHit != null ? windHit : strike, isWind ? 0.55f : attack == 3 ? 1f : 0.7f);
