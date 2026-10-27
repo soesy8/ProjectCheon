@@ -1,0 +1,286 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+namespace Cheon.Prototype.MountainPass
+{
+    [RequireComponent(typeof(Camera)), DefaultExecutionOrder(100)]
+    public class PassCamera : MonoBehaviour
+    {
+        [InspectorName("플레이어")]
+        [SerializeField] private Transform player;
+        [InspectorName("보스 제어기")]
+        [SerializeField] private Transform boss;
+        [InspectorName("게임 진행 제어기")]
+        [SerializeField] private PassGameFlow game;
+        [InspectorName("기본 카메라 거리 (m)")]
+        [SerializeField, Range(4f, 14f)] private float distance = 7.5f;
+        [InspectorName("카메라 상하 각도 (도)")]
+        [SerializeField, Range(-75f, 88f)] private float pitch = 28f;
+        [InspectorName("카메라 최소 상하 각도 (도)")]
+        [SerializeField, Range(-75f, 0f)] private float minimumPitch = -65f;
+        [InspectorName("카메라 최대 상하 각도 (도)")]
+        [SerializeField, Range(45f, 88f)] private float maximumPitch = 85f;
+        [InspectorName("마우스 시점 감도")]
+        [SerializeField, Min(0.01f)] private float sensitivity = 0.15f;
+        [InspectorName("카메라 추적 반응 속도")]
+        [SerializeField, Min(1f)] private float followSpeed = 10f;
+        [Header("보스 주시")]
+        [Tooltip("화면 좌하단이 (0, 0), 우상단이 (1, 1)입니다. 장승 중심이 이 영역 안에 있으면 회전하지 않습니다.")]
+        [InspectorName("중앙 추적 사각형 (화면 비율)")]
+        [SerializeField] private Rect lockDeadZone = new Rect(.35f, .35f, .3f, .3f);
+        [InspectorName("주시 회전 Lerp 속도")]
+        [SerializeField, Min(.1f)] private float lockFollowSpeed = 5f;
+        [Tooltip("위를 너무 올려다봐 플레이어가 발밑으로 사라지는 대신, 카메라를 물려 높은 장승을 담습니다.")]
+        [InspectorName("주시 최소 내려다보기 각도 (도)")]
+        [SerializeField, Range(0f, 30f)] private float minimumLockPitch = 5f;
+        [InspectorName("두 캐릭터의 화면 가장자리 여백")]
+        [SerializeField, Range(.04f, .2f)] private float framingMargin = .1f;
+        [InspectorName("후퇴 거리당 추가 상승 비율")]
+        [SerializeField, Range(.1f, .6f)] private float framingRise = .35f;
+        [InspectorName("화면 확보 Lerp 속도")]
+        [SerializeField, Min(.1f)] private float framingSpeed = 10f;
+        [InspectorName("기본 거리 복귀 Lerp 속도")]
+        [SerializeField, Min(.1f)] private float framingReturnSpeed = 2f;
+        private float yaw, shake, extraDistance;
+        private Vector3 focus;
+        private Quaternion lockRotation;
+        private Camera viewCamera;
+        private CharacterController playerBody;
+        private Renderer[] playerRenderers, bossRenderers;
+        private readonly RaycastHit[] hits = new RaycastHit[32];
+        private bool applicationFocused = true;
+        private int ignoreMouseUntilFrame;
+        public bool BossLocked { get; private set; }
+        public float Pitch => pitch;
+        public void Configure(Transform target, Transform enemy, PassGameFlow flow)
+        {
+            player = target; boss = enemy; game = flow;
+            GetComponent<Camera>().orthographic = false;
+            GetComponent<Camera>().fieldOfView = 60f;
+            SnapBehind();
+        }
+        private void Start() => SnapBehind();
+        public void SnapBehind()
+        {
+            if (player == null) return;
+            CacheTargets();
+            yaw = player.eulerAngles.y;
+            focus = player.position + Vector3.up * 1.35f;
+            extraDistance = 0f;
+            lockRotation = Quaternion.Euler(pitch, yaw, 0f);
+            Vector3 position = GetOrbitPosition(lockRotation);
+            transform.SetPositionAndRotation(ResolveCollision(position), lockRotation);
+        }
+        public void LockBoss(bool locked)
+        {
+            if (BossLocked == locked) return;
+            BossLocked = locked;
+            lockRotation = transform.rotation;
+            if (locked)
+                lockRotation = Quaternion.Euler(Mathf.Clamp(Mathf.DeltaAngle(0f, transform.eulerAngles.x), minimumLockPitch, 80f), transform.eulerAngles.y, 0f);
+            if (!locked)
+            {
+                yaw = transform.eulerAngles.y;
+                pitch = Mathf.Clamp(Mathf.DeltaAngle(0f, transform.eulerAngles.x), minimumPitch, maximumPitch);
+                extraDistance = 0f;
+            }
+        }
+        public void AddShake(float amount) => shake = Mathf.Max(shake, amount);
+        public void RefreshCursor()
+        {
+            bool locked = applicationFocused && game != null && game.IsRunning;
+            if (locked && Cursor.lockState != CursorLockMode.Locked) ignoreMouseUntilFrame = Time.frameCount + 1;
+            Cursor.lockState = locked ? CursorLockMode.Locked : CursorLockMode.None;
+            Cursor.visible = !locked;
+        }
+        private void OnApplicationFocus(bool focused) { applicationFocused = focused; RefreshCursor(); }
+        private void OnDisable() { Cursor.lockState = CursorLockMode.None; Cursor.visible = true; }
+        private void LateUpdate()
+        {
+            if (player == null) return;
+            RefreshCursor();
+            if (game != null && game.State == PassGameFlow.RunState.Paused) return;
+            float delta = Time.deltaTime;
+            bool running = game != null && game.IsRunning;
+            bool canLockBoss = game != null && game.InEncounter && boss != null && game.Boss != null &&
+                game.Boss.Health != null && !game.Boss.Health.IsDead;
+            bool typing = PassHud.IsTyping;
+            if (!canLockBoss) LockBoss(false);
+            if (running && !typing && canLockBoss && Keyboard.current != null && Keyboard.current.tabKey.wasPressedThisFrame)
+                LockBoss(!BossLocked);
+            if (running && !typing && !BossLocked && Cursor.lockState == CursorLockMode.Locked && Mouse.current != null && Time.frameCount > ignoreMouseUntilFrame)
+            {
+                Vector2 motion = Mouse.current.delta.ReadValue();
+                yaw += motion.x * sensitivity;
+                pitch = Mathf.Clamp(pitch - motion.y * sensitivity, minimumPitch, maximumPitch);
+            }
+            Vector3 desiredFocus = player.position + Vector3.up * 1.35f;
+            focus = Vector3.Distance(focus, desiredFocus) > 20f ? desiredFocus : Vector3.Lerp(focus, desiredFocus, 1f - Mathf.Exp(-followSpeed * delta));
+            shake = Mathf.MoveTowards(shake, 0f, delta * 2f);
+            ApplyView(delta);
+        }
+        private void ApplyView(float delta)
+        {
+            if (delta <= 0f) return;
+            if (viewCamera == null) CacheTargets();
+            Quaternion rotation = Quaternion.Euler(pitch, yaw, 0f);
+            Vector3 position = GetOrbitPosition(rotation);
+            Bounds bossBounds = default, playerBounds = default;
+            if (BossLocked && boss != null)
+            {
+                bossBounds = GetBossBounds();
+                playerBounds = GetPlayerBounds();
+                Quaternion targetRotation = GetDeadZoneRotation(GetBossFocusPoint());
+                float rotationBlend = 1f - Mathf.Exp(-lockFollowSpeed * delta);
+                lockRotation = Quaternion.Euler(Mathf.LerpAngle(lockRotation.eulerAngles.x, targetRotation.eulerAngles.x, rotationBlend),
+                    Mathf.LerpAngle(lockRotation.eulerAngles.y, targetRotation.eulerAngles.y, rotationBlend), 0f);
+                rotation = lockRotation;
+                // 사각형을 벗어나 회전할 때만 플레이어 뒤의 궤도도 함께 돌아간다.
+                position = GetOrbitPosition(Quaternion.Euler(Mathf.Clamp(pitch, minimumLockPitch, 80f), rotation.eulerAngles.y, 0f));
+                float required = GetRequiredRetreat(position, rotation, playerBounds, bossBounds, framingMargin);
+                float speed = required > extraDistance ? framingSpeed : framingReturnSpeed;
+                extraDistance = Mathf.Lerp(extraDistance, required, 1f - Mathf.Exp(-speed * delta));
+                position += GetRetreatDirection(rotation) * extraDistance;
+            }
+            position = Vector3.Lerp(transform.position, position, 1f - Mathf.Exp(-followSpeed * delta));
+            if (!BossLocked) rotation = Quaternion.Lerp(transform.rotation, rotation, 1f - Mathf.Exp(-followSpeed * delta));
+            Vector3 tremor = Application.isPlaying ? Random.insideUnitSphere * shake * 0.12f : Vector3.zero;
+            position += tremor;
+            if (BossLocked && boss != null)
+            {
+                // 평소에는 설정한 여백을 향해 Lerp한다. 급격한 점프/구르기는 마지막 2% 경계에서 잘림을 막는다.
+                float safetyRetreat = GetRequiredRetreat(position, rotation, playerBounds, bossBounds, .02f);
+                position += GetRetreatDirection(rotation) * safetyRetreat;
+            }
+            transform.SetPositionAndRotation(ResolveCollision(position), rotation);
+        }
+
+        private void CacheTargets()
+        {
+            viewCamera = GetComponent<Camera>();
+            playerBody = player != null ? player.GetComponent<CharacterController>() : null;
+            playerRenderers = player != null ? player.GetComponentsInChildren<Renderer>(true) : null;
+            bossRenderers = boss != null ? boss.GetComponentsInChildren<Renderer>(true) : null;
+        }
+
+        private Vector3 GetOrbitPosition(Quaternion orbit)
+            => focus - orbit * Vector3.forward * distance + orbit * Vector3.right * .35f;
+
+        private Quaternion GetDeadZoneRotation(Vector3 target)
+        {
+            Vector3 local = Quaternion.Inverse(lockRotation) * (target - transform.position);
+            float verticalTangent = Mathf.Tan(viewCamera.fieldOfView * Mathf.Deg2Rad * .5f);
+            float horizontalTangent = verticalTangent * viewCamera.aspect;
+            Vector2 viewport = new Vector2(.5f + local.x / (2f * Mathf.Max(.001f, local.z) * horizontalTangent),
+                .5f + local.y / (2f * Mathf.Max(.001f, local.z) * verticalTangent));
+            if (local.z > 0f && lockDeadZone.Contains(viewport)) return lockRotation;
+
+            Vector2 edge = new Vector2(Mathf.Clamp(viewport.x, lockDeadZone.xMin, lockDeadZone.xMax),
+                Mathf.Clamp(viewport.y, lockDeadZone.yMin, lockDeadZone.yMax));
+            float yawCorrection = Mathf.Atan2(local.x, local.z) - Mathf.Atan((edge.x * 2f - 1f) * horizontalTangent);
+            float pitchCorrection = Mathf.Atan2(local.y, new Vector2(local.x, local.z).magnitude) -
+                Mathf.Atan((edge.y * 2f - 1f) * verticalTangent);
+            float targetPitch = Mathf.Clamp(Mathf.DeltaAngle(0f, lockRotation.eulerAngles.x) - pitchCorrection * Mathf.Rad2Deg,
+                minimumLockPitch, 80f);
+            return Quaternion.Euler(targetPitch, lockRotation.eulerAngles.y + yawCorrection * Mathf.Rad2Deg, 0f);
+        }
+
+        private Vector3 GetRetreatDirection(Quaternion rotation)
+        {
+            // 좁은 화각에서도 상승 때문에 플레이어가 화면 아래로 밀려나지 않도록 비율을 제한한다.
+            float tangent = Mathf.Tan(viewCamera.fieldOfView * Mathf.Deg2Rad * .5f);
+            float rise = Mathf.Min(framingRise, tangent * (1f - framingMargin * 2f) * .7f);
+            return -(rotation * Vector3.forward) + Vector3.up * rise;
+        }
+
+        private float GetRequiredRetreat(Vector3 position, Quaternion rotation, Bounds playerBounds, Bounds bossBounds, float margin)
+        {
+            Quaternion inverse = Quaternion.Inverse(rotation);
+            Vector3 step = inverse * -GetRetreatDirection(rotation);
+            float vertical = Mathf.Tan(viewCamera.fieldOfView * Mathf.Deg2Rad * .5f) * (1f - margin * 2f);
+            float horizontal = vertical * viewCamera.aspect;
+            float required = 0f;
+            IncludeBounds(playerBounds, position, inverse, step, horizontal, vertical, ref required);
+            IncludeBounds(bossBounds, position, inverse, step, horizontal, vertical, ref required);
+            if (margin >= framingMargin && Mathf.DeltaAngle(0f, rotation.eulerAngles.x) <= minimumLockPitch + .25f)
+            {
+                // 높은 점프는 더 올려다보는 대신 후퇴·상승해서 장승 중심을 사각형 윗변까지 내린다.
+                Vector3 center = inverse * (GetBossFocusPoint() - position);
+                float top = Mathf.Tan(viewCamera.fieldOfView * Mathf.Deg2Rad * .5f) * (lockDeadZone.yMax * 2f - 1f);
+                required = Mathf.Max(required, (center.y - center.z * top) / Mathf.Max(.01f, step.z * top - step.y));
+            }
+            return required;
+        }
+
+        private void IncludeBounds(Bounds bounds, Vector3 position, Quaternion inverse, Vector3 step,
+            float horizontal, float vertical, ref float required)
+        {
+            // 두 몸체의 꼭짓점을 시야의 네 평면 안에 넣는 최소 후퇴 거리를 구한다. 매 프레임 할당은 없다.
+            for (int i = 0; i < 8; i++)
+            {
+                Vector3 corner = bounds.center + Vector3.Scale(bounds.extents,
+                    new Vector3((i & 1) == 0 ? -1f : 1f, (i & 2) == 0 ? -1f : 1f, (i & 4) == 0 ? -1f : 1f));
+                Vector3 local = inverse * (corner - position);
+                required = Mathf.Max(required, (viewCamera.nearClipPlane + .2f - local.z) / Mathf.Max(.01f, step.z));
+                required = Mathf.Max(required, (Mathf.Abs(local.x) - local.z * horizontal) / Mathf.Max(.01f, step.z * horizontal));
+                required = Mathf.Max(required, (local.y - local.z * vertical) / Mathf.Max(.01f, step.z * vertical - step.y));
+                required = Mathf.Max(required, (-local.y - local.z * vertical) / Mathf.Max(.01f, step.z * vertical + step.y));
+            }
+        }
+
+        private Bounds GetPlayerBounds()
+        {
+            Bounds bounds = playerBody != null && playerBody.enabled ? playerBody.bounds : new Bounds(player.position + Vector3.up, new Vector3(1f, 2f, 1f));
+            EncapsulateModel(ref bounds, playerRenderers);
+            bounds.Expand(.3f);
+            return bounds;
+        }
+
+        private Bounds GetBossBounds()
+        {
+            Bounds bounds = game != null && game.Boss is PassBossPatternController guardian && guardian.Body != null && guardian.Body.enabled
+                ? guardian.Body.bounds : new Bounds(GetBossFocusPoint(), new Vector3(2f, 11f, 2f));
+            EncapsulateModel(ref bounds, bossRenderers);
+            bounds.Expand(.3f);
+            return bounds;
+        }
+
+        private static void EncapsulateModel(ref Bounds bounds, Renderer[] renderers)
+        {
+            if (renderers == null) return;
+            foreach (Renderer model in renderers)
+                if (model != null && model.enabled && model.gameObject.activeInHierarchy && (model is MeshRenderer || model is SkinnedMeshRenderer))
+                    bounds.Encapsulate(model.bounds);
+        }
+
+        private Vector3 ResolveCollision(Vector3 position)
+        {
+            Vector3 offset = position - focus;
+            float length = offset.magnitude;
+            if (length < .001f) return position;
+            Vector3 direction = offset / length;
+            int count = Physics.SphereCastNonAlloc(focus, .22f, direction, hits, length, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
+            for (int i = 0; i < count; i++)
+            {
+                if (hits[i].transform.IsChildOf(player) || (BossLocked && boss != null && hits[i].transform.IsChildOf(boss))) continue;
+                length = Mathf.Min(length, Mathf.Max(.5f, hits[i].distance - .12f));
+            }
+            return focus + direction * length;
+        }
+
+        private Vector3 GetBossFocusPoint()
+        {
+            if (game != null && game.Boss is PassBossPatternController guardian && guardian.Body != null && guardian.Body.enabled)
+                return guardian.Body.bounds.center;
+            return boss.position + Vector3.up * 5.5f;
+        }
+
+        private void OnValidate()
+        {
+            lockDeadZone.width = Mathf.Clamp(lockDeadZone.width, .1f, .8f);
+            lockDeadZone.height = Mathf.Clamp(lockDeadZone.height, .1f, .8f);
+            lockDeadZone.x = Mathf.Clamp(lockDeadZone.x, Mathf.Max(.05f, .5f - lockDeadZone.width), Mathf.Min(.5f, .95f - lockDeadZone.width));
+            lockDeadZone.y = Mathf.Clamp(lockDeadZone.y, Mathf.Max(.05f, .5f - lockDeadZone.height), Mathf.Min(.5f, .95f - lockDeadZone.height));
+        }
+    }
+}

@@ -1,0 +1,110 @@
+{
+  "status": "passed",
+  "framesAdvanced": 368,
+  "maximumWorldMovement": 0.0,
+  "visibleAfterFinishAndInterrupt": 0,
+  "stages": [
+    {
+      "attack": 1,
+      "fraction": 0.1,
+      "frame": 26.3824654,
+      "head": 0.251122236,
+      "radius": 3.00000024,
+      "angle": 35.0000038,
+      "forwardReach": 4.39999962,
+      "fullWidth": 1.80423474,
+      "visibleWind": 1,
+      "probe": {
+        "visiblePixels": 314,
+        "maxVisibleRadius": 1.12375474,
+        "maxVisibleAngle": 10.8935461,
+        "hitFront": 1.12780559
+      }
+    },
+    {
+      "attack": 1,
+      "fraction": 0.35,
+      "frame": 30.30519,
+      "head": 0.7236016,
+      "radius": 3.00000024,
+      "angle": 35.0000038,
+      "forwardReach": 4.39999962,
+      "fullWidth": 1.80423474,
+      "visibleWind": 1,
+      "probe": {
+        "visiblePixels": 3147,
+        "maxVisibleRadius": 2.30244136,
+        "maxVisibleAngle": 15.9073029,
+        "hitFront": 2.30900383
+      }
+    },
+    {
+      "attack": 1,
+      "fraction": 0.75,
+      "frame": 34.8287,
+      "head": 0.9507526,
+      "radius": 3.00000024,
+      "angle": 35.0000038,
+      "forwardReach": 4.39999962,
+      "fullWidth": 1.80423474,
+      "visibleWind": 1,
+      "probe": {
+        "visiblePixels": 6329,
+        "maxVisibleRadius": 2.86919785,
+        "maxVisibleAngle": 17.4218674,
+        "hitFront": 2.8768816
+      }
+    },
+    {
+      "attack": 3,
+      "fraction": 0.1,
+      "frame": 22.239439,
+      "head": 0.263050348,
+      "radius": 8.000003,
+      "angle": 35.0000458,
+      "forwardReach": 8.0,
+      "fullWidth": 4.81129265,
+      "visibleWind": 1,
+      "probe": {
+        "visiblePixels": 413,
+        "maxVisibleRadius": 2.457205,
+        "maxVisibleAngle": 10.9841423,
+        "hitFront": 2.4728775
+      }
+    },
+    {
+      "attack": 3,
+      "fraction": 0.35,
+      "frame": 27.50998,
+      "head": 0.687299,
+      "radius": 8.000003,
+      "angle": 35.0000458,
+      "forwardReach": 8.0,
+      "fullWidth": 4.81129265,
+      "visibleWind": 1,
+      "probe": {
+        "visiblePixels": 4045,
+        "maxVisibleRadius": 5.644298,
+        "maxVisibleAngle": 14.28205,
+        "hitFront": 5.65474272
+      }
+    },
+    {
+      "attack": 3,
+      "fraction": 0.75,
+      "frame": 35.7548981,
+      "head": 0.9604359,
+      "radius": 8.000003,
+      "angle": 35.0000458,
+      "forwardReach": 8.0,
+      "fullWidth": 4.81129265,
+      "visibleWind": 1,
+      "probe": {
+        "visiblePixels": 9487,
+        "maxVisibleRadius": 7.67254448,
+        "maxVisibleAngle": 17.4346771,
+        "hitFront": 7.70326948
+      }
+    }
+  ]
+}

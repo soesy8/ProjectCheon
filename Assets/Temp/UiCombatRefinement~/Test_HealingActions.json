@@ -1,0 +1,33 @@
+{
+  "group": "HealingActions",
+  "passed": true,
+  "frame": 3592,
+  "checks": [
+    {
+      "name": "dodge drink starts",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "dodge cancels remaining healing",
+      "passed": true,
+      "details": {
+        "healed": 4.5130806,
+        "health": 34.51308
+      }
+    },
+    {
+      "name": "attack drink starts",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "attack cancels remaining healing",
+      "passed": true,
+      "details": {
+        "healed": 4.558876,
+        "health": 34.558876
+      }
+    }
+  ]
+}

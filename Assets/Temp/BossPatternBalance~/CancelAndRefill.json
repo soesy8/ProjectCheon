@@ -1,0 +1,9 @@
+{
+  "cancelledOnParticipantDeath": true,
+  "reservationReleased": true,
+  "onlyMissingMinionReplaced": true,
+  "spawnSmoke": true,
+  "refillDelay": 19.0192261,
+  "minions": 2,
+  "cancellationReason": "참가 잡몹 사망·비활성화"
+}

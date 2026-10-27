@@ -1,0 +1,2257 @@
+{
+  "scene": "Assets/Scenes/MountainPass/MountainPass_Optimized.unity",
+  "mode": "Natural AI, no forced pattern calls",
+  "settingsJson": "{\"jump\":{\"bossCooldown\":3.0,\"minionCooldown\":1.5,\"maximumDistance\":10.0,\"height\":5.0,\"minimumFlight\":0.44999998807907107,\"maximumFlight\":0.8999999761581421,\"windup\":1.0,\"recovery\":2.5,\"attackRadius\":2.5,\"offsetMinimum\":1.75,\"offsetMaximum\":3.0},\"fall\":{\"bossCooldownMinimum\":4.0,\"bossCooldownMaximum\":6.0,\"minionCooldownMinimum\":4.0,\"minionCooldownMaximum\":6.0,\"windup\":1.5,\"forwardFraction\":0.20000000298023225,\"forwardAngle\":10.0,\"backwardAngle\":30.0,\"fallDuration\":0.25,\"hitSidePushDistance\":1.0,\"holdDuration\":2.0,\"riseDuration\":1.0,\"recovery\":2.0,\"finalAngle\":90.0},\"turn\":{\"triggerAngle\":45.0,\"duration\":0.5,\"height\":1.0,\"cooldown\":1.0,\"maximumConsecutive\":3,\"openingDelay\":1.0},\"crack\":{\"enabled\":true,\"windup\":0.5,\"recovery\":1.0,\"cooldown\":8.0,\"stepCount\":5,\"stepDistance\":2.0,\"stepInterval\":0.15000000596046449,\"radius\":1.2000000476837159,\"activeDuration\":0.25,\"damage\":18.0,\"windupTilt\":20.0,\"strikeTilt\":30.0,\"recoilDuration\":1.0,\"effectLifetime\":1.0,\"lineWidth\":0.11999999731779099,\"color\":{\"r\":0.30000001192092898,\"g\":0.1599999964237213,\"b\":0.054999999701976779,\"a\":0.6499999761581421},\"material\":{\"instanceID\":50576},\"centerDustScale\":3.0,\"centerDustCount\":24,\"centerDustLift\":3.0,\"explosionOpacity\":0.7200000286102295,\"mediumDustClusters\":6,\"mediumDustScale\":1.2999999523162842,\"smallDustClusters\":10,\"smallDustScale\":0.6000000238418579},\"linkedAttack\":{\"enabled\":true,\"participants\":2,\"windup\":1.0,\"jumpInterval\":0.5,\"attackGap\":0.5,\"cooldown\":6.0,\"startTimeout\":3.0,\"teleportSideDistance\":4.0,\"teleportDuration\":0.25,\"teleportHopHeight\":0.30000001192092898,\"vanishFraction\":0.30000001192092898,\"appearFraction\":0.699999988079071,\"teleportSearchRadius\":1.0,\"smokeParticles\":48,\"smokeSize\":{\"x\":0.6000000238418579,\"y\":1.2000000476837159},\"smokeLifetime\":1.0,\"smokeSpeed\":1.0,\"smokeColor\":{\"r\":0.9599999785423279,\"g\":0.9700000286102295,\"b\":1.0,\"a\":0.8500000238418579}},\"summon\":{\"requiredJumps\":3,\"spawnCount\":2,\"maximumAlive\":2,\"afterClearCooldown\":15.0,\"sideDistance\":4.0,\"minionScale\":0.25,\"windup\":1.0,\"recovery\":1.0,\"deathLifetime\":1.0,\"visualPrefab\":{\"instanceID\":50578},\"modelScale\":{\"x\":1.5000001192092896,\"y\":2.25,\"z\":1.5000001192092896}},\"combat\":{\"bossHealth\":420.0,\"minionHealth\":60.0,\"bossJumpDamage\":20.0,\"bossFallDamage\":28.0,\"minionJumpDamage\":8.0,\"minionFallDamage\":12.0,\"enemyHitRecovery\":1.0,\"playerDamage\":{\"x\":22.0,\"y\":28.0,\"z\":40.0}},\"collision\":{\"radius\":0.9900000095367432,\"height\":12.217499732971192,\"clearance\":0.07999999821186066,\"groundTolerance\":2.0,\"sweepDegrees\":3.0},\"dust\":{\"material\":{\"instanceID\":50580},\"landingParticles\":48,\"fallParticles\":72,\"size\":{\"x\":0.3499999940395355,\"y\":0.8999999761581421},\"lifetime\":{\"x\":1.0,\"y\":1.0},\"opacity\":0.41999998688697817,\"color\":{\"r\":0.6200000047683716,\"g\":0.5,\"b\":0.3400000035762787,\"a\":1.0}},\"death\":{\"material\":{\"instanceID\":50582},\"powderMaterial\":{\"instanceID\":50584},\"tintDuration\":1.0,\"dissolveDuration\":1.0,\"particleTail\":1.0,\"noiseScale\":3.0,\"edgeWidth\":0.11999999731779099,\"tint\":{\"r\":0.12999999523162843,\"g\":0.02500000037252903,\"b\":0.20999999344348908,\"a\":1.0},\"edgeColor\":{\"r\":0.3199999928474426,\"g\":0.07999999821186066,\"b\":0.4399999976158142,\"a\":1.0},\"particlesPerSecond\":240,\"particleSize\":{\"x\":0.05999999865889549,\"y\":0.14000000059604646},\"particleLifetime\":1.0,\"particleSpeed\":1.0,\"particleDrift\":{\"x\":0.4000000059604645,\"y\":1.0,\"z\":0.20000000298023225},\"particleColor\":{\"r\":0.5799999833106995,\"g\":0.3199999928474426,\"b\":0.7200000286102295,\"a\":0.949999988079071}}}",
+  "elapsed": 120.002289,
+  "finished": true,
+  "bossJumps": 9,
+  "bossFalls": 7,
+  "bossCracks": 9,
+  "summons": 1,
+  "livingMinions": 2,
+  "linkedStarts": 0,
+  "linkedCompleted": 0,
+  "linkedCancellations": 0,
+  "idleOpportunitySamples": {
+    "not_enough_living_minions": 235,
+    "boss_ready_idle_minions_0_eligible_0": 9,
+    "boss_fall_cooldown": 10,
+    "turning_has_priority": 5,
+    "boss_ready_idle_minions_1_eligible_0": 1
+  },
+  "events": [
+    {
+      "at": 0.0199999921,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": -0.0199999921,
+      "fallCooldown": -0.0199999921
+    },
+    {
+      "at": 1.01490712,
+      "actor": "Boss",
+      "phase": "CrackWindup",
+      "jumpCooldown": -1.01490712,
+      "fallCooldown": -1.01490712
+    },
+    {
+      "at": 1.53210282,
+      "actor": "Boss",
+      "phase": "CrackActive",
+      "jumpCooldown": -1.53210282,
+      "fallCooldown": -1.53210282
+    },
+    {
+      "at": 2.53725576,
+      "actor": "Boss",
+      "phase": "CrackRecovery",
+      "jumpCooldown": -2.53725576,
+      "fallCooldown": -2.53725576
+    },
+    {
+      "at": 3.55302739,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": -3.55302739,
+      "fallCooldown": -3.55302739
+    },
+    {
+      "at": 3.570181,
+      "actor": "Boss",
+      "phase": "JumpWindup",
+      "jumpCooldown": -3.570181,
+      "fallCooldown": -3.570181
+    },
+    {
+      "at": 4.58695745,
+      "actor": "Boss",
+      "phase": "JumpFlight",
+      "jumpCooldown": -4.58695745,
+      "fallCooldown": -4.58695745
+    },
+    {
+      "at": 5.50348425,
+      "actor": "Boss",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -5.50348425,
+      "fallCooldown": -5.50348425
+    },
+    {
+      "at": 8.020372,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 3.0,
+      "fallCooldown": -8.020372
+    },
+    {
+      "at": 11.0240841,
+      "actor": "Boss",
+      "phase": "JumpWindup",
+      "jumpCooldown": -0.00371170044,
+      "fallCooldown": -11.0240841
+    },
+    {
+      "at": 12.0242281,
+      "actor": "Boss",
+      "phase": "JumpFlight",
+      "jumpCooldown": -1.00385571,
+      "fallCooldown": -12.0242281
+    },
+    {
+      "at": 12.9404459,
+      "actor": "Boss",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -1.92007351,
+      "fallCooldown": -12.9404459
+    },
+    {
+      "at": 15.4409847,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 3.0,
+      "fallCooldown": -15.4409847
+    },
+    {
+      "at": 15.4570789,
+      "actor": "Boss",
+      "phase": "CrackWindup",
+      "jumpCooldown": 2.98390579,
+      "fallCooldown": -15.4570789
+    },
+    {
+      "at": 15.9747181,
+      "actor": "Boss",
+      "phase": "CrackActive",
+      "jumpCooldown": 2.46626663,
+      "fallCooldown": -15.9747181
+    },
+    {
+      "at": 16.99049,
+      "actor": "Boss",
+      "phase": "CrackRecovery",
+      "jumpCooldown": 1.45049477,
+      "fallCooldown": -16.99049
+    },
+    {
+      "at": 17.9923325,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 0.448652267,
+      "fallCooldown": -17.9923325
+    },
+    {
+      "at": 18.0089989,
+      "actor": "Boss",
+      "phase": "FallWindup",
+      "jumpCooldown": 0.431985855,
+      "fallCooldown": -18.0089989
+    },
+    {
+      "at": 19.5258236,
+      "actor": "Boss",
+      "phase": "Falling",
+      "jumpCooldown": -1.08483887,
+      "fallCooldown": -19.5258236
+    },
+    {
+      "at": 19.792778,
+      "actor": "Boss",
+      "phase": "FallHold",
+      "jumpCooldown": -1.35179329,
+      "fallCooldown": -19.792778
+    },
+    {
+      "at": 21.7931938,
+      "actor": "Boss",
+      "phase": "Rising",
+      "jumpCooldown": -3.352209,
+      "fallCooldown": -21.7931938
+    },
+    {
+      "at": 22.8095856,
+      "actor": "Boss",
+      "phase": "FallRecovery",
+      "jumpCooldown": -4.368601,
+      "fallCooldown": -22.8095856
+    },
+    {
+      "at": 24.8259525,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": -6.384968,
+      "fallCooldown": 5.81261444
+    },
+    {
+      "at": 24.842411,
+      "actor": "Boss",
+      "phase": "JumpWindup",
+      "jumpCooldown": -6.40142632,
+      "fallCooldown": 5.796156
+    },
+    {
+      "at": 25.8429356,
+      "actor": "Boss",
+      "phase": "JumpFlight",
+      "jumpCooldown": -7.401951,
+      "fallCooldown": 4.79563141
+    },
+    {
+      "at": 26.7096043,
+      "actor": "Boss",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -8.26862,
+      "fallCooldown": 3.92896271
+    },
+    {
+      "at": 29.2265911,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 3.000002,
+      "fallCooldown": 1.41197586
+    },
+    {
+      "at": 29.2429676,
+      "actor": "Boss",
+      "phase": "Turning",
+      "jumpCooldown": 2.98362541,
+      "fallCooldown": 1.39559937
+    },
+    {
+      "at": 29.7526665,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 2.47392654,
+      "fallCooldown": 0.8859005
+    },
+    {
+      "at": 29.7689838,
+      "actor": "Boss",
+      "phase": "SummonWindup",
+      "jumpCooldown": 2.45760918,
+      "fallCooldown": 0.86958313
+    },
+    {
+      "at": 30.7694817,
+      "actor": "Boss",
+      "phase": "SummonRecovery",
+      "jumpCooldown": 1.45711136,
+      "fallCooldown": -0.130914688
+    },
+    {
+      "at": 30.7694817,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": -30.7694817,
+      "fallCooldown": -30.7694817
+    },
+    {
+      "at": 30.7694817,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": -30.7694817,
+      "fallCooldown": -30.7694817
+    },
+    {
+      "at": 31.7801914,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 0.4464016,
+      "fallCooldown": -1.14162445
+    },
+    {
+      "at": 31.7801914,
+      "actor": "MiniJangseung_Left",
+      "phase": "Turning",
+      "jumpCooldown": -31.7801914,
+      "fallCooldown": -31.7801914
+    },
+    {
+      "at": 31.7801914,
+      "actor": "MiniJangseung_Right",
+      "phase": "Turning",
+      "jumpCooldown": -31.7801914,
+      "fallCooldown": -31.7801914
+    },
+    {
+      "at": 31.7966576,
+      "actor": "Boss",
+      "phase": "CrackWindup",
+      "jumpCooldown": 0.429935455,
+      "fallCooldown": -1.15809059
+    },
+    {
+      "at": 32.28042,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": -32.28042,
+      "fallCooldown": -32.28042
+    },
+    {
+      "at": 32.28042,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": -32.28042,
+      "fallCooldown": -32.28042
+    },
+    {
+      "at": 32.295742,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpWindup",
+      "jumpCooldown": -32.295742,
+      "fallCooldown": -32.295742
+    },
+    {
+      "at": 32.295742,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpWindup",
+      "jumpCooldown": -32.295742,
+      "fallCooldown": -32.295742
+    },
+    {
+      "at": 32.3133354,
+      "actor": "Boss",
+      "phase": "CrackActive",
+      "jumpCooldown": -0.0867424,
+      "fallCooldown": -1.67476845
+    },
+    {
+      "at": 33.2972527,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpFlight",
+      "jumpCooldown": -33.2972527,
+      "fallCooldown": -33.2972527
+    },
+    {
+      "at": 33.2972527,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpFlight",
+      "jumpCooldown": -33.2972527,
+      "fallCooldown": -33.2972527
+    },
+    {
+      "at": 33.3138428,
+      "actor": "Boss",
+      "phase": "CrackRecovery",
+      "jumpCooldown": -1.08724976,
+      "fallCooldown": -2.6752758
+    },
+    {
+      "at": 34.0473061,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -34.0473061,
+      "fallCooldown": -34.0473061
+    },
+    {
+      "at": 34.07953,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -34.07953,
+      "fallCooldown": -34.07953
+    },
+    {
+      "at": 34.3306541,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": -2.10406113,
+      "fallCooldown": -3.69208717
+    },
+    {
+      "at": 34.3464851,
+      "actor": "Boss",
+      "phase": "FallWindup",
+      "jumpCooldown": -2.11989212,
+      "fallCooldown": -3.70791817
+    },
+    {
+      "at": 35.8471031,
+      "actor": "Boss",
+      "phase": "Falling",
+      "jumpCooldown": -3.62051,
+      "fallCooldown": -5.208536
+    },
+    {
+      "at": 36.097374,
+      "actor": "Boss",
+      "phase": "FallHold",
+      "jumpCooldown": -3.870781,
+      "fallCooldown": -5.458807
+    },
+    {
+      "at": 36.5477448,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": -36.5477448
+    },
+    {
+      "at": 36.5640373,
+      "actor": "MiniJangseung_Left",
+      "phase": "Turning",
+      "jumpCooldown": 1.48370743,
+      "fallCooldown": -36.5640373
+    },
+    {
+      "at": 36.5800362,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": -36.5800362
+    },
+    {
+      "at": 36.5974846,
+      "actor": "MiniJangseung_Right",
+      "phase": "Turning",
+      "jumpCooldown": 1.48255157,
+      "fallCooldown": -36.5974846
+    },
+    {
+      "at": 37.0807762,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": 0.966968536,
+      "fallCooldown": -37.0807762
+    },
+    {
+      "at": 37.0971565,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallWindup",
+      "jumpCooldown": 0.9505882,
+      "fallCooldown": -37.0971565
+    },
+    {
+      "at": 37.1135941,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 0.9664421,
+      "fallCooldown": -37.1135941
+    },
+    {
+      "at": 38.09705,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpWindup",
+      "jumpCooldown": -0.01701355,
+      "fallCooldown": -38.09705
+    },
+    {
+      "at": 38.1134338,
+      "actor": "Boss",
+      "phase": "Rising",
+      "jumpCooldown": -5.886841,
+      "fallCooldown": -7.474867
+    },
+    {
+      "at": 38.6137123,
+      "actor": "MiniJangseung_Left",
+      "phase": "Falling",
+      "jumpCooldown": -0.56596756,
+      "fallCooldown": -38.6137123
+    },
+    {
+      "at": 38.863884,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallHold",
+      "jumpCooldown": -0.8161392,
+      "fallCooldown": -38.863884
+    },
+    {
+      "at": 39.0974426,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpFlight",
+      "jumpCooldown": -1.01740646,
+      "fallCooldown": -39.0974426
+    },
+    {
+      "at": 39.1138878,
+      "actor": "Boss",
+      "phase": "FallRecovery",
+      "jumpCooldown": -6.887295,
+      "fallCooldown": -8.475321
+    },
+    {
+      "at": 39.81407,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -1.73403549,
+      "fallCooldown": -39.81407
+    },
+    {
+      "at": 40.88117,
+      "actor": "MiniJangseung_Left",
+      "phase": "Rising",
+      "jumpCooldown": -2.83342361,
+      "fallCooldown": -40.88117
+    },
+    {
+      "at": 41.1307526,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": -8.90416,
+      "fallCooldown": 4.846325
+    },
+    {
+      "at": 41.14719,
+      "actor": "Boss",
+      "phase": "JumpWindup",
+      "jumpCooldown": -8.920597,
+      "fallCooldown": 4.82988739
+    },
+    {
+      "at": 41.8970375,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallRecovery",
+      "jumpCooldown": -3.84929276,
+      "fallCooldown": -41.8970375
+    },
+    {
+      "at": 42.1472473,
+      "actor": "Boss",
+      "phase": "JumpFlight",
+      "jumpCooldown": -9.920654,
+      "fallCooldown": 3.82983017
+    },
+    {
+      "at": 42.33015,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": -42.33015
+    },
+    {
+      "at": 42.3477,
+      "actor": "MiniJangseung_Right",
+      "phase": "Turning",
+      "jumpCooldown": 1.48245239,
+      "fallCooldown": -42.3477
+    },
+    {
+      "at": 42.7806473,
+      "actor": "Boss",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -10.5540543,
+      "fallCooldown": 3.19643021
+    },
+    {
+      "at": 42.84811,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 0.9820404,
+      "fallCooldown": -42.84811
+    },
+    {
+      "at": 42.86245,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallWindup",
+      "jumpCooldown": 0.967700958,
+      "fallCooldown": -42.86245
+    },
+    {
+      "at": 43.8974762,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": -5.84973145,
+      "fallCooldown": 5.40844727
+    },
+    {
+      "at": 43.9138222,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpWindup",
+      "jumpCooldown": -5.86607742,
+      "fallCooldown": 5.39210129
+    },
+    {
+      "at": 44.3644028,
+      "actor": "MiniJangseung_Right",
+      "phase": "Falling",
+      "jumpCooldown": -0.534252167,
+      "fallCooldown": -44.3644028
+    },
+    {
+      "at": 44.63063,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallHold",
+      "jumpCooldown": -0.8004799,
+      "fallCooldown": -44.63063
+    },
+    {
+      "at": 44.9307022,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpFlight",
+      "jumpCooldown": -6.88295746,
+      "fallCooldown": 4.37522125
+    },
+    {
+      "at": 45.28112,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 3.0,
+      "fallCooldown": 0.6959572
+    },
+    {
+      "at": 45.29706,
+      "actor": "Boss",
+      "phase": "Turning",
+      "jumpCooldown": 2.98406219,
+      "fallCooldown": 0.6800194
+    },
+    {
+      "at": 45.4303932,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -7.38264847,
+      "fallCooldown": 3.87553024
+    },
+    {
+      "at": 45.813282,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 2.46783829,
+      "fallCooldown": 0.163795471
+    },
+    {
+      "at": 45.8305321,
+      "actor": "Boss",
+      "phase": "CrackWindup",
+      "jumpCooldown": 2.45058823,
+      "fallCooldown": 0.14654541
+    },
+    {
+      "at": 46.3306122,
+      "actor": "Boss",
+      "phase": "CrackActive",
+      "jumpCooldown": 1.95050812,
+      "fallCooldown": -0.3535347
+    },
+    {
+      "at": 46.6468468,
+      "actor": "MiniJangseung_Right",
+      "phase": "Rising",
+      "jumpCooldown": -2.81669617,
+      "fallCooldown": -46.6468468
+    },
+    {
+      "at": 47.347,
+      "actor": "Boss",
+      "phase": "CrackRecovery",
+      "jumpCooldown": 0.9341202,
+      "fallCooldown": -1.36992264
+    },
+    {
+      "at": 47.64763,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallRecovery",
+      "jumpCooldown": -3.81747818,
+      "fallCooldown": -47.64763
+    },
+    {
+      "at": 47.9499168,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": 1.35600662
+    },
+    {
+      "at": 48.3470879,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": -0.06596756,
+      "fallCooldown": -2.37001038
+    },
+    {
+      "at": 48.3633766,
+      "actor": "Boss",
+      "phase": "FallWindup",
+      "jumpCooldown": -0.08225632,
+      "fallCooldown": -2.38629913
+    },
+    {
+      "at": 49.3134079,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallWindup",
+      "jumpCooldown": 0.136508942,
+      "fallCooldown": -0.007484436
+    },
+    {
+      "at": 49.6561241,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": -5.82597351,
+      "fallCooldown": 5.74551773
+    },
+    {
+      "at": 49.6724739,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpWindup",
+      "jumpCooldown": -5.8423233,
+      "fallCooldown": 5.729168
+    },
+    {
+      "at": 49.8735123,
+      "actor": "Boss",
+      "phase": "Falling",
+      "jumpCooldown": -1.592392,
+      "fallCooldown": -3.89643478
+    },
+    {
+      "at": 50.123703,
+      "actor": "Boss",
+      "phase": "FallHold",
+      "jumpCooldown": -1.8425827,
+      "fallCooldown": -4.14662552
+    },
+    {
+      "at": 50.6726341,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpFlight",
+      "jumpCooldown": -6.84248352,
+      "fallCooldown": 4.72900772
+    },
+    {
+      "at": 50.82275,
+      "actor": "MiniJangseung_Left",
+      "phase": "Falling",
+      "jumpCooldown": -1.37283325,
+      "fallCooldown": -1.51682663
+    },
+    {
+      "at": 51.0902,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallHold",
+      "jumpCooldown": -1.64028168,
+      "fallCooldown": -1.784275
+    },
+    {
+      "at": 51.1562958,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -7.326145,
+      "fallCooldown": 4.245346
+    },
+    {
+      "at": 52.1399879,
+      "actor": "Boss",
+      "phase": "Rising",
+      "jumpCooldown": -3.85886765,
+      "fallCooldown": -6.16291046
+    },
+    {
+      "at": 53.106308,
+      "actor": "MiniJangseung_Left",
+      "phase": "Rising",
+      "jumpCooldown": -3.65639114,
+      "fallCooldown": -3.80038452
+    },
+    {
+      "at": 53.1571732,
+      "actor": "Boss",
+      "phase": "FallRecovery",
+      "jumpCooldown": -4.876053,
+      "fallCooldown": -7.18009567
+    },
+    {
+      "at": 53.6569443,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": 1.74469757
+    },
+    {
+      "at": 53.67312,
+      "actor": "MiniJangseung_Right",
+      "phase": "Turning",
+      "jumpCooldown": 1.48382568,
+      "fallCooldown": 1.72852325
+    },
+    {
+      "at": 54.1069565,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallRecovery",
+      "jumpCooldown": -4.65703964,
+      "fallCooldown": -4.801033
+    },
+    {
+      "at": 54.1897278,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 0.9672165,
+      "fallCooldown": 1.21191406
+    },
+    {
+      "at": 55.1735344,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": -6.892414,
+      "fallCooldown": 4.543087
+    },
+    {
+      "at": 55.1735344,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpWindup",
+      "jumpCooldown": -0.0165901184,
+      "fallCooldown": 0.228107452
+    },
+    {
+      "at": 55.18937,
+      "actor": "Boss",
+      "phase": "JumpWindup",
+      "jumpCooldown": -6.908249,
+      "fallCooldown": 4.527252
+    },
+    {
+      "at": 56.1229553,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": -6.67303848,
+      "fallCooldown": 5.19086456
+    },
+    {
+      "at": 56.1402054,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpWindup",
+      "jumpCooldown": -6.69028854,
+      "fallCooldown": 5.1736145
+    },
+    {
+      "at": 56.1894875,
+      "actor": "Boss",
+      "phase": "JumpFlight",
+      "jumpCooldown": -7.908367,
+      "fallCooldown": 3.527134
+    },
+    {
+      "at": 56.1894875,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpFlight",
+      "jumpCooldown": -1.03254318,
+      "fallCooldown": -0.7878456
+    },
+    {
+      "at": 56.73976,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -1.58281708,
+      "fallCooldown": -1.33811951
+    },
+    {
+      "at": 56.7726021,
+      "actor": "Boss",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -8.491482,
+      "fallCooldown": 2.94401932
+    },
+    {
+      "at": 57.1405563,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpFlight",
+      "jumpCooldown": -7.6906395,
+      "fallCooldown": 4.17326355
+    },
+    {
+      "at": 57.6901436,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -8.240227,
+      "fallCooldown": 3.6236763
+    },
+    {
+      "at": 59.2562332,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": -3.85459137
+    },
+    {
+      "at": 59.27357,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 3.0,
+      "fallCooldown": 0.443050385
+    },
+    {
+      "at": 59.27357,
+      "actor": "MiniJangseung_Right",
+      "phase": "Turning",
+      "jumpCooldown": 1.4826622,
+      "fallCooldown": -3.87192917
+    },
+    {
+      "at": 59.28985,
+      "actor": "Boss",
+      "phase": "Turning",
+      "jumpCooldown": 2.98372269,
+      "fallCooldown": 0.426773071
+    },
+    {
+      "at": 59.7896347,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 0.9665985,
+      "fallCooldown": -4.387993
+    },
+    {
+      "at": 59.807003,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 2.466568,
+      "fallCooldown": -0.09038162
+    },
+    {
+      "at": 59.807003,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallWindup",
+      "jumpCooldown": 0.9492302,
+      "fallCooldown": -4.405361
+    },
+    {
+      "at": 59.8230743,
+      "actor": "Boss",
+      "phase": "CrackWindup",
+      "jumpCooldown": 2.45049667,
+      "fallCooldown": -0.106452942
+    },
+    {
+      "at": 60.1906166,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": 1.12320328
+    },
+    {
+      "at": 60.2062378,
+      "actor": "MiniJangseung_Left",
+      "phase": "Turning",
+      "jumpCooldown": 1.48437881,
+      "fallCooldown": 1.10758209
+    },
+    {
+      "at": 60.3407631,
+      "actor": "Boss",
+      "phase": "CrackActive",
+      "jumpCooldown": 1.93280792,
+      "fallCooldown": -0.6241417
+    },
+    {
+      "at": 60.7063332,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": 0.984283447,
+      "fallCooldown": 0.6074867
+    },
+    {
+      "at": 61.323246,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallWindup",
+      "jumpCooldown": 0.3673706,
+      "fallCooldown": -0.009426117
+    },
+    {
+      "at": 61.323246,
+      "actor": "MiniJangseung_Right",
+      "phase": "Falling",
+      "jumpCooldown": -0.5670128,
+      "fallCooldown": -5.921604
+    },
+    {
+      "at": 61.3562279,
+      "actor": "Boss",
+      "phase": "CrackRecovery",
+      "jumpCooldown": 0.91734314,
+      "fallCooldown": -1.63960648
+    },
+    {
+      "at": 61.5900764,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallHold",
+      "jumpCooldown": -0.833843231,
+      "fallCooldown": -6.1884346
+    },
+    {
+      "at": 62.3568,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": -0.0832290649,
+      "fallCooldown": -2.64017868
+    },
+    {
+      "at": 62.37297,
+      "actor": "Boss",
+      "phase": "FallWindup",
+      "jumpCooldown": -0.09939957,
+      "fallCooldown": -2.65634918
+    },
+    {
+      "at": 62.8402824,
+      "actor": "MiniJangseung_Left",
+      "phase": "Falling",
+      "jumpCooldown": -1.14966583,
+      "fallCooldown": -1.52646255
+    },
+    {
+      "at": 63.10534,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallHold",
+      "jumpCooldown": -1.41472244,
+      "fallCooldown": -1.79151917
+    },
+    {
+      "at": 63.6066437,
+      "actor": "MiniJangseung_Right",
+      "phase": "Rising",
+      "jumpCooldown": -2.85041046,
+      "fallCooldown": -8.205002
+    },
+    {
+      "at": 63.88965,
+      "actor": "Boss",
+      "phase": "Falling",
+      "jumpCooldown": -1.61607742,
+      "fallCooldown": -4.173027
+    },
+    {
+      "at": 64.1401749,
+      "actor": "Boss",
+      "phase": "FallHold",
+      "jumpCooldown": -1.86660385,
+      "fallCooldown": -4.42355347
+    },
+    {
+      "at": 64.62275,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallRecovery",
+      "jumpCooldown": -3.866516,
+      "fallCooldown": -9.22110748
+    },
+    {
+      "at": 65.10652,
+      "actor": "MiniJangseung_Left",
+      "phase": "Rising",
+      "jumpCooldown": -3.415905,
+      "fallCooldown": -3.79270172
+    },
+    {
+      "at": 66.12311,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallRecovery",
+      "jumpCooldown": -4.4324913,
+      "fallCooldown": -4.809288
+    },
+    {
+      "at": 66.1572952,
+      "actor": "Boss",
+      "phase": "Rising",
+      "jumpCooldown": -3.88372421,
+      "fallCooldown": -6.440674
+    },
+    {
+      "at": 66.6227951,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": -5.866562,
+      "fallCooldown": 4.280754
+    },
+    {
+      "at": 66.640274,
+      "actor": "MiniJangseung_Right",
+      "phase": "Turning",
+      "jumpCooldown": -5.884041,
+      "fallCooldown": 4.263275
+    },
+    {
+      "at": 67.1403046,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": -6.38407135,
+      "fallCooldown": 3.76324463
+    },
+    {
+      "at": 67.157196,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpWindup",
+      "jumpCooldown": -6.400963,
+      "fallCooldown": 3.74635315
+    },
+    {
+      "at": 67.17292,
+      "actor": "Boss",
+      "phase": "FallRecovery",
+      "jumpCooldown": -4.899349,
+      "fallCooldown": -7.456299
+    },
+    {
+      "at": 68.12337,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": -6.4327507,
+      "fallCooldown": 4.35250854
+    },
+    {
+      "at": 68.13956,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpWindup",
+      "jumpCooldown": -6.44894028,
+      "fallCooldown": 4.336319
+    },
+    {
+      "at": 68.1734543,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpFlight",
+      "jumpCooldown": -7.417221,
+      "fallCooldown": 2.730095
+    },
+    {
+      "at": 68.8064346,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -8.050201,
+      "fallCooldown": 2.09711456
+    },
+    {
+      "at": 69.13967,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpFlight",
+      "jumpCooldown": -7.44905472,
+      "fallCooldown": 3.33620453
+    },
+    {
+      "at": 69.1735,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": -6.899929,
+      "fallCooldown": 5.141449
+    },
+    {
+      "at": 69.18979,
+      "actor": "Boss",
+      "phase": "JumpWindup",
+      "jumpCooldown": -6.916218,
+      "fallCooldown": 5.12516
+    },
+    {
+      "at": 69.76689,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -8.076275,
+      "fallCooldown": 2.70898438
+    },
+    {
+      "at": 70.20014,
+      "actor": "Boss",
+      "phase": "JumpFlight",
+      "jumpCooldown": -7.926571,
+      "fallCooldown": 4.114807
+    },
+    {
+      "at": 70.81644,
+      "actor": "Boss",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -8.542866,
+      "fallCooldown": 3.49851227
+    },
+    {
+      "at": 71.31633,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": -0.412780762
+    },
+    {
+      "at": 71.33364,
+      "actor": "MiniJangseung_Right",
+      "phase": "Turning",
+      "jumpCooldown": 1.4826889,
+      "fallCooldown": -0.430091858
+    },
+    {
+      "at": 71.8506241,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 0.9657059,
+      "fallCooldown": -0.9470749
+    },
+    {
+      "at": 71.86669,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallWindup",
+      "jumpCooldown": 0.949638367,
+      "fallCooldown": -0.9631424
+    },
+    {
+      "at": 72.28291,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": 0.192962646
+    },
+    {
+      "at": 72.30004,
+      "actor": "MiniJangseung_Left",
+      "phase": "Turning",
+      "jumpCooldown": 1.482872,
+      "fallCooldown": 0.175834656
+    },
+    {
+      "at": 72.81685,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": 0.966064453,
+      "fallCooldown": -0.3409729
+    },
+    {
+      "at": 72.83302,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallWindup",
+      "jumpCooldown": 0.949890137,
+      "fallCooldown": -0.357147217
+    },
+    {
+      "at": 73.31713,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 3.0,
+      "fallCooldown": 0.997818
+    },
+    {
+      "at": 73.33393,
+      "actor": "Boss",
+      "phase": "Turning",
+      "jumpCooldown": 2.9832,
+      "fallCooldown": 0.981018066
+    },
+    {
+      "at": 73.36686,
+      "actor": "MiniJangseung_Right",
+      "phase": "Falling",
+      "jumpCooldown": -0.5505295,
+      "fallCooldown": -2.46331024
+    },
+    {
+      "at": 73.61705,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallHold",
+      "jumpCooldown": -0.8007202,
+      "fallCooldown": -2.713501
+    },
+    {
+      "at": 73.85048,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 2.466652,
+      "fallCooldown": 0.4644699
+    },
+    {
+      "at": 73.86648,
+      "actor": "Boss",
+      "phase": "CrackWindup",
+      "jumpCooldown": 2.450653,
+      "fallCooldown": 0.448471069
+    },
+    {
+      "at": 74.33346,
+      "actor": "MiniJangseung_Left",
+      "phase": "Falling",
+      "jumpCooldown": -0.550544739,
+      "fallCooldown": -1.85758209
+    },
+    {
+      "at": 74.36648,
+      "actor": "Boss",
+      "phase": "CrackActive",
+      "jumpCooldown": 1.95065308,
+      "fallCooldown": -0.05152893
+    },
+    {
+      "at": 74.60052,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallHold",
+      "jumpCooldown": -0.817604065,
+      "fallCooldown": -2.12464142
+    },
+    {
+      "at": 75.3665161,
+      "actor": "Boss",
+      "phase": "CrackRecovery",
+      "jumpCooldown": 0.9506149,
+      "fallCooldown": -1.05156708
+    },
+    {
+      "at": 75.63433,
+      "actor": "MiniJangseung_Right",
+      "phase": "Rising",
+      "jumpCooldown": -2.81800079,
+      "fallCooldown": -4.73078156
+    },
+    {
+      "at": 76.36652,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": -0.0493927,
+      "fallCooldown": -2.05157471
+    },
+    {
+      "at": 76.3830643,
+      "actor": "Boss",
+      "phase": "FallWindup",
+      "jumpCooldown": -0.06593323,
+      "fallCooldown": -2.06811523
+    },
+    {
+      "at": 76.61706,
+      "actor": "MiniJangseung_Left",
+      "phase": "Rising",
+      "jumpCooldown": -2.83414459,
+      "fallCooldown": -4.141182
+    },
+    {
+      "at": 76.649765,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallRecovery",
+      "jumpCooldown": -3.833435,
+      "fallCooldown": -5.746216
+    },
+    {
+      "at": 77.6172256,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallRecovery",
+      "jumpCooldown": -3.83431244,
+      "fallCooldown": -5.14135
+    },
+    {
+      "at": 77.88311,
+      "actor": "Boss",
+      "phase": "Falling",
+      "jumpCooldown": -1.565979,
+      "fallCooldown": -3.568161
+    },
+    {
+      "at": 78.13459,
+      "actor": "Boss",
+      "phase": "FallHold",
+      "jumpCooldown": -1.81745911,
+      "fallCooldown": -3.819641
+    },
+    {
+      "at": 78.64981,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": -5.833481,
+      "fallCooldown": 4.97812653
+    },
+    {
+      "at": 78.66686,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpWindup",
+      "jumpCooldown": -5.85053253,
+      "fallCooldown": 4.961075
+    },
+    {
+      "at": 79.63379,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": -5.850876,
+      "fallCooldown": 4.4781723
+    },
+    {
+      "at": 79.64992,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpWindup",
+      "jumpCooldown": -5.86700439,
+      "fallCooldown": 4.462044
+    },
+    {
+      "at": 79.6673355,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpFlight",
+      "jumpCooldown": -6.85100555,
+      "fallCooldown": 3.96060181
+    },
+    {
+      "at": 80.15023,
+      "actor": "Boss",
+      "phase": "Rising",
+      "jumpCooldown": -3.83309937,
+      "fallCooldown": -5.83528137
+    },
+    {
+      "at": 80.33357,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -7.51724243,
+      "fallCooldown": 3.294365
+    },
+    {
+      "at": 80.6665039,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpFlight",
+      "jumpCooldown": -6.8835907,
+      "fallCooldown": 3.44545746
+    },
+    {
+      "at": 81.1663,
+      "actor": "Boss",
+      "phase": "FallRecovery",
+      "jumpCooldown": -4.849167,
+      "fallCooldown": -6.851349
+    },
+    {
+      "at": 81.1663,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -7.3833847,
+      "fallCooldown": 2.94566345
+    },
+    {
+      "at": 82.8342743,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": 0.793663
+    },
+    {
+      "at": 82.84999,
+      "actor": "MiniJangseung_Right",
+      "phase": "Turning",
+      "jumpCooldown": 1.48428345,
+      "fallCooldown": 0.7779465
+    },
+    {
+      "at": 83.16673,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": -6.84960175,
+      "fallCooldown": 4.16712952
+    },
+    {
+      "at": 83.1831,
+      "actor": "Boss",
+      "phase": "JumpWindup",
+      "jumpCooldown": -6.865967,
+      "fallCooldown": 4.15076447
+    },
+    {
+      "at": 83.3500443,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 0.984230042,
+      "fallCooldown": 0.277893066
+    },
+    {
+      "at": 83.6332,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallWindup",
+      "jumpCooldown": 0.7010727,
+      "fallCooldown": -0.005264282
+    },
+    {
+      "at": 83.6665,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": 0.4454651
+    },
+    {
+      "at": 84.11674,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallWindup",
+      "jumpCooldown": 1.04975891,
+      "fallCooldown": -0.004776001
+    },
+    {
+      "at": 84.183754,
+      "actor": "Boss",
+      "phase": "JumpFlight",
+      "jumpCooldown": -7.866623,
+      "fallCooldown": 3.15010834
+    },
+    {
+      "at": 84.7505,
+      "actor": "Boss",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -8.4333725,
+      "fallCooldown": 2.58335876
+    },
+    {
+      "at": 85.13401,
+      "actor": "MiniJangseung_Right",
+      "phase": "Falling",
+      "jumpCooldown": -0.799736,
+      "fallCooldown": -1.506073
+    },
+    {
+      "at": 85.39983,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallHold",
+      "jumpCooldown": -1.06555939,
+      "fallCooldown": -1.77189636
+    },
+    {
+      "at": 85.6175461,
+      "actor": "MiniJangseung_Left",
+      "phase": "Falling",
+      "jumpCooldown": -0.4510498,
+      "fallCooldown": -1.50558472
+    },
+    {
+      "at": 85.8844,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallHold",
+      "jumpCooldown": -0.717903137,
+      "fallCooldown": -1.772438
+    },
+    {
+      "at": 87.26632,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 3.0,
+      "fallCooldown": 0.06754303
+    },
+    {
+      "at": 87.28413,
+      "actor": "Boss",
+      "phase": "Turning",
+      "jumpCooldown": 2.982193,
+      "fallCooldown": 0.0497360229
+    },
+    {
+      "at": 87.40005,
+      "actor": "MiniJangseung_Right",
+      "phase": "Rising",
+      "jumpCooldown": -3.065773,
+      "fallCooldown": -3.77211
+    },
+    {
+      "at": 87.80001,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 2.46630859,
+      "fallCooldown": -0.466148376
+    },
+    {
+      "at": 87.8165054,
+      "actor": "Boss",
+      "phase": "CrackWindup",
+      "jumpCooldown": 2.44981384,
+      "fallCooldown": -0.482643127
+    },
+    {
+      "at": 87.90031,
+      "actor": "MiniJangseung_Left",
+      "phase": "Rising",
+      "jumpCooldown": -2.73381042,
+      "fallCooldown": -3.78834534
+    },
+    {
+      "at": 88.33346,
+      "actor": "Boss",
+      "phase": "CrackActive",
+      "jumpCooldown": 1.93286133,
+      "fallCooldown": -0.999595642
+    },
+    {
+      "at": 88.40028,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallRecovery",
+      "jumpCooldown": -4.06600952,
+      "fallCooldown": -4.7723465
+    },
+    {
+      "at": 88.91124,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallRecovery",
+      "jumpCooldown": -3.74474335,
+      "fallCooldown": -4.79927826
+    },
+    {
+      "at": 89.34501,
+      "actor": "Boss",
+      "phase": "CrackRecovery",
+      "jumpCooldown": 0.9213104,
+      "fallCooldown": -2.01114655
+    },
+    {
+      "at": 90.3608551,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": -0.09453583,
+      "fallCooldown": -3.0269928
+    },
+    {
+      "at": 90.37715,
+      "actor": "Boss",
+      "phase": "FallWindup",
+      "jumpCooldown": -0.110832214,
+      "fallCooldown": -3.04328918
+    },
+    {
+      "at": 90.41005,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": -6.075775,
+      "fallCooldown": 4.10738373
+    },
+    {
+      "at": 90.4275,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpWindup",
+      "jumpCooldown": -6.09322357,
+      "fallCooldown": 4.0899353
+    },
+    {
+      "at": 90.9273453,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": -5.760849,
+      "fallCooldown": 5.06787872
+    },
+    {
+      "at": 90.94348,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpWindup",
+      "jumpCooldown": -5.776985,
+      "fallCooldown": 5.05174255
+    },
+    {
+      "at": 91.42758,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpFlight",
+      "jumpCooldown": -7.0933075,
+      "fallCooldown": 3.08985138
+    },
+    {
+      "at": 91.87731,
+      "actor": "Boss",
+      "phase": "Falling",
+      "jumpCooldown": -1.61099243,
+      "fallCooldown": -4.5434494
+    },
+    {
+      "at": 91.94411,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpFlight",
+      "jumpCooldown": -6.777611,
+      "fallCooldown": 4.051117
+    },
+    {
+      "at": 92.11014,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -7.77586365,
+      "fallCooldown": 2.40729523
+    },
+    {
+      "at": 92.14393,
+      "actor": "Boss",
+      "phase": "FallHold",
+      "jumpCooldown": -1.87760925,
+      "fallCooldown": -4.810066
+    },
+    {
+      "at": 92.51027,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -7.343773,
+      "fallCooldown": 3.48495483
+    },
+    {
+      "at": 94.15966,
+      "actor": "Boss",
+      "phase": "Rising",
+      "jumpCooldown": -3.893341,
+      "fallCooldown": -6.825798
+    },
+    {
+      "at": 94.610405,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": -0.0929718
+    },
+    {
+      "at": 94.62687,
+      "actor": "MiniJangseung_Right",
+      "phase": "Turning",
+      "jumpCooldown": 1.48353577,
+      "fallCooldown": -0.109436035
+    },
+    {
+      "at": 95.02754,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": 0.9676819
+    },
+    {
+      "at": 95.1276,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 0.982803345,
+      "fallCooldown": -0.610168457
+    },
+    {
+      "at": 95.16048,
+      "actor": "Boss",
+      "phase": "FallRecovery",
+      "jumpCooldown": -4.89415741,
+      "fallCooldown": -7.82661438
+    },
+    {
+      "at": 96.12792,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpWindup",
+      "jumpCooldown": -0.01751709,
+      "fallCooldown": -1.61048889
+    },
+    {
+      "at": 96.52762,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpWindup",
+      "jumpCooldown": -7.62939453E-05,
+      "fallCooldown": -0.5323944
+    },
+    {
+      "at": 97.12811,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpFlight",
+      "jumpCooldown": -1.01770782,
+      "fallCooldown": -2.61067963
+    },
+    {
+      "at": 97.16066,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": -6.89434052,
+      "fallCooldown": 5.390854
+    },
+    {
+      "at": 97.17704,
+      "actor": "Boss",
+      "phase": "JumpWindup",
+      "jumpCooldown": -6.910721,
+      "fallCooldown": 5.37447357
+    },
+    {
+      "at": 97.54374,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpFlight",
+      "jumpCooldown": -1.0161972,
+      "fallCooldown": -1.54851532
+    },
+    {
+      "at": 97.6607056,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -1.5503006,
+      "fallCooldown": -3.1432724
+    },
+    {
+      "at": 98.17751,
+      "actor": "Boss",
+      "phase": "JumpFlight",
+      "jumpCooldown": -7.911194,
+      "fallCooldown": 4.37400055
+    },
+    {
+      "at": 98.2435,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -1.71595764,
+      "fallCooldown": -2.24827576
+    },
+    {
+      "at": 98.87748,
+      "actor": "Boss",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -8.61116,
+      "fallCooldown": 3.674034
+    },
+    {
+      "at": 100.160927,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": -5.64349365
+    },
+    {
+      "at": 100.177322,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallWindup",
+      "jumpCooldown": 1.48360443,
+      "fallCooldown": -5.659889
+    },
+    {
+      "at": 100.743736,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": -4.74851227
+    },
+    {
+      "at": 100.7606,
+      "actor": "MiniJangseung_Left",
+      "phase": "Turning",
+      "jumpCooldown": 1.483139,
+      "fallCooldown": -4.765373
+    },
+    {
+      "at": 101.27668,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": 0.9670563,
+      "fallCooldown": -5.281456
+    },
+    {
+      "at": 101.293678,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallWindup",
+      "jumpCooldown": 0.950058,
+      "fallCooldown": -5.29845428
+    },
+    {
+      "at": 101.393547,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 3.0,
+      "fallCooldown": 1.15796661
+    },
+    {
+      "at": 101.410774,
+      "actor": "Boss",
+      "phase": "Turning",
+      "jumpCooldown": 2.98277283,
+      "fallCooldown": 1.14073944
+    },
+    {
+      "at": 101.677368,
+      "actor": "MiniJangseung_Right",
+      "phase": "Falling",
+      "jumpCooldown": -0.0164413452,
+      "fallCooldown": -7.159935
+    },
+    {
+      "at": 101.927574,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 2.465973,
+      "fallCooldown": 0.6239395
+    },
+    {
+      "at": 101.927574,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallHold",
+      "jumpCooldown": -0.266647339,
+      "fallCooldown": -7.410141
+    },
+    {
+      "at": 101.9439,
+      "actor": "Boss",
+      "phase": "CrackWindup",
+      "jumpCooldown": 2.449646,
+      "fallCooldown": 0.6076126
+    },
+    {
+      "at": 102.4603,
+      "actor": "Boss",
+      "phase": "CrackActive",
+      "jumpCooldown": 1.93325043,
+      "fallCooldown": 0.09121704
+    },
+    {
+      "at": 102.79377,
+      "actor": "MiniJangseung_Left",
+      "phase": "Falling",
+      "jumpCooldown": -0.550033569,
+      "fallCooldown": -6.798546
+    },
+    {
+      "at": 103.060417,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallHold",
+      "jumpCooldown": -0.8166809,
+      "fallCooldown": -7.065193
+    },
+    {
+      "at": 103.460526,
+      "actor": "Boss",
+      "phase": "CrackRecovery",
+      "jumpCooldown": 0.933021545,
+      "fallCooldown": -0.909011841
+    },
+    {
+      "at": 103.943718,
+      "actor": "MiniJangseung_Right",
+      "phase": "Rising",
+      "jumpCooldown": -2.28279114,
+      "fallCooldown": -9.426285
+    },
+    {
+      "at": 104.460793,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": -0.06724548,
+      "fallCooldown": -1.90927887
+    },
+    {
+      "at": 104.476982,
+      "actor": "Boss",
+      "phase": "FallWindup",
+      "jumpCooldown": -0.08343506,
+      "fallCooldown": -1.92546844
+    },
+    {
+      "at": 104.961349,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallRecovery",
+      "jumpCooldown": -3.30042267,
+      "fallCooldown": -10.4439163
+    },
+    {
+      "at": 105.060623,
+      "actor": "MiniJangseung_Left",
+      "phase": "Rising",
+      "jumpCooldown": -2.816887,
+      "fallCooldown": -9.065399
+    },
+    {
+      "at": 105.977356,
+      "actor": "Boss",
+      "phase": "Falling",
+      "jumpCooldown": -1.5838089,
+      "fallCooldown": -3.42584229
+    },
+    {
+      "at": 106.060707,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallRecovery",
+      "jumpCooldown": -3.81697083,
+      "fallCooldown": -10.0654831
+    },
+    {
+      "at": 106.243523,
+      "actor": "Boss",
+      "phase": "FallHold",
+      "jumpCooldown": -1.84997559,
+      "fallCooldown": -3.692009
+    },
+    {
+      "at": 106.976982,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": -5.3160553,
+      "fallCooldown": 4.64363861
+    },
+    {
+      "at": 106.993889,
+      "actor": "MiniJangseung_Right",
+      "phase": "Turning",
+      "jumpCooldown": -5.332962,
+      "fallCooldown": 4.626732
+    },
+    {
+      "at": 107.509735,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": -5.84880829,
+      "fallCooldown": 4.11088562
+    },
+    {
+      "at": 107.526924,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpWindup",
+      "jumpCooldown": -5.86599731,
+      "fallCooldown": 4.09369659
+    },
+    {
+      "at": 108.076958,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": -5.83322144,
+      "fallCooldown": 4.814949
+    },
+    {
+      "at": 108.09346,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpWindup",
+      "jumpCooldown": -5.849724,
+      "fallCooldown": 4.79844666
+    },
+    {
+      "at": 108.244286,
+      "actor": "Boss",
+      "phase": "Rising",
+      "jumpCooldown": -3.85073853,
+      "fallCooldown": -5.692772
+    },
+    {
+      "at": 108.527184,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpFlight",
+      "jumpCooldown": -6.86625671,
+      "fallCooldown": 3.09343719
+    },
+    {
+      "at": 109.094025,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpFlight",
+      "jumpCooldown": -6.85028839,
+      "fallCooldown": 3.797882
+    },
+    {
+      "at": 109.24308,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -7.58215332,
+      "fallCooldown": 2.37754059
+    },
+    {
+      "at": 109.26107,
+      "actor": "Boss",
+      "phase": "FallRecovery",
+      "jumpCooldown": -4.867523,
+      "fallCooldown": -6.70955658
+    },
+    {
+      "at": 109.93586,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -7.69212341,
+      "fallCooldown": 2.956047
+    },
+    {
+      "at": 111.269234,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": -6.87568665,
+      "fallCooldown": 5.170494
+    },
+    {
+      "at": 111.286209,
+      "actor": "Boss",
+      "phase": "JumpWindup",
+      "jumpCooldown": -6.892662,
+      "fallCooldown": 5.15351868
+    },
+    {
+      "at": 111.752922,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": -0.132301331
+    },
+    {
+      "at": 111.769539,
+      "actor": "MiniJangseung_Right",
+      "phase": "Turning",
+      "jumpCooldown": 1.48338318,
+      "fallCooldown": -0.148918152
+    },
+    {
+      "at": 112.286583,
+      "actor": "Boss",
+      "phase": "JumpFlight",
+      "jumpCooldown": -7.893036,
+      "fallCooldown": 4.153145
+    },
+    {
+      "at": 112.286583,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 0.9663391,
+      "fallCooldown": -0.6659622
+    },
+    {
+      "at": 112.436554,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": 0.455352783
+    },
+    {
+      "at": 112.454033,
+      "actor": "MiniJangseung_Left",
+      "phase": "Turning",
+      "jumpCooldown": 1.482521,
+      "fallCooldown": 0.43787384
+    },
+    {
+      "at": 112.836258,
+      "actor": "Boss",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -8.442711,
+      "fallCooldown": 3.60346985
+    },
+    {
+      "at": 112.96946,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": 0.9670944,
+      "fallCooldown": -0.0775527954
+    },
+    {
+      "at": 112.985756,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallWindup",
+      "jumpCooldown": 0.950798035,
+      "fallCooldown": -0.09384918
+    },
+    {
+      "at": 113.25309,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpWindup",
+      "jumpCooldown": -0.00016784668,
+      "fallCooldown": -1.63246918
+    },
+    {
+      "at": 114.253273,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpFlight",
+      "jumpCooldown": -1.000351,
+      "fallCooldown": -2.63265228
+    },
+    {
+      "at": 114.486488,
+      "actor": "MiniJangseung_Left",
+      "phase": "Falling",
+      "jumpCooldown": -0.5499344,
+      "fallCooldown": -1.5945816
+    },
+    {
+      "at": 114.753014,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallHold",
+      "jumpCooldown": -0.816459656,
+      "fallCooldown": -1.86110687
+    },
+    {
+      "at": 115.002647,
+      "actor": "MiniJangseung_Right",
+      "phase": "JumpRecovery",
+      "jumpCooldown": -1.74972534,
+      "fallCooldown": -3.38202667
+    },
+    {
+      "at": 115.3365,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 3.0,
+      "fallCooldown": 1.10322571
+    },
+    {
+      "at": 115.352516,
+      "actor": "Boss",
+      "phase": "CrackWindup",
+      "jumpCooldown": 2.983986,
+      "fallCooldown": 1.08721161
+    },
+    {
+      "at": 115.852531,
+      "actor": "Boss",
+      "phase": "CrackActive",
+      "jumpCooldown": 2.48397064,
+      "fallCooldown": 0.58719635
+    },
+    {
+      "at": 116.769073,
+      "actor": "MiniJangseung_Left",
+      "phase": "Rising",
+      "jumpCooldown": -2.83251953,
+      "fallCooldown": -3.87716675
+    },
+    {
+      "at": 116.853348,
+      "actor": "Boss",
+      "phase": "CrackRecovery",
+      "jumpCooldown": 1.4831543,
+      "fallCooldown": -0.41362
+    },
+    {
+      "at": 117.519791,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 1.5,
+      "fallCooldown": -5.89917
+    },
+    {
+      "at": 117.53582,
+      "actor": "MiniJangseung_Right",
+      "phase": "Turning",
+      "jumpCooldown": 1.48397064,
+      "fallCooldown": -5.91519928
+    },
+    {
+      "at": 117.7693,
+      "actor": "MiniJangseung_Left",
+      "phase": "FallRecovery",
+      "jumpCooldown": -3.83274841,
+      "fallCooldown": -4.87739563
+    },
+    {
+      "at": 117.86953,
+      "actor": "Boss",
+      "phase": "Idle",
+      "jumpCooldown": 0.466972351,
+      "fallCooldown": -1.429802
+    },
+    {
+      "at": 117.886131,
+      "actor": "Boss",
+      "phase": "FallWindup",
+      "jumpCooldown": 0.4503708,
+      "fallCooldown": -1.4464035
+    },
+    {
+      "at": 118.035881,
+      "actor": "MiniJangseung_Right",
+      "phase": "Idle",
+      "jumpCooldown": 0.9839096,
+      "fallCooldown": -6.41526031
+    },
+    {
+      "at": 118.0524,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallWindup",
+      "jumpCooldown": 0.967391968,
+      "fallCooldown": -6.431778
+    },
+    {
+      "at": 119.386383,
+      "actor": "Boss",
+      "phase": "Falling",
+      "jumpCooldown": -1.049881,
+      "fallCooldown": -2.94665527
+    },
+    {
+      "at": 119.552879,
+      "actor": "MiniJangseung_Right",
+      "phase": "Falling",
+      "jumpCooldown": -0.5330887,
+      "fallCooldown": -7.93225861
+    },
+    {
+      "at": 119.636757,
+      "actor": "Boss",
+      "phase": "FallHold",
+      "jumpCooldown": -1.30025482,
+      "fallCooldown": -3.197029
+    },
+    {
+      "at": 119.769707,
+      "actor": "MiniJangseung_Left",
+      "phase": "Idle",
+      "jumpCooldown": -5.833153,
+      "fallCooldown": 5.55956268
+    },
+    {
+      "at": 119.785957,
+      "actor": "MiniJangseung_Left",
+      "phase": "JumpWindup",
+      "jumpCooldown": -5.84940338,
+      "fallCooldown": 5.543312
+    },
+    {
+      "at": 119.820023,
+      "actor": "MiniJangseung_Right",
+      "phase": "FallHold",
+      "jumpCooldown": -0.800231934,
+      "fallCooldown": -8.199402
+    }
+  ]
+}

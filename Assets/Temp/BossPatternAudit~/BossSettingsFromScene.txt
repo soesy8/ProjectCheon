@@ -1,0 +1,143 @@
+﻿114 &514850120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514850119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ca2ef641f25f34a99cc741f7a510b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassBossPatternSettings
+  jump:
+    bossCooldown: 3
+    minionCooldown: 1.5
+    maximumDistance: 10
+    height: 5
+    minimumFlight: 0.45
+    maximumFlight: 0.9
+    windup: 1
+    recovery: 2.5
+    attackRadius: 2.5
+    offsetMinimum: 1.75
+    offsetMaximum: 3
+  fall:
+    bossCooldownMinimum: 4
+    bossCooldownMaximum: 6
+    minionCooldownMinimum: 4
+    minionCooldownMaximum: 6
+    windup: 1.5
+    forwardFraction: 0.2
+    forwardAngle: 10
+    backwardAngle: 30
+    fallDuration: 0.25
+    hitSidePushDistance: 1
+    holdDuration: 2
+    riseDuration: 1
+    recovery: 2
+    finalAngle: 90
+  turn:
+    triggerAngle: 45
+    duration: 0.5
+    height: 1
+    cooldown: 1
+    maximumConsecutive: 3
+    openingDelay: 1
+  crack:
+    enabled: 1
+    windup: 0.5
+    recovery: 1
+    cooldown: 8
+    stepCount: 5
+    stepDistance: 2
+    stepInterval: 0.15
+    radius: 1.2
+    activeDuration: 0.25
+    damage: 18
+    windupTilt: 20
+    strikeTilt: 30
+    recoilDuration: 1
+    effectLifetime: 1
+    lineWidth: 0.12
+    color: {r: 0.3, g: 0.16, b: 0.055, a: 0.65}
+    material: {fileID: 2100000, guid: 1ec5a965d00362d44b64a750984dece4, type: 2}
+    centerDustScale: 3
+    centerDustCount: 24
+    centerDustLift: 3
+    explosionOpacity: 0.72
+    mediumDustClusters: 6
+    mediumDustScale: 1.3
+    smallDustClusters: 10
+    smallDustScale: 0.6
+  linkedAttack:
+    enabled: 1
+    participants: 2
+    windup: 1
+    jumpInterval: 0.5
+    attackGap: 0.5
+    cooldown: 6
+    startTimeout: 3
+    teleportSideDistance: 4
+    teleportDuration: 0.25
+    teleportHopHeight: 0.3
+    vanishFraction: 0.3
+    appearFraction: 0.7
+    teleportSearchRadius: 1
+    smokeParticles: 48
+    smokeSize: {x: 0.6, y: 1.2}
+    smokeLifetime: 1
+    smokeSpeed: 1
+    smokeColor: {r: 0.96, g: 0.97, b: 1, a: 0.85}
+  summon:
+    requiredJumps: 3
+    spawnCount: 2
+    maximumAlive: 2
+    afterClearCooldown: 15
+    sideDistance: 4
+    minionScale: 0.25
+    windup: 1
+    recovery: 1
+    deathLifetime: 1
+    visualPrefab: {fileID: 9117321511444725263, guid: 03bb16ea9174193488efd6985d77fcc0, type: 3}
+    modelScale: {x: 1.5000001, y: 2.25, z: 1.5000001}
+  combat:
+    bossHealth: 420
+    minionHealth: 60
+    bossJumpDamage: 20
+    bossFallDamage: 28
+    minionJumpDamage: 8
+    minionFallDamage: 12
+    enemyHitRecovery: 1
+    playerDamage: {x: 22, y: 28, z: 40}
+  collision:
+    radius: 0.99
+    height: 12.2175
+    clearance: 0.08
+    groundTolerance: 2
+    sweepDegrees: 3
+  dust:
+    material: {fileID: 2100000, guid: fd31af1fa30c6414c9b72b7b8d15a7fc, type: 2}
+    landingParticles: 48
+    fallParticles: 72
+    size: {x: 0.35, y: 0.9}
+    lifetime: {x: 1, y: 1}
+    opacity: 0.42
+    color: {r: 0.62, g: 0.5, b: 0.34, a: 1}
+  death:
+    material: {fileID: 2100000, guid: 093a7fcca361fd34690e6640d8eacf63, type: 2}
+    powderMaterial: {fileID: 2100000, guid: 1c04fce10fe68f541806135294b105c4, type: 2}
+    tintDuration: 1
+    dissolveDuration: 1
+    particleTail: 1
+    noiseScale: 3
+    edgeWidth: 0.12
+    tint: {r: 0.13, g: 0.025, b: 0.21, a: 1}
+    edgeColor: {r: 0.32, g: 0.08, b: 0.44, a: 1}
+    particlesPerSecond: 240
+    particleSize: {x: 0.06, y: 0.14}
+    particleLifetime: 1
+    particleSpeed: 1
+    particleDrift: {x: 0.4, y: 1, z: 0.2}
+    particleColor: {r: 0.58, g: 0.32, b: 0.72, a: 0.95}
+

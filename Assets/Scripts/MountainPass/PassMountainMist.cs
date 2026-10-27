@@ -5,29 +5,47 @@ namespace Cheon.Prototype.MountainPass
     [DefaultExecutionOrder(30)]
     public class PassMountainMist : MonoBehaviour
     {
+        [InspectorName("게임 진행 제어기")]
         [SerializeField] private PassGameFlow game;
+        [InspectorName("등산로 안개")]
         [SerializeField] private PassHeightFog approachFog;
+        [InspectorName("후면 안개")]
         [SerializeField] private PassHeightFog rearFog;
+        [InspectorName("보스 전투 안개")]
         [SerializeField] private PassHeightFog bossFog;
+        [InspectorName("정상 기준 높이 (m)")]
         [SerializeField] private float summitHeight = 27.15f;
+        [InspectorName("정상 안개 해제 시작 높이 차이 (m)")]
         [SerializeField, Min(0.1f)] private float summitFadeHeight = 5f;
+        [InspectorName("정상 도착 전 안개 해제 높이 여유 (m)")]
         [SerializeField, Min(0f)] private float summitClearLeadHeight = 0.5f;
+        [InspectorName("안개 높이 보간 시간 (초)")]
         [SerializeField, Min(0.01f)] private float fogHeightSmoothTime = 0.8f;
         [Tooltip("정상보다 이 높이만큼 위까지 안개를 채워 아래쪽에서 정상 지붕이 보이지 않게 합니다.")]
+        [InspectorName("정상 위 안개 추가 높이 (m)")]
         [SerializeField, Min(0f)] private float overheadHeight = 22f;
+        [InspectorName("등산 중 안개 농도")]
         [SerializeField, Range(0f, 0.3f)] private float climbingDensity = 0.24f;
+        [InspectorName("정상 도착 후 안개 농도")]
         [SerializeField, Range(0f, 0.3f)] private float valleyDensity = 0f;
 
         [Header("정상에서 안개가 양옆으로 걷히는 연출")]
+        [InspectorName("정상 안개 열림 중심")]
         [SerializeField] private Vector3 summitRevealCenter = new Vector3(4f, 27.15f, 38f);
         [Tooltip("마지막 계단에서 정상을 바라보는 월드 방향입니다.")]
+        [InspectorName("정상 안개 열림 전방 방향")]
         [SerializeField] private Vector3 summitRevealForward = new Vector3(0.77f, 0f, -0.64f);
+        [InspectorName("정상 안개 열림 반쪽 너비 (m)")]
         [SerializeField, Min(1f)] private float openingHalfWidth = 32f;
+        [InspectorName("정상 안개 열림 경계 폭 (m)")]
         [SerializeField, Min(0.1f)] private float openingFeather = 4f;
+        [InspectorName("정상 안개 열림 보간 시간 (초)")]
         [SerializeField, Min(0.01f)] private float openingSmoothTime = 1.4f;
 
         [Header("보스 전투 안개")]
+        [InspectorName("보스 전투 안개 농도")]
         [SerializeField, Range(0f, 0.1f)] private float bossDensity = 0.022f;
+        [InspectorName("보스 안개 생성 시간 (초)")]
         [SerializeField, Min(0.1f)] private float bossFadeSeconds = 9f;
         public float SummitClarity { get; private set; }
         public float BossMistAmount { get; private set; }
@@ -66,12 +84,10 @@ namespace Cheon.Prototype.MountainPass
             if (forward.sqrMagnitude < 0.001f) forward = Vector3.back;
             Vector3 right = Vector3.Cross(Vector3.up, forward);
             approachFog.SetSidewaysOpening(summitRevealCenter, right, openingHalfWidth * SummitClarity, openingFeather);
-            approachFog.ApplySettings();
             if (bossFog == null) return;
             if (game.State == PassGameFlow.RunState.Cinematic || !game.InEncounter) BossMistAmount = 0f;
             else BossMistAmount = Mathf.MoveTowards(BossMistAmount, 1f, Time.deltaTime / bossFadeSeconds);
             bossFog.SetDensity(bossDensity * Mathf.SmoothStep(0f, 1f, BossMistAmount));
-            bossFog.ApplySettings();
         }
 
         private void OnDisable()

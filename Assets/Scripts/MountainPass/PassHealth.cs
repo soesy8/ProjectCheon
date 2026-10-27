@@ -5,7 +5,9 @@ namespace Cheon.Prototype.MountainPass
 {
     public class PassHealth : MonoBehaviour
     {
+        [InspectorName("최대 생명력")]
         [SerializeField, Min(1f)] private float maximum = 100f;
+        [InspectorName("다음 피해까지 무적 시간 (초)")]
         [SerializeField, Min(0f)] private float hitRecovery = 0.65f;
         private float nextDamageTime;
         public float Current { get; private set; }
@@ -18,9 +20,9 @@ namespace Cheon.Prototype.MountainPass
         public event Action Died;
         public void Configure(float health, float recovery) { maximum = Mathf.Max(1f, health); hitRecovery = Mathf.Max(0f, recovery); }
         private void Awake() => Restore();
-        public bool TakeDamage(float damage, bool heavyHit = false)
+        public bool TakeDamage(float damage, bool heavyHit = false, bool ignoreHitRecovery = false)
         {
-            if (IsDead || Invulnerable || damage <= 0f || Time.time < nextDamageTime) return false;
+            if (IsDead || Invulnerable || damage <= 0f || !ignoreHitRecovery && Time.time < nextDamageTime) return false;
             Current = Mathf.Max(0f, Current - damage);
             LastDamageWasHeavy = heavyHit;
             nextDamageTime = Time.time + hitRecovery;

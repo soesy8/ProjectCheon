@@ -1,5 +1,5 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Cheon.Prototype.MountainPass
 {
@@ -7,61 +7,100 @@ namespace Cheon.Prototype.MountainPass
     public class PassAnimationController : MonoBehaviour
     {
         [Header("재생 대상")]
+        [InspectorName("캐릭터 애니메이터")]
         [SerializeField] private Animator characterAnimator;
+        [InspectorName("부채 장착 제어기")]
         [SerializeField] private PassFanAttachment fanAttachment;
         [Header("공격별 속도 배율 — 재생 중 변경 가능")]
         // 플레이 중 조절하고 저장한 수치를 새 컴포넌트의 기본값으로 사용한다.
+        [InspectorName("1타 재생 배속")]
         [Min(0.05f)] public float attack1Speed = 1.8f;
+        [InspectorName("2타 재생 배속")]
         [Min(0.05f)] public float attack2Speed = 1.3f;
+        [InspectorName("3타 재생 배속")]
         [Min(0.05f)] public float attack3Speed = 1.5f;
         [Header("공격별 재생 구간 — 원본 FBX의 0부터 시작하는 프레임")]
+        [InspectorName("1타 원본 애니메이션")]
         [SerializeField] private AnimationClip attack1Clip;
+        [InspectorName("1타 시작 프레임")]
         [Min(0)] public int attack1StartFrame = 6;
+        [InspectorName("1타 종료 프레임")]
         [Min(1)] public int attack1EndFrame = 68;
+        [InspectorName("2타 원본 애니메이션")]
         [SerializeField] private AnimationClip attack2Clip;
+        [InspectorName("2타 시작 프레임")]
         [Min(0)] public int attack2StartFrame = 20;
+        [InspectorName("2타 종료 프레임")]
         [Min(1)] public int attack2EndFrame = 95;
+        [InspectorName("3타 원본 애니메이션")]
         [SerializeField] private AnimationClip attack3Clip;
+        [InspectorName("3타 시작 프레임")]
         [Min(0)] public int attack3StartFrame = 5;
+        [InspectorName("3타 종료 프레임")]
         [Min(1)] public int attack3EndFrame = 75;
         [Header("구르기 속도 / 재생 구간 — 원본 FBX 프레임")]
+        [InspectorName("구르기 원본 애니메이션")]
         [SerializeField] private AnimationClip rollClip;
-        [Min(0.05f)] public float rollSpeed = 1.25f;
-        [Min(0)] public int rollStartFrame;
-        [Min(1)] public int rollEndFrame = 28;
+        [InspectorName("구르기 재생 배속")]
+        [Min(0.05f)] [HideInInspector] public float rollSpeed = 1.25f;
+        [InspectorName("구르기 시작 프레임")]
+        [Min(0)] [HideInInspector] public int rollStartFrame;
+        [InspectorName("구르기 종료 프레임")]
+        [Min(1)] [HideInInspector] public int rollEndFrame = 28;
         [Header("달리기2 속도 / 재생 구간 — 원본 FBX 프레임")]
+        [InspectorName("달리기 원본 애니메이션")]
         [SerializeField] private AnimationClip run2Clip;
-        [Min(0.05f)] public float run2Speed = 1.6f;
-        [Min(0)] public int run2StartFrame;
-        [Min(1)] public int run2EndFrame = 21;
+        [InspectorName("달리기 재생 배속")]
+        [Min(0.05f)] [HideInInspector] public float run2Speed = 1.6f;
+        [InspectorName("달리기 시작 프레임")]
+        [Min(0)] [HideInInspector] public int run2StartFrame;
+        [InspectorName("달리기 종료 프레임")]
+        [Min(1)] [HideInInspector] public int run2EndFrame = 21;
         [Header("부드러운 전환 — 입력 즉시 전환 시작")]
+        [InspectorName("동작·환경 전환 시간 (초)")]
         [SerializeField, Range(0.01f, 0.3f)] private float transitionDuration = 0.09f;
+        [InspectorName("대기 복귀 혼합 시간 (초)")]
         [SerializeField, Range(0.01f, 0.4f)] private float returnBlendDuration = 0.18f;
+        [InspectorName("이동 동작 혼합 시간 (초)")]
         [SerializeField, Range(0.01f, 0.4f)] private float locomotionBlendDuration = 0.12f;
         [Header("발도 / 납도")]
+        [InspectorName("발도 재생 배속")]
         [SerializeField, Min(0.05f)] private float drawSpeed = 1f;
         [Tooltip("이동 중 발도 배속입니다. 1.9는 기존보다 90% 빠른 재생입니다.")]
+        [InspectorName("이동 중 발도 추가 배속")]
         [SerializeField, Min(1f)] private float movingDrawSpeedMultiplier = 1.9f;
+        [InspectorName("납도 재생 배속")]
         [SerializeField, Min(0.05f)] private float sheatheSpeed = 1f;
+        [InspectorName("발도·납도 원본 길이 (초)")]
         [SerializeField, Min(0.01f)] private float equipmentClipLength = 1.2333333f;
+        [InspectorName("부채를 손에 쥐는 시점 (0~1)")]
         [SerializeField, Range(0f, 1f)] private float drawGrabTime = 0.48f;
+        [InspectorName("부채 펼치기 시작 시점 (0~1)")]
         [SerializeField, Range(0f, 1f)] private float drawOpenStart = 0.62f;
+        [InspectorName("부채 펼치기 종료 시점 (0~1)")]
         [SerializeField, Range(0f, 1f)] private float drawOpenEnd = 0.94f;
+        [InspectorName("부채 접기 시작 시점 (0~1)")]
         [SerializeField, Range(0f, 1f)] private float sheatheCloseStart = 0.06f;
+        [InspectorName("부채 접기 종료 시점 (0~1)")]
         [SerializeField, Range(0f, 1f)] private float sheatheCloseEnd = 0.38f;
+        [InspectorName("부채 허리 수납 시점 (0~1)")]
         [SerializeField, Range(0f, 1f)] private float sheatheStowTime = 0.52f;
-        [Header("테스트 옵션")]
-        [SerializeField] private bool repeatSelectedAnimation;
-        [SerializeField] private bool enableKeyboardShortcuts = true;
-        [Header("맵 플레이용 전환 시점 — 비워 두면 기존 애니메이션 미리보기")]
+        [Header("입력 취소·동작 전환")]
+        [InspectorName("입력 취소·동작 전환 설정")]
         [SerializeField] private PassActionTimings timingSettings;
+        [InspectorName("이동 중 발도·납도 사용")]
         [SerializeField] private bool equipmentWhileMoving;
         [Header("맵 플레이용 재생 수치")]
+        [InspectorName("달리기·구르기 재생 설정")]
         [SerializeField] private PassPlaybackSettings playbackSettings;
         [Header("강피격 · 일어나기 · 사망")]
+        [InspectorName("강피격·기상·사망 설정")]
         [SerializeField] private PassPlayerReactionSettings reactionSettings;
 
         private PassActionTimings runtimeTimings;
+        private readonly Dictionary<int, float> appliedParameters = new Dictionary<int, float>(10);
+        private RuntimeAnimatorController parameterController;
+        private bool hasRollState, hasRunState;
         private int equipmentLayerIndex = -1;
         private float upperBodyBlendDuration = 0.12f;
         private float locomotionSpeedMultiplier = 1f;
@@ -115,7 +154,6 @@ namespace Cheon.Prototype.MountainPass
         private PassActionTimings.ActionTiming CurrentTiming => runtimeTimings != null ? runtimeTimings.Get(selectedState) : null;
         public bool IsEquipmentTransition => selectedState == "DRAW" || selectedState == "SHEATHE";
         public bool CanPreviewFan => combatRequested && !IsEquipmentTransition;
-        public bool RepeatSelectedAnimation { get => repeatSelectedAnimation; set => repeatSelectedAnimation = value; }
         public float NormalizedTime => IsReactionPlaying ? reactionFrame / (reactionSettings.GetRange(selectedState).FrameRate * reactionSettings.GetRange(selectedState).clip.length) :
             TryGetSelectedState(out var state) ? state.normalizedTime : 0f;
         public float EquipmentProgress => Mathf.Clamp01(selectedState == "SHEATHE" ? 1f - NormalizedTime : NormalizedTime);
@@ -193,8 +231,6 @@ namespace Cheon.Prototype.MountainPass
         {
             timingSettings = settings;
             equipmentWhileMoving = useUpperBodyEquipment;
-            enableKeyboardShortcuts = false;
-            repeatSelectedAnimation = false;
         }
 
         public void ConfigurePlaybackSettings(PassPlaybackSettings settings)
@@ -227,7 +263,7 @@ namespace Cheon.Prototype.MountainPass
         private void Awake()
         {
             ReloadSavedPlaybackSettings();
-            // 실행 중에는 공유 에셋의 사본을 조절하고 저장 버튼을 눌렀을 때만 확정한다.
+            // 상태 판단용 사본을 사용하고 통합 설정 창에서 에셋을 바꾸면 함께 갱신한다.
             if (timingSettings != null)
             {
                 runtimeTimings = Instantiate(timingSettings);
@@ -267,7 +303,6 @@ namespace Cheon.Prototype.MountainPass
         {
             UpdateReactionPlayback(Time.deltaTime);
             ApplyAttackSpeeds();
-            if (enableKeyboardShortcuts) ReadKeyboard();
             if (!paused) characterAnimator.SetFloat(MoveAmount, running ? 1f : 0f, locomotionBlendDuration, Time.deltaTime);
             if (!paused && UsesUpperBodyEquipment)
             {
@@ -355,24 +390,37 @@ namespace Cheon.Prototype.MountainPass
             }
             else returnAt = 1f - Mathf.Min(0.15f, returnBlendDuration / Mathf.Max(0.01f, state.length));
             if (state.normalizedTime < returnAt) return;
-            if (repeatSelectedAnimation || selectedState == "RUN2") BeginState(selectedState, blendDuration);
+            if (selectedState == "RUN2") BeginState(selectedState, blendDuration);
             else BeginState(combatRequested ? "DRAWN_IDLE" : "SHEATHED_IDLE", blendDuration);
         }
 
         public void ApplyAttackSpeeds()
         {
             if (characterAnimator == null || characterAnimator.runtimeAnimatorController == null) return;
-            characterAnimator.SetFloat(Attack1Speed, Mathf.Max(0.05f, attack1Speed));
-            characterAnimator.SetFloat(Attack2Speed, Mathf.Max(0.05f, attack2Speed));
-            characterAnimator.SetFloat(Attack3Speed, Mathf.Max(0.05f, attack3Speed));
+            if (parameterController != characterAnimator.runtimeAnimatorController)
+            {
+                parameterController = characterAnimator.runtimeAnimatorController; appliedParameters.Clear();
+                hasRollState = characterAnimator.HasState(0, Animator.StringToHash("ROLL"));
+                hasRunState = characterAnimator.HasState(0, Animator.StringToHash("RUN2"));
+            }
+            SetSpeedParameter(Attack1Speed, Mathf.Max(0.05f, attack1Speed));
+            SetSpeedParameter(Attack2Speed, Mathf.Max(0.05f, attack2Speed));
+            SetSpeedParameter(Attack3Speed, Mathf.Max(0.05f, attack3Speed));
             // 같은 스크립트를 사용하는 맵 전용 Animator에는 추가 상태가 없을 수 있다.
-            if (characterAnimator.HasState(0, Animator.StringToHash("ROLL"))) characterAnimator.SetFloat(RollSpeed, Mathf.Max(0.05f, rollSpeed));
-            if (characterAnimator.HasState(0, Animator.StringToHash("RUN2"))) characterAnimator.SetFloat(Run2Speed, Mathf.Max(0.05f, run2Speed));
+            if (hasRollState) SetSpeedParameter(RollSpeed, Mathf.Max(0.05f, rollSpeed));
+            if (hasRunState) SetSpeedParameter(Run2Speed, Mathf.Max(0.05f, run2Speed));
             if (UsesUpperBodyEquipment)
-                characterAnimator.SetFloat(LocomotionSpeed, running ? Mathf.Max(0.05f, run2Speed * locomotionSpeedMultiplier) : 1f);
-            characterAnimator.SetFloat(DrawSpeed, Mathf.Max(0.05f, drawSpeed * (movingDrawActive ? movingDrawSpeedMultiplier : 1f)));
+                SetSpeedParameter(LocomotionSpeed, running ? Mathf.Max(0.05f, run2Speed * locomotionSpeedMultiplier) : 1f);
+            SetSpeedParameter(DrawSpeed, Mathf.Max(0.05f, drawSpeed * (movingDrawActive ? movingDrawSpeedMultiplier : 1f)));
             // 속도 파라미터가 상태 속도를 대체하므로 역재생 부호를 파라미터에 직접 넣는다.
-            characterAnimator.SetFloat(SheatheSpeed, -Mathf.Max(0.05f, sheatheSpeed));
+            SetSpeedParameter(SheatheSpeed, -Mathf.Max(0.05f, sheatheSpeed));
+        }
+
+        private void SetSpeedParameter(int parameter, float value)
+        {
+            if (appliedParameters.TryGetValue(parameter, out float previous) && Mathf.Approximately(previous, value)) return;
+            appliedParameters[parameter] = value;
+            characterAnimator.SetFloat(parameter, value);
         }
 
         private void BeginState(string state, float blendDuration, float offsetSeconds = -1f)
@@ -730,22 +778,5 @@ namespace Cheon.Prototype.MountainPass
             if (rollClip != null) SetPlaybackFrameRange(4, rollStartFrame, rollEndFrame);
             if (run2Clip != null) SetPlaybackFrameRange(5, run2StartFrame, run2EndFrame);
         }
-        private void ReadKeyboard()
-        {
-            // 입력란 편집 중에는 숫자, Space, Shift를 애니메이션 단축키로 처리하지 않는다.
-            var selected = UnityEngine.EventSystems.EventSystem.current?.currentSelectedGameObject;
-            if (selected != null && selected.TryGetComponent<TMPro.TMP_InputField>(out var input) && input.isFocused) return;
-            var keyboard = Keyboard.current; if (keyboard == null) return;
-            if (keyboard.digit1Key.wasPressedThisFrame) PlayAttack1();
-            if (keyboard.digit2Key.wasPressedThisFrame) PlayAttack2();
-            if (keyboard.digit3Key.wasPressedThisFrame) PlayAttack3();
-            if (keyboard.digit4Key.wasPressedThisFrame) PlayHit();
-            if (keyboard.spaceKey.wasPressedThisFrame) PlayRoll();
-            if (keyboard.leftShiftKey.wasPressedThisFrame || keyboard.rightShiftKey.wasPressedThisFrame) PlayRun2();
-            if (keyboard.iKey.wasPressedThisFrame) PlayIdle();
-            if (keyboard.rKey.wasPressedThisFrame) { if (running) PlayIdle(); else PlayRun(); }
-            if (keyboard.pKey.wasPressedThisFrame) TogglePause();
-        }
     }
 }
-

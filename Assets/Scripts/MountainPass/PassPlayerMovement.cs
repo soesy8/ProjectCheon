@@ -8,23 +8,36 @@ namespace Cheon.Prototype.MountainPass
     [RequireComponent(typeof(CharacterController))]
     public class PassPlayerMovement : MonoBehaviour
     {
+        [InspectorName("플레이어 동작 제어기")]
         [SerializeField] private PassAnimationController animationControl;
+        [InspectorName("게임 카메라 제어기")]
         [SerializeField] private Transform view;
+        [InspectorName("기본 이동 속도 (m/초)")]
         [SerializeField, Min(0.1f)] private float moveSpeed = 4f;
+        [InspectorName("달리기 이동 속도 (m/초)")]
         [SerializeField, Min(0.1f)] private float sprintSpeed = 6f;
+        [InspectorName("구르기 이동 거리 (m)")]
         [SerializeField, Min(0.1f)] private float dodgeDistance = 7.5f;
         [Tooltip("1은 등속 이동, 2 이상은 초반에 빠르게 이동한 뒤 끝에서 감속합니다.")]
+        [InspectorName("구르기 감속 강도")]
         [SerializeField, Range(1f, 4f)] private float dodgeDecelerationPower = 2f;
         [Tooltip("구르기 시작 방향에 이동 입력을 섞는 비율입니다. 0은 방향 고정, 1은 완전 조작입니다.")]
+        [InspectorName("구르기 중 방향 조작 비율 (0~1)")]
         [SerializeField, Range(0f, 1f)] private float dodgeSteering = 0.45f;
         [Tooltip("다 구르고 일어나는 구간에서 이동 입력을 반영하는 비율입니다.")]
+        [InspectorName("구르기 기상 중 방향 조작 비율 (0~1)")]
         [SerializeField, Range(0f, 1f)] private float dodgeRecoverySteering = 0.75f;
         [Tooltip("일어나는 구간이 시작되는 원본 구르기 클립의 프레임입니다.")]
+        [InspectorName("구르기 기상 시작 프레임")]
         [SerializeField, Min(0)] private int dodgeRecoveryStartFrame = 22;
+        [InspectorName("플레이어 회전 반응 속도")]
         [SerializeField, Min(0.1f)] private float rotationSpeed = 14f;
+        [InspectorName("중력 가속도 (m/초²)")]
         [SerializeField] private float gravity = -24f;
         [Tooltip("각 동작의 캔슬 시점에 도달하기 전 예약 입력을 받는 시간(초)입니다.")]
+        [InspectorName("예약 입력 허용 시간 (초)")]
         [SerializeField, Range(0f, 0.6f)] private float inputBufferSeconds = 0.15f;
+        [InspectorName("낙하 복귀 높이 (m)")]
         [SerializeField] private float respawnBelow = -30f;
 
         private CharacterController body;
@@ -38,9 +51,13 @@ namespace Cheon.Prototype.MountainPass
         private float dodgeProgress;
         private Vector3 dodgeStartDirection;
         private Vector3 dodgeDirection;
+        private PassPlayerEnergy energy;
+        private bool sprintExhausted;
 
         public PassAnimationController AnimationControl => animationControl;
+        public CharacterController Body => body != null ? body : body = GetComponent<CharacterController>();
         public bool InputEnabled { get; set; } = true;
+        public Vector3 InputDirection => InputEnabled && !PassHud.IsTyping ? inputDirection : Vector3.zero;
         public event System.Action Fell;
         public bool IsMoving { get; private set; }
         public bool IsSprinting { get; private set; }
@@ -58,13 +75,15 @@ namespace Cheon.Prototype.MountainPass
         private void Awake()
         {
             body = GetComponent<CharacterController>();
+            energy = GetComponent<PassPlayerEnergy>();
             spawnPosition = transform.position;
             spawnRotation = transform.rotation;
         }
 
         private void Update()
         {
-            if (animationControl == null || view == null || !InputEnabled) return;
+            if (animationControl == null || view == null || !InputEnabled || Time.timeScale <= 0f)
+            { IsMoving = IsSprinting = false; inputDirection = Vector3.zero; return; }
             var keyboard = Keyboard.current;
             var mouse = Mouse.current;
             bool typing = PassHud.IsTyping;
@@ -85,6 +104,9 @@ namespace Cheon.Prototype.MountainPass
             bool recovering = !typing && animationControl.TryRecoverFromHeavy(direction.sqrMagnitude > 0.01f,
                 keyboard != null && keyboard.spaceKey.wasPressedThisFrame);
             bool sprint = keyboard != null && (keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed);
+            if (!sprint || direction.sqrMagnitude <= 0.01f) sprintExhausted = false;
+            if (energy != null && !energy.CanSprint) sprintExhausted = true;
+            sprint &= !typing && !sprintExhausted && (energy == null || energy.CanSprint);
             IsSprinting = sprint && direction.sqrMagnitude > 0.01f;
             ValidatePendingAction();
             if (typing || animationControl.IsPaused || recovering) ClearPendingAction();
@@ -99,6 +121,8 @@ namespace Cheon.Prototype.MountainPass
                 animationControl.ExitCombat();
             IsMoving = direction.sqrMagnitude > 0.01f && animationControl.CanMove &&
                 (actionExecutedFrame != Time.frameCount || animationControl.IsEquipmentTransition);
+            IsSprinting = sprint && IsMoving;
+            if (IsSprinting && energy != null) IsSprinting = sprint = energy.SpendSprint(Time.deltaTime, direction);
             animationControl.SetLocomotion(IsMoving, sprint ? 1f : moveSpeed / sprintSpeed);
             if (IsMoving)
             {
@@ -219,9 +243,11 @@ namespace Cheon.Prototype.MountainPass
             }
             else if (pendingAction == DodgeAction)
             {
+                if (energy != null && !energy.CanDodge) { ClearPendingAction(); return; }
                 accepted = animationControl.TryPlayDodge();
                 if (accepted)
                 {
+                    if (energy != null) energy.SpendDodge();
                     dodgeDirection = direction.sqrMagnitude > 0.01f ? direction.normalized : transform.forward;
                     dodgeStartDirection = dodgeDirection;
                     dodgeProgress = 0f;
@@ -276,6 +302,8 @@ namespace Cheon.Prototype.MountainPass
             transform.SetPositionAndRotation(position, rotation);
             body.enabled = true;
             verticalSpeed = 0f;
+            sprintExhausted = false;
+            IsMoving = IsSprinting = false;
             ClearPendingAction();
             dodgeProgress = 0f;
             animationControl.ResetReactions();

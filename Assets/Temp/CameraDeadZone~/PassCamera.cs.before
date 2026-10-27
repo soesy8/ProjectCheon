@@ -1,0 +1,130 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+namespace Cheon.Prototype.MountainPass
+{
+    [RequireComponent(typeof(Camera)), DefaultExecutionOrder(100)]
+    public class PassCamera : MonoBehaviour
+    {
+        [InspectorName("플레이어")]
+        [SerializeField] private Transform player;
+        [InspectorName("보스 제어기")]
+        [SerializeField] private Transform boss;
+        [InspectorName("게임 진행 제어기")]
+        [SerializeField] private PassGameFlow game;
+        [InspectorName("기본 카메라 거리 (m)")]
+        [SerializeField, Range(4f, 14f)] private float distance = 7.5f;
+        [InspectorName("카메라 상하 각도 (도)")]
+        [SerializeField, Range(-75f, 88f)] private float pitch = 28f;
+        [InspectorName("카메라 최소 상하 각도 (도)")]
+        [SerializeField, Range(-75f, 0f)] private float minimumPitch = -65f;
+        [InspectorName("카메라 최대 상하 각도 (도)")]
+        [SerializeField, Range(45f, 88f)] private float maximumPitch = 85f;
+        [InspectorName("마우스 시점 감도")]
+        [SerializeField, Min(0.01f)] private float sensitivity = 0.15f;
+        [InspectorName("카메라 추적 반응 속도")]
+        [SerializeField, Min(1f)] private float followSpeed = 10f;
+        [Tooltip("보스를 화면 중앙보다 위에 배치해 플레이어가 화면 아래쪽에 보이도록 합니다.")]
+        [InspectorName("보스 고정 시 화면 높이 (0~1)")]
+        [SerializeField, Range(.5f, .75f)] private float bossScreenHeight = .65f;
+        private float yaw, shake, lockBlend;
+        private Vector3 focus;
+        private readonly RaycastHit[] hits = new RaycastHit[32];
+        private bool applicationFocused = true;
+        private int ignoreMouseUntilFrame;
+        public bool BossLocked { get; private set; }
+        public float Pitch => pitch;
+        public void Configure(Transform target, Transform enemy, PassGameFlow flow)
+        {
+            player = target; boss = enemy; game = flow;
+            GetComponent<Camera>().orthographic = false;
+            GetComponent<Camera>().fieldOfView = 60f;
+            SnapBehind();
+        }
+        private void Start() => SnapBehind();
+        public void SnapBehind()
+        {
+            if (player == null) return;
+            yaw = player.eulerAngles.y;
+            focus = player.position + Vector3.up * 1.35f;
+            lockBlend = BossLocked ? 1f : 0f;
+            ApplyView();
+        }
+        public void LockBoss(bool locked) => BossLocked = locked;
+        public void AddShake(float amount) => shake = Mathf.Max(shake, amount);
+        public void RefreshCursor()
+        {
+            bool locked = applicationFocused && game != null && game.IsRunning;
+            if (locked && Cursor.lockState != CursorLockMode.Locked) ignoreMouseUntilFrame = Time.frameCount + 1;
+            Cursor.lockState = locked ? CursorLockMode.Locked : CursorLockMode.None;
+            Cursor.visible = !locked;
+        }
+        private void OnApplicationFocus(bool focused) { applicationFocused = focused; RefreshCursor(); }
+        private void OnDisable() { Cursor.lockState = CursorLockMode.None; Cursor.visible = true; }
+        private void LateUpdate()
+        {
+            if (player == null) return;
+            RefreshCursor();
+            float delta = Time.deltaTime;
+            bool running = game != null && game.IsRunning;
+            bool canLockBoss = game != null && game.InEncounter && boss != null && game.Boss != null &&
+                game.Boss.Health != null && !game.Boss.Health.IsDead;
+            bool typing = PassHud.IsTyping;
+            if (!canLockBoss) LockBoss(false);
+            if (running && !typing && canLockBoss && Keyboard.current != null && Keyboard.current.tabKey.wasPressedThisFrame)
+                LockBoss(!BossLocked);
+            if (running && !typing && !BossLocked && Cursor.lockState == CursorLockMode.Locked && Mouse.current != null && Time.frameCount > ignoreMouseUntilFrame)
+            {
+                Vector2 motion = Mouse.current.delta.ReadValue();
+                yaw += motion.x * sensitivity;
+                pitch = Mathf.Clamp(pitch - motion.y * sensitivity, minimumPitch, maximumPitch);
+            }
+            Vector3 desiredFocus = player.position + Vector3.up * 1.35f;
+            if (BossLocked && boss != null)
+            {
+                Vector3 towardBoss = GetBossFocusPoint() - player.position;
+                towardBoss.y = 0f;
+                if (towardBoss.sqrMagnitude > 0.1f) yaw = Mathf.LerpAngle(yaw, Quaternion.LookRotation(towardBoss).eulerAngles.y, 1f - Mathf.Exp(-5f * delta));
+            }
+            focus = Vector3.Distance(focus, desiredFocus) > 20f ? desiredFocus : Vector3.Lerp(focus, desiredFocus, 1f - Mathf.Exp(-followSpeed * delta));
+            lockBlend = Mathf.MoveTowards(lockBlend, BossLocked ? 1f : 0f, delta * 8f);
+            shake = Mathf.MoveTowards(shake, 0f, delta * 2f);
+            ApplyView();
+        }
+        private void ApplyView()
+        {
+            Quaternion rotation = Quaternion.Euler(pitch, yaw, 0f);
+            Vector3 backward = -(rotation * Vector3.forward);
+            float visibleDistance = distance;
+            int count = Physics.SphereCastNonAlloc(focus, 0.22f, backward, hits, distance, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
+            for (int i = 0; i < count; i++)
+            {
+                if (hits[i].transform.IsChildOf(player)) continue;
+                visibleDistance = Mathf.Min(visibleDistance, Mathf.Max(0.5f, hits[i].distance - 0.12f));
+            }
+            Vector3 offset = rotation * Vector3.right * 0.35f;
+            Vector3 tremor = Application.isPlaying ? Random.insideUnitSphere * shake * 0.12f : Vector3.zero;
+            Vector3 position = focus + backward * visibleDistance + offset + tremor;
+            if (boss != null && lockBlend > 0f)
+            {
+                // 플레이어와의 거리를 유지하면서 보스의 점프·엎어지기까지 실제 몸체 중심을 주시한다.
+                Vector3 towardBoss = GetBossFocusPoint() - position;
+                if (towardBoss.sqrMagnitude > .001f)
+                {
+                    float halfFieldOfView = GetComponent<Camera>().fieldOfView * Mathf.Deg2Rad * .5f;
+                    float framingPitch = Mathf.Atan((bossScreenHeight * 2f - 1f) * Mathf.Tan(halfFieldOfView)) * Mathf.Rad2Deg;
+                    Quaternion lockedRotation = Quaternion.LookRotation(towardBoss) * Quaternion.Euler(framingPitch, 0, 0);
+                    rotation = Quaternion.Slerp(rotation, lockedRotation, lockBlend);
+                }
+            }
+            transform.SetPositionAndRotation(position, rotation);
+        }
+
+        private Vector3 GetBossFocusPoint()
+        {
+            if (game != null && game.Boss is PassBossPatternController guardian && guardian.Body != null && guardian.Body.enabled)
+                return guardian.Body.bounds.center;
+            return boss.position + Vector3.up * 5.5f;
+        }
+    }
+}

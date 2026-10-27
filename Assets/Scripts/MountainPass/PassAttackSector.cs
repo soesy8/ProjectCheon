@@ -7,17 +7,28 @@ namespace Cheon.Prototype.MountainPass
     public class PassAttackSector : MonoBehaviour
     {
         [Header("전방 중심 부채꼴 — 미터 / 전체 각도")]
+        [InspectorName("공격 반경 (m)")]
         [SerializeField, Min(0.01f)] private float radius = 3f;
+        [InspectorName("전체 범위 각도 (도)")]
         [SerializeField, Range(1f, 360f)] private float angle = 25f;
+        [InspectorName("색상")]
         [SerializeField] private Color color = new Color(0.2f, 0.9f, 1f, 1f);
+        [InspectorName("공격 범위 내부 불투명도 (0~1)")]
         [SerializeField, Range(0f, 1f)] private float fillAlpha = 0.2f;
+        [InspectorName("공격 범위 테두리 두께 (m)")]
         [SerializeField, Min(0.005f)] private float outlineWidth = 0.035f;
+        [InspectorName("공격 범위 표시 머티리얼")]
         [SerializeField] private Material rangeMaterial;
         [Header("바닥 높이에 맞추기")]
+        [InspectorName("플레이어 기준 위치")]
         [SerializeField] private Transform playerRoot;
+        [InspectorName("지면 판정 레이어")]
         [SerializeField] private LayerMask groundMask = ~0;
+        [InspectorName("지면 위 표시 높이 (m)")]
         [SerializeField, Min(0.01f)] private float groundOffset = 0.06f;
+        [InspectorName("지면 탐색 시작 높이 (m)")]
         [SerializeField, Min(0.1f)] private float groundRayHeight = 12f;
+        [InspectorName("지면 탐색 깊이 (m)")]
         [SerializeField, Min(0.1f)] private float groundRayDepth = 30f;
 
         private Mesh rangeMesh;

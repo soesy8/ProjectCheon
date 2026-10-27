@@ -7,21 +7,35 @@ namespace Cheon.Prototype.MountainPass
     {
         [Header("장착 기준점")]
         [Tooltip("이 소켓 Transform의 로컬 위치와 회전을 Inspector에서 직접 조절합니다.")]
+        [InspectorName("부채 오른손 장착 위치")]
         [SerializeField] private Transform handSocket;
+        [InspectorName("부채 허리 수납 위치")]
         [SerializeField] private Transform stowedSocket;
+        [InspectorName("부채 기준 오브젝트")]
         [SerializeField] private Transform fanRoot;
+        [InspectorName("부채 모델 크기 배율")]
         [SerializeField, Min(0.01f)] private float fanScale = 1f;
+        [InspectorName("부채 장착 전환 시간 (초)")]
         [SerializeField, Range(0f, 0.2f)] private float attachmentBlendDuration = 0.06f;
         [Header("부채 FBX")]
+        [InspectorName("접힌 부채 모델")]
         [SerializeField] private GameObject closedFan;
+        [InspectorName("펼친 부채 모델")]
         [SerializeField] private GameObject openFan;
+        [InspectorName("애니메이션 부채 모델")]
         [SerializeField] private GameObject animatedFan;
+        [InspectorName("부채 애니메이터")]
         [SerializeField] private Animator fanAnimator;
+        [InspectorName("부채 펼치기 원본 길이 (초)")]
         [SerializeField, Min(0.01f)] private float openingClipLength = 2f;
         [Header("부채 펼침")]
+        [InspectorName("부채 펼침 정도 (0~1)")]
         [SerializeField, Range(0f, 1f)] private float openingAmount;
+        [InspectorName("부채 펼치기 재생 속도")]
         [SerializeField, Min(0.05f)] private float openingSpeed = 1f;
+        [InspectorName("시작 시 부채 펼치기")]
         [SerializeField] private bool startOpen;
+        [InspectorName("애니메이션 부채 모델 사용")]
         [SerializeField] private bool useAnimatedModel = true;
 
         private float targetOpening, attachmentProgress = 1f;

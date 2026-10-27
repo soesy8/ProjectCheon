@@ -7,7 +7,9 @@ namespace Cheon.Prototype.MountainPass
     [DefaultExecutionOrder(-15)]
     public class PassPlayerAreaCombat : PassPlayerCombat
     {
+        [InspectorName("보스 패턴 설정")]
         [SerializeField] private PassBossPatternSettings settings;
+        [InspectorName("공격 범위 목록")]
         [SerializeField] private PassAttackRangeEffects.AttackRange[] areas;
         private readonly HashSet<PassHealth> hitEnemies = new HashSet<PassHealth>();
         private uint playbackSequence;
@@ -22,11 +24,6 @@ namespace Cheon.Prototype.MountainPass
             if (game == null || !game.IsRunning || !game.InEncounter || settings == null) return;
             int attack = animationControl.SelectedState == "ATTACK1" ? 1 : animationControl.SelectedState == "ATTACK2" ? 2 : animationControl.SelectedState == "ATTACK3" ? 3 : 0;
             if (attack == 0) { previousAttack = 0; return; }
-            if (view.BossLocked && boss != null && !boss.Health.IsDead)
-            {
-                Vector3 direction = Vector3.ProjectOnPlane(boss.transform.position - transform.position, Vector3.up);
-                if (direction.sqrMagnitude > .1f) transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), 720f * Time.deltaTime);
-            }
             if (playbackSequence != animationControl.PlaybackSequence || previousAttack != attack)
             {
                 playbackSequence = animationControl.PlaybackSequence; hitEnemies.Clear();
@@ -47,7 +44,8 @@ namespace Cheon.Prototype.MountainPass
                     float damage = attack == 1 ? settings.combat.playerDamage.x : attack == 2 ? settings.combat.playerDamage.y : settings.combat.playerDamage.z;
                     if (!enemy.Health.TakeDamage(damage)) continue;
                     hitEnemies.Add(enemy.Health); HitsLanded++; landed = true;
-                    effects.Impact(enemy.Body.ClosestPoint(transform.position + Vector3.up), new Color(.3f, 1f, .8f), 1f);
+                    Vector3 hitPoint = enemy.Body.ClosestPoint(transform.position + Vector3.up);
+                    effects.Hit(hitPoint, transform.position + Vector3.up - hitPoint, false, attack == 3);
                 }
             }
             if (landed) { view.AddShake(attack == 3 ? .7f : .35f); audioControl.Strike(); }

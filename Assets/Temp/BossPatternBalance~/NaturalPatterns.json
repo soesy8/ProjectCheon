@@ -1,0 +1,564 @@
+{
+  "forcedPatternCalls": false,
+  "settingsJson": "{\"jump\":{\"bossCooldown\":3.0,\"minionCooldown\":1.5,\"maximumDistance\":10.0,\"height\":5.0,\"minimumFlight\":0.44999998807907107,\"maximumFlight\":0.8999999761581421,\"windup\":1.0,\"recovery\":2.5,\"attackRadius\":2.5,\"offsetMinimum\":1.75,\"offsetMaximum\":3.0},\"selection\":{\"closeRange\":5.0,\"maximumConsecutive\":2,\"repeatFallbackWait\":2.0},\"fall\":{\"bossCooldownMinimum\":4.0,\"bossCooldownMaximum\":6.0,\"minionCooldownMinimum\":4.0,\"minionCooldownMaximum\":6.0,\"windup\":1.5,\"forwardFraction\":0.20000000298023225,\"forwardAngle\":10.0,\"backwardAngle\":30.0,\"fallDuration\":0.25,\"hitSidePushDistance\":1.0,\"holdDuration\":2.0,\"riseDuration\":1.0,\"recovery\":2.0,\"finalAngle\":90.0},\"turn\":{\"triggerAngle\":45.0,\"duration\":0.5,\"height\":1.0,\"cooldown\":1.0,\"maximumConsecutive\":3,\"openingDelay\":1.0},\"crack\":{\"enabled\":true,\"windup\":0.5,\"recovery\":1.0,\"cooldown\":8.0,\"stepCount\":5,\"stepDistance\":2.0,\"stepInterval\":0.15000000596046449,\"radius\":1.2000000476837159,\"activeDuration\":0.25,\"damage\":18.0,\"windupTilt\":20.0,\"strikeTilt\":30.0,\"recoilDuration\":1.0,\"effectLifetime\":1.0,\"lineWidth\":0.11999999731779099,\"color\":{\"r\":0.30000001192092898,\"g\":0.1599999964237213,\"b\":0.054999999701976779,\"a\":0.6499999761581421},\"material\":{\"instanceID\":50576},\"centerDustScale\":3.0,\"centerDustCount\":24,\"centerDustLift\":3.0,\"explosionOpacity\":0.7200000286102295,\"mediumDustClusters\":6,\"mediumDustScale\":1.2999999523162842,\"smallDustClusters\":10,\"smallDustScale\":0.6000000238418579},\"linkedAttack\":{\"enabled\":true,\"participants\":2,\"minimumNormalAttacks\":2,\"maximumNormalAttacks\":3,\"preparationTimeout\":10.0,\"windup\":1.0,\"jumpInterval\":0.5,\"attackGap\":0.5,\"cooldown\":6.0,\"startTimeout\":3.0,\"teleportSideDistance\":4.0,\"teleportDuration\":0.25,\"teleportHopHeight\":0.30000001192092898,\"vanishFraction\":0.30000001192092898,\"appearFraction\":0.699999988079071,\"teleportSearchRadius\":1.0,\"smokeParticles\":48,\"smokeSize\":{\"x\":0.6000000238418579,\"y\":1.2000000476837159},\"smokeLifetime\":1.0,\"smokeSpeed\":1.0,\"smokeColor\":{\"r\":0.9599999785423279,\"g\":0.9700000286102295,\"b\":1.0,\"a\":0.8500000238418579}},\"summon\":{\"requiredNormalAttacks\":3,\"spawnCount\":2,\"maximumAlive\":2,\"replenishCooldown\":15.0,\"sideDistance\":4.0,\"minionScale\":0.25,\"windup\":1.0,\"recovery\":1.0,\"deathLifetime\":1.0,\"visualPrefab\":{\"instanceID\":50578},\"modelScale\":{\"x\":1.5000001192092896,\"y\":2.25,\"z\":1.5000001192092896}},\"combat\":{\"bossHealth\":420.0,\"minionHealth\":60.0,\"bossJumpDamage\":20.0,\"bossFallDamage\":28.0,\"minionJumpDamage\":8.0,\"minionFallDamage\":12.0,\"enemyHitRecovery\":1.0,\"playerDamage\":{\"x\":22.0,\"y\":28.0,\"z\":40.0}},\"collision\":{\"radius\":0.9900000095367432,\"height\":12.217499732971192,\"clearance\":0.07999999821186066,\"groundTolerance\":2.0,\"sweepDegrees\":3.0},\"dust\":{\"material\":{\"instanceID\":50580},\"landingParticles\":48,\"fallParticles\":72,\"size\":{\"x\":0.3499999940395355,\"y\":0.8999999761581421},\"lifetime\":{\"x\":1.0,\"y\":1.0},\"opacity\":0.41999998688697817,\"color\":{\"r\":0.6200000047683716,\"g\":0.5,\"b\":0.3400000035762787,\"a\":1.0}},\"death\":{\"material\":{\"instanceID\":50582},\"powderMaterial\":{\"instanceID\":50584},\"tintDuration\":1.0,\"dissolveDuration\":1.0,\"particleTail\":1.0,\"noiseScale\":3.0,\"edgeWidth\":0.11999999731779099,\"tint\":{\"r\":0.12999999523162843,\"g\":0.02500000037252903,\"b\":0.20999999344348908,\"a\":1.0},\"edgeColor\":{\"r\":0.3199999928474426,\"g\":0.07999999821186066,\"b\":0.4399999976158142,\"a\":1.0},\"particlesPerSecond\":240,\"particleSize\":{\"x\":0.05999999865889549,\"y\":0.14000000059604646},\"particleLifetime\":1.0,\"particleSpeed\":1.0,\"particleDrift\":{\"x\":0.4000000059604645,\"y\":1.0,\"z\":0.20000000298023225},\"particleColor\":{\"r\":0.5799999833106995,\"g\":0.3199999928474426,\"b\":0.7200000286102295,\"a\":0.949999988079071}}}",
+  "elapsed": 120.008492,
+  "finished": true,
+  "pausedForCapture": false,
+  "normalCompleted": 13,
+  "normalKinds": [
+    "JumpWindup",
+    "CrackWindup",
+    "FallWindup"
+  ],
+  "maxNormalStreak": 2,
+  "jumps": 6,
+  "falls": 6,
+  "cracks": 5,
+  "summons": 1,
+  "linkedStarts": 4,
+  "linkedCompleted": 4,
+  "busyReservationStarts": 4,
+  "cancelled": 0,
+  "cancelReason": "",
+  "normalIntervals": [
+    3,
+    3,
+    3,
+    2
+  ],
+  "peakMinions": 2,
+  "spawnSmokeActors": 2,
+  "events": [
+    {
+      "at": 0.0199999921,
+      "kind": "Idle",
+      "normal": 0
+    },
+    {
+      "at": 1.013287,
+      "kind": "JumpWindup",
+      "normal": 0
+    },
+    {
+      "at": 2.02983141,
+      "kind": "JumpFlight",
+      "normal": 0
+    },
+    {
+      "at": 2.946646,
+      "kind": "JumpRecovery",
+      "normal": 0
+    },
+    {
+      "at": 5.4469924,
+      "kind": "Idle",
+      "normal": 1
+    },
+    {
+      "at": 8.463304,
+      "kind": "JumpWindup",
+      "normal": 1
+    },
+    {
+      "at": 9.47961,
+      "kind": "JumpFlight",
+      "normal": 1
+    },
+    {
+      "at": 10.38257,
+      "kind": "JumpRecovery",
+      "normal": 1
+    },
+    {
+      "at": 12.882637,
+      "kind": "Idle",
+      "normal": 2
+    },
+    {
+      "at": 12.8989849,
+      "kind": "CrackWindup",
+      "normal": 2
+    },
+    {
+      "at": 13.415246,
+      "kind": "CrackActive",
+      "normal": 2
+    },
+    {
+      "at": 14.4163475,
+      "kind": "CrackRecovery",
+      "normal": 2
+    },
+    {
+      "at": 15.4326,
+      "kind": "Idle",
+      "normal": 3
+    },
+    {
+      "at": 15.4463272,
+      "kind": "SummonWindup",
+      "normal": 3
+    },
+    {
+      "at": 16.4494324,
+      "kind": "SummonRecovery",
+      "normal": 3
+    },
+    {
+      "at": 17.4633446,
+      "kind": "Idle",
+      "normal": 3
+    },
+    {
+      "at": 17.4797516,
+      "kind": "LinkedStart",
+      "normalSincePrevious": 3,
+      "participants": [
+        "JumpWindup",
+        "JumpWindup"
+      ]
+    },
+    {
+      "at": 17.4797516,
+      "kind": "LinkedAttack",
+      "normal": 3
+    },
+    {
+      "at": 23.8132915,
+      "kind": "FallWindup",
+      "normal": 3
+    },
+    {
+      "at": 26.213192,
+      "kind": "Falling",
+      "normal": 3
+    },
+    {
+      "at": 26.4799385,
+      "kind": "FallHold",
+      "normal": 3
+    },
+    {
+      "at": 28.49624,
+      "kind": "Rising",
+      "normal": 3
+    },
+    {
+      "at": 29.4965782,
+      "kind": "FallRecovery",
+      "normal": 3
+    },
+    {
+      "at": 31.5130749,
+      "kind": "Idle",
+      "normal": 3
+    },
+    {
+      "at": 31.5296669,
+      "kind": "JumpWindup",
+      "normal": 3
+    },
+    {
+      "at": 32.5471,
+      "kind": "JumpFlight",
+      "normal": 3
+    },
+    {
+      "at": 33.4131432,
+      "kind": "JumpRecovery",
+      "normal": 3
+    },
+    {
+      "at": 35.9229774,
+      "kind": "Idle",
+      "normal": 4
+    },
+    {
+      "at": 35.9398155,
+      "kind": "Turning",
+      "normal": 4
+    },
+    {
+      "at": 36.43985,
+      "kind": "Idle",
+      "normal": 4
+    },
+    {
+      "at": 36.4562721,
+      "kind": "CrackWindup",
+      "normal": 4
+    },
+    {
+      "at": 36.9728355,
+      "kind": "CrackActive",
+      "normal": 4
+    },
+    {
+      "at": 37.9732437,
+      "kind": "CrackRecovery",
+      "normal": 4
+    },
+    {
+      "at": 38.9894257,
+      "kind": "Idle",
+      "normal": 5
+    },
+    {
+      "at": 39.0062981,
+      "kind": "FallWindup",
+      "normal": 5
+    },
+    {
+      "at": 40.5234833,
+      "kind": "Falling",
+      "normal": 5
+    },
+    {
+      "at": 40.7735023,
+      "kind": "FallHold",
+      "normal": 5
+    },
+    {
+      "at": 42.7898,
+      "kind": "Rising",
+      "normal": 5
+    },
+    {
+      "at": 43.78994,
+      "kind": "FallRecovery",
+      "normal": 5
+    },
+    {
+      "at": 45.80608,
+      "kind": "Idle",
+      "normal": 6
+    },
+    {
+      "at": 45.8233757,
+      "kind": "LinkedStart",
+      "normalSincePrevious": 3,
+      "participants": [
+        "Rising",
+        "FallWindup"
+      ]
+    },
+    {
+      "at": 45.8233757,
+      "kind": "LinkedAttack",
+      "normal": 6
+    },
+    {
+      "at": 53.2898331,
+      "kind": "FallWindup",
+      "normal": 6
+    },
+    {
+      "at": 55.499073,
+      "kind": "Falling",
+      "normal": 6
+    },
+    {
+      "at": 55.76607,
+      "kind": "FallHold",
+      "normal": 6
+    },
+    {
+      "at": 57.78256,
+      "kind": "Rising",
+      "normal": 6
+    },
+    {
+      "at": 58.7826233,
+      "kind": "FallRecovery",
+      "normal": 6
+    },
+    {
+      "at": 60.79828,
+      "kind": "Idle",
+      "normal": 6
+    },
+    {
+      "at": 60.8154755,
+      "kind": "JumpWindup",
+      "normal": 6
+    },
+    {
+      "at": 61.8321228,
+      "kind": "JumpFlight",
+      "normal": 6
+    },
+    {
+      "at": 62.582634,
+      "kind": "JumpRecovery",
+      "normal": 6
+    },
+    {
+      "at": 65.09867,
+      "kind": "Idle",
+      "normal": 7
+    },
+    {
+      "at": 65.1155548,
+      "kind": "Turning",
+      "normal": 7
+    },
+    {
+      "at": 65.61586,
+      "kind": "Idle",
+      "normal": 7
+    },
+    {
+      "at": 65.62981,
+      "kind": "CrackWindup",
+      "normal": 7
+    },
+    {
+      "at": 66.1319351,
+      "kind": "CrackActive",
+      "normal": 7
+    },
+    {
+      "at": 67.1320648,
+      "kind": "CrackRecovery",
+      "normal": 7
+    },
+    {
+      "at": 68.14896,
+      "kind": "Idle",
+      "normal": 8
+    },
+    {
+      "at": 68.16549,
+      "kind": "FallWindup",
+      "normal": 8
+    },
+    {
+      "at": 69.66567,
+      "kind": "Falling",
+      "normal": 8
+    },
+    {
+      "at": 69.93284,
+      "kind": "FallHold",
+      "normal": 8
+    },
+    {
+      "at": 71.94929,
+      "kind": "Rising",
+      "normal": 8
+    },
+    {
+      "at": 72.96623,
+      "kind": "FallRecovery",
+      "normal": 8
+    },
+    {
+      "at": 74.9758453,
+      "kind": "Idle",
+      "normal": 9
+    },
+    {
+      "at": 74.99267,
+      "kind": "LinkedStart",
+      "normalSincePrevious": 3,
+      "participants": [
+        "JumpRecovery",
+        "JumpRecovery"
+      ]
+    },
+    {
+      "at": 74.99267,
+      "kind": "LinkedAttack",
+      "normal": 9
+    },
+    {
+      "at": 81.72628,
+      "kind": "FallWindup",
+      "normal": 9
+    },
+    {
+      "at": 83.79315,
+      "kind": "Falling",
+      "normal": 9
+    },
+    {
+      "at": 84.05955,
+      "kind": "FallHold",
+      "normal": 9
+    },
+    {
+      "at": 86.05987,
+      "kind": "Rising",
+      "normal": 9
+    },
+    {
+      "at": 87.076,
+      "kind": "FallRecovery",
+      "normal": 9
+    },
+    {
+      "at": 89.09391,
+      "kind": "Idle",
+      "normal": 9
+    },
+    {
+      "at": 89.11055,
+      "kind": "JumpWindup",
+      "normal": 9
+    },
+    {
+      "at": 90.12648,
+      "kind": "JumpFlight",
+      "normal": 9
+    },
+    {
+      "at": 90.84311,
+      "kind": "JumpRecovery",
+      "normal": 9
+    },
+    {
+      "at": 93.35976,
+      "kind": "Idle",
+      "normal": 10
+    },
+    {
+      "at": 93.3771,
+      "kind": "Turning",
+      "normal": 10
+    },
+    {
+      "at": 93.89309,
+      "kind": "Idle",
+      "normal": 10
+    },
+    {
+      "at": 93.91031,
+      "kind": "CrackWindup",
+      "normal": 10
+    },
+    {
+      "at": 94.41883,
+      "kind": "CrackActive",
+      "normal": 10
+    },
+    {
+      "at": 95.4344254,
+      "kind": "CrackRecovery",
+      "normal": 10
+    },
+    {
+      "at": 96.4512,
+      "kind": "Idle",
+      "normal": 11
+    },
+    {
+      "at": 96.46823,
+      "kind": "LinkedStart",
+      "normalSincePrevious": 2,
+      "participants": [
+        "FallHold",
+        "JumpWindup"
+      ]
+    },
+    {
+      "at": 96.46823,
+      "kind": "LinkedAttack",
+      "normal": 11
+    },
+    {
+      "at": 102.3348,
+      "kind": "FallWindup",
+      "normal": 11
+    },
+    {
+      "at": 104.651443,
+      "kind": "Falling",
+      "normal": 11
+    },
+    {
+      "at": 104.91729,
+      "kind": "FallHold",
+      "normal": 11
+    },
+    {
+      "at": 106.917488,
+      "kind": "Rising",
+      "normal": 11
+    },
+    {
+      "at": 107.918076,
+      "kind": "FallRecovery",
+      "normal": 11
+    },
+    {
+      "at": 109.933411,
+      "kind": "Idle",
+      "normal": 11
+    },
+    {
+      "at": 109.950722,
+      "kind": "JumpWindup",
+      "normal": 11
+    },
+    {
+      "at": 110.951218,
+      "kind": "JumpFlight",
+      "normal": 11
+    },
+    {
+      "at": 111.584496,
+      "kind": "JumpRecovery",
+      "normal": 11
+    },
+    {
+      "at": 114.0917,
+      "kind": "Idle",
+      "normal": 12
+    },
+    {
+      "at": 114.107796,
+      "kind": "Turning",
+      "normal": 12
+    },
+    {
+      "at": 114.608643,
+      "kind": "Idle",
+      "normal": 12
+    },
+    {
+      "at": 114.624985,
+      "kind": "CrackWindup",
+      "normal": 12
+    },
+    {
+      "at": 115.14119,
+      "kind": "CrackActive",
+      "normal": 12
+    },
+    {
+      "at": 116.141258,
+      "kind": "CrackRecovery",
+      "normal": 12
+    },
+    {
+      "at": 117.1414,
+      "kind": "Idle",
+      "normal": 13
+    },
+    {
+      "at": 117.157928,
+      "kind": "FallWindup",
+      "normal": 13
+    },
+    {
+      "at": 118.674957,
+      "kind": "Falling",
+      "normal": 13
+    },
+    {
+      "at": 118.92524,
+      "kind": "FallHold",
+      "normal": 13
+    }
+  ]
+}

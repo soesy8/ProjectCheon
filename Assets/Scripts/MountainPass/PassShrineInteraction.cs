@@ -6,10 +6,15 @@ namespace Cheon.Prototype.MountainPass
 {
     public class PassShrineInteraction : MonoBehaviour
     {
+        [InspectorName("게임 진행 제어기")]
         [SerializeField] private PassGameFlow game;
+        [InspectorName("산신각 기도 위치")]
         [SerializeField] private Transform prayerPoint;
+        [InspectorName("산신각 재시작 위치")]
         [SerializeField] private Transform respawnPoint;
+        [InspectorName("산신각 상호작용 반경 (m)")]
         [SerializeField, Min(0.5f)] private float interactionRadius = 2.5f;
+        [InspectorName("산신각 기도 시간 (초)")]
         [SerializeField, Min(0.1f)] private float prayerDuration = 1.2f;
         public bool IsPraying { get; private set; }
         public Vector3 Position => prayerPoint != null ? prayerPoint.position : transform.position;
@@ -26,6 +31,7 @@ namespace Cheon.Prototype.MountainPass
         private void Update()
         { if (CanInteract && Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame) Interact(); }
         public void Interact() { if (CanInteract) StartCoroutine(Pray()); }
+        public void CancelPrayer() { StopAllCoroutines(); IsPraying = false; }
         private IEnumerator Pray()
         {
             IsPraying = true;

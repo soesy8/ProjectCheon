@@ -1,0 +1,38 @@
+{
+  "framesAdvanced": 110,
+  "attacks": [
+    {
+      "attack": 1,
+      "frame": 25.9165649,
+      "slashVisible": true,
+      "radialOpacity": 1.0,
+      "windMask": 0.0,
+      "fittedArc": 0.0,
+      "arcAngle": 145.0,
+      "fadeSeconds": 0.26,
+      "relativeHeight": 1.45000076
+    },
+    {
+      "attack": 2,
+      "frame": 32.3576622,
+      "slashVisible": true,
+      "radialOpacity": 1.0,
+      "windMask": 0.0,
+      "fittedArc": 1.0,
+      "arcAngle": 175.0,
+      "fadeSeconds": 0.22,
+      "relativeHeight": 1.17101669
+    },
+    {
+      "attack": 3,
+      "frame": 35.027,
+      "slashVisible": true,
+      "radialOpacity": 1.0,
+      "windMask": 0.0,
+      "fittedArc": 1.0,
+      "arcAngle": 210.0,
+      "fadeSeconds": 0.28,
+      "relativeHeight": 1.16824341
+    }
+  ]
+}

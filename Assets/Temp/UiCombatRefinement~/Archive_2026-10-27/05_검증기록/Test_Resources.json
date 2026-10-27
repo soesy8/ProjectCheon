@@ -1,0 +1,56 @@
+{
+  "group": "Resources",
+  "passed": true,
+  "frame": 6527,
+  "checks": [
+    {
+      "name": "maximum energy 100 / boss 1000",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "forward sprint drains 5/s",
+      "passed": true,
+      "details": {
+        "seconds": 0.8328934,
+        "spent": 4.164482
+      }
+    },
+    {
+      "name": "retreat sprint drains 10/s",
+      "passed": true,
+      "details": {
+        "seconds": 0.8337631,
+        "spent": 8.337585
+      }
+    },
+    {
+      "name": "actual dodge spends 25 once",
+      "passed": true,
+      "details": 75.0
+    },
+    {
+      "name": "idle regenerates 10/s",
+      "passed": true,
+      "details": {
+        "seconds": 0.8323059,
+        "gained": 8.164055
+      }
+    },
+    {
+      "name": "pause freezes energy",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "empty energy blocks dodge",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "empty energy blocks sprint",
+      "passed": true,
+      "details": null
+    }
+  ]
+}

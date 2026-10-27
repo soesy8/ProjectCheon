@@ -1,0 +1,22 @@
+{
+  "idle": {
+    "frames": 240,
+    "gcRecorder": true,
+    "mainRecorder": true,
+    "gcBytesPerFrame": 84895.34166666666,
+    "mainThreadMs": 16.642600833333333,
+    "batches": 412.63333333333333,
+    "drawCalls": 432.70416666666665,
+    "triangles": 1279077.925
+  },
+  "combat": {
+    "frames": 300,
+    "gcRecorder": true,
+    "mainRecorder": true,
+    "gcBytesPerFrame": 105796.44666666667,
+    "mainThreadMs": 16.672146333333334,
+    "batches": 295.79,
+    "drawCalls": 301.26,
+    "triangles": 432479.24666666664
+  }
+}

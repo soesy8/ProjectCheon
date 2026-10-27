@@ -1,0 +1,7 @@
+{
+  "preparationTimeoutCancelled": true,
+  "allReservationsReleased": true,
+  "reason": "참가자 준비 시간 초과",
+  "turnCooldownDoesNotBlockAttack": true,
+  "selected": "FallWindup"
+}

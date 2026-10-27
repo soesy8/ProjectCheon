@@ -77,6 +77,33 @@ namespace Cheon.Prototype.MountainPass
             EmitExplosionRing(origin, radius * .95f, settings.crack.smallDustClusters, settings.crack.smallDustScale, 3);
         }
 
+        public void EmitPursuitLanding(Vector3 origin, float radius, bool heavy)
+        {
+            particles.Play(); ImpactBursts++;
+            float size = settings.pursuitSlam.dustSize * (heavy ? 1.2f : 1f);
+            // 실제 공격 반경의 안쪽과 외곽을 따라 여러 무리를 배치해 착지 범위를 읽기 쉽게 한다.
+            int clusters = settings.pursuitSlam.dustClusters;
+            for (int ring = 0; ring < 2; ring++)
+                for (int cluster = 0; cluster < clusters; cluster++)
+                {
+                    float angle = (cluster + ring * .5f) * Mathf.PI * 2f / clusters;
+                    Vector3 outward = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
+                    Vector3 center = origin + outward * radius * (ring == 0 ? .55f : .96f);
+                    for (int index = 0; index < 4; index++)
+                    {
+                        Vector2 jitter = Random.insideUnitCircle * .18f;
+                        Emit(center + new Vector3(jitter.x, .08f, jitter.y),
+                            outward * Random.Range(.25f, .6f) + Vector3.up * Random.Range(.7f, 1.5f),
+                            size, Mathf.Max(settings.dust.opacity, .85f));
+                    }
+                }
+            for (int index = 0; index < 24; index++)
+            {
+                Vector2 offset = Random.insideUnitCircle * radius * .3f;
+                Emit(origin + new Vector3(offset.x, .08f, offset.y), Vector3.up * Random.Range(1f, 2f), size * 1.15f, .85f);
+            }
+        }
+
         private void EmitExplosionRing(Vector3 origin, float radius, int clusters, float sizeScale, int count)
         {
             float rotation = Random.Range(0f, Mathf.PI * 2f);

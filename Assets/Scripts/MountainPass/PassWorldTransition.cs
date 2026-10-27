@@ -7,21 +7,34 @@ namespace Cheon.Prototype.MountainPass
     {
         [Header("통과 판정")]
         [Tooltip("비워 두면 Player 태그를 찾습니다. 플레이어가 없으면 아래 옵션에 따라 카메라를 사용합니다.")]
+        [InspectorName("플레이어")]
         [SerializeField] private Transform player;
+        [InspectorName("환경을 표시할 카메라")]
         [SerializeField] private Camera worldCamera;
+        [InspectorName("주 광원")]
         [SerializeField] private Light sun;
+        [InspectorName("플레이어가 없으면 카메라로 통과 판정")]
         [SerializeField] private bool useCameraWhenPlayerMissing = true;
         [Tooltip("이 오브젝트를 통로 중앙에 두고 파란색 Z축을 어두워질 영역으로 향하게 합니다. X는 통로 폭, Y는 높이입니다.")]
+        [InspectorName("산문 통과 폭·높이 (m)")]
         [SerializeField] private Vector2 passageSize = new Vector2(6f, 9f);
+        [InspectorName("산문 통과 판정 여유 (m)")]
         [SerializeField, Min(0.01f)] private float crossingMargin = 0.15f;
 
         [Header("영계 연출")]
+        [InspectorName("동작·환경 전환 시간 (초)")]
         [SerializeField, Min(0.01f)] private float transitionDuration = 1.5f;
+        [InspectorName("영계 배경·안개 색상")]
         [SerializeField] private Color spiritBackground = new Color(0.12f, 0.13f, 0.25f);
+        [InspectorName("영계 주변광 색상")]
         [SerializeField] private Color spiritAmbient = new Color(0.4f, 0.36f, 0.58f);
+        [InspectorName("영계 햇빛 색상")]
         [SerializeField] private Color spiritSun = new Color(0.64f, 0.66f, 1f);
+        [InspectorName("영계 햇빛 강도")]
         [SerializeField, Min(0f)] private float spiritSunIntensity = 0.85f;
+        [InspectorName("영계 하늘 색상")]
         [SerializeField] private Color spiritSky = new Color(0.06f, 0.14f, 0.28f);
+        [InspectorName("영계 구름 색상")]
         [SerializeField] private Color spiritCloud = new Color(0.27f, 0.4f, 0.56f);
 
         private static readonly string[] SkyColorProperties =
@@ -36,6 +49,7 @@ namespace Cheon.Prototype.MountainPass
         private Color originalSunColor;
         private float originalSunIntensity;
         private float approachBrightness = 1f;
+        private float appliedSpiritAmount = -1f, appliedBrightness = -1f;
         private Material originalSky, runtimeSky;
         private readonly Color[] originalSkyColors = new Color[SkyColorProperties.Length];
 
@@ -46,6 +60,7 @@ namespace Cheon.Prototype.MountainPass
 
         private void OnEnable()
         {
+            appliedSpiritAmount = appliedBrightness = -1f;
             if (worldCamera == null) worldCamera = Camera.main;
             if (sun == null) sun = RenderSettings.sun;
             if (player == null)
@@ -121,6 +136,8 @@ namespace Cheon.Prototype.MountainPass
         private void ApplyEnvironment()
         {
             float brightness = Mathf.Lerp(approachBrightness, 1f, SpiritAmount);
+            if (Mathf.Approximately(appliedSpiritAmount, SpiritAmount) && Mathf.Approximately(appliedBrightness, brightness)) return;
+            appliedSpiritAmount = SpiritAmount; appliedBrightness = brightness;
             if (worldCamera != null)
                 worldCamera.backgroundColor = Color.Lerp(originalBackground, spiritBackground, SpiritAmount);
             RenderSettings.fogColor = Color.Lerp(originalFog, spiritBackground, SpiritAmount);

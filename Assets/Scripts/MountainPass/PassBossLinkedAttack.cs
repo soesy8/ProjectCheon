@@ -6,13 +6,13 @@ namespace Cheon.Prototype.MountainPass
     // 순간이동과 잡몹 점프를 동기화하고, 마지막 착지를 기준으로 본체 타격을 예약한다.
     public class PassBossLinkedAttack : MonoBehaviour
     {
-        private enum LinkStage { None, Teleporting, LeadIn, StartingJumps, WaitingForLastLanding, WaitingForBossFall }
+        private enum LinkStage { None, Preparing, Teleporting, LeadIn, StartingJumps, WaitingForLastLanding, WaitingForBossFall }
         private readonly List<PassBossPatternController> participants = new List<PassBossPatternController>();
         private readonly List<Vector3> teleportTargets = new List<Vector3>();
         private PassBossPatternSettings settings;
         private PassBossPatternController boss;
         private LinkStage stage;
-        private float elapsed, nextJumpAt, jumpStartDeadline, lastLandingDeadline;
+        private float elapsed, nextJumpAt, jumpStartDeadline, lastLandingDeadline, bossFallDeadline;
         private int participantIndex, lastLandingsBefore, bossFallsBefore;
 
         public bool IsActive => stage != LinkStage.None;
@@ -21,14 +21,17 @@ namespace Cheon.Prototype.MountainPass
         public float ReadyAt { get; private set; }
         public int CompletedCount { get; private set; }
         public int JumpsOrdered { get; private set; }
+        public int CancelledCount { get; private set; }
+        public string LastCancellationReason { get; private set; } = "";
+        public bool IsPreparing => stage == LinkStage.Preparing;
 
         public void Configure(PassBossPatternSettings configuration, PassBossPatternController owner)
         { settings = configuration; boss = owner; }
 
         public bool TryBegin()
         {
-            // 본체 쿨타임은 연계 시작 전에 충족시켜 마지막 착지 이후 추가 대기를 없앤다.
-            if (IsActive || !settings.linkedAttack.enabled || Time.time < ReadyAt || Time.time < boss.FallReadyAt) return false;
+            if (IsActive || !settings.linkedAttack.enabled || Time.time < ReadyAt || !boss.IsAlive ||
+                boss.Phase != PassBossPatternController.PatternPhase.Idle) return false;
             participants.Clear(); teleportTargets.Clear();
             foreach (var enemy in settings.Enemies)
             {
@@ -38,36 +41,56 @@ namespace Cheon.Prototype.MountainPass
             if (participants.Count < settings.linkedAttack.participants) { participants.Clear(); return false; }
             foreach (var enemy in participants)
                 if (!enemy.ReserveForLinkedAttack(this)) { ReleaseParticipants(); return false; }
+            // 현재 동작은 끝까지 재생시키고 다음 개별 공격만 막아 참가 시점을 맞춘다.
+            participantIndex = JumpsOrdered = 0; BossHitAt = float.PositiveInfinity;
+            SetStage(LinkStage.Preparing); boss.EnterLinkedAttack();
+            return true;
+        }
+
+        private bool StartTeleports()
+        {
+            teleportTargets.Clear();
             for (int index = 0; index < participants.Count; index++)
             {
                 float side = index % 2 == 0 ? -1f : 1f;
                 Vector3 desired = boss.transform.position + boss.transform.right * settings.linkedAttack.teleportSideDistance * side * (index / 2 + 1);
-                if (!participants[index].TryResolveTeleportDestination(desired, out Vector3 target)) { ReleaseParticipants(); return false; }
+                if (!participants[index].TryResolveTeleportDestination(desired, out Vector3 target)) return false;
                 foreach (var previous in teleportTargets)
+                {
                     if (Vector3.ProjectOnPlane(previous - target, Vector3.up).magnitude < participants[index].Body.radius * 2f + settings.collision.clearance)
-                    { ReleaseParticipants(); return false; }
+                        return false;
+                }
                 teleportTargets.Add(target);
             }
-            participantIndex = JumpsOrdered = 0; BossHitAt = float.PositiveInfinity;
-            SetStage(LinkStage.Teleporting); boss.EnterLinkedAttack();
+            SetStage(LinkStage.Teleporting);
             for (int index = 0; index < participants.Count; index++)
-                if (!participants[index].BeginLinkedTeleport(this, teleportTargets[index])) { Cancel(); return false; }
+                if (!participants[index].BeginLinkedTeleport(this, teleportTargets[index])) return false;
             return true;
         }
 
         public void Tick(float deltaTime)
         {
             if (!IsActive) return;
+            if (!settings.linkedAttack.enabled) { Cancel("협동 공격 사용 해제"); return; }
             foreach (var enemy in participants)
-                if (enemy == null || !enemy.IsAlive || !enemy.isActiveAndEnabled) { Cancel(); return; }
+                if (enemy == null || !enemy.IsAlive || !enemy.isActiveAndEnabled) { Cancel("참가 잡몹 사망·비활성화"); return; }
             elapsed += deltaTime;
             switch (stage)
             {
+                case LinkStage.Preparing:
+                    bool ready = Time.time >= boss.FallReadyAt;
+                    foreach (var enemy in participants) ready &= enemy.ReadyForLinkedTeleport(this);
+                    if (ready)
+                    { if (!StartTeleports()) Cancel("안전한 순간이동 지점 없음"); }
+                    else if (elapsed >= settings.linkedAttack.preparationTimeout) Cancel("참가자 준비 시간 초과");
+                    break;
                 case LinkStage.Teleporting:
+                    if (elapsed > settings.linkedAttack.startTimeout + settings.linkedAttack.teleportDuration * 2f)
+                    { Cancel("순간이동 시간 초과"); break; }
                     foreach (var enemy in participants)
                     {
                         if (enemy.TeleportVfx.IsTeleporting) return;
-                        if (!enemy.TeleportVfx.Succeeded) { Cancel(); return; }
+                        if (!enemy.TeleportVfx.Succeeded) { Cancel("순간이동 취소"); return; }
                     }
                     SetStage(LinkStage.LeadIn);
                     break;
@@ -90,7 +113,7 @@ namespace Cheon.Prototype.MountainPass
                             lastLandingsBefore = landingsBefore; bossFallsBefore = boss.FallsCompleted;
                             lastLandingDeadline = Time.time + settings.jump.windup + settings.jump.maximumFlight + settings.linkedAttack.startTimeout;
                             if (boss.StartLinkedFall(this)) SetStage(LinkStage.WaitingForLastLanding);
-                            else Cancel();
+                            else Cancel("본체 엎어지기 준비 실패");
                         }
                         else
                         {
@@ -99,16 +122,18 @@ namespace Cheon.Prototype.MountainPass
                             jumpStartDeadline = nextJumpAt + settings.linkedAttack.startTimeout;
                         }
                     }
-                    else if (Time.time >= jumpStartDeadline) Cancel();
+                    else if (Time.time >= jumpStartDeadline) Cancel("잡몹 점프 시작 시간 초과");
                     break;
                 case LinkStage.WaitingForLastLanding:
                     var last = participants[participants.Count - 1];
                     if (last.JumpLandings > lastLandingsBefore)
                     {
                         BossHitAt = last.LastJumpLandedAt + settings.linkedAttack.attackGap;
+                        bossFallDeadline = BossHitAt + settings.fall.fallDuration + settings.fall.holdDuration +
+                            settings.fall.riseDuration + settings.fall.recovery + settings.linkedAttack.startTimeout;
                         SetStage(LinkStage.WaitingForBossFall);
                     }
-                    else if (Time.time >= lastLandingDeadline) Cancel();
+                    else if (Time.time >= lastLandingDeadline) Cancel("마지막 잡몹 착지 시간 초과");
                     break;
                 case LinkStage.WaitingForBossFall:
                     if (boss.FallsCompleted > bossFallsBefore)
@@ -116,13 +141,15 @@ namespace Cheon.Prototype.MountainPass
                         CompletedCount++; ReadyAt = Time.time + settings.linkedAttack.cooldown;
                         stage = LinkStage.None; BossHitAt = float.PositiveInfinity; ReleaseParticipants();
                     }
+                    else if (Time.time >= bossFallDeadline) Cancel("본체 엎어지기 완료 시간 초과");
                     break;
             }
         }
 
         private void SetStage(LinkStage next) { stage = next; elapsed = 0; }
-        private void Cancel()
+        private void Cancel(string reason)
         {
+            CancelledCount++; LastCancellationReason = reason;
             stage = LinkStage.None; BossHitAt = float.PositiveInfinity;
             ReadyAt = Time.time + settings.linkedAttack.cooldown;
             boss.CancelLinkedFall(this); ReleaseParticipants(); boss.LeaveLinkedAttack();
@@ -136,7 +163,7 @@ namespace Cheon.Prototype.MountainPass
         {
             stage = LinkStage.None; BossHitAt = float.PositiveInfinity;
             if (boss != null) boss.CancelLinkedFall(this);
-            ReleaseParticipants(); ReadyAt = 0; CompletedCount = JumpsOrdered = 0;
+            ReleaseParticipants(); ReadyAt = 0; CompletedCount = JumpsOrdered = CancelledCount = 0; LastCancellationReason = "";
         }
     }
 }

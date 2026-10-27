@@ -1,0 +1,11 @@
+{
+  "before": 1207,
+  "after": 479,
+  "obsoleteRangeObjects": 5,
+  "unusedRenderers": 74,
+  "wallBoxes": 697,
+  "collisionChunks": 46,
+  "collisionProbes": 4182,
+  "staticRenderers": 137,
+  "roots": 8
+}

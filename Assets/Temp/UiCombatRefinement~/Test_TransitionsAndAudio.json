@@ -1,0 +1,112 @@
+{
+  "group": "TransitionsAndAudio",
+  "passed": true,
+  "frame": 4646,
+  "checks": [
+    {
+      "name": "journey fade reaches black then clears",
+      "passed": true,
+      "details": 1.0
+    },
+    {
+      "name": "boss introduction advances after fade",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "cinematic exit restores gameplay camera and time",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "pause fade restores paused time",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "resume fade restores normal time",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "audio loaded: fanWhoosh",
+      "passed": true,
+      "details": 0.42
+    },
+    {
+      "name": "audio loaded: strike",
+      "passed": true,
+      "details": 0.28
+    },
+    {
+      "name": "audio loaded: windHit",
+      "passed": true,
+      "details": 0.34
+    },
+    {
+      "name": "audio loaded: hurt",
+      "passed": true,
+      "details": 0.4
+    },
+    {
+      "name": "audio loaded: slam",
+      "passed": true,
+      "details": 1.14997733
+    },
+    {
+      "name": "audio loaded: bell",
+      "passed": true,
+      "details": 2.7999773
+    },
+    {
+      "name": "audio loaded: wind",
+      "passed": true,
+      "details": 8.0
+    },
+    {
+      "name": "audio loaded: footstep",
+      "passed": true,
+      "details": 0.19
+    },
+    {
+      "name": "audio loaded: dodge",
+      "passed": true,
+      "details": 0.5
+    },
+    {
+      "name": "audio loaded: drink",
+      "passed": true,
+      "details": 0.85
+    },
+    {
+      "name": "audio loaded: confirm",
+      "passed": true,
+      "details": 0.24
+    },
+    {
+      "name": "audio loaded: spirit",
+      "passed": true,
+      "details": 1.5
+    },
+    {
+      "name": "audio loaded: victory",
+      "passed": true,
+      "details": 2.4
+    },
+    {
+      "name": "audio loaded: defeat",
+      "passed": true,
+      "details": 1.6
+    },
+    {
+      "name": "audio loaded: equipment",
+      "passed": true,
+      "details": 0.28
+    },
+    {
+      "name": "audio produces output",
+      "passed": true,
+      "details": 0.188795567
+    }
+  ]
+}

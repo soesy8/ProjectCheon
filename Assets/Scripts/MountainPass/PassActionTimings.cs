@@ -3,20 +3,29 @@ using UnityEngine;
 
 namespace Cheon.Prototype.MountainPass
 {
-    [CreateAssetMenu(menuName = "Cheon/Prototype/Player Action Timings")]
+    [CreateAssetMenu(menuName = "천/산길/입력 취소·동작 전환 설정")]
     public class PassActionTimings : ScriptableObject
     {
         [Serializable]
         public sealed class ActionTiming
         {
+            [InspectorName("동작 종류")]
             public string state;
+            [InspectorName("이동 입력 허용 시점 (0~1)")]
             [Range(0f, 1f)] public float moveCancel = 0.65f;
+            [InspectorName("회피 입력 허용 시점 (0~1)")]
             [Range(0f, 1f)] public float dodgeCancel = 0.65f;
+            [InspectorName("1타 입력 허용 시점 (0~1)")]
             [Range(0f, 1f)] public float attack1Cancel = 0.55f;
+            [InspectorName("2타 입력 허용 시점 (0~1)")]
             [Range(0f, 1f)] public float attack2Cancel = 0.55f;
+            [InspectorName("3타 입력 허용 시점 (0~1)")]
             [Range(0f, 1f)] public float attack3Cancel = 0.55f;
+            [InspectorName("발도·납도 허용 시점 (0~1)")]
             [Range(0f, 1f)] public float equipmentCancel = 0.9f;
+            [InspectorName("대기 동작 자동 복귀 시점 (0~1)")]
             [Range(0.05f, 1f)] public float autoReturn = 1f;
+            [InspectorName("동작 혼합 시간 (초)")]
             [Range(0f, 0.4f)] public float blendDuration = 0.12f;
 
             public float AttackCancel(int index) => index == 1 ? attack1Cancel : index == 2 ? attack2Cancel : attack3Cancel;
@@ -36,6 +45,7 @@ namespace Cheon.Prototype.MountainPass
         }
 
         // 현재 저장된 캔슬 설정을 새 설정 에셋의 기본값으로 사용한다.
+        [InspectorName("동작별 취소·전환 설정")]
         [SerializeField] private ActionTiming[] actions =
         {
             new ActionTiming { state = "ATTACK1", moveCancel = 0.60f, dodgeCancel = 0.45f },

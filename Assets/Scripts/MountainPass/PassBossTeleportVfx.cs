@@ -22,6 +22,8 @@ namespace Cheon.Prototype.MountainPass
         public bool ModelHidden { get; private set; }
         public bool Succeeded { get; private set; }
         public Vector3 Destination { get; private set; }
+        public int SpawnSmokeBursts { get; private set; }
+        public int SmokeParticleCount => smoke != null ? smoke.particleCount : 0;
 
         public void Configure(PassBossPatternSettings configuration, PassBossPatternController actor, Transform model, PassPlayerMovement target)
         {
@@ -124,7 +126,15 @@ namespace Cheon.Prototype.MountainPass
         public void ResetEffect()
         {
             Cancel(false);
+            SpawnSmokeBursts = 0;
             if (smoke != null) smoke.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        }
+
+        public void PlaySpawnSmoke()
+        {
+            // 소환 직후에는 위치나 충돌 상태를 바꾸지 않고 같은 흰 연기만 재사용한다.
+            EmitSmoke(transform.position);
+            SpawnSmokeBursts++;
         }
 
         public void DisplaceForCollision(Vector3 displacement)

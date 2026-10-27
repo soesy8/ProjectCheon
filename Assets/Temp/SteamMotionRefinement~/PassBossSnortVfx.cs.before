@@ -1,0 +1,72 @@
+using UnityEngine;
+using UnityEngine.Rendering;
+
+namespace Cheon.Prototype.MountainPass
+{
+    // 순간이동과 같은 흰 연기 재질을 코앞의 작고 긴 김으로 재사용한다.
+    public class PassBossSnortVfx : MonoBehaviour
+    {
+        private PassBossPatternSettings settings;
+        private ParticleSystem steam;
+        private Material material;
+        public int Bursts { get; private set; }
+
+        public void Configure(PassBossPatternSettings configuration)
+        {
+            settings = configuration;
+            var item = new GameObject("NoseSteam");
+            item.transform.SetParent(transform, false);
+            steam = item.AddComponent<ParticleSystem>();
+            steam.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            var main = steam.main;
+            main.playOnAwake = false; main.loop = false; main.duration = 1f;
+            main.simulationSpace = ParticleSystemSimulationSpace.World;
+            main.scalingMode = ParticleSystemScalingMode.Shape;
+            main.cullingMode = ParticleSystemCullingMode.AlwaysSimulate;
+            main.startSpeed = 0; main.gravityModifier = -.15f; main.startSize3D = true; main.maxParticles = 128;
+            var emission = steam.emission; emission.enabled = false;
+            var shape = steam.shape; shape.enabled = false;
+            var color = steam.colorOverLifetime; color.enabled = true;
+            var gradient = new Gradient();
+            gradient.SetKeys(new[] { new GradientColorKey(Color.white, 0), new GradientColorKey(Color.white, 1) },
+                new[] { new GradientAlphaKey(0, 0), new GradientAlphaKey(1, .06f), new GradientAlphaKey(0, 1) });
+            color.color = gradient;
+            var size = steam.sizeOverLifetime; size.enabled = true;
+            size.size = new ParticleSystem.MinMaxCurve(1, AnimationCurve.EaseInOut(0, .55f, 1, 1.3f));
+            material = new Material(Resources.Load<Shader>("S_BossWhiteSmoke")) { name = "NoseSteam_Instance" };
+            material.SetTexture("_BaseMap", settings.dust.material.GetTexture("_BaseMap"));
+            var renderer = steam.GetComponent<ParticleSystemRenderer>();
+            renderer.sharedMaterial = material; renderer.renderMode = ParticleSystemRenderMode.Billboard;
+            renderer.sortMode = ParticleSystemSortMode.Distance;
+            renderer.shadowCastingMode = ShadowCastingMode.Off; renderer.receiveShadows = false;
+        }
+
+        public void EmitSnort()
+        {
+            steam.Clear(); steam.Play(); Bursts++;
+            Vector3 nose = transform.position + transform.rotation * settings.pursuitSlam.noseOffset;
+            for (int index = 0; index < settings.pursuitSlam.steamParticles; index++)
+            {
+                float side = index % 2 == 0 ? -1f : 1f;
+                float scale = Random.Range(.7f, 1.15f);
+                Color tint = settings.linkedAttack.smokeColor; tint.a *= Random.Range(.25f, .45f);
+                steam.Emit(new ParticleSystem.EmitParams
+                {
+                    position = nose + transform.right * (side * .14f + Random.Range(-.035f, .035f)) + Vector3.up * Random.Range(-.06f, .1f),
+                    velocity = transform.forward * Random.Range(.65f, 1.2f) - Vector3.up * Random.Range(.1f, .5f),
+                    startSize3D = new Vector3(settings.pursuitSlam.steamSize.x, settings.pursuitSlam.steamSize.y,
+                        settings.pursuitSlam.steamSize.x) * scale,
+                    startLifetime = settings.pursuitSlam.steamLifetime * Random.Range(.75f, 1f),
+                    startColor = tint
+                }, 1);
+            }
+        }
+
+        public void Clear()
+        {
+            if (steam != null) steam.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        }
+
+        private void OnDestroy() { if (material != null) Destroy(material); }
+    }
+}

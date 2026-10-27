@@ -1,0 +1,11 @@
+{
+  "playing": false,
+  "scene": "Assets/Test/FanAttackVfx/Scenes/Test_FanAttackVfx.unity",
+  "sceneDirty": false,
+  "runInBackground": true,
+  "texture": "Assets/Arts/Effects/CloudSpiral/Textures/T_CloudSpiralWindWave_A.png",
+  "wind1Radius": 3.0,
+  "wind1Stretch": 1.46666658,
+  "wind3Radius": 8.0,
+  "angle": 35.0
+}

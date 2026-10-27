@@ -1,0 +1,123 @@
+{
+  "status": "passed",
+  "framesAdvanced": 193,
+  "attacks": [
+    {
+      "attack": 1,
+      "frame": 32.35411,
+      "visibleWind": 1,
+      "windRenderers": 1,
+      "legacyWindParticles": 0,
+      "texture": "Assets/Arts/Effects/CloudSpiral/Textures/T_CloudSpiralWindWave_A.png",
+      "worldPosition": {
+        "x": -16.3994389,
+        "y": 37.5,
+        "z": -45.6298943,
+        "normalized": {
+          "x": -0.267542183,
+          "y": 0.611779,
+          "z": -0.744410932,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 61.2966461,
+        "sqrMagnitude": 3757.27881
+      },
+      "size": {
+        "x": 1.881129,
+        "y": 1.881129,
+        "z": 1.881129,
+        "normalized": {
+          "x": 0.577350259,
+          "y": 0.577350259,
+          "z": 0.577350259,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 3.25821114,
+        "sqrMagnitude": 10.6159391
+      },
+      "screenshot": "Assets/Temp/WindWaveIntegration~/WindWave_Attack1.png"
+    },
+    {
+      "attack": 2,
+      "frame": 32.35124,
+      "visibleWind": 0,
+      "windRenderers": 1,
+      "legacyWindParticles": 0,
+      "texture": "Assets/Arts/Effects/CloudSpiral/Textures/T_CloudSpiralWindWave_A.png",
+      "worldPosition": {
+        "x": -16.3994389,
+        "y": 37.5,
+        "z": -45.6298943,
+        "normalized": {
+          "x": -0.267542183,
+          "y": 0.611779,
+          "z": -0.744410932,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 61.2966461,
+        "sqrMagnitude": 3757.27881
+      },
+      "size": {
+        "x": 1.881129,
+        "y": 1.881129,
+        "z": 1.881129,
+        "normalized": {
+          "x": 0.577350259,
+          "y": 0.577350259,
+          "z": 0.577350259,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 3.25821114,
+        "sqrMagnitude": 10.6159391
+      },
+      "screenshot": "Assets/Temp/WindWaveIntegration~/WindWave_Attack2.png"
+    },
+    {
+      "attack": 3,
+      "frame": 30.5258656,
+      "visibleWind": 1,
+      "windRenderers": 1,
+      "legacyWindParticles": 0,
+      "texture": "Assets/Arts/Effects/CloudSpiral/Textures/T_CloudSpiralWindWave_A.png",
+      "worldPosition": {
+        "x": -17.1251354,
+        "y": 37.76999,
+        "z": -46.9936562,
+        "normalized": {
+          "x": -0.27323395,
+          "y": 0.602625549,
+          "z": -0.74979043,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 62.67572,
+        "sqrMagnitude": 3928.246
+      },
+      "size": {
+        "x": 4.59686,
+        "y": 4.59686,
+        "z": 4.59686,
+        "normalized": {
+          "x": 0.577350259,
+          "y": 0.577350259,
+          "z": 0.577350259,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 7.961995,
+        "sqrMagnitude": 63.393364
+      },
+      "screenshot": "Assets/Temp/WindWaveIntegration~/WindWave_Attack3.png"
+    }
+  ],
+  "fullPlayback": {
+    "peakVisible": 1,
+    "finishedVisible": 0,
+    "forwardTravel": 5.029755,
+    "windRenderers": 1
+  }
+}

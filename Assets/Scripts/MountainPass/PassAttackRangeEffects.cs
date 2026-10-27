@@ -10,15 +10,21 @@ namespace Cheon.Prototype.MountainPass
         [Serializable]
         public sealed class AttackRange
         {
+            [InspectorName("공격 범위 메시")]
             public PassAttackSector sector;
+            [InspectorName("공격 번호")]
             [Range(1, 3)] public int attack = 1;
             [Tooltip("원본 공격 FBX에서 범위 표시를 시작하는 프레임입니다.")]
+            [InspectorName("시작 프레임")]
             [Min(0)] public int startFrame = 25;
             [Tooltip("원본 공격 FBX에서 범위 표시를 끝내는 프레임입니다.")]
+            [InspectorName("종료 프레임")]
             [Min(1)] public int endFrame = 38;
         }
 
+        [InspectorName("플레이어 동작 제어기")]
         [SerializeField] private PassAnimationController animationControl;
+        [InspectorName("공격별 범위 표시 목록")]
         [SerializeField] private AttackRange[] ranges = Array.Empty<AttackRange>();
         private uint sequence;
         private int previousAttack;

@@ -6,6 +6,7 @@ namespace Cheon.Systems
     public sealed class FrameRateLimiter : MonoBehaviour
     {
         [SerializeField, Min(1), Tooltip("플레이 중 적용할 최대 FPS입니다.")]
+        [InspectorName("목표 초당 프레임 수")]
         private int targetFrameRate = 60;
 
         private int previousTargetFrameRate;

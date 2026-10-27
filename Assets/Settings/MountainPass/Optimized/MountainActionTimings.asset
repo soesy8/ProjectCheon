@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26df671019074df4aafde649b82be55e, type: 3}
+  m_Name: MountainActionTimings
+  m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassActionTimings
+  actions:
+  - state: ATTACK1
+    moveCancel: 0.6
+    dodgeCancel: 0.45
+    attack1Cancel: 0.55
+    attack2Cancel: 0.55
+    attack3Cancel: 0.55
+    equipmentCancel: 0.9
+    autoReturn: 1
+    blendDuration: 0.12
+  - state: ATTACK2
+    moveCancel: 0.55
+    dodgeCancel: 0.28
+    attack1Cancel: 0.6
+    attack2Cancel: 0.6
+    attack3Cancel: 0.25811943
+    equipmentCancel: 0.9
+    autoReturn: 1
+    blendDuration: 0.12
+  - state: ATTACK3
+    moveCancel: 0.8
+    dodgeCancel: 0.75
+    attack1Cancel: 0.7
+    attack2Cancel: 0.7
+    attack3Cancel: 0.7
+    equipmentCancel: 1
+    autoReturn: 1
+    blendDuration: 0.12
+  - state: DRAW
+    moveCancel: 0.96
+    dodgeCancel: 0.96
+    attack1Cancel: 0.96
+    attack2Cancel: 0.96
+    attack3Cancel: 0.96
+    equipmentCancel: 0.45
+    autoReturn: 1
+    blendDuration: 0.12
+  - state: SHEATHE
+    moveCancel: 0.96
+    dodgeCancel: 0.96
+    attack1Cancel: 0.96
+    attack2Cancel: 0.96
+    attack3Cancel: 0.96
+    equipmentCancel: 0.45
+    autoReturn: 1
+    blendDuration: 0.12
+  - state: HIT
+    moveCancel: 0.3
+    dodgeCancel: 0.1
+    attack1Cancel: 0.85
+    attack2Cancel: 0.85
+    attack3Cancel: 0.85
+    equipmentCancel: 0.9
+    autoReturn: 1
+    blendDuration: 0.12
+  - state: ROLL
+    moveCancel: 0.95
+    dodgeCancel: 0.92
+    attack1Cancel: 0.9
+    attack2Cancel: 1
+    attack3Cancel: 1
+    equipmentCancel: 1
+    autoReturn: 1
+    blendDuration: 0.12

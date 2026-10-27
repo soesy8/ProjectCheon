@@ -6,12 +6,19 @@ namespace Cheon.Prototype.MountainPass
 {
     public class PassBossEntrance : MonoBehaviour
     {
+        [InspectorName("게임 진행 제어기")]
         [SerializeField] private PassGameFlow game;
+        [InspectorName("보스 등장 타임라인")]
         [SerializeField] private PlayableDirector director;
+        [InspectorName("보스 등장 연출 카메라")]
         [SerializeField] private Camera cinematicCamera;
+        [InspectorName("플레이어 카메라")]
         [SerializeField] private Camera playerCamera;
+        [InspectorName("보스 전투 퇴로 차단벽")]
         [SerializeField] private Collider retreatBarrier;
+        [InspectorName("산문 통과 판정 너비·높이 (m)")]
         [SerializeField] private Vector2 openingSize = new Vector2(6f, 9f);
+        [InspectorName("산문 통과 판정 여유 (m)")]
         [SerializeField, Min(0.01f)] private float crossingMargin = 0.2f;
         private Vector3 previousPosition;
         private bool hasPreviousPosition, resetting;
@@ -29,7 +36,7 @@ namespace Cheon.Prototype.MountainPass
         }
         private void Update()
         {
-            if (game == null) return;
+            if (game == null || game.IsTransitioning) return;
             if (game.State == PassGameFlow.RunState.Cinematic)
             {
                 var keyboard = Keyboard.current;
@@ -74,7 +81,7 @@ namespace Cheon.Prototype.MountainPass
         private void OnPresentationStopped(PlayableDirector stopped)
         {
             if (resetting) return;
-            RestoreCameras(); game.CompleteBossPresentation(); game.View.SnapBehind(); game.View.RefreshCursor();
+            game.CompleteBossPresentation();
         }
         public void ResetEntrance()
         {
@@ -90,5 +97,6 @@ namespace Cheon.Prototype.MountainPass
             if (playerCamera != null) playerCamera.enabled = true;
             if (game != null && game.View != null) game.View.enabled = true;
         }
+        public void RestoreGameplayCameras() => RestoreCameras();
     }
 }

@@ -17,6 +17,7 @@ namespace Cheon.Prototype.MountainPass
         }
 
         private readonly List<CrackCell> cells = new List<CrackCell>();
+        private readonly Stack<CrackCell> availableCells = new Stack<CrackCell>();
         private PassBossPatternSettings settings;
         private PassBossPatternController owner;
         private PassPlayerMovement player;
@@ -54,7 +55,8 @@ namespace Cheon.Prototype.MountainPass
                     Vector3 point = origin + direction * ((StepsEmitted + 1) * settings.crack.stepDistance);
                     StepsEmitted++;
                     if (!owner.FindPatternGround(point, out point)) continue;
-                    var cell = new CrackCell { center = point, createdAt = createdAt };
+                    var cell = availableCells.Count > 0 ? availableCells.Pop() : new CrackCell();
+                    cell.center = point; cell.createdAt = createdAt;
                     cell.line = CreateExplosionRing(cell);
                     cells.Add(cell); dust.EmitExplosion(point, settings.crack.radius);
                     // 한 프레임에 활성 구간을 지나쳐도 새로 터진 지점의 타격은 한 번 확인한다.
@@ -65,12 +67,13 @@ namespace Cheon.Prototype.MountainPass
                 if (StepsEmitted >= settings.crack.stepCount && age >= (settings.crack.stepCount - 1) * interval + settings.crack.activeDuration)
                 { running = false; AttackFinished = true; }
             }
-            foreach (var cell in cells)
+            for (int cellIndex = cells.Count - 1; cellIndex >= 0; cellIndex--)
             {
+                var cell = cells[cellIndex];
                 if (cell.line == null) continue;
                 float progress = Mathf.Clamp01((age - cell.createdAt) / settings.crack.effectLifetime);
                 if (progress >= 1f)
-                { cell.line.gameObject.SetActive(false); Destroy(cell.line.gameObject); cell.line = null; continue; }
+                { cell.line.enabled = false; availableCells.Push(cell); cells.RemoveAt(cellIndex); continue; }
                 float expansion = Mathf.Lerp(.2f, 1f, Mathf.Clamp01(progress * 4f));
                 for (int index = 0; index < cell.ringPoints.Length; index++)
                     cell.line.SetPosition(index, Vector3.Lerp(cell.center + Vector3.up * .035f, cell.ringPoints[index], expansion));
@@ -83,7 +86,7 @@ namespace Cheon.Prototype.MountainPass
         private void CheckDamage(CrackCell cell)
         {
             if (hitPlayer) return;
-            var body = player.GetComponent<CharacterController>();
+            var body = player.Body;
             Vector3 difference = player.transform.position - cell.center;
             if (Mathf.Abs(difference.y) > body.height) return;
             difference.y = 0;
@@ -92,13 +95,18 @@ namespace Cheon.Prototype.MountainPass
 
         private LineRenderer CreateExplosionRing(CrackCell cell)
         {
-            var item = new GameObject("ActiveGroundExplosion"); item.transform.SetParent(transform, false);
-            var line = item.AddComponent<LineRenderer>();
+            var line = cell.line;
+            if (line == null)
+            {
+                var item = new GameObject("지면 폭발 충격파"); item.transform.SetParent(transform, false);
+                line = item.AddComponent<LineRenderer>();
+                cell.ringPoints = new Vector3[48];
+            }
+            line.enabled = true;
             line.useWorldSpace = true; line.positionCount = 48; line.loop = true;
             line.sharedMaterial = settings.crack.material; line.widthMultiplier = settings.crack.lineWidth;
             line.shadowCastingMode = ShadowCastingMode.Off; line.receiveShadows = false;
             properties.SetColor("_BaseColor", settings.crack.color); line.SetPropertyBlock(properties);
-            cell.ringPoints = new Vector3[line.positionCount];
             // 지면 탐색은 생성 시 한 번만 하고, 충격파 확장은 저장한 원형 점을 사용한다.
             for (int index = 0; index < line.positionCount; index++)
             {
@@ -114,7 +122,7 @@ namespace Cheon.Prototype.MountainPass
         public void Clear()
         {
             foreach (var cell in cells)
-                if (cell.line != null) { cell.line.gameObject.SetActive(false); Destroy(cell.line.gameObject); }
+                if (cell.line != null) { cell.line.enabled = false; availableCells.Push(cell); }
             cells.Clear(); running = hitPlayer = false; age = 0; StepsEmitted = 0; AttackFinished = true;
         }
     }

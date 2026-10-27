@@ -1,0 +1,35 @@
+{
+  "framesAdvanced": 517,
+  "reports": [
+    {
+      "attack": 1,
+      "partialSamples": 34,
+      "fadeSamples": 24,
+      "complete": true,
+      "hidden": true,
+      "ratio": 0.63,
+      "fadeSeconds": 0.105000004,
+      "maxCurveError": 0.0
+    },
+    {
+      "attack": 2,
+      "partialSamples": 32,
+      "fadeSamples": 21,
+      "complete": true,
+      "hidden": true,
+      "ratio": 0.63,
+      "fadeSeconds": 0.09692308,
+      "maxCurveError": 0.0
+    },
+    {
+      "attack": 3,
+      "partialSamples": 92,
+      "fadeSamples": 65,
+      "complete": true,
+      "hidden": true,
+      "ratio": 0.63,
+      "fadeSeconds": 0.28,
+      "maxCurveError": 0.0
+    }
+  ]
+}

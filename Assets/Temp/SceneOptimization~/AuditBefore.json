@@ -1,0 +1,2261 @@
+{
+  "scene": "Assets/Scenes/MountainPass/MountainPass.unity",
+  "counts": {
+    "objects": 1207,
+    "activeObjects": 1131,
+    "renderers": 285,
+    "activeRenderers": 204,
+    "materials": 93,
+    "staticRenderers": 59,
+    "lights": 24,
+    "realtimeLights": 24,
+    "shadowLights": 1,
+    "colliders": 809,
+    "meshColliders": 109,
+    "rigidbodies": 0,
+    "particleSystems": 4,
+    "missingScripts": 0
+  },
+  "roots": [
+    {
+      "name": "MountainPassEnvironment",
+      "children": 129,
+      "renderers": 96,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "Test_DirectionalLight",
+      "children": 1,
+      "renderers": 0,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "PlayerCamera",
+      "children": 1,
+      "renderers": 0,
+      "position": {
+        "x": -13.8020163,
+        "y": 8.400518,
+        "z": 105.268944
+      }
+    },
+    {
+      "name": "Gate Environment Transition",
+      "children": 1,
+      "renderers": 0,
+      "position": {
+        "x": -6.75361729,
+        "y": 40.9615631,
+        "z": -18.7706776
+      }
+    },
+    {
+      "name": "HeightFog_VFX",
+      "children": 2,
+      "renderers": 1,
+      "position": {
+        "x": -28.0,
+        "y": 8.0,
+        "z": -21.0
+      }
+    },
+    {
+      "name": "Player",
+      "children": 199,
+      "renderers": 128,
+      "position": {
+        "x": -19.418,
+        "y": 3.729,
+        "z": 100.262
+      }
+    },
+    {
+      "name": "Test_ShrineEntranceWalls",
+      "children": 35,
+      "renderers": 16,
+      "position": {
+        "x": 0.0,
+        "y": 27.12,
+        "z": 37.0
+      }
+    },
+    {
+      "name": "JangseungBoss",
+      "children": 9,
+      "renderers": 5,
+      "position": {
+        "x": -28.2499962,
+        "y": 37.1199837,
+        "z": -67.9
+      }
+    },
+    {
+      "name": "MountainPassSystems",
+      "children": 1,
+      "renderers": 0,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "MountainShrineInteraction",
+      "children": 3,
+      "renderers": 0,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "ShrineStairWalkwayCollider",
+      "children": 1,
+      "renderers": 0,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "ApproachSafetyWalls",
+      "children": 187,
+      "renderers": 0,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "ApproachStoneParapets",
+      "children": 3,
+      "renderers": 2,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "ApproachLanterns",
+      "children": 89,
+      "renderers": 22,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "BossGateEntrance",
+      "children": 6,
+      "renderers": 3,
+      "position": {
+        "x": -6.75361729,
+        "y": 40.9615631,
+        "z": -18.7706776
+      }
+    },
+    {
+      "name": "ShrinePorchThresholdSteps",
+      "children": 1,
+      "renderers": 1,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "BossIntroductionRig",
+      "children": 2,
+      "renderers": 0,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "ApproachRearSafetyWalls",
+      "children": 4,
+      "renderers": 0,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "ApproachMountainMist",
+      "children": 2,
+      "renderers": 1,
+      "position": {
+        "x": 0.0,
+        "y": 49.15,
+        "z": 55.0
+      }
+    },
+    {
+      "name": "RearMistCurtain",
+      "children": 3,
+      "renderers": 1,
+      "position": {
+        "x": -17.94,
+        "y": 14.3,
+        "z": 101.23
+      }
+    },
+    {
+      "name": "BossAftermathMist",
+      "children": 2,
+      "renderers": 1,
+      "position": {
+        "x": -26.0,
+        "y": 44.0,
+        "z": -67.0
+      }
+    },
+    {
+      "name": "MountainOuterSafetyWalls",
+      "children": 423,
+      "renderers": 0,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "StairConnectionSafetyWalls",
+      "children": 89,
+      "renderers": 0,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "FrameRateLimiter",
+      "children": 1,
+      "renderers": 0,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "BossPatternSettings",
+      "children": 1,
+      "renderers": 0,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "FanAttackVfx",
+      "children": 9,
+      "renderers": 7,
+      "position": {
+        "x": -19.418,
+        "y": 3.729,
+        "z": 100.262
+      }
+    },
+    {
+      "name": "RollDust",
+      "children": 2,
+      "renderers": 1,
+      "position": {
+        "x": -19.418,
+        "y": 3.729,
+        "z": 100.262
+      }
+    },
+    {
+      "name": "FanAttackDamageSettings",
+      "children": 1,
+      "renderers": 0,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    }
+  ],
+  "behaviors": [
+    {
+      "type": "UniversalAdditionalLightData",
+      "count": 24,
+      "enabled": 24
+    },
+    {
+      "type": "PassFanSweepMesh",
+      "count": 5,
+      "enabled": 5
+    },
+    {
+      "type": "PassHeightFog",
+      "count": 4,
+      "enabled": 4
+    },
+    {
+      "type": "PassAttackSector",
+      "count": 4,
+      "enabled": 4
+    },
+    {
+      "type": "UniversalAdditionalCameraData",
+      "count": 2,
+      "enabled": 2
+    },
+    {
+      "type": "PassHealth",
+      "count": 2,
+      "enabled": 2
+    },
+    {
+      "type": "PassCamera",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassWorldTransition",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassPlayerMovement",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassFanAttackCombat",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassFanAttachment",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassAnimationController",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassPlayerReactionPose",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassGourdDrinking",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassGourdAttachment",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassGourdDrinkingPose",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassAttackRangeEffects",
+      "count": 1,
+      "enabled": 0
+    },
+    {
+      "type": "PassBossPatternController",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassGameFlow",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassEffects",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassAudio",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassHud",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassMountainMist",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassShrineInteraction",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassStairAtmosphere",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassBossEntrance",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "FrameRateLimiter",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassBossPatternSettings",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassFanAttackVfx",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassFanCloudSpiralVfx",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassFanWindParticles",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassRollDust",
+      "count": 1,
+      "enabled": 1
+    },
+    {
+      "type": "PassFanAttackDamageSettings",
+      "count": 1,
+      "enabled": 1
+    }
+  ],
+  "lights": [
+    {
+      "path": "Test_DirectionalLight",
+      "type": "Directional",
+      "enabled": true,
+      "range": 10.0,
+      "shadows": "Soft",
+      "intensity": 1.65,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/LeftLantern_02/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/RightLantern_02/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/LeftLantern_11/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/RightLantern_11/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/LeftLantern_20/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/RightLantern_20/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/LeftLantern_29/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/RightLantern_29/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/LeftLantern_38/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/RightLantern_38/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/LeftLantern_47/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/RightLantern_47/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/LeftLantern_56/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/RightLantern_56/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/LeftLantern_65/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/RightLantern_65/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/LeftLantern_74/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/RightLantern_74/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/LeftLantern_83/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/RightLantern_83/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/LeftLantern_92/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "ApproachLanterns/RightLantern_92/WarmLight",
+      "type": "Point",
+      "enabled": true,
+      "range": 6.0,
+      "shadows": "None",
+      "intensity": 2.6,
+      "renderMode": "Auto"
+    },
+    {
+      "path": "BossGateEntrance/SpiritPortalGlow",
+      "type": "Point",
+      "enabled": true,
+      "range": 10.0,
+      "shadows": "None",
+      "intensity": 2.8,
+      "renderMode": "Auto"
+    }
+  ],
+  "repeatedMeshes": [
+    {
+      "mesh": "Wall_Middle_Geometry",
+      "count": 31,
+      "vertices": 20968,
+      "path": "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx"
+    },
+    {
+      "mesh": "Lantern_Geometry",
+      "count": 22,
+      "vertices": 1336,
+      "path": "Assets/Arts/Environment/SelfModeling/Models/Lantern.fbx"
+    },
+    {
+      "mesh": "Wall_End_Geometry",
+      "count": 7,
+      "vertices": 7611,
+      "path": "Assets/Arts/Environment/SelfModeling/Models/Wall_End.fbx"
+    },
+    {
+      "mesh": "ApproachStairLandingRow",
+      "count": 4,
+      "vertices": 400,
+      "path": "Assets/Arts/Environment/StairLandingExtensions/ApproachStairLandingRow.asset"
+    },
+    {
+      "mesh": "ApproachStairLandingRowSolid",
+      "count": 4,
+      "vertices": 200,
+      "path": "Assets/Arts/Environment/StairLandingExtensions/ApproachStairLandingRowSolid.asset"
+    },
+    {
+      "mesh": "ArenaStairLandingRow",
+      "count": 4,
+      "vertices": 400,
+      "path": "Assets/Arts/Environment/StairLandingExtensions/ArenaStairLandingRow.asset"
+    },
+    {
+      "mesh": "Cube",
+      "count": 4,
+      "vertices": 24,
+      "path": "Library/unity default resources"
+    },
+    {
+      "mesh": "ArenaStairLandingRowSolid",
+      "count": 3,
+      "vertices": 200,
+      "path": "Assets/Arts/Environment/StairLandingExtensions/ArenaStairLandingRowSolid.asset"
+    },
+    {
+      "mesh": "Capsule",
+      "count": 2,
+      "vertices": 550,
+      "path": "Library/unity default resources"
+    },
+    {
+      "mesh": "Arena_Floor_Flat_UV",
+      "count": 1,
+      "vertices": 3372,
+      "path": "Assets/Arts/Environment/CheonMountainMap/Models/Test_CheonMountainMap.fbx"
+    },
+    {
+      "mesh": "Granite_Cliff_Lower",
+      "count": 1,
+      "vertices": 10088,
+      "path": "Assets/Arts/Environment/CheonMountainMap/Models/Test_CheonMountainMap.fbx"
+    },
+    {
+      "mesh": "Granite_Cliff_Upper",
+      "count": 1,
+      "vertices": 15042,
+      "path": "Assets/Arts/Environment/CheonMountainMap/Models/Test_CheonMountainMap.fbx"
+    },
+    {
+      "mesh": "Gate_Threshold_1",
+      "count": 1,
+      "vertices": 115499,
+      "path": "Assets/Arts/Environment/CheonMountainMap/Models/Test_CheonMountainMap.fbx"
+    },
+    {
+      "mesh": "Mountain_Continuous_Core",
+      "count": 1,
+      "vertices": 19689,
+      "path": "Assets/Arts/Environment/CheonMountainMap/Models/Test_CheonMountainMap.fbx"
+    },
+    {
+      "mesh": "Pine_01",
+      "count": 1,
+      "vertices": 8730,
+      "path": "Assets/Arts/Environment/CheonMountainMap/Models/Test_CheonMountainMap.fbx"
+    },
+    {
+      "mesh": "Pine_02",
+      "count": 1,
+      "vertices": 8730,
+      "path": "Assets/Arts/Environment/CheonMountainMap/Models/Test_CheonMountainMap.fbx"
+    },
+    {
+      "mesh": "Pine_03",
+      "count": 1,
+      "vertices": 8730,
+      "path": "Assets/Arts/Environment/CheonMountainMap/Models/Test_CheonMountainMap.fbx"
+    },
+    {
+      "mesh": "Pine_04",
+      "count": 1,
+      "vertices": 8730,
+      "path": "Assets/Arts/Environment/CheonMountainMap/Models/Test_CheonMountainMap.fbx"
+    },
+    {
+      "mesh": "Pine_05",
+      "count": 1,
+      "vertices": 8730,
+      "path": "Assets/Arts/Environment/CheonMountainMap/Models/Test_CheonMountainMap.fbx"
+    },
+    {
+      "mesh": "Pine_06",
+      "count": 1,
+      "vertices": 8730,
+      "path": "Assets/Arts/Environment/CheonMountainMap/Models/Test_CheonMountainMap.fbx"
+    }
+  ],
+  "nullReferences": [
+    {
+      "owner": "Test_DirectionalLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Test_DirectionalLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Test_DirectionalLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "PlayerCamera",
+      "type": "UniversalAdditionalCameraData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "PlayerCamera",
+      "type": "UniversalAdditionalCameraData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "PlayerCamera",
+      "type": "UniversalAdditionalCameraData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "PlayerCamera",
+      "type": "UniversalAdditionalCameraData",
+      "field": "m_VolumeTrigger",
+      "missing": false
+    },
+    {
+      "owner": "PlayerCamera",
+      "type": "PassCamera",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "PlayerCamera",
+      "type": "PassCamera",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "PlayerCamera",
+      "type": "PassCamera",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "Gate Environment Transition",
+      "type": "PassWorldTransition",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Gate Environment Transition",
+      "type": "PassWorldTransition",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Gate Environment Transition",
+      "type": "PassWorldTransition",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "HeightFog_VFX",
+      "type": "PassHeightFog",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "HeightFog_VFX",
+      "type": "PassHeightFog",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "HeightFog_VFX",
+      "type": "PassHeightFog",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "HeightFog_VFX",
+      "type": "PassHeightFog",
+      "field": "densityBoundary",
+      "missing": false
+    },
+    {
+      "owner": "Player",
+      "type": "PassPlayerMovement",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Player",
+      "type": "PassPlayerMovement",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Player",
+      "type": "PassPlayerMovement",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "Player",
+      "type": "PassHealth",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Player",
+      "type": "PassHealth",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Player",
+      "type": "PassHealth",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "Player",
+      "type": "PassFanAttackCombat",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Player",
+      "type": "PassFanAttackCombat",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Player",
+      "type": "PassFanAttackCombat",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassFanAttachment",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassFanAttachment",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassFanAttachment",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassAnimationController",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassAnimationController",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassAnimationController",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassPlayerReactionPose",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassPlayerReactionPose",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassPlayerReactionPose",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassGourdDrinking",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassGourdDrinking",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassGourdDrinking",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassGourdAttachment",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassGourdAttachment",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassGourdAttachment",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassGourdDrinkingPose",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassGourdDrinkingPose",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AnimationControl",
+      "type": "PassGourdDrinkingPose",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AttackRangeEffects",
+      "type": "PassAttackRangeEffects",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AttackRangeEffects",
+      "type": "PassAttackRangeEffects",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AttackRangeEffects",
+      "type": "PassAttackRangeEffects",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AttackRangeEffects/Test_Attack1_3m_35deg",
+      "type": "PassAttackSector",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AttackRangeEffects/Test_Attack1_3m_35deg",
+      "type": "PassAttackSector",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AttackRangeEffects/Test_Attack1_3m_35deg",
+      "type": "PassAttackSector",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AttackRangeEffects/Test_Attack2_3m_155deg",
+      "type": "PassAttackSector",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AttackRangeEffects/Test_Attack2_3m_155deg",
+      "type": "PassAttackSector",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AttackRangeEffects/Test_Attack2_3m_155deg",
+      "type": "PassAttackSector",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AttackRangeEffects/Test_Attack3_3m_210deg",
+      "type": "PassAttackSector",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AttackRangeEffects/Test_Attack3_3m_210deg",
+      "type": "PassAttackSector",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AttackRangeEffects/Test_Attack3_3m_210deg",
+      "type": "PassAttackSector",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AttackRangeEffects/Test_Attack3_8m_35deg",
+      "type": "PassAttackSector",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AttackRangeEffects/Test_Attack3_8m_35deg",
+      "type": "PassAttackSector",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "Player/Test_AttackRangeEffects/Test_Attack3_8m_35deg",
+      "type": "PassAttackSector",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "JangseungBoss",
+      "type": "PassHealth",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "JangseungBoss",
+      "type": "PassHealth",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "JangseungBoss",
+      "type": "PassHealth",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "JangseungBoss",
+      "type": "PassBossPatternController",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "JangseungBoss",
+      "type": "PassBossPatternController",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "JangseungBoss",
+      "type": "PassBossPatternController",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "MountainPassSystems",
+      "type": "PassGameFlow",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "MountainPassSystems",
+      "type": "PassGameFlow",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "MountainPassSystems",
+      "type": "PassGameFlow",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "MountainPassSystems",
+      "type": "PassEffects",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "MountainPassSystems",
+      "type": "PassEffects",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "MountainPassSystems",
+      "type": "PassEffects",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "MountainPassSystems",
+      "type": "PassAudio",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "MountainPassSystems",
+      "type": "PassAudio",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "MountainPassSystems",
+      "type": "PassAudio",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "MountainPassSystems",
+      "type": "PassHud",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "MountainPassSystems",
+      "type": "PassHud",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "MountainPassSystems",
+      "type": "PassHud",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "MountainPassSystems",
+      "type": "PassMountainMist",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "MountainPassSystems",
+      "type": "PassMountainMist",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "MountainPassSystems",
+      "type": "PassMountainMist",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "MountainShrineInteraction",
+      "type": "PassShrineInteraction",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "MountainShrineInteraction",
+      "type": "PassShrineInteraction",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "MountainShrineInteraction",
+      "type": "PassShrineInteraction",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns",
+      "type": "PassStairAtmosphere",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns",
+      "type": "PassStairAtmosphere",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns",
+      "type": "PassStairAtmosphere",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_02/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_02/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_02/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_02/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_02/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_02/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_11/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_11/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_11/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_11/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_11/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_11/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_20/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_20/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_20/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_20/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_20/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_20/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_29/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_29/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_29/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_29/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_29/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_29/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_38/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_38/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_38/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_38/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_38/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_38/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_47/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_47/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_47/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_47/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_47/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_47/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_56/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_56/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_56/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_56/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_56/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_56/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_65/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_65/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_65/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_65/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_65/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_65/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_74/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_74/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_74/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_74/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_74/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_74/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_83/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_83/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_83/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_83/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_83/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_83/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_92/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_92/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/LeftLantern_92/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_92/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_92/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachLanterns/RightLantern_92/WarmLight",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "BossGateEntrance",
+      "type": "PassBossEntrance",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "BossGateEntrance",
+      "type": "PassBossEntrance",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "BossGateEntrance",
+      "type": "PassBossEntrance",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "BossGateEntrance/SpiritPortalGlow",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "BossGateEntrance/SpiritPortalGlow",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "BossGateEntrance/SpiritPortalGlow",
+      "type": "UniversalAdditionalLightData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "BossIntroductionRig/BossIntroductionCamera",
+      "type": "UniversalAdditionalCameraData",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "BossIntroductionRig/BossIntroductionCamera",
+      "type": "UniversalAdditionalCameraData",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "BossIntroductionRig/BossIntroductionCamera",
+      "type": "UniversalAdditionalCameraData",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "BossIntroductionRig/BossIntroductionCamera",
+      "type": "UniversalAdditionalCameraData",
+      "field": "m_VolumeTrigger",
+      "missing": false
+    },
+    {
+      "owner": "ApproachMountainMist",
+      "type": "PassHeightFog",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "ApproachMountainMist",
+      "type": "PassHeightFog",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "ApproachMountainMist",
+      "type": "PassHeightFog",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "ApproachMountainMist",
+      "type": "PassHeightFog",
+      "field": "densityBoundary",
+      "missing": false
+    },
+    {
+      "owner": "RearMistCurtain",
+      "type": "PassHeightFog",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "RearMistCurtain",
+      "type": "PassHeightFog",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "RearMistCurtain",
+      "type": "PassHeightFog",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "RearMistCurtain",
+      "type": "PassHeightFog",
+      "field": "clearTarget",
+      "missing": false
+    },
+    {
+      "owner": "BossAftermathMist",
+      "type": "PassHeightFog",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "BossAftermathMist",
+      "type": "PassHeightFog",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "BossAftermathMist",
+      "type": "PassHeightFog",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "BossAftermathMist",
+      "type": "PassHeightFog",
+      "field": "densityBoundary",
+      "missing": false
+    },
+    {
+      "owner": "FrameRateLimiter",
+      "type": "FrameRateLimiter",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "FrameRateLimiter",
+      "type": "FrameRateLimiter",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "FrameRateLimiter",
+      "type": "FrameRateLimiter",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "BossPatternSettings",
+      "type": "PassBossPatternSettings",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "BossPatternSettings",
+      "type": "PassBossPatternSettings",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "BossPatternSettings",
+      "type": "PassBossPatternSettings",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "FanAttackVfx",
+      "type": "PassFanAttackVfx",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "FanAttackVfx",
+      "type": "PassFanCloudSpiralVfx",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "FanAttackVfx/Attack1_Sweep",
+      "type": "PassFanSweepMesh",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "FanAttackVfx/Attack2_Sweep",
+      "type": "PassFanSweepMesh",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "FanAttackVfx/Attack3_Sweep",
+      "type": "PassFanSweepMesh",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "FanAttackVfx/Attack3_WindSector",
+      "type": "PassFanSweepMesh",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "FanAttackVfx/WindAndGroundDust",
+      "type": "PassFanWindParticles",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "FanAttackVfx/Attack1_WindSector",
+      "type": "PassFanSweepMesh",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "RollDust",
+      "type": "PassRollDust",
+      "field": "m_PrefabAsset",
+      "missing": false
+    },
+    {
+      "owner": "FanAttackDamageSettings",
+      "type": "PassFanAttackDamageSettings",
+      "field": "m_CorrespondingSourceObject",
+      "missing": false
+    },
+    {
+      "owner": "FanAttackDamageSettings",
+      "type": "PassFanAttackDamageSettings",
+      "field": "m_PrefabInstance",
+      "missing": false
+    },
+    {
+      "owner": "FanAttackDamageSettings",
+      "type": "PassFanAttackDamageSettings",
+      "field": "m_PrefabAsset",
+      "missing": false
+    }
+  ],
+  "testReferences": [],
+  "mainDependencies": [
+    "Assets/Arts/Characters/Player/Animations/Fan/Test_Fan.controller",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Incense_Ash.mat",
+    "Assets/Scripts/MountainPass/PassBossEntrance.cs",
+    "Assets/Arts/Props/Gourd/Materials/M_GourdAmber.mat",
+    "Assets/Arts/Characters/Player/Materials/Test_M_PlayerFan_Jade.mat",
+    "Assets/Arts/Effects/FanAttack/Shaders/S_SoftParticle.shader",
+    "Assets/Arts/Environment/MountainPass/Materials/M_RearMistCurtain.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_UpperBeam_Green.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_ApproachStairs.mat",
+    "Assets/Arts/Characters/Player/Materials/Test_M_Player.mat",
+    "Assets/Prefabs/Bosses/JangseungBoss.prefab",
+    "Assets/Arts/Environment/CheonMountainMap/Textures/Test_T_Map_MountainSlope.png",
+    "Assets/Scripts/MountainPass/PassFanCloudSpiralVfx.cs",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_Wall_Middle_MetallicSmoothness.png",
+    "Assets/Arts/Characters/Player/Models/Test_CheonFanClosed.fbx",
+    "Assets/Arts/Effects/BossPatterns/Materials/M_GroundCrack.mat",
+    "Packages/com.unity.timeline/Runtime/Animation/AnimationPlayableAsset.cs",
+    "Assets/Arts/Characters/Player/Animations/Fan/Test_Roll.fbx",
+    "Assets/Scripts/MountainPass/PassRollDustProfile.cs",
+    "Assets/Arts/Characters/Player/Models/Test_CheonFanOpening.fbx",
+    "Assets/Scripts/MountainPass/PassGourdDrinkingPose.cs",
+    "Assets/Arts/Props/Gourd/Meshes/GourdNeckBand.asset",
+    "Assets/Arts/Props/Gourd/Materials/M_GourdCork.mat",
+    "Assets/Arts/Effects/FanAttack/Materials/M_WindStreak.mat",
+    "Assets/Arts/Environment/MountainPass/Materials/M_SpiritGate.mat",
+    "Assets/Scripts/MountainPass/PassWorldTransition.cs",
+    "Assets/Scripts/MountainPass/PassHud.cs",
+    "Assets/Arts/Environment/SelfModeling/Materials/M_Lantern_Stone.mat",
+    "Assets/Arts/Effects/FanAttack/Shaders/S_CloudSpiral_C.shader",
+    "Assets/Arts/Effects/FanAttack/Shaders/S_RollingWindGust.shader",
+    "Assets/Scripts/Systems/FrameRateLimiter.cs",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_DarkIron.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Textures/Test_T_Map_LowerCliffs.png",
+    "Assets/Prefabs/Environment/SelfModeling/Lantern.prefab",
+    "Assets/Scripts/MountainPass/PassStairAtmosphere.cs",
+    "Assets/Arts/Shaders/S_SimpleToon.shader",
+    "Assets/Arts/Characters/Player/Models/Test_CheonFanOpen.fbx",
+    "Assets/Arts/Fonts/MountainPass/MountainKorean.ttf",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Altar_Wood.mat",
+    "Assets/Arts/Characters/Player/Materials/Test_M_PlayerFan_PaintedPaper.mat",
+    "Assets/Arts/Environment/SelfModeling/Models/Wall_Middle.fbx",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_OrangeWood_BaseColor.png",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Incense_Bronze.mat",
+    "Assets/Arts/Effects/FanAttack/Materials/M_RollingWindParticle_B.mat",
+    "Assets/Arts/Effects/FanAttack/Meshes/Attack2_Sweep.asset",
+    "Assets/Arts/Effects/FanAttack/Materials/M_CloudWindParticle.mat",
+    "Assets/Arts/Materials/ToonEnvironment/M_Toon_Lantern_Stone_e13481f1.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Textures/Test_T_Map_ShrineGround.png",
+    "Assets/Arts/Timelines/MountainPass/BossIntroduction.playable",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_Wall_End_BaseColor.png",
+    "Assets/Scripts/MountainPass/PassAnimationController.cs",
+    "Assets/Arts/Effects/FanAttack/Textures/T_GroundDust.png",
+    "Assets/Arts/Environment/MountainPass/Materials/M_ApproachMountainMist.mat",
+    "Assets/Scripts/MountainPass/PassShrineInteraction.cs",
+    "Assets/Arts/Effects/FanAttack/Meshes/Attack3_Sweep.asset",
+    "Assets/Scripts/MountainPass/PassGourdAttachment.cs",
+    "Assets/Arts/Effects/FanAttack/Materials/M_CloudWindGust.mat",
+    "Assets/Arts/Effects/FanAttack/Shaders/S_CloudWindParticle.shader",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_RedBrown_Timber.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Pillar_Plinth.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Incense_Ember.mat",
+    "Packages/com.unity.ugui/Runtime/TMP/TMP_Settings.cs",
+    "Assets/Arts/Props/Gourd/Materials/M_GourdCord.mat",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_JadeDancheong_BaseColor.png",
+    "Assets/Settings/MountainPass/MountainRollDust.asset",
+    "Assets/Arts/Environment/StairLandingExtensions/ArenaStairLandingRow.asset",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_IvoryHanji_BaseColor.png",
+    "Assets/Scripts/MountainPass/PassFanAttackCombat.cs",
+    "Assets/Arts/Environment/MountainPass/Meshes/ShrinePorchThresholdSteps.asset",
+    "Assets/Arts/Characters/Player/Materials/Test_M_PlayerFan_JadeLight.mat",
+    "Assets/Arts/Characters/JangseungBoss/Materials/M_JangseungCutWood.mat",
+    "Assets/Arts/Effects/FanAttack/Shaders/S_CloudWindGust.shader",
+    "Assets/Arts/Characters/JangseungBoss/Materials/M_JangseungRed.mat",
+    "Assets/Scripts/MountainPass/PassPlayerReactionPose.cs",
+    "Assets/Arts/Characters/Player/Materials/Test_M_PlayerFan_WalnutEndgrain.mat",
+    "Assets/Arts/Characters/Player/Models/Test_CheonPlayer.fbx",
+    "Assets/Prefabs/Environment/ArenaStairLandingRow.prefab",
+    "Assets/Arts/Environment/StairLandingExtensions/ArenaStairLandingRowSolid.asset",
+    "Assets/Scripts/MountainPass/PassGourdDrinking.cs",
+    "Assets/Prefabs/MountainPass/FanAttackVfx.prefab",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_VermilionWood.mat",
+    "Assets/Arts/Environment/StairLandingExtensions/ApproachStairLandingRow.asset",
+    "Assets/Scripts/MountainPass/PassFanAttackVfxProfile.cs",
+    "Assets/Scripts/MountainPass/PassFanWindParticles.cs",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_LightSandstone_BaseColor.png",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_TealDancheong_BaseColor.png",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Roof_Slate_Dark.mat",
+    "Assets/Arts/Characters/Player/Animations/MountainMap/LeftUpperBody.mask",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_Lantern_Normal.png",
+    "Assets/Arts/Characters/Player/Animations/MountainMap/GetUp.fbx",
+    "Assets/Arts/Effects/FanAttack/Materials/M_GroundDust.mat",
+    "Assets/Arts/Effects/FanAttack/Materials/M_FanSweep.mat",
+    "Assets/Settings/MountainPass/MountainPlayback.asset",
+    "Assets/Arts/Characters/Player/Materials/Test_M_PlayerFan_AntiqueGold.mat",
+    "Assets/Arts/Environment/MountainPass/Meshes/ApproachRightParapet.asset",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_WarmHanji.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Roof_Slate_Light.mat",
+    "Assets/Arts/Effects/FanAttack/Textures/T_WindCurl.png",
+    "Assets/Arts/Characters/JangseungBoss/Materials/M_JangseungBlack.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_SummitStairs.mat",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_Bronze_BaseColor.png",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_Wall_Middle_BaseColor.png",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Warm_Wall.mat",
+    "Assets/Arts/Effects/FanAttack/Meshes/Attack1_Sweep.asset",
+    "Assets/Arts/Characters/Player/Animations/Fan/Test_SheathedIdle.fbx",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_LowerRocks.mat",
+    "Assets/Arts/Characters/Player/Materials/Test_M_PlayerFan_PaperReverse.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Textures/Test_T_Map_FoothillRocks.png",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_Wall_End_MetallicSmoothness.png",
+    "Assets/Arts/Props/Gourd/Materials/M_GourdRim.mat",
+    "Assets/Arts/Characters/Player/Materials/Test_M_PlayerFan_JadeShade.mat",
+    "Assets/Arts/Shaders/TextMeshPro/Test_TMP_SDF-Mobile.shader",
+    "Assets/Arts/Characters/JangseungBoss/Materials/M_JangseungDarkWood.mat",
+    "Assets/Arts/Effects/BossPatterns/Shaders/S_SoftParticle.shader",
+    "Assets/Arts/Effects/BossPatterns/Textures/T_BossDust.png",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_Lantern_AO.png",
+    "Assets/Arts/Animations/MountainPass/BossIntroductionCamera.anim",
+    "Assets/Prefabs/Environment/SelfModeling/Wall_End.prefab",
+    "Assets/Arts/Effects/FanAttack/Meshes/Attack1_WindSector.asset",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_SanshinPainting.png",
+    "Assets/Arts/Characters/Player/Animations/MountainMap/Test_MountainPlayer.controller",
+    "Assets/Arts/Characters/Player/Materials/Test_M_PlayerFan_WalnutFacet.mat",
+    "Assets/Scripts/MountainPass/PassMountainMist.cs",
+    "Assets/Arts/Effects/FanAttack/Materials/M_CloudWindSweep2.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Door_Timber.mat",
+    "Assets/Prefabs/MountainPass/Gourd.prefab",
+    "Packages/com.unity.timeline/Runtime/TimelineAsset.cs",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_RoofTileLight_BaseColor.png",
+    "Assets/Arts/Props/Gourd/Meshes/GourdRim.asset",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Roof_Slate.mat",
+    "Assets/Arts/Effects/FanAttack/Materials/M_CloudWindSweep3.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_LightSandstone.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Dancheong_Ochre.mat",
+    "Assets/Settings/MountainPass/MountainFanAttackVfx.asset",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Foundation_Stone.mat",
+    "Assets/Arts/Environment/MountainPass/Materials/M_SpiritRing.mat",
+    "Assets/Arts/Environment/MountainPass/Meshes/ShrineStairWalkway.asset",
+    "Assets/Arts/Shaders/MountainPass/S_LocalMountainFog.shader",
+    "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_Middle.mat",
+    "Assets/Arts/Environment/Cheon/Skyboxes/T_CheonMountainClouds_Panorama.png",
+    "Assets/Arts/Effects/FanAttack/Meshes/Attack3_WindSector.asset",
+    "Assets/Arts/Effects/BossPatterns/Materials/M_BossDust.mat",
+    "Assets/Arts/Effects/FanAttack/Materials/M_CloudSpiralWind_C.mat",
+    "Assets/Arts/Effects/FanAttack/Textures/T_WindFlow.png",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Timber_EndBlocks.mat",
+    "Assets/Scripts/MountainPass/PassAudio.cs",
+    "Assets/Arts/Characters/JangseungBoss/Materials/M_JangseungCavity.mat",
+    "Assets/Arts/Environment/Cheon/Skyboxes/M_CheonMountainClouds_Skybox.mat",
+    "Assets/Arts/Animations/MountainPass/BossAwakening.anim",
+    "Assets/Arts/Characters/Player/Animations/Fan/Test_Hit.fbx",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_OchreGold_BaseColor.png",
+    "Assets/Scripts/MountainPass/PassRollDust.cs",
+    "Assets/Arts/Characters/Player/Animations/Fan/Test_DrawnIdle.fbx",
+    "Assets/Arts/Fonts/MountainPass/MountainKorean.asset",
+    "Assets/Arts/Environment/SelfModeling/Models/Lantern.fbx",
+    "Assets/Prefabs/Environment/SelfModeling/Wall_Middle.prefab",
+    "Packages/com.unity.render-pipelines.universal/Editor/AssetVersion.cs",
+    "Assets/Arts/Environment/StairLandingExtensions/ApproachStairLandingRowSolid.asset",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_UpperCliffs.mat",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_Walnut_BaseColor.png",
+    "Assets/Scripts/MountainPass/PassBossPatternController.cs",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Door_Iron.mat",
+    "Assets/Arts/Props/Gourd/Meshes/GourdCork.asset",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Door_LowerPanel.mat",
+    "Assets/Arts/Effects/FanAttack/Shaders/S_CloudWindSweep.shader",
+    "Assets/Arts/Environment/CheonMountainMap/Textures/Test_T_Map_ApproachStairs.png",
+    "Assets/Arts/Characters/Player/Animations/Fan/Test_DrawSheathe.fbx",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_ShrineGround.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Altar_Edge.mat",
+    "Assets/Arts/Environment/SelfModeling/Materials/M_Wall_End.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_UpperGround.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_SanshinPainting.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_IndigoRoofTile.mat",
+    "Assets/Arts/Characters/Player/Textures/Test_T_FanPaperBaseColor.png",
+    "Assets/Arts/Environment/PineReference/Textures/T_Pine_BaseColor_4K.png",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_LowerCliffs.mat",
+    "Assets/Arts/Effects/FanAttack/Materials/M_CloudWindSweep.mat",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_Wall_End_Normal.png",
+    "Assets/Arts/Shaders/Combat/Test_S_AttackRange.shader",
+    "Assets/Scripts/MountainPass/PassPlaybackSettings.cs",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_RoofTileLight.mat",
+    "Assets/Arts/Props/Gourd/Meshes/GourdBody.asset",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_CandleHolder_Brass.mat",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_WarmSandstone_BaseColor.png",
+    "Assets/Scripts/MountainPass/PassBossPatternSettings.cs",
+    "Assets/Scripts/MountainPass/PassAttackRangeEffects.cs",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_VermilionWood_BaseColor.png",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Wood_Floor.mat",
+    "Assets/Arts/Props/Gourd/Meshes/GourdWaistCord.asset",
+    "Packages/com.unity.ugui/Editor Resources/Gizmos/TMP - Font Asset Icon.psd",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_UpperRocks.mat",
+    "Assets/Arts/Effects/CloudSpiral/Meshes/CloudSpiralWindWave_AQuad.asset",
+    "Assets/Arts/Environment/MountainPass/Materials/M_ValleyHeightFog.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_JadeDancheong.mat",
+    "Assets/Arts/Effects/FanAttack/Materials/M_RollingWindGust_B.mat",
+    "Packages/com.unity.render-pipelines.universal/Shaders/Particles/ParticlesUnlit.shader",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Bracket_Teal.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Altar_DarkWood.mat",
+    "Assets/Arts/Effects/CloudSpiral/Textures/T_CloudSpiralSlash.png",
+    "Assets/Arts/Effects/FanAttack/Shaders/S_FanSweep.shader",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_FoothillRocks.mat",
+    "Packages/com.unity.ugui/Runtime/TMP/TMP_FontAsset.cs",
+    "Assets/Arts/Environment/CheonMountainMap/Textures/Test_T_Map_UpperCliffs.png",
+    "Assets/Settings/MountainPass/MountainActionTimings.asset",
+    "Assets/Arts/Characters/JangseungBoss/Materials/M_JangseungHat.mat",
+    "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader",
+    "Assets/Scripts/MountainPass/PassAttackSector.cs",
+    "Assets/Arts/Environment/CheonMountainMap/Textures/Test_T_Map_UpperRocks.png",
+    "Assets/Scripts/MountainPass/PassGameFlow.cs",
+    "Assets/Arts/Characters/Player/Materials/Test_M_PlayerFan_TealCord.mat",
+    "Assets/Arts/Effects/BossPatterns/Shaders/S_DeathPowder.shader",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Incense_Stick.mat",
+    "Assets/Scripts/MountainPass/PassHealth.cs",
+    "Packages/com.unity.render-pipelines.universal/Shaders/Unlit.shader",
+    "Assets/Arts/Characters/Player/Animations/MountainMap/HeavyHit.fbx",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Pine_ReferencePaint.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Pillar_Red_Timber.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_WarmSandstone.mat",
+    "Assets/Scripts/MountainPass/PassPlayerReactionSettings.cs",
+    "Assets/Scripts/MountainPass/PassFanAttackVfx.cs",
+    "Assets/Scripts/MountainPass/PassFanAttackDamageSettings.cs",
+    "Assets/Arts/Characters/Player/Animations/MountainMap/Drinking.fbx",
+    "Assets/Arts/Effects/BossPatterns/Materials/M_DeathPowder.mat",
+    "Assets/Scripts/MountainPass/PassFanSweepMesh.cs",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_WarmHanji_BaseColor.png",
+    "Assets/Scripts/MountainPass/PassFanAttachment.cs",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_OrangeWood.mat",
+    "Assets/Prefabs/MountainPass/RollDust.prefab",
+    "Assets/Arts/Environment/MountainPass/Meshes/ApproachLeftParapet.asset",
+    "Assets/Arts/Characters/JangseungBoss/Materials/M_JangseungWood.mat",
+    "Assets/Arts/Characters/Player/Animations/MountainMap/Test_MountainPlayerUpperBody.mask",
+    "Assets/Arts/Effects/FanAttack/Shaders/S_FanGust.shader",
+    "Assets/Arts/Effects/CloudSpiral/Textures/T_CloudSpiralWindWave_AStraight.png",
+    "Assets/Prefabs/Environment/CheonMountainMap/Test_CheonMountainMap.prefab",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_Lantern_BaseColor.png",
+    "Assets/Arts/Characters/Player/Materials/Test_M_PlayerFan_IvoryTassel.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Candle_Wax.mat",
+    "Packages/com.unity.render-pipelines.universal/Runtime/UniversalAdditionalLightData.cs",
+    "Assets/Arts/Characters/Player/Materials/Test_M_PlayerFan_IvoryTasselShade.mat",
+    "Packages/com.unity.timeline/Runtime/Animation/AnimationTrack.cs",
+    "Assets/Arts/Effects/BossPatterns/Shaders/S_BossDissolve.shader",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_OchreGold.mat",
+    "Assets/Arts/Effects/BossPatterns/Materials/M_BossDeath.mat",
+    "Assets/Arts/Effects/FanAttack/Textures/T_GustNoise.png",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_Lantern_MetallicSmoothness.png",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Rafter_WarmTimber.mat",
+    "Assets/Scripts/MountainPass/PassHeightFog.cs",
+    "Assets/Arts/Environment/CheonMountainMap/Models/Test_CheonMountainMap.fbx",
+    "Assets/Arts/Effects/CloudSpiral/Textures/T_CloudSpiralSlashOpacityMask.png",
+    "Assets/Arts/Effects/FanAttack/Materials/M_CloudSpiralSlash_C.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Door_Frame.mat",
+    "Packages/com.unity.render-pipelines.universal/Runtime/UniversalAdditionalCameraData.cs",
+    "Assets/Arts/Environment/CheonMountainMap/Textures/Test_T_Map_UpperGround.png",
+    "Assets/Scripts/MountainPass/PassCamera.cs",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_MountainSlope.mat",
+    "Assets/Arts/Characters/Player/Animations/Fan/Test_Attack2.fbx",
+    "Assets/Arts/Characters/Player/Animations/Fan/Test_Attack1.fbx",
+    "Assets/Arts/Effects/CloudSpiral/Meshes/CloudSpiralSlashQuad.asset",
+    "Assets/Arts/Effects/FanAttack/Shaders/S_RollingWindParticle.shader",
+    "Assets/Scripts/MountainPass/PassEffects.cs",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_IvoryHanji.mat",
+    "Assets/Arts/Characters/Player/Materials/Test_M_AttackRange.mat",
+    "Assets/Settings/MountainPass/MountainPlayerReactions.asset",
+    "Assets/Arts/Environment/MountainPass/Materials/M_BossAftermathMist.mat",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_Wall_Middle_Normal.png",
+    "Assets/Arts/Characters/JangseungBoss/Materials/M_JangseungEye.mat",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Door_Paper.mat",
+    "Assets/Arts/Environment/MountainPass/Materials/M_StairParapet.mat",
+    "Assets/Scripts/MountainPass/PassActionTimings.cs",
+    "Assets/Arts/Effects/FanAttack/Materials/M_FanWind.mat",
+    "Assets/Arts/Shaders/MountainPass/S_SpiritGate.shader",
+    "Assets/Arts/Characters/Player/Animations/Fan/Test_Attack3.fbx",
+    "Assets/Arts/Environment/CheonMountainMap/Textures/Test_T_Map_LowerRocks.png",
+    "Assets/Arts/Environment/CheonMountainMap/Textures/Test_T_Map_SummitStairs.png",
+    "Assets/Prefabs/Environment/ApproachStairLandingRow.prefab",
+    "Assets/Arts/Characters/Player/Textures/Test_T_PlayerBaseColor.png",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_IndigoRoofTile_BaseColor.png",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_TealDancheong.mat",
+    "Assets/Arts/Characters/Player/Materials/Test_M_PlayerFan_Walnut.mat",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_Lantern_EmissionMask.png",
+    "Assets/Arts/Environment/CheonMountainMap/Materials/Test_M_Map_Roof_UnderTile.mat",
+    "Assets/Arts/Characters/Player/Animations/Fan/Test_Run2.fbx",
+    "Assets/Settings/MountainPass/MountainTextSettings.asset",
+    "Assets/Scenes/MountainPass/MountainPass.unity",
+    "Assets/Scripts/MountainPass/PassPlayerMovement.cs",
+    "Assets/Arts/Characters/JangseungBoss/Materials/M_JangseungTeeth.mat",
+    "Assets/Arts/Environment/SelfModeling/Models/Wall_End.fbx",
+    "Assets/Arts/Characters/JangseungBoss/Models/JangseungBoss.fbx",
+    "Assets/Arts/Environment/SelfModeling/Textures/T_BronzeRim_BaseColor.png"
+  ],
+  "buildScenes": [
+    {
+      "path": "Assets/Scenes/SampleScene.unity",
+      "enabled": true,
+      "exists": false
+    }
+  ]
+}

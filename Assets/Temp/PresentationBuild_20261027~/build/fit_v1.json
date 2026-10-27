@@ -1,0 +1,583 @@
+﻿[
+    {
+        "text":  "천지인",
+        "name":  "Text_1_2",
+        "boundHeight":  79.8,
+        "height":  21.8109455,
+        "slide":  1
+    },
+    {
+        "text":  "天 地 人",
+        "name":  "Text_1_3",
+        "boundHeight":  29.92504,
+        "height":  21.8109455,
+        "slide":  1
+    },
+    {
+        "text":  "산문을 지키는 자",
+        "name":  "Text_1_4",
+        "boundHeight":  36.16,
+        "height":  21.8109455,
+        "slide":  1
+    },
+    {
+        "text":  "프로젝트 개요",
+        "name":  "Text_2_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  2
+    },
+    {
+        "text":  "부채를 든 견습 도사가\n영적 산문 너머의 장승에게 도전한다",
+        "name":  "Text_2_3",
+        "boundHeight":  82.13504,
+        "height":  21.8109455,
+        "slide":  2
+    },
+    {
+        "text":  "한국적인 사물과 플레이의 연결",
+        "name":  "Text_3_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  3
+    },
+    {
+        "text":  "견습 도사와 부채",
+        "name":  "Text_3_3",
+        "boundHeight":  29.92,
+        "height":  21.8109455,
+        "slide":  3
+    },
+    {
+        "text":  "부채 연격과 바람으로 싸우며\n공격을 이어갈지 회피할지 판단한다",
+        "name":  "Text_3_4",
+        "boundHeight":  61.40504,
+        "height":  21.8109455,
+        "slide":  3
+    },
+    {
+        "text":  "산신각의 가호",
+        "name":  "Text_3_5",
+        "boundHeight":  29.92,
+        "height":  21.8109455,
+        "slide":  3
+    },
+    {
+        "text":  "기도로 회복하고 다시 도전하는\n수련의 거점",
+        "name":  "Text_3_6",
+        "boundHeight":  61.40504,
+        "height":  21.8109455,
+        "slide":  3
+    },
+    {
+        "text":  "장승 수문장",
+        "name":  "Text_3_7",
+        "boundHeight":  29.92,
+        "height":  21.8109455,
+        "slide":  3
+    },
+    {
+        "text":  "산문을 지키는 존재의 전조를 읽고\n회피 뒤 반격 기회를 잡는 첫 관문",
+        "name":  "Text_3_8",
+        "boundHeight":  61.40504,
+        "height":  21.8109455,
+        "slide":  3
+    },
+    {
+        "text":  "현실과 영적 세계",
+        "name":  "Text_4_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  4
+    },
+    {
+        "text":  "현실의 수련지",
+        "name":  "Text_4_3",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  4
+    },
+    {
+        "text":  "산문 너머의 영적 분위기",
+        "name":  "Text_4_4",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  4
+    },
+    {
+        "text":  "현재 시연의 진행 흐름",
+        "name":  "Text_5_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  5
+    },
+    {
+        "text":  "산길 탐색과 산신각",
+        "name":  "Text_6_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  6
+    },
+    {
+        "text":  "등불이 이끄는 오르막",
+        "name":  "Text_6_3",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  6
+    },
+    {
+        "text":  "계단과 목적지 표시로 길을 안내한다.\n높이에 따라 밝기와 안개를 바꾼다.",
+        "name":  "Text_6_4",
+        "boundHeight":  54.93,
+        "height":  21.8109455,
+        "slide":  6
+    },
+    {
+        "text":  "수련의 거점",
+        "name":  "Text_6_5",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  6
+    },
+    {
+        "text":  "산신각에서 약 1.2초 동안 기도한다.\n회복과 체크포인트 갱신을 함께 제공한다.",
+        "name":  "Text_6_6",
+        "boundHeight":  54.93,
+        "height":  21.8109455,
+        "slide":  6
+    },
+    {
+        "text":  "조작과 카메라",
+        "name":  "Text_7_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  7
+    },
+    {
+        "text":  "부채 3단 연격",
+        "name":  "Text_8_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  8
+    },
+    {
+        "text":  "1타  세로 내려치기",
+        "name":  "Text_8_6",
+        "boundHeight":  24.93504,
+        "height":  21.8109455,
+        "slide":  8
+    },
+    {
+        "text":  "2타  가로 휘두르기",
+        "name":  "Text_8_7",
+        "boundHeight":  24.93504,
+        "height":  21.8109455,
+        "slide":  8
+    },
+    {
+        "text":  "3타  넓은 마무리",
+        "name":  "Text_8_8",
+        "boundHeight":  24.93504,
+        "height":  21.8109455,
+        "slide":  8
+    },
+    {
+        "text":  "직접 타격과 전방 바람\n기준 피해 22",
+        "name":  "Text_8_9",
+        "boundHeight":  53.63,
+        "height":  21.8109455,
+        "slide":  8
+    },
+    {
+        "text":  "직접 타격 중심\n기준 피해 28",
+        "name":  "Text_8_10",
+        "boundHeight":  53.63,
+        "height":  21.8109455,
+        "slide":  8
+    },
+    {
+        "text":  "넓은 궤적과 전방 바람\n기준 피해 40",
+        "name":  "Text_8_11",
+        "boundHeight":  53.63,
+        "height":  21.8109455,
+        "slide":  8
+    },
+    {
+        "text":  "직접 타격과 바람 피해",
+        "name":  "Text_9_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  9
+    },
+    {
+        "text":  "같은 연격 안에서 근접 부채와 원격 바람을 별도로 판정",
+        "name":  "Text_9_3",
+        "boundHeight":  28.67,
+        "height":  21.8109455,
+        "slide":  9
+    },
+    {
+        "text":  "동일 공격의 같은 대상은 직접·바람 채널별로 한 번씩 명중",
+        "name":  "Text_9_5",
+        "boundHeight":  23.0650387,
+        "height":  21.8109455,
+        "slide":  9
+    },
+    {
+        "text":  "회피와 피격의 전투 흐름",
+        "name":  "Text_10_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  10
+    },
+    {
+        "text":  "전조 확인과 구르기",
+        "name":  "Text_10_3",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  10
+    },
+    {
+        "text":  "적의 준비 동작과 범위를 보고 피한 뒤, 회복 중인 보스를 공격한다.",
+        "name":  "Text_10_4",
+        "boundHeight":  23.0650387,
+        "height":  21.8109455,
+        "slide":  10
+    },
+    {
+        "text":  "입력 유예와 캔슬",
+        "name":  "Text_10_5",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  10
+    },
+    {
+        "text":  "전환 직전의 입력을 약 0.15초 받아 두고 동작별 허용 시점에 실행한다.",
+        "name":  "Text_10_6",
+        "boundHeight":  23.0650387,
+        "height":  21.8109455,
+        "slide":  10
+    },
+    {
+        "text":  "일반 피격과 강피격",
+        "name":  "Text_10_7",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  10
+    },
+    {
+        "text":  "강한 공격은 넘어짐과 기상으로 연결한다. 치명 피해는 사망 상태로 이어진다.",
+        "name":  "Text_10_8",
+        "boundHeight":  23.0650387,
+        "height":  21.8109455,
+        "slide":  10
+    },
+    {
+        "text":  "호리병 회복과 재도전",
+        "name":  "Text_11_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  11
+    },
+    {
+        "text":  "40",
+        "name":  "Text_11_3",
+        "boundHeight":  58.6050377,
+        "height":  21.8109455,
+        "slide":  11
+    },
+    {
+        "text":  "E로 회복",
+        "name":  "Text_11_5",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  11
+    },
+    {
+        "text":  "이동을 유지하며 호리병을 마신다.",
+        "name":  "Text_11_6",
+        "boundHeight":  23.0650387,
+        "height":  21.8109455,
+        "slide":  11
+    },
+    {
+        "text":  "시작 3회 · 최대 5회\n산신각 기도로 충전\n피격·공격 전환 시 취소 가능",
+        "name":  "Text_11_7",
+        "boundHeight":  86.79504,
+        "height":  21.8109455,
+        "slide":  11
+    },
+    {
+        "text":  "장승 수문장 보스",
+        "name":  "Text_12_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  12
+    },
+    {
+        "text":  "천하대장군",
+        "name":  "Text_12_3",
+        "boundHeight":  37.40504,
+        "height":  21.8109455,
+        "slide":  12
+    },
+    {
+        "text":  "산문의 수문장",
+        "name":  "Text_12_4",
+        "boundHeight":  24.93504,
+        "height":  21.8109455,
+        "slide":  12
+    },
+    {
+        "text":  "견습 도사의 첫 관문\n공격 전조와 회피 시점 학습\n후딜레이의 반격 기회",
+        "name":  "Text_12_5",
+        "boundHeight":  96.63,
+        "height":  21.8109455,
+        "slide":  12
+    },
+    {
+        "text":  "본체 체력 420",
+        "name":  "Text_12_6",
+        "boundHeight":  31.16504,
+        "height":  21.8109455,
+        "slide":  12
+    },
+    {
+        "text":  "수문장의 주요 공격과 대응",
+        "name":  "Text_13_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  13
+    },
+    {
+        "text":  "추적 점프와 등 찍기",
+        "name":  "Text_14_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  14
+    },
+    {
+        "text":  "코김 전조 1.5초\n\n추적 점프 2회\n\n높이 뛰어 등으로 찍기\n\n회복 7초 동안 반격",
+        "name":  "Text_14_5",
+        "boundHeight":  246.85,
+        "height":  21.8109455,
+        "slide":  14
+    },
+    {
+        "text":  "미니 장승 소환과 시간차 연계",
+        "name":  "Text_15_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  15
+    },
+    {
+        "text":  "일반 공격 누적 후 소환",
+        "name":  "Text_15_5",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  15
+    },
+    {
+        "text":  "3회 수행 후 미니 장승 소환\n한 번에 2체 · 최대 생존 2체",
+        "name":  "Text_15_6",
+        "boundHeight":  54.93,
+        "height":  21.8109455,
+        "slide":  15
+    },
+    {
+        "text":  "본체와 미니 장승의 연계",
+        "name":  "Text_15_7",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  15
+    },
+    {
+        "text":  "순간이동으로 자리를 잡고\n점프와 본체 타격을 시간차로 연결",
+        "name":  "Text_15_8",
+        "boundHeight":  54.93,
+        "height":  21.8109455,
+        "slide":  15
+    },
+    {
+        "text":  "UI와 시연 편의 기능",
+        "name":  "Text_16_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  16
+    },
+    {
+        "text":  "아트와 사운드 방향",
+        "name":  "Text_17_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  17
+    },
+    {
+        "text":  "한국풍 3D 카툰 렌더링",
+        "name":  "Text_17_3",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  17
+    },
+    {
+        "text":  "바위산과 소나무, 돌계단과 등불\n산신각과 산문이 이어지는 수련지",
+        "name":  "Text_17_4",
+        "boundHeight":  54.93,
+        "height":  21.8109455,
+        "slide":  17
+    },
+    {
+        "text":  "환경과 전투 연출",
+        "name":  "Text_17_5",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  17
+    },
+    {
+        "text":  "높이에 따라 걷히는 안개\n부채 궤적, 바람, 충격과 소멸",
+        "name":  "Text_17_6",
+        "boundHeight":  54.93,
+        "height":  21.8109455,
+        "slide":  17
+    },
+    {
+        "text":  "현재  합성 효과음과 산바람\n후속  전통 악기 기반 BGM·믹싱",
+        "name":  "Text_17_7",
+        "boundHeight":  52.33504,
+        "height":  21.8109455,
+        "slide":  17
+    },
+    {
+        "text":  "개정본 이후의 프로젝트 현황",
+        "name":  "Text_18_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  18
+    },
+    {
+        "text":  "1차 시연 완료 기준",
+        "name":  "Text_19_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  19
+    },
+    {
+        "text":  "하나의 실행본에서 시작부터 재도전까지 이어지는 상태",
+        "name":  "Text_19_3",
+        "boundHeight":  29.92,
+        "height":  21.8109455,
+        "slide":  19
+    },
+    {
+        "text":  "후속 작업의 우선순위",
+        "name":  "Text_20_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  20
+    },
+    {
+        "text":  "통합 이후의 검증과 조정에 집중",
+        "name":  "Text_20_3",
+        "boundHeight":  33.66504,
+        "height":  21.8109455,
+        "slide":  20
+    },
+    {
+        "text":  "장기 확장 방향",
+        "name":  "Text_21_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  21
+    },
+    {
+        "text":  "도술과 전투의 확장",
+        "name":  "Text_21_3",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  21
+    },
+    {
+        "text":  "부채와 바람을 발전시키고, 독립 도술의 역할과 자원·재사용 규칙을 정한다.",
+        "name":  "Text_21_4",
+        "boundHeight":  23.0650387,
+        "height":  21.8109455,
+        "slide":  21
+    },
+    {
+        "text":  "현실과 영계의 차이 확대",
+        "name":  "Text_21_5",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  21
+    },
+    {
+        "text":  "같은 장소의 환경 변화에서 나아가 지형·기믹·적 배치의 차이를 만든다.",
+        "name":  "Text_21_6",
+        "boundHeight":  23.0650387,
+        "height":  21.8109455,
+        "slide":  21
+    },
+    {
+        "text":  "다음 수련과 성장",
+        "name":  "Text_21_7",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  21
+    },
+    {
+        "text":  "한국 설화 기반 지역과 보스를 추가하고 탐험·수집·성장·퀘스트를 도입한다.",
+        "name":  "Text_21_8",
+        "boundHeight":  23.0650387,
+        "height":  21.8109455,
+        "slide":  21
+    },
+    {
+        "text":  "부록 · 자료와 확인 범위",
+        "name":  "Text_22_1",
+        "boundHeight":  38.65504,
+        "height":  21.8109455,
+        "slide":  22
+    },
+    {
+        "text":  "기획 기준",
+        "name":  "Text_22_3",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  22
+    },
+    {
+        "text":  "천지인 기획서 개정본 v0.2\n2026년 10월 26일 개정",
+        "name":  "Text_22_4",
+        "boundHeight":  54.93,
+        "height":  21.8109455,
+        "slide":  22
+    },
+    {
+        "text":  "프로젝트 기준",
+        "name":  "Text_22_5",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  22
+    },
+    {
+        "text":  "2026년 10월 27일 저장 상태\nMountainPass / MountainPass_Optimized",
+        "name":  "Text_22_6",
+        "boundHeight":  54.93,
+        "height":  21.8109455,
+        "slide":  22
+    },
+    {
+        "text":  "주요 확인 자료",
+        "name":  "Text_22_7",
+        "boundHeight":  26.18504,
+        "height":  21.8109455,
+        "slide":  22
+    },
+    {
+        "text":  "씬·프리팹의 컴포넌트와 참조\n진행·전투·회복·보스·카메라 코드 및 설정값\nUnity 버전·패키지·활성 빌드 씬",
+        "name":  "Text_22_8",
+        "boundHeight":  88.76,
+        "height":  21.8109455,
+        "slide":  22
+    }
+]

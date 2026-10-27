@@ -8,7 +8,9 @@ namespace Cheon.Prototype.MountainPass
     [DefaultExecutionOrder(50)]
     public class PassPlayerReactionPose : MonoBehaviour
     {
+        [InspectorName("플레이어 동작 제어기")]
         [SerializeField] private PassAnimationController animationControl;
+        [InspectorName("캐릭터 충돌 몸체")]
         [SerializeField] private CharacterController body;
         private Animator animator, samplingAnimator;
         private Transform visual, hips, neck, head;

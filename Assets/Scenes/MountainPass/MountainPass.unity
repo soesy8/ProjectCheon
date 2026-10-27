@@ -1556,6 +1556,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1099210004}
+  - {fileID: 973391662}
   m_Father: {fileID: 431911287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &47786735
@@ -6676,12 +6677,28 @@ MonoBehaviour:
   boss: {fileID: 524915452}
   game: {fileID: 2000667308}
   distance: 7.5
-  combatDistance: 17
   pitch: 28
   minimumPitch: -65
   maximumPitch: 85
   sensitivity: 0.15
   followSpeed: 10
+  lockDeadZone:
+    serializedVersion: 2
+    x: 0.44
+    y: 0.45
+    width: 0.12
+    height: 0.2
+  lockFollowSpeed: 10
+  maximumYawSpeed: 160
+  maximumPitchSpeed: 60
+  lockPitchAllowance: 20
+  minimumLockPitch: 5
+  framingMargin: 0.05
+  maximumFramingRetreat: 12
+  framingLookAhead: 0.12
+  framingSpeed: 10
+  framingReturnSpeed: 5
+  maximumFramingSpeed: 12
 --- !u!1 &220036183
 GameObject:
   m_ObjectHideFlags: 0
@@ -9090,6 +9107,61 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.85, y: 14, z: 1.5201484}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &297790603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297790605}
+  - component: {fileID: 297790604}
+  m_Layer: 0
+  m_Name: FanAttackDamageSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &297790604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297790603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9ce1165f83fec4ea056dc78a37ff29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassFanAttackDamageSettings
+  attack1:
+    baseDamage: 15
+    directWeight: 0.6666667
+    windWeight: 0.33333334
+  attack2:
+    baseDamage: 15
+    directWeight: 1
+  attack3:
+    baseDamage: 50
+    directWeight: 0.8
+    windWeight: 0.2
+--- !u!4 &297790605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297790603}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &304224559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14577,6 +14649,10 @@ MonoBehaviour:
     attackRadius: 2.5
     offsetMinimum: 1.75
     offsetMaximum: 3
+  selection:
+    closeRange: 5
+    maximumConsecutive: 2
+    repeatFallbackWait: 2
   fall:
     bossCooldownMinimum: 4
     bossCooldownMaximum: 6
@@ -14613,6 +14689,8 @@ MonoBehaviour:
     windupTilt: 20
     strikeTilt: 30
     recoilDuration: 1
+    holdDuration: 0.75
+    returnDuration: 0.35
     effectLifetime: 1
     lineWidth: 0.12
     color: {r: 0.3, g: 0.16, b: 0.055, a: 0.65}
@@ -14625,9 +14703,39 @@ MonoBehaviour:
     mediumDustScale: 1.3
     smallDustClusters: 10
     smallDustScale: 0.6
+  pursuitSlam:
+    enabled: 1
+    windup: 1
+    trackingJumps: 2
+    trackingFlight: 1
+    trackingHeight: 5
+    landingPause: 0.65
+    trackingRadius: 4
+    trackingDamage: 20
+    heavyRise: 1.5
+    heavyFall: 0.75
+    heavyHeight: 12
+    heavyRadius: 6
+    heavyDamage: 28
+    bodyDamageMultiplier: 1.5
+    recovery: 7
+    standUpDuration: 1
+    noseOffset: {x: 0, y: 7.95, z: 1.7}
+    steamParticles: 16
+    steamSize: {x: 0.45, y: 0.65}
+    steamLifetime: 0.8
+    steamEmissionDuration: 0.42
+    steamDownSpeed: 4.5
+    steamEndSpeedRatio: 0.08
+    steamGrowth: 1.25
+    dustClusters: 20
+    dustSize: 1.8
   linkedAttack:
     enabled: 1
     participants: 2
+    minimumNormalAttacks: 2
+    maximumNormalAttacks: 3
+    preparationTimeout: 10
     windup: 1
     jumpInterval: 0.5
     attackGap: 0.5
@@ -14645,10 +14753,10 @@ MonoBehaviour:
     smokeSpeed: 1
     smokeColor: {r: 0.96, g: 0.97, b: 1, a: 0.85}
   summon:
-    requiredJumps: 3
+    requiredNormalAttacks: 3
     spawnCount: 2
     maximumAlive: 2
-    afterClearCooldown: 15
+    replenishCooldown: 15
     sideDistance: 4
     minionScale: 0.25
     windup: 1
@@ -14657,14 +14765,14 @@ MonoBehaviour:
     visualPrefab: {fileID: 9117321511444725263, guid: 03bb16ea9174193488efd6985d77fcc0, type: 3}
     modelScale: {x: 1.5000001, y: 2.25, z: 1.5000001}
   combat:
-    bossHealth: 420
+    bossHealth: 1000
     minionHealth: 60
     bossJumpDamage: 20
     bossFallDamage: 28
     minionJumpDamage: 8
     minionFallDamage: 12
     enemyHitRecovery: 1
-    playerDamage: {x: 22, y: 28, z: 40}
+    playerDamage: {x: 10, y: 15, z: 40}
   collision:
     radius: 0.99
     height: 12.2175
@@ -15451,7 +15559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d6b68786d26d64098127dba073675e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassHealth
-  maximum: 420
+  maximum: 1000
   hitRecovery: 0.04
 --- !u!95 &524915456
 Animator:
@@ -15494,11 +15602,6 @@ MonoBehaviour:
   view: {fileID: 218148870}
   audioControl: {fileID: 2000667306}
   visual: {fileID: 524915453}
-  moveSpeed: 2.6
-  slamRadius: 3.5
-  windupDuration: 1.35
-  slamDamage: 28
-  waveDamage: 22
   settings: {fileID: 514850120}
   isMinion: 0
 --- !u!1 &527836054
@@ -19236,6 +19339,9 @@ GameObject:
   - component: {fileID: 633025448}
   - component: {fileID: 633025447}
   - component: {fileID: 633025449}
+  - component: {fileID: 633025452}
+  - component: {fileID: 633025451}
+  - component: {fileID: 633025450}
   m_Layer: 0
   m_Name: Test_AnimationControl
   m_TagString: Untagged
@@ -19305,8 +19411,6 @@ MonoBehaviour:
   sheatheCloseStart: 0.06
   sheatheCloseEnd: 0.38
   sheatheStowTime: 0.52
-  repeatSelectedAnimation: 0
-  enableKeyboardShortcuts: 0
   timingSettings: {fileID: 11400000, guid: e659e93314df9cb4fbf84d8b274c5db1, type: 2}
   equipmentWhileMoving: 1
   playbackSettings: {fileID: 11400000, guid: 673d8868f2a78a943a18f262d0b47e76, type: 2}
@@ -19351,6 +19455,83 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassPlayerReactionPose
   animationControl: {fileID: 633025447}
   body: {fileID: 1582710810}
+--- !u!114 &633025450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633025443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acd40781580b0bf44b21d8b62a7f06c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassGourdDrinkingPose
+  animationControl: {fileID: 633025447}
+  drinking: {fileID: 633025452}
+  maxBackwardLeanDegrees: 5
+  neckBackwardReductionDegrees: 15
+  headReturnStart: 0.68
+  headReturnEnd: 0.9
+--- !u!114 &633025451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633025443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c2438d99b4fef41b911ac211551d07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassGourdAttachment
+  characterAnimator: {fileID: 1713810893}
+  drinking: {fileID: 633025452}
+  gourd: {fileID: 2395073770162003629}
+  beltSocket: {fileID: 1077600658}
+  handSocket: {fileID: 973391662}
+  cork: {fileID: 2395073770162003628}
+  attachmentSeconds: 0.12
+  mouthLocalPosition: {x: 0, y: 0.035, z: 0.095}
+  gourdMouthLocalPosition: {x: 0, y: 0.13, z: 0}
+  contactCorrection: 1
+  beltReachCorrection: 0.7
+--- !u!114 &633025452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633025443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1ef15d62cc96141aa6d072700d5da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassGourdDrinking
+  animationControl: {fileID: 633025447}
+  movement: {fileID: 1582710812}
+  health: {fileID: 1582710811}
+  game: {fileID: 2000667308}
+  attachment: {fileID: 633025451}
+  drawClip: {fileID: -203655887218126122, guid: 90a7ce018848fcc45855da41d3905674, type: 3}
+  drinkingClip: {fileID: -203655887218126122, guid: 5db59204400492c4c9f0b7edea24d264, type: 3}
+  maximumUses: 5
+  startingUses: 3
+  healAmount: 40
+  playbackSpeed: 2
+  preparationSpeedMultiplier: 0.75
+  sippingStartProgress: 0.31
+  sippingEndProgress: 0.68
+  sippingSpeed: 1
+  drawStartFrame: 0
+  drawEndFrame: 22
+  grabProgress: 0.7
+  drawDuration: 0.85
+  drinkingSpeed: 1
+  stowDuration: 0.85
+  transitionSeconds: 0.3
+  drawToDrinkExtraTransitionSeconds: 0.45
+  returnSeconds: 0.2
 --- !u!1 &638480717
 GameObject:
   m_ObjectHideFlags: 0
@@ -27666,6 +27847,7 @@ Transform:
   - {fileID: 50870316}
   - {fileID: 930436234}
   - {fileID: 725880809}
+  - {fileID: 1077600658}
   m_Father: {fileID: 885675757}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &921444383
@@ -29345,6 +29527,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7, y: 8, z: 0.6770748}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &973391661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 973391662}
+  m_Layer: 0
+  m_Name: LeftGourdGrip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &973391662
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973391661}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.01, y: 0.015, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 45371170}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &975270385
 GameObject:
   m_ObjectHideFlags: 0
@@ -32622,6 +32835,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.85, y: 14, z: 1.0899751}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1077600657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1077600658}
+  m_Layer: 0
+  m_Name: GourdBeltSocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1077600658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077600657}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0690776, y: 0.009708225, z: -0.13883409, w: 0.98785585}
+  m_LocalPosition: {x: -0.19, y: -0.005, z: -0.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2395073770162003629}
+  m_Father: {fileID: 914932909}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1079465127
 GameObject:
   m_ObjectHideFlags: 0
@@ -53904,6 +54149,8 @@ GameObject:
   - component: {fileID: 1582710812}
   - component: {fileID: 1582710811}
   - component: {fileID: 1582710813}
+  - component: {fileID: 1582710815}
+  - component: {fileID: 1582710814}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -54002,35 +54249,58 @@ MonoBehaviour:
   m_GameObject: {fileID: 1582710807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 512b6c3ac03985b4fad0fc1b9f09e9cb, type: 3}
+  m_Script: {fileID: 11500000, guid: a5751f1e8bfb6cc45b81198e3b56af71, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassPlayerAreaCombat
+  m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassFanAttackCombat
   animationControl: {fileID: 633025447}
   boss: {fileID: 524915457}
   game: {fileID: 2000667308}
   effects: {fileID: 2000667307}
   view: {fileID: 218148870}
   audioControl: {fileID: 2000667306}
-  attackDamage: {x: 22, y: 28, z: 40}
-  attackReach: {x: 4.2, y: 4.8, z: 5.3}
-  settings: {fileID: 514850120}
-  areas:
-  - sector: {fileID: 960725256}
-    attack: 1
-    startFrame: 25
-    endFrame: 38
-  - sector: {fileID: 493194238}
-    attack: 2
-    startFrame: 40
-    endFrame: 58
-  - sector: {fileID: 1820536816}
-    attack: 3
-    startFrame: 20
-    endFrame: 40
-  - sector: {fileID: 1862341491}
-    attack: 3
-    startFrame: 20
-    endFrame: 40
+  maximumComboTurnAngle: 45
+  directionalTargetRange: 8
+  directionalTargetHalfAngle: 45
+  profile: {fileID: 11400000, guid: e0da01c83564f3c43a5959df1226df7d, type: 2}
+  damageSettings: {fileID: 297790604}
+  visualEffect: {fileID: 610674764149722719}
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
+--- !u!114 &1582710814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582710807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34821d63c1bd809488207dcb73898e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassPlayerAudio
+  audioControl: {fileID: 2000667306}
+  game: {fileID: 2000667308}
+  walkInterval: 0.42
+  sprintInterval: 0.28
+--- !u!114 &1582710815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582710807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14cabacc867bb4498e8cf580c36928c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassPlayerEnergy
+  maximum: 100
+  dodgeCost: 25
+  sprintCostPerSecond: 5
+  retreatCostPerSecond: 10
+  regenerationPerSecond: 10
+  game: {fileID: 2000667308}
 --- !u!1 &1589544900
 GameObject:
   m_ObjectHideFlags: 0
@@ -54074,7 +54344,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589544900}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b462e89cf5a7224bbedc6935d297cfb, type: 3}
   m_Name: 
@@ -66732,6 +67002,8 @@ GameObject:
   - component: {fileID: 2000667306}
   - component: {fileID: 2000667305}
   - component: {fileID: 2000667310}
+  - component: {fileID: 2000667312}
+  - component: {fileID: 2000667311}
   m_Layer: 0
   m_Name: MountainPassSystems
   m_TagString: Untagged
@@ -66754,6 +67026,10 @@ MonoBehaviour:
   game: {fileID: 2000667308}
   font: {fileID: 11400000, guid: 79eed8436e955c64b8fe84f7061cac9d, type: 2}
   textSettings: {fileID: 11400000, guid: 1d7b8e30a11babd429d20802b999913f, type: 2}
+  inkBrush: {fileID: 21300000, guid: 30adbb92245d9b040bee83cb43d65d23, type: 3}
+  gourdIcon: {fileID: 21300000, guid: e91d35d3916ec0a4195fefe9c4d57d1f, type: 3}
+  titleBackground: {fileID: 21300000, guid: a9f187c1e88e73743898f3914a10faf7, type: 3}
+  titleLogo: {fileID: 21300000, guid: 659d5612629acce4c9234998a8a96aef, type: 3}
 --- !u!114 &2000667306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66767,6 +67043,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassAudio
   volume: 0.35
+  fanWhoosh: {fileID: 8300000, guid: 794eab0edb470fe4fb33066b9caa3fde, type: 3}
+  strike: {fileID: 8300000, guid: e62141b98397780499dd6a507fcbc0c4, type: 3}
+  windHit: {fileID: 8300000, guid: 79eab9cbc382b784b9fb1e41022a2794, type: 3}
+  hurt: {fileID: 8300000, guid: 57a1011233ad9c14aae60c49afbf3280, type: 3}
+  slam: {fileID: 8300000, guid: 23c48bafc9fcefb4b8b1032c21e3d26d, type: 3}
+  bell: {fileID: 8300000, guid: ea7fa73bf2f089046be90d799e714a0b, type: 3}
+  wind: {fileID: 8300000, guid: 4dabc579de0efb64b979566a7defbd7a, type: 3}
+  footstep: {fileID: 8300000, guid: 1403a5422b084ad4b8602fb7c5e86894, type: 3}
+  dodge: {fileID: 8300000, guid: 3e9deb45b8cafde40a8a417f02661fdb, type: 3}
+  drink: {fileID: 8300000, guid: 686755d3c7822a54e879f3975dc21a16, type: 3}
+  confirm: {fileID: 8300000, guid: 990fd569222d7bf4ba8754aaa8f502ec, type: 3}
+  spirit: {fileID: 8300000, guid: f91627302f913b84993b6ce678c6d4d7, type: 3}
+  victory: {fileID: 8300000, guid: 25742b420c1bb924c903da5504c11c92, type: 3}
+  defeat: {fileID: 8300000, guid: 8141b222130332a449e274ed47552284, type: 3}
+  equipment: {fileID: 8300000, guid: af7f350f0ec1186419131fd84089ea7e, type: 3}
+  ambienceVolume: 0.16
 --- !u!114 &2000667307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66780,6 +67072,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassEffects
   ringMaterial: {fileID: 2100000, guid: 2e82bca14ef2c3c408b6f1ccc997206a, type: 2}
+  ringSegments: 64
+  maximumRipples: 24
 --- !u!114 &2000667308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66802,7 +67096,10 @@ MonoBehaviour:
   environment: {fileID: 1677079880}
   shrine: {fileID: 1421376859}
   entrance: {fileID: 38716474}
+  gourd: {fileID: 633025452}
   arenaCheckpoint: {x: -15, y: 37.2, z: -43}
+  fallDamage: 20
+  checkpointFallDistance: 12
 --- !u!4 &2000667309
 Transform:
   m_ObjectHideFlags: 0
@@ -66848,6 +67145,34 @@ MonoBehaviour:
   openingSmoothTime: 1.4
   bossDensity: 0.022
   bossFadeSeconds: 9
+--- !u!114 &2000667311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000667304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86ae83c49a48da47bfe7ce7263e3c58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassScreenFade
+  duration: 0.35
+--- !u!114 &2000667312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000667304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9936cffe9a67b7e4db313c5b79adacf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassHitEffects
+  impactMaterial: {fileID: 2100000, guid: e663f6182651fae41855fd7abacf5879, type: 2}
+  particleCount: 9
+  effectScale: 0.8
 --- !u!1 &2000983407
 GameObject:
   m_ObjectHideFlags: 0
@@ -71651,6 +71976,214 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.85, y: 14, z: 1.5201511}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &610674764149722718
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2028612104977324971, guid: e9b4d9fcbd6ec1c408e2410453c4c264, type: 3}
+      propertyPath: playerRoot
+      value: 
+      objectReference: {fileID: 1582710808}
+    - target: {fileID: 2028612104977324971, guid: e9b4d9fcbd6ec1c408e2410453c4c264, type: 3}
+      propertyPath: animationControl
+      value: 
+      objectReference: {fileID: 633025447}
+    - target: {fileID: 2678946982630645907, guid: e9b4d9fcbd6ec1c408e2410453c4c264, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.418
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678946982630645907, guid: e9b4d9fcbd6ec1c408e2410453c4c264, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.729
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678946982630645907, guid: e9b4d9fcbd6ec1c408e2410453c4c264, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 100.262
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678946982630645907, guid: e9b4d9fcbd6ec1c408e2410453c4c264, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.43008575
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678946982630645907, guid: e9b4d9fcbd6ec1c408e2410453c4c264, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678946982630645907, guid: e9b4d9fcbd6ec1c408e2410453c4c264, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9027881
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678946982630645907, guid: e9b4d9fcbd6ec1c408e2410453c4c264, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678946982630645907, guid: e9b4d9fcbd6ec1c408e2410453c4c264, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678946982630645907, guid: e9b4d9fcbd6ec1c408e2410453c4c264, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678946982630645907, guid: e9b4d9fcbd6ec1c408e2410453c4c264, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675715349570366306, guid: e9b4d9fcbd6ec1c408e2410453c4c264, type: 3}
+      propertyPath: m_Name
+      value: FanAttackVfx
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9b4d9fcbd6ec1c408e2410453c4c264, type: 3}
+--- !u!114 &610674764149722719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2028612104977324971, guid: e9b4d9fcbd6ec1c408e2410453c4c264, type: 3}
+  m_PrefabInstance: {fileID: 610674764149722718}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e12b9608e3c2dc74684f5e185cb525b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassFanAttackVfx
+--- !u!1001 &772751210796745919
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 59765972618413978, guid: 07cca1378b4dd3943b3c0acbda7b16d2, type: 3}
+      propertyPath: playerRoot
+      value: 
+      objectReference: {fileID: 1582710808}
+    - target: {fileID: 59765972618413978, guid: 07cca1378b4dd3943b3c0acbda7b16d2, type: 3}
+      propertyPath: animationControl
+      value: 
+      objectReference: {fileID: 633025447}
+    - target: {fileID: 1896197008732791851, guid: 07cca1378b4dd3943b3c0acbda7b16d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.418
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896197008732791851, guid: 07cca1378b4dd3943b3c0acbda7b16d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.729
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896197008732791851, guid: 07cca1378b4dd3943b3c0acbda7b16d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 100.262
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896197008732791851, guid: 07cca1378b4dd3943b3c0acbda7b16d2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.43008575
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896197008732791851, guid: 07cca1378b4dd3943b3c0acbda7b16d2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896197008732791851, guid: 07cca1378b4dd3943b3c0acbda7b16d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9027881
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896197008732791851, guid: 07cca1378b4dd3943b3c0acbda7b16d2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896197008732791851, guid: 07cca1378b4dd3943b3c0acbda7b16d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896197008732791851, guid: 07cca1378b4dd3943b3c0acbda7b16d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896197008732791851, guid: 07cca1378b4dd3943b3c0acbda7b16d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934668642436561694, guid: 07cca1378b4dd3943b3c0acbda7b16d2, type: 3}
+      propertyPath: m_Name
+      value: RollDust
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 07cca1378b4dd3943b3c0acbda7b16d2, type: 3}
+--- !u!1001 &2395073770162003627
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1077600658}
+    m_Modifications:
+    - target: {fileID: 6551685273465096202, guid: 306ed328038485147bba9ba7588dea34, type: 3}
+      propertyPath: m_Name
+      value: Gourd(Clone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388129635428531862, guid: 306ed328038485147bba9ba7588dea34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388129635428531862, guid: 306ed328038485147bba9ba7588dea34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388129635428531862, guid: 306ed328038485147bba9ba7588dea34, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388129635428531862, guid: 306ed328038485147bba9ba7588dea34, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388129635428531862, guid: 306ed328038485147bba9ba7588dea34, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388129635428531862, guid: 306ed328038485147bba9ba7588dea34, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388129635428531862, guid: 306ed328038485147bba9ba7588dea34, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388129635428531862, guid: 306ed328038485147bba9ba7588dea34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388129635428531862, guid: 306ed328038485147bba9ba7588dea34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388129635428531862, guid: 306ed328038485147bba9ba7588dea34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 306ed328038485147bba9ba7588dea34, type: 3}
+--- !u!1 &2395073770162003628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7277530650748534090, guid: 306ed328038485147bba9ba7588dea34, type: 3}
+  m_PrefabInstance: {fileID: 2395073770162003627}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2395073770162003629 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8388129635428531862, guid: 306ed328038485147bba9ba7588dea34, type: 3}
+  m_PrefabInstance: {fileID: 2395073770162003627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4006731402615774429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71889,3 +72422,6 @@ SceneRoots:
   - {fileID: 334744295}
   - {fileID: 375158264}
   - {fileID: 514850121}
+  - {fileID: 610674764149722718}
+  - {fileID: 772751210796745919}
+  - {fileID: 297790605}

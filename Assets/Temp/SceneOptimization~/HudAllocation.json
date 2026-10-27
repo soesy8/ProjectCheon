@@ -1,0 +1,4 @@
+﻿{
+    "supported":  false,
+    "reason":  "이 Unity Mono 환경에서 GC.GetAllocatedBytesForCurrentThread가 테스트용 100000 바이트 할당에도 0을 반환하므로 HUD 단독 할당 비교 수치로 사용하지 않음"
+}
