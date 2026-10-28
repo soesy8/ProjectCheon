@@ -8,6 +8,7 @@ Shader "Cheon/VFX/StairMistCloud"
         _BlurRadius ("Cloud Blur Texels", Range(0, 8)) = 3
         _NoiseStrength ("Patchy Alpha Strength", Range(0, 1)) = 0.9
         _NoiseScale ("Patchy Alpha Scale", Float) = 5.2
+        _MobileQuality ("Mobile Quality", Float) = 0
         [HideInInspector] _NoiseTime ("Patchy Alpha Time", Float) = 0
     }
     SubShader
@@ -48,6 +49,7 @@ Shader "Cheon/VFX/StairMistCloud"
             float _NoiseStrength;
             float _NoiseScale;
             float _NoiseTime;
+            float _MobileQuality;
 
             Varyings Vert(Attributes input)
             {
@@ -89,19 +91,27 @@ Shader "Cheon/VFX/StairMistCloud"
                 float centerDistance = length((screenUV - 0.5) / max(_ClearRadius.xy, 0.01));
                 float edgeMask = smoothstep(1.0, 1.0 + _ClearFeather, centerDistance);
                 float2 blur = _MainTex_TexelSize.xy * _BlurRadius;
-                half4 cloud = SampleCloud(input.uv) * 0.4;
-                cloud += SampleCloud(input.uv + float2(blur.x, 0)) * 0.15;
-                cloud += SampleCloud(input.uv - float2(blur.x, 0)) * 0.15;
-                cloud += SampleCloud(input.uv + float2(0, blur.y)) * 0.15;
-                cloud += SampleCloud(input.uv - float2(0, blur.y)) * 0.15;
+                half4 cloud = SampleCloud(input.uv);
+                if (_MobileQuality < 0.5)
+                {
+                    cloud *= 0.4;
+                    cloud += SampleCloud(input.uv + float2(blur.x, 0)) * 0.15;
+                    cloud += SampleCloud(input.uv - float2(blur.x, 0)) * 0.15;
+                    cloud += SampleCloud(input.uv + float2(0, blur.y)) * 0.15;
+                    cloud += SampleCloud(input.uv - float2(0, blur.y)) * 0.15;
+                }
                 cloud.rgb /= max(cloud.a, 0.0001);
                 // 크기가 다른 노이즈를 겹쳐 구름 안쪽도 군데군데 얇아지게 한다.
                 // 구름별 UV와 화면 위치를 함께 사용해 겹친 이미지들의 투명 무늬가 겹치지 않게 한다.
                 float2 noiseUV = input.uv * float2(2.0, 1.0) * _NoiseScale
                     + screenUV * float2(1.9, 1.3) + float2(_NoiseTime, -_NoiseTime * 0.6);
-                float noise = SmoothNoise(noiseUV) * 0.57;
-                noise += SmoothNoise(noiseUV * 2.17 + float2(7.3, 13.1)) * 0.29;
-                noise += SmoothNoise(noiseUV * 4.13 - float2(4.9, 2.5)) * 0.14;
+                float noise = SmoothNoise(noiseUV);
+                if (_MobileQuality < 0.5)
+                {
+                    noise *= 0.57;
+                    noise += SmoothNoise(noiseUV * 2.17 + float2(7.3, 13.1)) * 0.29;
+                    noise += SmoothNoise(noiseUV * 4.13 - float2(4.9, 2.5)) * 0.14;
+                }
                 float patchyAlpha = lerp(1.0, smoothstep(0.28, 0.7, noise), _NoiseStrength);
                 return half4(cloud.rgb * input.color.rgb, cloud.a * input.color.a * edgeMask * patchyAlpha);
             }

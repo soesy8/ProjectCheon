@@ -222,6 +222,7 @@ namespace Cheon.Prototype.MountainPass
         [Serializable]
         public class CollisionSettings
         {
+            [InspectorName("지면 판정 레이어")] public LayerMask groundMask = Physics.DefaultRaycastLayers;
             [InspectorName("본체 반지름"), Min(.05f)] public float radius = .99f;
             [InspectorName("본체 전체 길이"), Min(.1f)] public float height = 12.2175f;
             [InspectorName("개체 간 여유 간격"), Min(.01f)] public float clearance = .08f;

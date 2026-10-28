@@ -79,6 +79,7 @@ namespace Cheon.Prototype.MountainPass
             windSector.Rebuild(profile.wind);
             attack1WindSector.Rebuild(profile.attack1Wind);
             particles.Configure(profile, playerRoot);
+            cloudSpiral.Prewarm(windSector.Mesh, profile.GetSweep(2).lowerArcHeightScale);
             revision = profile.Revision;
         }
 

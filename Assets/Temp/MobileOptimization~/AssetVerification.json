@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "errors": [],
+  "groups": 77,
+  "pngs": 52,
+  "missing": 0,
+  "highTriangles": 1139504,
+  "mobileTriangles": 495234,
+  "triangleReduction": 0.56539511927996744
+}

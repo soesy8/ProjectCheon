@@ -20,6 +20,8 @@ Shader "Cheon/Prototype/LocalMountainFog"
         _MaxOpacity ("Maximum Opacity", Range(0, 1)) = 0.96
         _NoiseScale ("Noise Scale", Float) = 0.035
         _NoiseStrength ("Noise Strength", Range(0, 1)) = 0.65
+        _SampleCount ("Fog Samples", Range(4, 24)) = 24
+        _NoiseDetail ("Detailed Noise", Float) = 1
         _WindVelocity ("Wind XZ", Vector) = (0.7, 0.3, 0, 0)
         [HideInInspector] _OpeningPlane ("Sideways Opening Plane", Vector) = (1,0,0,0)
         [HideInInspector] _OpeningDistance ("Sideways Opening Distance", Float) = 0
@@ -89,6 +91,8 @@ Shader "Cheon/Prototype/LocalMountainFog"
                 float _MaxOpacity;
                 float _NoiseScale;
                 float _NoiseStrength;
+                float _SampleCount;
+                float _NoiseDetail;
             CBUFFER_END
 
             Varyings Vert(Attributes input)
@@ -125,7 +129,9 @@ Shader "Cheon/Prototype/LocalMountainFog"
                 float sideways = dot(position.xz, float2(_BoundaryPlane.z, -_BoundaryPlane.x));
                 float2 drift = _Time.y * _BoundaryDriftSpeed * float2(1.0, -0.43);
                 float broad = SmoothNoise(position.xz * _BoundaryNoiseScale + drift);
-                float fine = SmoothNoise(float2(sideways, position.y) * _BoundaryNoiseScale * 2.17 - drift * 0.8);
+                float fine = broad;
+                if (_NoiseDetail > 0.5)
+                    fine = SmoothNoise(float2(sideways, position.y) * _BoundaryNoiseScale * 2.17 - drift * 0.8);
                 // 서로 다른 크기의 흐름으로 수평·수직 경계를 함께 흐트러뜨린다.
                 return signedDistance + ((broad * 0.65 + fine * 0.35) * 2.0 - 1.0) * _BoundaryRoughness;
             }
@@ -138,7 +144,9 @@ Shader "Cheon/Prototype/LocalMountainFog"
                 float3 movingPosition = position - _OpeningPlane.xyz * side * _OpeningDistance;
                 float2 noisePosition = (movingPosition.xz - _WindVelocity.xy * _Time.y) * _NoiseScale;
                 noisePosition += position.y * float2(0.018, -0.012);
-                float noise = SmoothNoise(noisePosition) * 0.7 + SmoothNoise(noisePosition * 2.07 + 13.5) * 0.3;
+                float noise = SmoothNoise(noisePosition);
+                if (_NoiseDetail > 0.5)
+                    noise = noise * 0.7 + SmoothNoise(noisePosition * 2.07 + 13.5) * 0.3;
                 // 흐르는 무늬에 따라 안개 윗면이 흔들리되 지정한 상한 높이를 넘지 않는다.
                 float topOffset = (1.0 - noise) * _HeightFade * 0.5 * _NoiseStrength;
                 float heightMask = smoothstep(0.0, _HeightFade, _VolumeMax.y - position.y - topOffset);
@@ -203,11 +211,11 @@ Shader "Cheon/Prototype/LocalMountainFog"
                 exit = min(exit, surfaceDistance);
                 clip(exit - entry - 0.0001);
 
-                const int SampleCount = 24;
-                float stepLength = (exit - entry) / SampleCount;
+                int sampleCount = clamp((int)_SampleCount, 4, 24);
+                float stepLength = (exit - entry) / sampleCount;
                 float opticalDepth = 0.0;
                 [loop]
-                for (int sampleIndex = 0; sampleIndex < SampleCount; sampleIndex++)
+                for (int sampleIndex = 0; sampleIndex < sampleCount; sampleIndex++)
                 {
                     float distance = entry + (sampleIndex + 0.5) * stepLength;
                     opticalDepth += SampleFog(rayOrigin + rayDirection * distance) * stepLength;

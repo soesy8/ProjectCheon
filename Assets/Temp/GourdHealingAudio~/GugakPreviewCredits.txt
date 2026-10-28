@@ -1,0 +1,11 @@
+국립국악원 · 국악기 디지털 음원
+공공누리 제1유형(출처표시)
+https://api.gugak.go.kr/digitaleum/front/monotone/list.do
+
+산조가야금 기본음계 중 — sanjo_gayageum_sus_mid_03.wav (2518)
+정악대금 기본음 — jungak_deageum_scale_sus_25.wav (2557)
+징 약 — Jing_2.wav (2335)
+
+가공: 개별 음 추출, 미세 음높이·음량 조정, 필터, 페이드, 레이어링, 잔향.
+원본 녹음을 바탕으로 편집한 게임용 미리듣기입니다. 국립국악원의 후원·제휴를 의미하지 않습니다.
+게임 에셋·연결은 변경하지 않았습니다.

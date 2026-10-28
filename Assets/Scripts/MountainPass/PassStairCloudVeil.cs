@@ -25,6 +25,7 @@ namespace Cheon.Prototype.MountainPass
 
         [Header("겹치는 구름의 불규칙함")]
         [SerializeField, Range(1, 5), InspectorName("가장자리별 구름 겹 수")] private int layersPerCloud = 3;
+        [SerializeField, Range(1, 3), InspectorName("모바일 가장자리별 구름 겹 수")] private int mobileLayersPerCloud = 2;
         [SerializeField, InspectorName("배치 무작위 시드")] private int randomSeed = 1739;
         [SerializeField, InspectorName("겹치는 구름 위치 변화 (화면 비율)")] private Vector2 layerSpread = new Vector2(0.09f, 0.12f);
         [SerializeField, Range(0f, 0.5f), InspectorName("겹치는 구름 크기 변화")] private float sizeVariation = 0.24f;
@@ -69,11 +70,15 @@ namespace Cheon.Prototype.MountainPass
         private Material runtimeMaterial;
         private float driftTime;
         private float noiseTime;
+        private int activeLayerCount;
+        private Vector2 previousCanvasSize;
 
         private void Start()
         {
             if (game == null || mountainMist == null || cloudTexture == null || cloudMaterial == null) return;
             runtimeMaterial = new Material(cloudMaterial);
+            bool mobile = Cheon.Systems.MobilePerformance.UsesMobileQuality;
+            runtimeMaterial.SetFloat("_MobileQuality", mobile ? 1f : 0f);
             var root = new GameObject("StairCloudVeil", typeof(RectTransform), typeof(Canvas), typeof(CanvasGroup));
             root.transform.SetParent(transform, false);
             canvasRect = (RectTransform)root.transform;
@@ -88,7 +93,8 @@ namespace Cheon.Prototype.MountainPass
 
             // 전역 Random 상태를 건드리지 않아 전투·효과음의 무작위 선택에 영향을 주지 않는다.
             var random = new System.Random(randomSeed);
-            clouds = new CloudLayer[CloudCenters.Length * Mathf.Clamp(layersPerCloud, 1, 5)];
+            activeLayerCount = Mathf.Clamp(mobile ? Mathf.Min(mobileLayersPerCloud, layersPerCloud) : layersPerCloud, 1, 5);
+            clouds = new CloudLayer[CloudCenters.Length * activeLayerCount];
             for (int i = 0; i < clouds.Length; i++)
             {
                 int group = i % CloudCenters.Length;
@@ -133,7 +139,9 @@ namespace Cheon.Prototype.MountainPass
             }
             // 공간 안개와 같은 위치 진행값을 사용해 정지·하강·시작 페이드에도 농도가 어긋나지 않게 한다.
             float openingProgress = mountainMist.SummitClarity;
-            visibility.alpha = maximumOpacity * (1f - openingProgress);
+            // 겹 수를 줄여도 구름의 전체 농도가 크게 달라지지 않도록 합성 불투명도를 보정한다.
+            float opacity = 1f - Mathf.Pow(1f - maximumOpacity, layersPerCloud / (float)activeLayerCount);
+            visibility.alpha = opacity * (1f - openingProgress);
             effectCanvas.enabled = visibility.alpha > 0.001f;
             if (!effectCanvas.enabled) return;
 
@@ -146,6 +154,8 @@ namespace Cheon.Prototype.MountainPass
             noiseTime += Time.deltaTime * noiseDriftSpeed;
             runtimeMaterial.SetFloat(NoiseTimeId, noiseTime);
             Vector2 size = canvasRect.rect.size;
+            bool resized = size != previousCanvasSize;
+            previousCanvasSize = size;
             float textureAspect = (float)cloudTexture.width / cloudTexture.height;
             float opening = openingProgress * openingDistance;
             for (int i = 0; i < clouds.Length; i++)
@@ -158,8 +168,9 @@ namespace Cheon.Prototype.MountainPass
                 center += new Vector2(Mathf.Sin(phase), Mathf.Cos(phase * 0.7f)) * driftAmount;
                 layer.Rect.anchoredPosition = Vector2.Scale(center - new Vector2(0.5f, 0.5f), size);
                 float width = size.x * layer.Width;
-                layer.Rect.sizeDelta = new Vector2(width, width / textureAspect);
-                layer.Image.color = new Color(cloudTint.r, cloudTint.g, cloudTint.b, cloudTint.a * layer.Opacity);
+                if (resized) layer.Rect.sizeDelta = new Vector2(width, width / textureAspect);
+                Color tint = new Color(cloudTint.r, cloudTint.g, cloudTint.b, cloudTint.a * layer.Opacity);
+                if (layer.Image.color != tint) layer.Image.color = tint;
             }
         }
 

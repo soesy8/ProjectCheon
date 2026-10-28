@@ -1,0 +1,13 @@
+{
+  "originalDuration": 5.424,
+  "sourceStart": 1.325,
+  "sourceEnd": 3.895,
+  "trimmedDuration": 2.57,
+  "sampleRate": 48000,
+  "channels": 1,
+  "pitchAndSpeedChanged": false,
+  "silenceThresholdRelativeDb": -40,
+  "runtimeContactDuration": 1.147,
+  "firstSample": 0,
+  "lastSample": 0
+}

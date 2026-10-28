@@ -42,6 +42,8 @@ namespace Cheon.Prototype.MountainPass
         [Header("렌더링 참조")]
         [InspectorName("안개 볼륨 렌더러")]
         [SerializeField] private MeshRenderer volumeRenderer;
+        [InspectorName("모바일 안개 샘플 수"), SerializeField, Range(4, 24)]
+        private int mobileSampleCount = 8;
         [Header("플레이어 주변 시야 확보")]
         [InspectorName("시야를 확보할 대상")]
         [SerializeField] private Transform clearTarget;
@@ -105,6 +107,7 @@ namespace Cheon.Prototype.MountainPass
         private float openingFeather = 4f;
         private bool settingsDirty = true;
         private Vector3 appliedPosition, appliedClearPosition, appliedBoundaryPosition, appliedBoundaryForward, appliedParentScale;
+        private bool appliedMobileQuality;
 
         private static readonly int VolumeMinId = Shader.PropertyToID("_VolumeMin");
         private static readonly int VolumeMaxId = Shader.PropertyToID("_VolumeMax");
@@ -153,9 +156,11 @@ namespace Cheon.Prototype.MountainPass
             Vector3 boundaryPosition = densityBoundary != null ? densityBoundary.position : Vector3.zero;
             Vector3 boundaryForward = densityBoundary != null ? densityBoundary.forward : Vector3.forward;
             Vector3 currentParentScale = volumeRenderer.transform.parent != null ? volumeRenderer.transform.parent.lossyScale : Vector3.one;
+            bool mobile = Cheon.Systems.MobilePerformance.UsesMobileQuality;
             if (!settingsDirty && appliedPosition == transform.position && appliedClearPosition == clearPosition &&
-                appliedBoundaryPosition == boundaryPosition && appliedBoundaryForward == boundaryForward && appliedParentScale == currentParentScale) return;
+                appliedBoundaryPosition == boundaryPosition && appliedBoundaryForward == boundaryForward && appliedParentScale == currentParentScale && appliedMobileQuality == mobile) return;
             settingsDirty = false;
+            appliedMobileQuality = mobile;
             appliedPosition = transform.position; appliedClearPosition = clearPosition;
             appliedBoundaryPosition = boundaryPosition; appliedBoundaryForward = boundaryForward; appliedParentScale = currentParentScale;
 
@@ -174,6 +179,8 @@ namespace Cheon.Prototype.MountainPass
             if (volumeTransform.localScale != localSize) volumeTransform.localScale = localSize;
 
             if (properties == null) properties = new MaterialPropertyBlock();
+            properties.SetFloat("_SampleCount", mobile ? mobileSampleCount : 24);
+            properties.SetFloat("_NoiseDetail", mobile ? 0f : 1f);
             properties.SetVector(VolumeMinId, center - size * 0.5f);
             properties.SetVector(VolumeMaxId, center + size * 0.5f);
             properties.SetColor(FogColorId, QualitySettings.activeColorSpace == ColorSpace.Linear ? fogColor.linear : fogColor);

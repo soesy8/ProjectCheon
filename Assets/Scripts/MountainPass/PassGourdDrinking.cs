@@ -111,7 +111,9 @@ namespace Cheon.Prototype.MountainPass
         }
         private void Update()
         {
-            if (game == null || !game.IsRunning || animationControl.IsPaused) return;
+            bool paused = game == null || !game.IsRunning || animationControl.IsPaused;
+            if (game != null) game.Audio?.SetDrinkingSoundPaused(paused);
+            if (paused) return;
             if (!PassHud.IsTyping && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame) TryDrink();
             if (!IsPlaying) return;
             // 달리기 키로 시작한 납도는 왼손의 호리병 마시기를 중단하지 않는다.
@@ -162,6 +164,11 @@ namespace Cheon.Prototype.MountainPass
                     health.Heal(Mathf.Max(0f, earned - appliedHealing));
                     appliedHealing = earned;
                 }
+                if (sipApplied)
+                {
+                    float remainingSeconds = Mathf.Max(0f, sippingEndProgress - progress) * PhaseDuration / Mathf.Max(0.1f, sippingSpeed);
+                    game.Audio?.UpdateDrinkingSound(remainingSeconds);
+                }
             }
             else if (Phase == DrinkingPhase.Stowing)
             {
@@ -208,6 +215,7 @@ namespace Cheon.Prototype.MountainPass
         private void OnDamaged(float damage) => CancelDrinking();
         public void CancelDrinking()
         {
+            if (game != null) game.Audio?.StopDrinkingSound();
             Phase = DrinkingPhase.Holstered; phaseTime = 0f;
             if (layerIndex >= 0 && Controller != null && Controller.isInitialized) Controller.SetLayerWeight(layerIndex, 0f);
             if (attachment != null) attachment.SetInHand(false, true);

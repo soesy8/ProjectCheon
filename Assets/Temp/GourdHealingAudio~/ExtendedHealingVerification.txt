@@ -1,0 +1,9 @@
+success=True
+contactSeconds=2.617726
+soundSeconds=2.57
+observedAudioSeconds=2.55999999999949
+lastObservedAudioSample=122880
+totalAudioSamples=123360
+naturallyFinishedWhileSipping=True
+contactFrames=154
+failures=

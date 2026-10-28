@@ -36,6 +36,18 @@ namespace Cheon.Prototype.MountainPass
             Hide();
         }
 
+        public void Prewarm(Mesh windMesh, float lowerArcHeightScale)
+        {
+            if (settings == null || settings.slashMesh == null || settings.slashMaterial == null || settings.windMaterial == null) return;
+            // 첫 공격 프레임에 메시·렌더러·텍스처 생성 비용이 몰리지 않게 미리 준비한다.
+            if (slash == null) slash = CreateRenderer("PassC_Slash", settings.slashMesh, settings.slashMaterial);
+            if (windWave == null) windWave = CreateRenderer("PassC_WindWave", windMesh, settings.windMaterial);
+            GetVerticalMesh(lowerArcHeightScale);
+            UpdateSweepFade(0f, 0.1f);
+            UpdateWindFade(0f, 0.1f);
+            Hide();
+        }
+
         public void ShowSweep(PassFanAttackVfxProfile.Sweep style, float progress, float opacity)
         {
             if (settings == null || settings.slashMesh == null || settings.slashMaterial == null || owner == null) return;

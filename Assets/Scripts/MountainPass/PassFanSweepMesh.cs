@@ -5,6 +5,8 @@ namespace Cheon.Prototype.MountainPass
     // 현재 구름 바람이 사용하는 부채꼴 메시만 만든다. 표시 렌더러는 원화 제어기가 담당한다.
     public class PassFanSweepMesh : MonoBehaviour
     {
+        [SerializeField, Range(8, 80), InspectorName("모바일 부채꼴 각도 분할 수")] private int mobileSegments = 24;
+        [SerializeField, Range(2, 8), InspectorName("모바일 부채꼴 반지름 분할 수")] private int mobileRings = 4;
         private Mesh runtimeMesh;
         private Vector3[] flatVertices, groundVertices;
         private readonly RaycastHit[] groundHits = new RaycastHit[24];
@@ -13,7 +15,8 @@ namespace Cheon.Prototype.MountainPass
         public void Rebuild(PassFanAttackVfxProfile.Wind wind)
         {
             if (runtimeMesh != null) Destroy(runtimeMesh);
-            const int segments = 80, rings = 8;
+            bool mobile = Cheon.Systems.MobilePerformance.UsesMobileQuality;
+            int segments = mobile ? mobileSegments : 80, rings = mobile ? mobileRings : 8;
             flatVertices = new Vector3[(segments + 1) * (rings + 1)];
             groundVertices = new Vector3[flatVertices.Length];
             var uv = new Vector2[flatVertices.Length];

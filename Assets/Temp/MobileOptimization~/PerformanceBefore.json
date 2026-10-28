@@ -1,0 +1,36 @@
+﻿{
+  "success": true,
+  "command": "command get_performance_stats",
+  "data": {
+    "command": "get_performance_stats",
+    "parameters": {},
+    "result": {
+      "render": {
+        "drawCalls": 445,
+        "batches": 8,
+        "setPassCalls": 44,
+        "triangles": 1257149,
+        "vertices": 1402444
+      },
+      "memory": {
+        "totalAllocatedBytes": 1780564379,
+        "totalReservedBytes": 2175971328,
+        "monoUsedBytes": 892133376,
+        "monoHeapBytes": 1045446656
+      },
+      "frameTiming": {
+        "available": true,
+        "cpuFrameTimeMs": 20.5769,
+        "gpuFrameTimeMs": 8.829952,
+        "cpuMainThreadFrameTimeMs": 3.1366
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "D:\\project\\ProjectCheon"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

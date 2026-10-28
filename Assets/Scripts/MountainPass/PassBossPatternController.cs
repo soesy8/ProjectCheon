@@ -16,6 +16,7 @@ namespace Cheon.Prototype.MountainPass
         private readonly RaycastHit[] groundResults = new RaycastHit[32];
         private Transform bodyPivot;
         private Collider originalBody;
+        private CharacterController playerBody;
         private PassBossImpactDust dust;
         private PassBossDeathVfx deathVfx;
         private PassBossTeleportVfx teleportVfx;
@@ -88,6 +89,7 @@ namespace Cheon.Prototype.MountainPass
         protected override void Awake()
         {
             base.Awake();
+            playerBody = player.GetComponent<CharacterController>();
             spawnPosition = transform.position; spawnRotation = transform.rotation;
             spawnVisualScale = visual.localScale;
             Health.Configure(isMinion ? settings.combat.minionHealth : settings.combat.bossHealth, settings.combat.enemyHitRecovery);
@@ -132,8 +134,28 @@ namespace Cheon.Prototype.MountainPass
         {
             if (isMinion && summonInitialized) return;
             ResetEncounter();
-            if (!isMinion) return;
+            if (!isMinion) { StartCoroutine(PrewarmSummonPool()); return; }
             WakeUp();
+        }
+
+        private System.Collections.IEnumerator PrewarmSummonPool()
+        {
+            // 생성과 Awake를 타이틀/이동 구간의 여러 프레임으로 분산한다.
+            int capacity = Mathf.Max(settings.summon.maximumAlive, settings.summon.poolCapacity);
+            for (int index = minions.Count; index < capacity; index++)
+            {
+                yield return null;
+                if (minions.Count >= capacity) break;
+                var randomState = Random.state;
+                try
+                {
+                    var enemy = CreateMinion(spawnPosition);
+                    enemy.summonInitialized = true;
+                    enemy.gameObject.SetActive(true);
+                    enemy.gameObject.SetActive(false);
+                }
+                finally { Random.state = randomState; }
+            }
         }
 
         public override void ResetEncounter()
@@ -506,10 +528,10 @@ namespace Cheon.Prototype.MountainPass
             for (int index = 1; index <= samples; index++)
             {
                 SetTilt(Mathf.Lerp(previousTilt, angle, index / (float)samples));
-                Physics.SyncTransforms();
                 CheckFallingHit();
-                PushPlayerOutsideBody();
+                PushPlayerOutsideBody(false);
             }
+            Physics.SyncTransforms();
             previousTilt = angle;
             if (elapsed < settings.fall.fallDuration) return;
             dust.EmitFall(Body); audioControl.Slam(); view.AddShake(isMinion ? .2f : .8f);
@@ -519,19 +541,20 @@ namespace Cheon.Prototype.MountainPass
 
         private void CheckFallingHit()
         {
-            if (hasHitPlayer) return;
-            GetBodySegment(out Vector3 first, out Vector3 second);
-            int count = Physics.OverlapCapsuleNonAlloc(first, second, Body.radius, queryResults, ~0, QueryTriggerInteraction.Ignore);
-            for (int index = 0; index < count; index++)
-                if (queryResults[index].GetComponentInParent<PassPlayerMovement>() == player)
-                {
-                    if (DamagePlayer(isMinion ? settings.combat.minionFallDamage : settings.combat.bossFallDamage, !isMinion))
-                    {
-                        hasHitPlayer = true;
-                        MovePlayerSidewaysFromBody(settings.fall.hitSidePushDistance);
-                    }
-                    break;
-                }
+            if (hasHitPlayer || !OverlapsPlayerBody()) return;
+            if (DamagePlayer(isMinion ? settings.combat.minionFallDamage : settings.combat.bossFallDamage, !isMinion))
+            {
+                hasHitPlayer = true;
+                MovePlayerSidewaysFromBody(settings.fall.hitSidePushDistance, false);
+            }
+        }
+
+        public bool OverlapsPlayerBody()
+        {
+            // 직접 지정한 두 형상을 검사하면 회전 샘플마다 전역 물리 공간을 동기화할 필요가 없다.
+            return playerBody != null && playerBody.enabled && Body.enabled &&
+                Physics.ComputePenetration(Body, Body.transform.position, Body.transform.rotation,
+                    playerBody, playerBody.transform.position, playerBody.transform.rotation, out _, out _);
         }
 
         private bool DamagePlayer(float damage, bool heavyHit = false)
@@ -637,7 +660,7 @@ namespace Cheon.Prototype.MountainPass
         {
             result = candidate;
             int count = Physics.RaycastNonAlloc(new Vector3(candidate.x, settings.ArenaCenter.y + settings.collision.groundTolerance + 1f, candidate.z), Vector3.down,
-                groundResults, settings.collision.groundTolerance * 2f + 2f, ~0, QueryTriggerInteraction.Ignore);
+                groundResults, settings.collision.groundTolerance * 2f + 2f, settings.collision.groundMask, QueryTriggerInteraction.Ignore);
             float best = float.PositiveInfinity;
             for (int index = 0; index < count; index++)
             {
@@ -793,10 +816,10 @@ namespace Cheon.Prototype.MountainPass
             if (Phase == PatternPhase.PursuitSlam) PursuitSlam.Displace(displacement);
         }
 
-        public void PushPlayerOutsideBody()
+        public void PushPlayerOutsideBody(bool synchronize = true)
         {
             if (!IsAlive || !Body.enabled) return;
-            var controller = player.GetComponent<CharacterController>();
+            var controller = playerBody;
             if (!controller.enabled) return;
             for (int pass = 0; pass < 4; pass++)
             {
@@ -804,17 +827,17 @@ namespace Cheon.Prototype.MountainPass
                     Body, Body.transform.position, Body.transform.rotation, out Vector3 direction, out float distance)) break;
                 if (Phase == PatternPhase.Falling || Phase == PatternPhase.PursuitSlam || direction.y < -.1f)
                 {
-                    MovePlayerSidewaysFromBody(0f);
+                    MovePlayerSidewaysFromBody(0f, synchronize);
                     continue;
                 }
                 controller.Move(direction * (distance + settings.collision.clearance));
-                Physics.SyncTransforms();
+                if (synchronize) Physics.SyncTransforms();
             }
         }
 
-        private void MovePlayerSidewaysFromBody(float minimumDistance)
+        private void MovePlayerSidewaysFromBody(float minimumDistance, bool synchronize = true)
         {
-            var controller = player.GetComponent<CharacterController>();
+            var controller = playerBody;
             if (!controller.enabled) return;
             Vector3 right = Vector3.ProjectOnPlane(transform.right, Vector3.up).normalized;
             float lateral = Vector3.Dot(controller.bounds.center - transform.position, right);
@@ -838,7 +861,7 @@ namespace Cheon.Prototype.MountainPass
                 }
             }
             finally { Physics.IgnoreCollision(controller, Body, wasIgnored); }
-            Physics.SyncTransforms();
+            if (synchronize) Physics.SyncTransforms();
         }
 
         public void GetBodySegment(out Vector3 first, out Vector3 second)

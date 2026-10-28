@@ -1,0 +1,60 @@
+{
+  "retrievedDate": "2026-10-28",
+  "publisher": "국립국악원",
+  "sourceUrl": "https://api.gugak.go.kr/digitaleum/front/monotone/list.do",
+  "license": "공공누리 제1유형(출처표시)",
+  "sourceFiles": [
+    {
+      "file": "sanjo_gayageum_sus_mid_03.wav",
+      "id": 2518,
+      "name": "산조가야금 기본음계 중",
+      "sha256": "1743e782fa2aa26b88881b52ff21489827769776b2b10f2b2d0c229c4ce03b15"
+    },
+    {
+      "file": "jungak_deageum_scale_sus_25.wav",
+      "id": 2557,
+      "name": "정악대금 기본음",
+      "sha256": "a1f6566e85e393109400dda6584f44aa5d825932d92bb05ebc813fc1105f80d0"
+    },
+    {
+      "file": "Jing_2.wav",
+      "id": 2335,
+      "name": "징 약",
+      "sha256": "90ee1200ae23f1af32f2de1606a520d9020415fab41bcaae19852d19dd9ad321"
+    }
+  ],
+  "config": {
+    "tonic": 293.665,
+    "fluteStart": 21.45,
+    "fluteSpeed": 0.9988605442176871,
+    "jingStart": 0.85
+  },
+  "outputs": [
+    {
+      "file": "Preview_GourdHeal_C_GayageumDaegeum.wav",
+      "duration": 2.1,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitDepth": 16,
+      "peakDbfs": -5.57,
+      "rmsDbfs": -21.76,
+      "maximumStep": 0.0613,
+      "clippedSamples": 0,
+      "firstSample": 0,
+      "lastSample": 0
+    },
+    {
+      "file": "Preview_GourdHeal_D_GayageumJing.wav",
+      "duration": 1.9,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitDepth": 16,
+      "peakDbfs": -2.5,
+      "rmsDbfs": -22.09,
+      "maximumStep": 0.0974,
+      "clippedSamples": 0,
+      "firstSample": 0,
+      "lastSample": 0
+    }
+  ]
+}

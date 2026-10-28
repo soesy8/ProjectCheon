@@ -1,0 +1,26 @@
+[
+  {
+    "file": "Preview_GourdHeal_A_Warm.wav",
+    "duration": 2.1,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bitDepth": 16,
+    "peakDbfs": -7.73,
+    "rmsDbfs": -21.75,
+    "maximumStep": 0.0386,
+    "firstSample": 0,
+    "lastSample": 0
+  },
+  {
+    "file": "Preview_GourdHeal_B_Clear.wav",
+    "duration": 1.85,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bitDepth": 16,
+    "peakDbfs": -7.53,
+    "rmsDbfs": -21.21,
+    "maximumStep": 0.0489,
+    "firstSample": 0,
+    "lastSample": 0
+  }
+]

@@ -1,0 +1,31 @@
+﻿{
+  "success": true,
+  "command": "command eval_file",
+  "data": {
+    "command": "eval_file",
+    "parameters": {
+      "file": "D:\\project\\ProjectCheon\\Assets\\Temp\\GourdHealingAudio~\\ExtendGourdDrinking.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "scene": "Assets/Scenes/Main.unity",
+        "previousContactSeconds": 1.14700007,
+        "contactSeconds": 2.64999986,
+        "soundSeconds": 2.57,
+        "previousSpeed": 1,
+        "sippingSpeed": 0.432830244,
+        "drawingAndStowingSpeed": 2
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "D:\\project\\ProjectCheon"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

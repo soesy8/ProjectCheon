@@ -13,7 +13,6 @@ namespace Cheon.Prototype.MountainPass
         private PassBossSnortVfx snort;
         private PassAudio audioControl;
         private PassCamera view;
-        private readonly Collider[] hits = new Collider[32];
         private Vector3 jumpStart;
         private float elapsed;
         private bool finalHitPlayer;
@@ -141,9 +140,10 @@ namespace Cheon.Prototype.MountainPass
             {
                 float step = Mathf.Lerp(before, progress, sample / (float)samples);
                 transform.position = LandingPosition + Vector3.up * (Timing.heavyHeight * (1f - step * step));
-                SetPose(270f * step); Physics.SyncTransforms();
+                SetPose(270f * step);
                 CheckBodyHit();
             }
+            Physics.SyncTransforms();
             if (progress < 1f) return;
             transform.position = LandingPosition; SetPose(270f); Physics.SyncTransforms();
             CheckBodyHit();
@@ -156,15 +156,8 @@ namespace Cheon.Prototype.MountainPass
         private void CheckBodyHit()
         {
             if (finalHitPlayer) return;
-            owner.GetBodySegment(out Vector3 first, out Vector3 second);
-            int count = Physics.OverlapCapsuleNonAlloc(first, second, owner.Body.radius, hits, ~0, QueryTriggerInteraction.Ignore);
-            for (int index = 0; index < count; index++)
-            {
-                if (hits[index].GetComponentInParent<PassPlayerMovement>() != player) continue;
-                if (owner.DealPatternDamage(Timing.heavyDamage * Timing.bodyDamageMultiplier, true))
-                    finalHitPlayer = FinalHitWasBody = true;
-                return;
-            }
+            if (owner.OverlapsPlayerBody() && owner.DealPatternDamage(Timing.heavyDamage * Timing.bodyDamageMultiplier, true))
+                finalHitPlayer = FinalHitWasBody = true;
         }
 
         private bool PlayerInShockwave(float radius)

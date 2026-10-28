@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "errors": [],
+  "frame": 2414,
+  "state": "Playing",
+  "windMeshes": 2,
+  "clouds": 12,
+  "fogs": 4,
+  "prewarmedMinions": 4,
+  "collisionCases": 72
+}

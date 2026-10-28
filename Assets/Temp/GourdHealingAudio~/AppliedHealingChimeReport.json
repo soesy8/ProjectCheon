@@ -1,0 +1,38 @@
+﻿{
+  "success": true,
+  "command": "command eval_file",
+  "data": {
+    "command": "eval_file",
+    "parameters": {
+      "file": "D:\\project\\ProjectCheon\\Assets\\Temp\\GourdHealingAudio~\\ApplyGourdHealingAudioBody.cs",
+      "timeout": "15000"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "path": "Assets/Arts/Audio/MountainPass/Presentation/GourdRestore.mp3",
+        "guid": "ebd78dd96fbe68946a189de76f9b3de3",
+        "originalBytesPreserved": true,
+        "duration": 5.424,
+        "frequency": 48000,
+        "channels": 1,
+        "state": "Loaded",
+        "peakDbfs": -0.00026507636037961915,
+        "rmsDbfs": -21.693775165071045,
+        "linkedScenes": [
+          "Assets/Scenes/Main.unity"
+        ],
+        "sceneDirty": false
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "D:\\project\\ProjectCheon"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

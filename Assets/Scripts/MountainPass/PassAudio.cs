@@ -18,7 +18,8 @@ namespace Cheon.Prototype.MountainPass
         [SerializeField, InspectorName("산바람 환경음")] private AudioClip wind;
         [SerializeField, InspectorName("발걸음")] private AudioClip footstep;
         [SerializeField, InspectorName("회피 옷자락")] private AudioClip dodge;
-        [SerializeField, InspectorName("호리병 마시기")] private AudioClip drink;
+        [SerializeField, InspectorName("호리병 치유")] private AudioClip drink;
+        [SerializeField, Range(0.005f, 0.15f), InspectorName("치유 소리 종료 페이드 (초)")] private float drinkFadeSeconds = 0.04f;
         [SerializeField, InspectorName("메뉴 선택")] private AudioClip confirm;
         [SerializeField, Range(0f, 1f), InspectorName("버튼 호버 북소리 음량")] private float menuHoverVolume = 0.18f;
         [SerializeField, Range(0f, 1f), InspectorName("Esc 북소리 음량")] private float menuBackVolume = 0.5f;
@@ -32,6 +33,9 @@ namespace Cheon.Prototype.MountainPass
         [SerializeField, InspectorName("환경음 음량 비율"), Range(0f, 1f)] private float ambienceVolume = 0.16f;
         private AudioSource effects, ambience, movement;
         private AudioSource menu;
+        private AudioSource drinkingSound;
+        private float drinkingFade = 1f;
+        private bool drinkingSoundPaused;
         private readonly System.Collections.Generic.List<AudioClip> generatedClips = new System.Collections.Generic.List<AudioClip>();
         private float nextStrikeTime, nextSlamTime;
         private float nextMenuHoverTime;
@@ -48,6 +52,19 @@ namespace Cheon.Prototype.MountainPass
             ambience = gameObject.AddComponent<AudioSource>(); ambience.playOnAwake = false; ambience.loop = true; ambience.volume = volume * ambienceVolume * userGain;
             if (wind == null) wind = Tone("MountainWind", 65.4f, 4f, 0.12f, true);
             ambience.clip = wind; ambience.Play();
+            // 공용 효과음은 계속 재생한 채 치유 소리만 중단할 수 있도록 자식에 별도 소스를 둔다.
+            var healingObject = new GameObject("GourdHealingAudio");
+            healingObject.transform.SetParent(transform, false);
+            drinkingSound = healingObject.AddComponent<AudioSource>();
+            drinkingSound.playOnAwake = false;
+            drinkingSound.spatialBlend = 0f;
+            drinkingSound.clip = drink;
+        }
+        private void LateUpdate()
+        {
+            if (drinkingSound == null || effects == null) return;
+            drinkingSound.volume = effects.volume * 0.6f * drinkingFade;
+            drinkingSound.priority = effects.priority;
         }
         // 외부 음원 없이 짧은 타격음과 바람을 합성하고, 생성한 클립은 씬 종료 시 정리한다.
         private AudioClip Tone(string title, float frequency, float duration, float noise, bool loop = false)
@@ -84,7 +101,32 @@ namespace Cheon.Prototype.MountainPass
         public void Bell() { if (effects != null) effects.PlayOneShot(bell, 0.8f); }
         public void Swing(int attack) => Play(fanWhoosh, attack == 3 ? 0.85f : 0.55f);
         public void Dodge() => Play(dodge, 0.65f);
-        public void Drink() => Play(drink, 0.6f);
+        public void Drink()
+        {
+            if (drinkingSound == null || drink == null || effects == null) return;
+            drinkingFade = 1f;
+            drinkingSoundPaused = false;
+            drinkingSound.clip = drink;
+            drinkingSound.volume = effects.volume * 0.6f;
+            drinkingSound.Play();
+        }
+        public void UpdateDrinkingSound(float remainingSeconds)
+        {
+            // 입에서 떼기 직전에만 음량을 줄여, 종료 순간에 소리가 튀지 않게 한다.
+            drinkingFade = Mathf.Clamp01(remainingSeconds / Mathf.Max(0.005f, drinkFadeSeconds));
+            if (remainingSeconds <= 0f) StopDrinkingSound();
+        }
+        public void SetDrinkingSoundPaused(bool paused)
+        {
+            if (drinkingSound == null || drinkingSoundPaused == paused) return;
+            drinkingSoundPaused = paused;
+            if (paused) drinkingSound.Pause(); else drinkingSound.UnPause();
+        }
+        public void StopDrinkingSound()
+        {
+            if (drinkingSound != null) drinkingSound.Stop();
+            drinkingSoundPaused = false;
+        }
         public void Confirm() => Play(confirm, 0.5f);
         public void MenuBack() => PlayMenu(menuBackVolume);
         public void MenuHover()
@@ -105,6 +147,11 @@ namespace Cheon.Prototype.MountainPass
         public void Footstep(bool running)
         { if (movement != null && footstep != null) { movement.pitch = Random.Range(0.88f, 1.12f); movement.PlayOneShot(footstep, running ? 0.6f : 0.4f); } }
         private void Play(AudioClip clip, float gain) { if (effects != null && clip != null) effects.PlayOneShot(clip, gain); }
-        private void OnDestroy() { foreach (var clip in generatedClips) if (clip != null) Destroy(clip); }
+        private void OnDisable() => StopDrinkingSound();
+        private void OnDestroy()
+        {
+            if (drinkingSound != null) Destroy(drinkingSound.gameObject);
+            foreach (var clip in generatedClips) if (clip != null) Destroy(clip);
+        }
     }
 }

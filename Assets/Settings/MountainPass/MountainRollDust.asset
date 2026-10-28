@@ -28,7 +28,7 @@ MonoBehaviour:
   upwardSpeed: 0.45
   groundMask:
     serializedVersion: 2
-    m_Bits: 51
+    m_Bits: 256
   groundOffset: 0.04
   groundDistance: 0.5
   contactForwardOffset: 0.15

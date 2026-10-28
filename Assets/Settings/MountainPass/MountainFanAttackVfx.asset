@@ -1500,7 +1500,7 @@ MonoBehaviour:
     groundOffset: 0.06
     groundMask:
       serializedVersion: 2
-      m_Bits: 4294967291
+      m_Bits: 256
     frontShare: 0.5
     endBurstCount: 20
     frontSpeed: 1.8

@@ -1,0 +1,8 @@
+success=True
+normalDuration=1.141609
+normalObservedFrames=67
+pauseObservedFrames=24
+damageStoppedSound=True
+sharedSoundPreserved=True
+resumedAfterPause=True
+failures=
