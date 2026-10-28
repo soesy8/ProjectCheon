@@ -40,6 +40,7 @@ namespace Cheon.Prototype.MountainPass
         {
             TrackingLandings = 0; finalHitPlayer = FinalHitWasBody = false;
             FacePlayer(); SetPose(0); snort.EmitSnort(); SetStage(SlamStage.Snort);
+            if (audioControl != null) audioControl.Snort();
         }
 
         public void Tick(float deltaTime)

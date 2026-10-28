@@ -46,14 +46,19 @@ namespace Cheon.Prototype.MountainPass
             line.shadowCastingMode = ShadowCastingMode.Off; line.receiveShadows = false;
             line.startColor = line.endColor = color;
             line.enabled = false;
+            item.SetActive(false);
             return line;
         }
         public void DrawRing(LineRenderer line, Vector3 center, float radius, Color color, float width = 0.1f)
         {
             if (line == null) return;
+            bool visible = isActiveAndEnabled && radius > 0.01f;
+            line.enabled = visible;
+            line.gameObject.SetActive(visible);
+            if (!visible) return;
             PrepareCircle();
             if (line.positionCount != circle.Length) line.positionCount = circle.Length;
-            line.enabled = radius > 0.01f; line.widthMultiplier = width;
+            line.widthMultiplier = width;
             line.startColor = line.endColor = color;
             for (int i = 0; i < circle.Length; i++)
             {
@@ -63,30 +68,42 @@ namespace Cheon.Prototype.MountainPass
         }
         public void Impact(Vector3 position, Color color, float radius = 2f)
         {
+            if (!isActiveAndEnabled) return;
             Ripple ripple;
             if (availableRipples.Count > 0) ripple = availableRipples.Pop();
-            else if (ripples.Count >= maximumRipples)
+            else if (ripples.Count >= Mathf.Max(1, maximumRipples))
             { ripple = ripples[0]; ripples.RemoveAt(0); }
             else ripple = new Ripple { line = CreateRing("영혼 충격파", color) };
             ripple.position = position + Vector3.up * 0.12f;
             ripple.color = color; ripple.radius = radius; ripple.age = 0f;
+            if (ripple.line == null) ripple.line = CreateRing("영혼 충격파", color);
             ripples.Add(ripple);
+            DrawRing(ripple.line, ripple.position, .15f, color, .14f);
         }
         private void Update()
         {
             for (int i = ripples.Count - 1; i >= 0; i--)
             {
                 var ripple = ripples[i]; ripple.age += Time.deltaTime;
+                if (ripple.line == null) { ripples.RemoveAt(i); continue; }
                 float progress = ripple.age / 0.55f;
                 // 같은 충격파를 다음 타격에서 재사용해 생성·삭제에 따른 할당과 프레임 튐을 줄인다.
-                if (progress >= 1f) { ripple.line.enabled = false; availableRipples.Push(ripple); ripples.RemoveAt(i); continue; }
+                if (progress >= 1f) { ReturnRippleToPool(ripple); ripples.RemoveAt(i); continue; }
                 var color = ripple.color; color.a *= 1f - progress;
                 DrawRing(ripple.line, ripple.position, Mathf.Lerp(0.15f, ripple.radius, progress), color, 0.14f * (1f - progress));
             }
         }
+        private void ReturnRippleToPool(Ripple ripple)
+        {
+            if (ripple.line == null) return;
+            ripple.line.enabled = false;
+            ripple.line.gameObject.SetActive(false);
+            availableRipples.Push(ripple);
+        }
+
         private void OnDisable()
         {
-            foreach (var ripple in ripples) { ripple.line.enabled = false; availableRipples.Push(ripple); }
+            foreach (var ripple in ripples) ReturnRippleToPool(ripple);
             ripples.Clear();
         }
     }

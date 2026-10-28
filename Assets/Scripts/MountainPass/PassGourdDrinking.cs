@@ -114,14 +114,16 @@ namespace Cheon.Prototype.MountainPass
             if (game == null || !game.IsRunning || animationControl.IsPaused) return;
             if (!PassHud.IsTyping && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame) TryDrink();
             if (!IsPlaying) return;
-            if (!movement.InputEnabled || animationControl.IsActionPlaying) { CancelDrinking(); return; }
+            // 달리기 키로 시작한 납도는 왼손의 호리병 마시기를 중단하지 않는다.
+            if (!movement.InputEnabled || animationControl.IsActionPlaying && !animationControl.IsEquipmentTransition) { CancelDrinking(); return; }
             AdvancePlayback(Time.deltaTime);
         }
 
         public bool TryDrink()
         {
             if (layerIndex < 0 || !isActiveAndEnabled || IsPlaying || game == null || !game.IsRunning ||
-                !movement.InputEnabled || animationControl.IsPaused || animationControl.IsActionPlaying || health.IsDead) return false;
+                !movement.InputEnabled || animationControl.IsPaused ||
+                animationControl.IsActionPlaying && !animationControl.IsEquipmentTransition || health.IsDead) return false;
             if (RemainingUses <= 0) { game.ShowNotice("호리병이 비었습니다 · 산신각에서 충전하세요", 2f); return false; }
             if (health.Current >= health.Maximum) { game.ShowNotice("생명력이 가득 차 있습니다", 1.5f); return false; }
             sipApplied = false;
@@ -201,7 +203,7 @@ namespace Cheon.Prototype.MountainPass
             drawClip == null ? 0f : Mathf.Lerp(drawStartFrame, drawEndFrame, progress) / (drawClip.frameRate * drawClip.length));
         private void OnStateChanging(string from, string to, float seconds)
         {
-            if (to != "SHEATHED_IDLE" && to != "DRAWN_IDLE" && to != "RUN2") CancelDrinking();
+            if (to != "SHEATHED_IDLE" && to != "DRAWN_IDLE" && to != "RUN2" && to != "DRAW" && to != "SHEATHE") CancelDrinking();
         }
         private void OnDamaged(float damage) => CancelDrinking();
         public void CancelDrinking()

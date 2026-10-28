@@ -19,6 +19,9 @@ namespace Cheon.Prototype.MountainPass
         private PassBossImpactDust dust;
         private PassBossDeathVfx deathVfx;
         private PassBossTeleportVfx teleportVfx;
+        private PassBossSnortVfx snort;
+        private PassBossPatternController summonOwner;
+        private bool summonInitialized;
         private PassBossLinkedAttack linkedFallCoordinator;
         private float fallWindupDuration;
         private Vector3 spawnPosition, spawnVisualScale, jumpStart, jumpTarget, turnOrigin;
@@ -32,7 +35,7 @@ namespace Cheon.Prototype.MountainPass
         private readonly List<Vector3> summonPositions = new List<Vector3>(2);
         private NormalPattern lastNormalPattern = NormalPattern.None, pendingNormalPattern = NormalPattern.None;
         private int consecutiveNormalAttacks, normalAttacksForNextLink, observedLinkedCompletions, nextMinionNumber;
-        private bool normalAttackInProgress, linkedAttackRequested, linkedJumpOrdered, playSpawnAppearance;
+        private bool normalAttackInProgress, linkedAttackRequested, linkedJumpOrdered;
         private float repeatBlockedSince = -1f;
 
         public PatternPhase Phase { get; private set; }
@@ -117,20 +120,20 @@ namespace Cheon.Prototype.MountainPass
             {
                 GroundCrack = gameObject.AddComponent<PassBossGroundCrack>(); GroundCrack.Configure(settings, this, player, dust);
                 LinkedAttack = gameObject.AddComponent<PassBossLinkedAttack>(); LinkedAttack.Configure(settings, this);
-                var snort = gameObject.AddComponent<PassBossSnortVfx>(); snort.Configure(settings);
+                snort = gameObject.AddComponent<PassBossSnortVfx>(); snort.Configure(settings);
                 PursuitSlam = gameObject.AddComponent<PassBossPursuitSlam>();
                 PursuitSlam.Configure(settings, this, player, dust, snort, audioControl, view);
             }
             settings.Register(this);
+            if (playerHealth != null) playerHealth.Died += OnPlayerDefeated;
         }
 
         private void Start()
         {
+            if (isMinion && summonInitialized) return;
             ResetEncounter();
             if (!isMinion) return;
             WakeUp();
-            // Start의 초기화가 끝난 뒤 방출해야 ResetEffect가 소환 연기를 지우지 않는다.
-            if (playSpawnAppearance) { teleportVfx.PlaySpawnSmoke(); playSpawnAppearance = false; }
         }
 
         public override void ResetEncounter()
@@ -530,7 +533,7 @@ namespace Cheon.Prototype.MountainPass
 
         private bool DamagePlayer(float damage, bool heavyHit = false)
         {
-            if (player.AnimationControl.IsDodging && player.AnimationControl.PlaybackProgress < .78f) return false;
+            if (player.AnimationControl.IsDodgeInvulnerable) return false;
             return playerHealth.TakeDamage(damage, heavyHit);
         }
 
@@ -669,7 +672,10 @@ namespace Cheon.Prototype.MountainPass
         private int CollectSummonPositions()
         {
             summonPositions.Clear();
-            int missing = Mathf.Min(settings.summon.spawnCount, settings.summon.maximumAlive - LivingMinions);
+            minions.RemoveAll(item => item == null);
+            int available = Mathf.Max(0, Mathf.Max(settings.summon.maximumAlive, settings.summon.poolCapacity) - minions.Count);
+            foreach (var enemy in minions) if (!enemy.gameObject.activeSelf) available++;
+            int missing = Mathf.Min(Mathf.Min(settings.summon.spawnCount, settings.summon.maximumAlive - LivingMinions), available);
             if (missing <= 0) return 0;
             float radius = settings.collision.radius * settings.summon.minionScale;
             float height = settings.collision.height * settings.summon.minionScale;
@@ -698,26 +704,57 @@ namespace Cheon.Prototype.MountainPass
         private void SpawnMinions()
         {
             if (isMinion || CollectSummonPositions() == 0) return;
-            minions.RemoveAll(item => item == null);
             for (int index = 0; index < summonPositions.Count; index++)
             {
                 Vector3 position = summonPositions[index];
-                var root = new GameObject("소환 장승 " + (++nextMinionNumber).ToString("00"));
-                root.SetActive(false); root.transform.SetPositionAndRotation(position, transform.rotation);
-                var model = Instantiate(settings.summon.visualPrefab, root.transform);
-                model.name = "MiniVisual";
-                model.transform.localPosition = Vector3.zero; model.transform.localRotation = Quaternion.identity;
-                model.transform.localScale = settings.summon.modelScale * settings.summon.minionScale;
-                var health = root.AddComponent<PassHealth>(); health.Configure(settings.combat.minionHealth, settings.combat.enemyHitRecovery);
-                var enemy = root.AddComponent<PassBossPatternController>();
-                enemy.Configure(player, playerHealth, game, effects, view, audioControl, model.transform);
-                enemy.ConfigurePattern(settings, true); enemy.playSpawnAppearance = true; minions.Add(enemy);
-                root.SetActive(true); health.Died += OnMinionDied;
+                PassBossPatternController enemy = null;
+                foreach (var candidate in minions)
+                    if (!candidate.gameObject.activeSelf) { enemy = candidate; break; }
+                if (enemy == null) enemy = CreateMinion(position);
+                enemy.name = "소환 장승 " + (++nextMinionNumber).ToString("00");
+                enemy.spawnPosition = position; enemy.spawnRotation = transform.rotation;
+                enemy.transform.SetPositionAndRotation(position, transform.rotation);
+                enemy.summonInitialized = true;
+                enemy.gameObject.SetActive(true);
+                enemy.Body.radius = settings.collision.radius * settings.summon.minionScale;
+                enemy.Body.height = settings.collision.height * settings.summon.minionScale;
+                enemy.Body.center = Vector3.up * enemy.Body.height * .5f;
+                enemy.spawnVisualScale = settings.summon.modelScale * settings.summon.minionScale;
+                // 최초 생성과 재사용 모두 같은 초기화 경로를 거치고, 그 뒤에만 소환 연기를 뿜는다.
+                enemy.ResetEncounter(); enemy.WakeUp(); enemy.teleportVfx.PlaySpawnSmoke();
+                enemy.Health.Died -= OnMinionDied;
+                enemy.Health.Died += OnMinionDied;
                 dust.EmitLanding(position, settings.collision.radius);
             }
             SummonsCompleted++; linkedAttackRequested = true;
             summonReadyAt = Time.time + settings.summon.replenishCooldown;
             Physics.SyncTransforms();
+        }
+
+        private PassBossPatternController CreateMinion(Vector3 position)
+        {
+            var root = new GameObject("소환 장승");
+            root.SetActive(false); root.transform.SetPositionAndRotation(position, transform.rotation);
+            var model = Instantiate(settings.summon.visualPrefab, root.transform);
+            model.name = "MiniVisual";
+            model.transform.localPosition = Vector3.zero; model.transform.localRotation = Quaternion.identity;
+            model.transform.localScale = settings.summon.modelScale * settings.summon.minionScale;
+            var health = root.AddComponent<PassHealth>(); health.Configure(settings.combat.minionHealth, settings.combat.enemyHitRecovery);
+            var enemy = root.AddComponent<PassBossPatternController>();
+            enemy.Configure(player, playerHealth, game, effects, view, audioControl, model.transform);
+            enemy.ConfigurePattern(settings, true); enemy.summonOwner = this;
+            minions.Add(enemy);
+            return enemy;
+        }
+
+        public bool TryReturnToSummonPool()
+        {
+            if (!isMinion || summonOwner == null) return false;
+            gameObject.SetActive(false);
+            if (teleportVfx != null) teleportVfx.ResetEffect();
+            if (dust != null) dust.Clear();
+            if (deathVfx != null) deathVfx.ResetEffect();
+            return true;
         }
 
         private Vector3 GetSummonPosition(int index)
@@ -737,15 +774,10 @@ namespace Cheon.Prototype.MountainPass
             {
                 if (enemy == null) continue;
                 enemy.Health.Died -= OnMinionDied;
-                if (kill) enemy.Health.Kill();
-                else
-                {
-                    enemy.gameObject.SetActive(false);
-                    Destroy(enemy.gameObject);
-                }
+                if (kill) { if (enemy.IsAlive) enemy.Health.Kill(); }
+                else enemy.TryReturnToSummonPool();
             }
-            // 본체 사망 시 잡몹도 소멸 효과를 끝까지 재생한다. 재도전은 남은 효과까지 즉시 제거한다.
-            if (!kill) minions.Clear();
+            // 본체 사망 시 소멸 효과를 끝까지 재생하고, 재도전 시에는 즉시 풀로 되돌린다.
         }
 
         public void DisplaceForCollision(Vector3 displacement)
@@ -814,6 +846,15 @@ namespace Cheon.Prototype.MountainPass
             second = center + Body.transform.up * half;
         }
 
+        private void OnPlayerDefeated()
+        {
+            // 패배 화면에서는 패턴 Tick이 멈추므로 남은 충격파와 먼지를 먼저 회수한다.
+            if (GroundCrack != null) GroundCrack.Clear();
+            if (dust != null) dust.Clear();
+            if (snort != null) snort.Clear();
+            if (teleportVfx != null) teleportVfx.ResetEffect();
+        }
+
         protected override void OnDefeated()
         {
             if (teleportVfx != null) teleportVfx.ResetEffect();
@@ -830,7 +871,15 @@ namespace Cheon.Prototype.MountainPass
 
         protected override void OnDestroy()
         {
+            if (playerHealth != null) playerHealth.Died -= OnPlayerDefeated;
             if (LinkedAttack != null) LinkedAttack.Clear();
+            foreach (var enemy in minions)
+            {
+                if (enemy == null) continue;
+                enemy.Health.Died -= OnMinionDied;
+                Destroy(enemy.gameObject);
+            }
+            minions.Clear();
             if (settings != null) settings.Enemies.Remove(this);
             base.OnDestroy();
         }

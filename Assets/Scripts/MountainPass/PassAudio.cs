@@ -12,20 +12,28 @@ namespace Cheon.Prototype.MountainPass
         [SerializeField, InspectorName("바람 적중음 재생")] private bool playWindImpact = true;
         [SerializeField, InspectorName("플레이어 피격")] private AudioClip hurt;
         [SerializeField, InspectorName("장승 내려찍기")] private AudioClip slam;
+        [SerializeField, InspectorName("장승 콧바람")] private AudioClip snort;
+        [SerializeField, Range(0f, 1f), InspectorName("장승 콧바람 음량 비율")] private float snortVolume = 0.85f;
         [SerializeField, InspectorName("산신각 종소리")] private AudioClip bell;
         [SerializeField, InspectorName("산바람 환경음")] private AudioClip wind;
         [SerializeField, InspectorName("발걸음")] private AudioClip footstep;
         [SerializeField, InspectorName("회피 옷자락")] private AudioClip dodge;
         [SerializeField, InspectorName("호리병 마시기")] private AudioClip drink;
         [SerializeField, InspectorName("메뉴 선택")] private AudioClip confirm;
+        [SerializeField, Range(0f, 1f), InspectorName("버튼 호버 북소리 음량")] private float menuHoverVolume = 0.18f;
+        [SerializeField, Range(0f, 1f), InspectorName("Esc 북소리 음량")] private float menuBackVolume = 0.5f;
+        [SerializeField, Min(0f), InspectorName("호버 소리 최소 간격 (초)")] private float menuHoverInterval = 0.06f;
         [SerializeField, InspectorName("장승 깨어남·소환")] private AudioClip spirit;
         [SerializeField, InspectorName("승리")] private AudioClip victory;
         [SerializeField, InspectorName("패배")] private AudioClip defeat;
         [SerializeField, InspectorName("부채 발도·납도")] private AudioClip equipment;
         [SerializeField, InspectorName("환경음 음량 비율"), Range(0f, 1f)] private float ambienceVolume = 0.16f;
         private AudioSource effects, ambience, movement;
+        private AudioSource menu;
         private readonly System.Collections.Generic.List<AudioClip> generatedClips = new System.Collections.Generic.List<AudioClip>();
         private float nextStrikeTime, nextSlamTime;
+        private float nextMenuHoverTime;
+        public void ConfigureMenuAudio(AudioSource source) { menu = source; }
         private void Awake()
         {
             effects = gameObject.AddComponent<AudioSource>(); effects.playOnAwake = false; effects.volume = volume;
@@ -64,6 +72,7 @@ namespace Cheon.Prototype.MountainPass
             Play(isWind && windHit != null ? windHit : strike, isWind ? 0.55f : attack == 3 ? 1f : 0.7f);
         }
         public void Hurt() { if (effects != null) effects.PlayOneShot(hurt, 0.7f); }
+        public void Snort() => Play(snort, snortVolume);
         public void Slam()
         {
             if (Time.unscaledTime < nextSlamTime) return;
@@ -74,6 +83,18 @@ namespace Cheon.Prototype.MountainPass
         public void Dodge() => Play(dodge, 0.65f);
         public void Drink() => Play(drink, 0.6f);
         public void Confirm() => Play(confirm, 0.5f);
+        public void MenuBack() => PlayMenu(menuBackVolume);
+        public void MenuHover()
+        {
+            // 일시정지 중에도 동작하고, 빠르게 여러 버튼을 지나갈 때 과도하게 겹치지 않게 한다.
+            if (Time.unscaledTime < nextMenuHoverTime) return;
+            nextMenuHoverTime = Time.unscaledTime + menuHoverInterval;
+            PlayMenu(menuHoverVolume);
+        }
+        private void PlayMenu(float gain)
+        {
+            if (menu != null && menu.clip != null) menu.PlayOneShot(menu.clip, gain);
+        }
         public void Spirit() => Play(spirit, 0.8f);
         public void Victory() => Play(victory, 0.8f);
         public void Defeat() => Play(defeat, 0.65f);

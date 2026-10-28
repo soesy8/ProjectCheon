@@ -64,6 +64,8 @@ namespace Cheon.Prototype.MountainPass
             [InspectorName("첫 소환까지 일반 공격 완료 횟수"), Min(1)] public int requiredNormalAttacks = 3;
             [InspectorName("한 번에 소환할 수"), Min(1)] public int spawnCount = 2;
             [InspectorName("필드 최대 생존 수"), Min(1)] public int maximumAlive = 2;
+            [Tooltip("살아 있거나 소멸 연출 중인 장승과 대기 중인 장승을 모두 포함합니다. 풀이 가득 차면 소멸 연출이 끝날 때까지 다음 소환을 기다립니다.")]
+            [InspectorName("소환 장승 풀 최대 수"), Min(1)] public int poolCapacity = 4;
             [FormerlySerializedAs("afterClearCooldown")]
             [InspectorName("소환·보충 재사용 대기 (초)"), Min(0)] public float replenishCooldown = 15f;
             [InspectorName("좌우 소환 간격"), Min(.1f)] public float sideDistance = 4f;
@@ -322,6 +324,7 @@ namespace Cheon.Prototype.MountainPass
         {
             selection.maximumConsecutive = Mathf.Max(1, selection.maximumConsecutive);
             summon.maximumAlive = Mathf.Max(1, summon.maximumAlive);
+            summon.poolCapacity = Mathf.Max(summon.maximumAlive, summon.poolCapacity);
             summon.spawnCount = Mathf.Clamp(summon.spawnCount, 1, summon.maximumAlive);
             linkedAttack.participants = Mathf.Clamp(linkedAttack.participants, 1, summon.maximumAlive);
             linkedAttack.maximumNormalAttacks = Mathf.Max(linkedAttack.minimumNormalAttacks, linkedAttack.maximumNormalAttacks);

@@ -41,12 +41,17 @@ namespace Cheon.Prototype.MountainPass
         [Header("구르기 속도 / 재생 구간 — 원본 FBX 프레임")]
         [InspectorName("구르기 원본 애니메이션")]
         [SerializeField] private AnimationClip rollClip;
+        [InspectorName("구르기 무적 시간 (초)")]
+        [SerializeField, Min(0f)] private float dodgeInvulnerabilitySeconds = .35f;
         [InspectorName("구르기 재생 배속")]
         [Min(0.05f)] [HideInInspector] public float rollSpeed = 1.25f;
         [InspectorName("구르기 시작 프레임")]
         [Min(0)] [HideInInspector] public int rollStartFrame;
         [InspectorName("구르기 종료 프레임")]
         [Min(1)] [HideInInspector] public int rollEndFrame = 28;
+        [Tooltip("발도·납도 상태 모두 구르기 원본 클립의 프레임을 기준으로 공격 입력을 이만큼 먼저 허용합니다.")]
+        [InspectorName("구르기 후 공격 전환 선행 프레임")]
+        [SerializeField, Min(0)] private int dodgeAttackAdvanceFrames = 7;
         [Header("달리기2 속도 / 재생 구간 — 원본 FBX 프레임")]
         [InspectorName("달리기 원본 애니메이션")]
         [SerializeField] private AnimationClip run2Clip;
@@ -113,6 +118,7 @@ namespace Cheon.Prototype.MountainPass
 
         private string selectedState = "SHEATHED_IDLE";
         private bool combatRequested, running, paused;
+        private float dodgeStartedAt;
         private static readonly int Attack1Speed = Animator.StringToHash("Attack1Speed");
         private static readonly int Attack2Speed = Animator.StringToHash("Attack2Speed");
         private static readonly int Attack3Speed = Animator.StringToHash("Attack3Speed");
@@ -130,6 +136,7 @@ namespace Cheon.Prototype.MountainPass
         public bool IsCombatRequested => combatRequested;
         public bool IsRunning => running;
         public bool IsDodging => selectedState == "ROLL";
+        public bool IsDodgeInvulnerable => IsDodging && Time.time - dodgeStartedAt < dodgeInvulnerabilitySeconds;
         public uint PlaybackSequence { get; private set; }
         public event System.Action BeforeAutomaticReturn;
         public event System.Action<string, string, float> StateChanging;
@@ -190,7 +197,23 @@ namespace Cheon.Prototype.MountainPass
         {
             if (paused || index < 1 || index > 3 || !CanAttack || IsStatePlaying("ATTACK" + index))
                 return float.PositiveInfinity;
-            return SecondsUntilCancel(CurrentTiming != null ? CurrentTiming.AttackCancel(index) : 0f);
+            return SecondsUntilCancel(AdvanceDodgeAttackCancel(CurrentTiming != null ? CurrentTiming.AttackCancel(index) : 0f));
+        }
+
+        public float SecondsUntilAttackInput(int index)
+        {
+            if (index < 1 || index > 3) return float.PositiveInfinity;
+            if (combatRequested) return SecondsUntilAttackCancel(index);
+            if (paused || IsReactionPlaying) return float.PositiveInfinity;
+            // 납도한 채 구른 뒤의 발도·이동 공격도 같은 원본 프레임만큼 먼저 예약하고 실행한다.
+            return SecondsUntilCancel(AdvanceDodgeAttackCancel(CurrentTiming != null ? CurrentTiming.equipmentCancel : 0f));
+        }
+
+        private float AdvanceDodgeAttackCancel(float cancelProgress)
+        {
+            if (!IsDodging) return cancelProgress;
+            int frameCount = Mathf.Max(1, GetPlaybackEndFrame(4) - GetPlaybackStartFrame(4));
+            return Mathf.Max(0f, cancelProgress - (float)dodgeAttackAdvanceFrames / frameCount);
         }
 
         public float SecondsUntilDodgeCancel()
@@ -425,6 +448,8 @@ namespace Cheon.Prototype.MountainPass
 
         private void BeginState(string state, float blendDuration, float offsetSeconds = -1f)
         {
+            // 애니메이션 배속·재생 구간과 별개로 구르기 시작부터 지정한 게임 시간만 무적이다.
+            if (state == "ROLL") dodgeStartedAt = Time.time;
             movingDrawActive = false;
             if (CurrentTiming != null && !IsReactionState(state)) blendDuration = CurrentTiming.blendDuration;
             if (reactionSettings != null && selectedState == "GET_UP" && (state == "ROLL" || running))
@@ -485,7 +510,7 @@ namespace Cheon.Prototype.MountainPass
         public bool TryAttackInput(int index, bool moving, bool sprinting)
         {
             if (combatRequested) return TryPlayAttack(index);
-            if (!CanChangeEquipment) return false;
+            if (SecondsUntilAttackInput(index) > 0f) return false;
             if (!moving)
             {
                 EnterCombat();
@@ -529,7 +554,7 @@ namespace Cheon.Prototype.MountainPass
         public bool CanPlayAttack(int index)
         {
             return index >= 1 && index <= 3 && CanAttack && !IsStatePlaying("ATTACK" + index) &&
-                (CurrentTiming == null || PlaybackProgress >= CurrentTiming.AttackCancel(index));
+                (CurrentTiming == null || PlaybackProgress >= AdvanceDodgeAttackCancel(CurrentTiming.AttackCancel(index)));
         }
 
         public bool TryPlayAttack(int index)

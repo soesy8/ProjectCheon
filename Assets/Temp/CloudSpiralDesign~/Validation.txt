@@ -1,8 +1,0 @@
-PASS
-Unity: 6000.3.14f1
-Shader: no import errors
-Source textures: 1024x1024 and 1024x427, RGBA
-Default and Standalone/Android/iPhone/WebGL Max Size: 1024
-Prefabs: one-shot, vertex-alpha fade, no gameplay scripts
-Native particle simulation: visible early, zero particles after lifetime
-Preview: isolated preview scene, existing scene not saved or modified

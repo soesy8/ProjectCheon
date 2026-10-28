@@ -1,9 +1,0 @@
-{
-  "directImmediate": true,
-  "buttonImmediate": true,
-  "escapePause": true,
-  "escapeResume": true,
-  "panelCorrect": true,
-  "frozen": true,
-  "passed": true
-}

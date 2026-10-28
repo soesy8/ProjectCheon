@@ -1,4 +1,0 @@
-PASS
-First wind forward extent: 3.9m -> 4.4m
-Radius, angle, third wind and dust preserved
-Stationary reveal shader: no errors

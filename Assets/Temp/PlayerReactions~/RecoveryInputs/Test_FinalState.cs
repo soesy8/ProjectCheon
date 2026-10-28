@@ -1,4 +1,0 @@
-﻿var s=AssetDatabase.LoadAssetAtPath<Cheon.Tests.PlayerReactions.Test_PlayerReactionSettings>(Cheon.Tests.PlayerReactions.Editor.Test_PlayerReactionSceneBuilder.SettingsPath);
-var scene=UnityEngine.SceneManagement.SceneManager.GetSceneByPath(Cheon.Tests.PlayerReactions.Editor.Test_PlayerReactionSceneBuilder.ScenePath);
-var controller=AssetDatabase.LoadAssetAtPath<UnityEditor.Animations.AnimatorController>(Cheon.Tests.PlayerReactions.Editor.Test_PlayerReactionSceneBuilder.ControllerPath);
-return new {playing=EditorApplication.isPlaying,scene.path,scene.isDirty,s.heavyHit.endFrame,s.getUpHeadBowDegrees,s.landedRecoveryDelay,s.getUpDodgeCancelProgress,s.getUpMoveCancelProgress,s.returnToIdleSeconds,states=controller.layers[0].stateMachine.states.Select(st=>st.state.name),inputComponents=UnityEngine.Object.FindObjectsByType<Cheon.Tests.PlayerReactions.Test_PlayerReactionInput>(FindObjectsSortMode.None).Length};

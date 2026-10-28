@@ -1,3 +1,0 @@
-﻿var a=UnityEngine.Object.FindFirstObjectByType<Cheon.Prototype.MountainPass.PassAnimationController>();
-var samplers=UnityEngine.Object.FindObjectsByType<Animator>(FindObjectsSortMode.None).Where(x=>x.name=="PlayerReactionPoseSampler").ToArray();
-return new{a.SelectedState,components=samplers.Select(s=>new{colliders=s.GetComponentsInChildren<Collider>(true).Length,audio=s.GetComponentsInChildren<AudioSource>(true).Length,enabledBehaviours=s.GetComponentsInChildren<MonoBehaviour>(true).Count(b=>b.enabled)}),scenes=Enumerable.Range(0,UnityEngine.SceneManagement.SceneManager.sceneCount).Select(i=>UnityEngine.SceneManagement.SceneManager.GetSceneAt(i).path)};

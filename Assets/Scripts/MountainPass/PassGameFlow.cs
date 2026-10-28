@@ -31,6 +31,11 @@ namespace Cheon.Prototype.MountainPass
         [SerializeField] private PassGourdDrinking gourd;
         [InspectorName("보스 도전 시작 위치")]
         [SerializeField] private Vector3 arenaCheckpoint = new Vector3(-15f, 37.2f, -43f);
+        [Tooltip("지정한 원형 바닥에 들어선 뒤 보스가 플레이어를 인식합니다. 비워 두면 등장 연출 직후 인식합니다.")]
+        [InspectorName("보스 인식 시작 바닥")]
+        [SerializeField] private Renderer bossDetectionFloor;
+        [InspectorName("보스 인식 바닥 높이 여유 (m)")]
+        [SerializeField, Min(.1f)] private float bossDetectionHeightTolerance = 3f;
         [InspectorName("추락 시 피해량")]
         [SerializeField, Min(0f)] private float fallDamage = 20f;
         [InspectorName("체크포인트 아래 추락 판정 거리 (m)")]
@@ -45,6 +50,7 @@ namespace Cheon.Prototype.MountainPass
         public bool IsRunning => State == RunState.Playing && !IsTransitioning;
         public bool IsTransitioning => screenFade != null && screenFade.IsTransitioning;
         public bool InEncounter { get; private set; }
+        public bool BossHasDetectedPlayer { get; private set; }
         public bool ReachedShrine { get; private set; }
         public float Elapsed { get; private set; }
         public PassHealth PlayerHealth => playerHealth;
@@ -83,11 +89,12 @@ namespace Cheon.Prototype.MountainPass
         {
             var keyboard = Keyboard.current;
             if (IsTransitioning) return;
-            if (keyboard != null && keyboard.escapeKey.wasPressedThisFrame && (State == RunState.Playing || State == RunState.Paused)) TogglePause();
+            if (keyboard != null && keyboard.escapeKey.wasPressedThisFrame && (State == RunState.Playing || State == RunState.Paused)) TogglePause(true);
             if (State == RunState.Intro && keyboard != null && keyboard.enterKey.wasPressedThisFrame) BeginJourney();
             if ((State == RunState.Defeat || State == RunState.Victory) && keyboard != null && keyboard.rKey.wasPressedThisFrame) RetryCheckpoint();
             if (!IsRunning) return;
             Elapsed += Time.deltaTime;
+            TryWakeBoss();
             // 절벽 아래에 착지해 진행이 끊기면 마지막으로 기도한 산신각으로 돌아간다.
             if (player.transform.position.y < checkpoint.y - checkpointFallDistance)
             { player.ResetToSpawn(); OnFall(); return; }
@@ -103,6 +110,7 @@ namespace Cheon.Prototype.MountainPass
         private void ResetRun(bool atBoss)
         {
             Time.timeScale = 1f; State = RunState.Playing; InEncounter = false; ReachedShrine = atBoss;
+            BossHasDetectedPlayer = false;
             if (shrine != null) shrine.CancelPrayer();
             checkpointAtBoss = atBoss;
             Elapsed = 0f;
@@ -115,7 +123,7 @@ namespace Cheon.Prototype.MountainPass
             checkpointRotation = atBoss ? Quaternion.LookRotation(Vector3.ProjectOnPlane(boss.transform.position - checkpoint, Vector3.up)) : startRotation;
             player.SetCheckpoint(checkpoint, checkpointRotation); player.Teleport(checkpoint, checkpointRotation); player.InputEnabled = true;
             view.LockBoss(false); view.SnapBehind();
-            hud.Notify(atBoss ? "산문의 수문장이 깨어납니다" : "등불을 따라 산신각으로 올라가세요", 4f);
+            hud.Notify(atBoss ? "원형 돌바닥으로 들어가 수문장에게 도전하세요" : "등불을 따라 산신각으로 올라가세요", 4f);
             if (atBoss) BeginEncounter();
         }
         public void RestAtShrine(Vector3 position, Quaternion rotation)
@@ -155,15 +163,34 @@ namespace Cheon.Prototype.MountainPass
         {
             if (entrance != null) entrance.RestoreGameplayCameras();
             State = RunState.Playing; player.InputEnabled = true; playerHealth.Invulnerable = false;
-            boss.WakeUp();
+            TryWakeBoss();
             view.SnapBehind(); view.RefreshCursor();
             hud.Notify("천하대장군 · 산문의 수문장", 4f);
         }
+        private void TryWakeBoss()
+        {
+            if (!InEncounter || State != RunState.Playing || BossHasDetectedPlayer) return;
+            if (bossDetectionFloor != null)
+            {
+                // 바닥의 실제 월드 크기를 읽어 원형 바닥을 다시 넓혀도 인식 영역이 함께 바뀐다.
+                Bounds bounds = bossDetectionFloor.bounds;
+                Vector3 offset = player.transform.position - bounds.center;
+                float x = offset.x / Mathf.Max(.01f, bounds.extents.x);
+                float z = offset.z / Mathf.Max(.01f, bounds.extents.z);
+                if (x * x + z * z > 1f || Mathf.Abs(offset.y) > bossDetectionHeightTolerance) return;
+            }
+            // 한 번 인식한 뒤에는 원 밖으로 나가도 전투를 계속한다. 재도전할 때만 초기화한다.
+            BossHasDetectedPlayer = true;
+            boss.WakeUp();
+        }
         public void ShowNotice(string message, float duration) => hud.Notify(message, duration);
-        public void TogglePause()
+        public void TogglePause() => TogglePause(false);
+        public void TogglePause(bool useDrumSound)
         {
             if (State != RunState.Playing && State != RunState.Paused) return;
-            ChangeScreen(ApplyPause);
+            if (IsTransitioning) return;
+            if (useDrumSound && audioControl != null) audioControl.MenuBack();
+            ChangeScreen(ApplyPause, !useDrumSound);
         }
         private void ApplyPause()
         {
@@ -176,6 +203,7 @@ namespace Cheon.Prototype.MountainPass
         private void ResetCheckpoint()
         {
             Time.timeScale = 1f; State = RunState.Playing; InEncounter = false;
+            BossHasDetectedPlayer = false;
             if (shrine != null) shrine.CancelPrayer();
             if (entrance != null) entrance.ResetEntrance();
             boss.ResetEncounter(); playerHealth.Restore();

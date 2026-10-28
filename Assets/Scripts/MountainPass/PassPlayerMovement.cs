@@ -103,7 +103,8 @@ namespace Cheon.Prototype.MountainPass
             // 강피격 중 회피 입력은 일어나기에만 소비해 같은 키로 곧바로 구르지 않도록 한다.
             bool recovering = !typing && animationControl.TryRecoverFromHeavy(direction.sqrMagnitude > 0.01f,
                 keyboard != null && keyboard.spaceKey.wasPressedThisFrame);
-            bool sprint = keyboard != null && (keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed);
+            bool sprintInput = keyboard != null && (keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed);
+            bool sprint = sprintInput;
             if (!sprint || direction.sqrMagnitude <= 0.01f) sprintExhausted = false;
             if (energy != null && !energy.CanSprint) sprintExhausted = true;
             sprint &= !typing && !sprintExhausted && (energy == null || energy.CanSprint);
@@ -115,8 +116,8 @@ namespace Cheon.Prototype.MountainPass
                 CollectActionInput(keyboard, mouse);
                 TryBufferedAction(direction);
             }
-            // 달리기 공격은 끝까지 재생한 뒤, 달리기를 계속하면 이동 중 자동 납도한다.
-            if (IsSprinting && animationControl.IsCombatRequested && !animationControl.IsActionPlaying &&
+            // 달리기 키를 누르면 정지 중에도 납도한다. 진행 중인 공격은 끝까지 재생한다.
+            if (!typing && sprintInput && animationControl.IsCombatRequested && !animationControl.IsActionPlaying &&
                 actionExecutedFrame != Time.frameCount && animationControl.CanChangeEquipment)
                 animationControl.ExitCombat();
             IsMoving = direction.sqrMagnitude > 0.01f && animationControl.CanMove &&
@@ -218,8 +219,7 @@ namespace Cheon.Prototype.MountainPass
         {
             if (action == HitAction) return animationControl.IsStatePlaying("HIT") ? float.PositiveInfinity : 0f;
             if (action == DodgeAction) return animationControl.SecondsUntilDodgeCancel();
-            if (action > 0 && !animationControl.IsCombatRequested) return animationControl.SecondsUntilEquipmentCancel();
-            return action > 0 && action <= 3 ? animationControl.SecondsUntilAttackCancel(action) : float.PositiveInfinity;
+            return action > 0 && action <= 3 ? animationControl.SecondsUntilAttackInput(action) : float.PositiveInfinity;
         }
 
         private void QueueAction(int action)

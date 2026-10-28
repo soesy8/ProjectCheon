@@ -1,8 +1,0 @@
-C attack 1: sweep visible, wind branches=3
-C attack 2: sweep visible, wind branches=0
-C attack 3: sweep visible, wind branches=5
-C first wind: three visible branches and frame pause respected
-A: original wind material visible; C hidden
-B: original wind material visible; C hidden
-Idle cleanup: all C renderers hidden
-Frames advanced: 252

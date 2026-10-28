@@ -22,6 +22,11 @@ namespace Cheon.Prototype.MountainPass
         [SerializeField, Range(45f, 88f)] private float maximumPitch = 85f;
         [InspectorName("마우스 시점 감도")]
         [SerializeField, Min(.01f)] private float sensitivity = .15f;
+        [Tooltip("자유 시점의 상하 입력 감도 비율입니다. 회전 가능 범위는 그대로 유지합니다.")]
+        [InspectorName("마우스 상하 감도 비율")]
+        [SerializeField, Range(.01f, 1f)] private float verticalSensitivityMultiplier = .25f;
+        [InspectorName("마우스 최대 회전 속도 (도/초)")]
+        [SerializeField, Min(1f)] private float maximumMouseAngularSpeed = 720f;
         [InspectorName("플레이어 이동 추적 Lerp 속도")]
         [SerializeField, Min(1f)] private float followSpeed = 10f;
         [Header("보스 주시")]
@@ -46,6 +51,8 @@ namespace Cheon.Prototype.MountainPass
         [SerializeField, Range(0f, 15f)] private float maximumFramingRetreat = 12f;
         [InspectorName("점프 상승 선행 보정 시간 (초)")]
         [SerializeField, Range(0f, .3f)] private float framingLookAhead = .12f;
+        [InspectorName("근접 시 자동 구도 보정 중지 거리 (m)")]
+        [SerializeField, Min(0f)] private float minimumBossFramingDistance = 4f;
         [InspectorName("거리 보정 Lerp 속도")]
         [SerializeField, Min(.1f)] private float framingSpeed = 10f;
         [InspectorName("기본 거리 복귀 Lerp 속도")]
@@ -66,6 +73,9 @@ namespace Cheon.Prototype.MountainPass
         private int ignoreMouseUntilFrame;
         public bool BossLocked { get; private set; }
         public float Pitch => pitch;
+        public bool BossFramingAllowed => BossLocked && player != null && boss != null &&
+            Vector3.ProjectOnPlane(boss.position - player.position, Vector3.up).sqrMagnitude >=
+            minimumBossFramingDistance * minimumBossFramingDistance;
 
         public void Configure(Transform target, Transform enemy, PassGameFlow flow)
         {
@@ -100,7 +110,7 @@ namespace Cheon.Prototype.MountainPass
         public void RefreshCursor()
         {
             bool locked = applicationFocused && game != null && game.IsRunning;
-            if (locked && Cursor.lockState != CursorLockMode.Locked) ignoreMouseUntilFrame = Time.frameCount + 1;
+            if (locked && Cursor.lockState != CursorLockMode.Locked) ignoreMouseUntilFrame = Time.frameCount + 2;
             Cursor.lockState = locked ? CursorLockMode.Locked : CursorLockMode.None;
             Cursor.visible = !locked;
         }
@@ -114,17 +124,15 @@ namespace Cheon.Prototype.MountainPass
             float delta = Time.deltaTime;
             if (delta <= 0f) return;
             bool running = game != null && game.IsRunning;
-            bool canLockBoss = game != null && game.InEncounter && boss != null && game.Boss != null &&
+            bool canLockBoss = game != null && game.InEncounter && game.BossHasDetectedPlayer && boss != null && game.Boss != null &&
                 game.Boss.Health != null && !game.Boss.Health.IsDead;
             bool typing = PassHud.IsTyping;
             if (!canLockBoss) LockBoss(false);
             if (running && !typing && canLockBoss && Keyboard.current != null && Keyboard.current.tabKey.wasPressedThisFrame)
                 LockBoss(!BossLocked);
-            if (running && !typing && !BossLocked && Cursor.lockState == CursorLockMode.Locked && Mouse.current != null && Time.frameCount > ignoreMouseUntilFrame)
+            if (running && applicationFocused && !typing && !BossLocked && Cursor.lockState == CursorLockMode.Locked && Mouse.current != null && Time.frameCount > ignoreMouseUntilFrame)
             {
-                Vector2 motion = Mouse.current.delta.ReadValue();
-                yaw += motion.x * sensitivity;
-                pitch = Mathf.Clamp(pitch - motion.y * sensitivity, minimumPitch, maximumPitch);
+                ApplyMouseMotion(Mouse.current.delta.ReadValue(), delta);
             }
 
             // 플레이어 이동만 한 번 보간하고, 회전은 같은 반지름의 궤도에 적용해 거리와 높이를 유지한다.
@@ -133,7 +141,7 @@ namespace Cheon.Prototype.MountainPass
             orbitPitch = FollowAngle(orbitPitch, desiredOrbitPitch, followSpeed, maximumPitchSpeed, delta);
             float desiredPitch = pitch, desiredRetreat = 0f;
             Bounds playerBounds = default;
-            if (BossLocked)
+            if (BossFramingAllowed)
             {
                 Vector3 bossCenter = GetBossFocusPoint();
                 yaw = FollowAngle(yaw, GetDesiredYaw(bossCenter), lockFollowSpeed, maximumYawSpeed, delta);
@@ -148,7 +156,7 @@ namespace Cheon.Prototype.MountainPass
             float smoothedRetreat = Mathf.Lerp(extraDistance, desiredRetreat, 1f - Mathf.Exp(-framingResponse * delta));
             extraDistance = Mathf.MoveTowards(extraDistance, smoothedRetreat, maximumFramingSpeed * delta);
             Vector3 position = ResolveCollision(GetOrbitPosition(extraDistance), delta);
-            if (BossLocked)
+            if (BossFramingAllowed)
             {
                 // 보정 중에도 플레이어가 아래로 잘리지 않도록 현재 거리에서 허용되는 상하 각도를 사용한다.
                 GetPitchRange(position, playerBounds, GetBossFocusPoint(), false, out float lower, out float upper);
@@ -158,6 +166,22 @@ namespace Cheon.Prototype.MountainPass
             shake = Mathf.MoveTowards(shake, 0f, delta * 2f);
             Vector3 tremor = Random.insideUnitSphere * shake * .12f;
             transform.SetPositionAndRotation(position + tremor, Quaternion.Euler(lookPitch, yaw, 0f));
+        }
+
+        private void ApplyMouseMotion(Vector2 motion, float delta)
+        {
+            // 포커스 복귀나 커서 잠금 직후 큰 입력값이 들어와도 한 프레임에 급회전하지 않는다.
+            Vector2 scaledMotion = new Vector2(motion.x, motion.y * verticalSensitivityMultiplier) * sensitivity;
+            Vector2 turn = Vector2.ClampMagnitude(scaledMotion, maximumMouseAngularSpeed * Mathf.Min(delta, .05f));
+            yaw += turn.x;
+            pitch = Mathf.Clamp(pitch - turn.y, minimumPitch, maximumPitch);
+        }
+
+        public bool IsViewObstruction(Collider obstacle)
+        {
+            if (obstacle == null || player != null && obstacle.transform.IsChildOf(player)) return false;
+            // 보스와 소환 장승은 시야를 잠깐 가려도 카메라를 플레이어 앞으로 밀어내지 않는다.
+            return obstacle.GetComponentInParent<PassBossController>() == null;
         }
 
         private static float FollowAngle(float current, float target, float response, float maximumSpeed, float delta)
@@ -276,7 +300,7 @@ namespace Cheon.Prototype.MountainPass
             int count = Physics.SphereCastNonAlloc(focus, .22f, direction, hits, length, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
             for (int i = 0; i < count; i++)
             {
-                if (hits[i].transform.IsChildOf(player) || (BossLocked && boss != null && hits[i].transform.IsChildOf(boss))) continue;
+                if (!IsViewObstruction(hits[i].collider)) continue;
                 length = Mathf.Min(length, Mathf.Max(.5f, hits[i].distance - .12f));
             }
             // 벽 관통 방지는 즉시 적용하되, 장애물이 사라진 뒤에는 원래 거리로 부드럽게 돌아간다.

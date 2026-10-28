@@ -20,6 +20,9 @@ namespace Cheon.Prototype.MountainPass
         [SerializeField] private Vector2 openingSize = new Vector2(6f, 9f);
         [InspectorName("산문 통과 판정 여유 (m)")]
         [SerializeField, Min(0.01f)] private float crossingMargin = 0.2f;
+        [Header("보스 입장 불꽃 오라")]
+        [SerializeField] private PassBossEntranceAura.Settings auraSettings = new PassBossEntranceAura.Settings();
+        private PassBossEntranceAura aura;
         private Vector3 previousPosition;
         private bool hasPreviousPosition, resetting;
         public bool HasPlayed { get; private set; }
@@ -32,6 +35,7 @@ namespace Cheon.Prototype.MountainPass
         private void OnDisable()
         {
             if (director != null) director.stopped -= OnPresentationStopped;
+            if (aura != null) aura.Clear();
             if (Application.isPlaying) RestoreCameras();
         }
         private void Update()
@@ -76,16 +80,29 @@ namespace Cheon.Prototype.MountainPass
             game.View.enabled = false; playerCamera.enabled = false; cinematicCamera.enabled = true;
             Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;
             director.time = 0; director.Play();
+            PlayAura();
+        }
+        private void PlayAura()
+        {
+            if (game == null || game.Boss == null || auraSettings == null || !auraSettings.enabled) return;
+            if (aura == null)
+            {
+                aura = game.Boss.GetComponent<PassBossEntranceAura>();
+                if (aura == null) aura = game.Boss.gameObject.AddComponent<PassBossEntranceAura>();
+            }
+            aura.Play(game.Boss.transform, auraSettings);
         }
         public void SkipPresentation() { if (IsPresenting) director.Stop(); }
         private void OnPresentationStopped(PlayableDirector stopped)
         {
             if (resetting) return;
+            if (aura != null) aura.FadeOut();
             game.CompleteBossPresentation();
         }
         public void ResetEntrance()
         {
             resetting = true;
+            if (aura != null) aura.Clear();
             if (director != null && director.state == PlayState.Playing) director.Stop();
             resetting = false; HasPlayed = false; hasPreviousPosition = false;
             if (retreatBarrier != null) retreatBarrier.enabled = false;

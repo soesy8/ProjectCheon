@@ -1,0 +1,23 @@
+장승 콧바람 / 압축 공기 분출 효과음
+
+JangseungSnort.wav — 0.85초. 짧은 대안. 강한 분출 후 짧게 사라지는 푸슈욱 소리.
+JangseungSnort_Long.wav — 1.20초. 게임 적용 버전. 음높이를 조금 더 낮추고 여운을 길게 남긴 소리.
+형식: 44,100 Hz / 모노 / 16-bit PCM WAV. 피크 -3 dBFS.
+
+원음: Air (or steam) pressure release
+제작자: brunoboselli
+원문: https://freesound.org/people/brunoboselli/sounds/457294/
+취득 파일: https://cdn.freesound.org/previews/457/457294_300738-hq.mp3
+라이선스: CC0 1.0 Universal
+이용조건: https://creativecommons.org/publicdomain/zero/1.0/
+확인일: 2026-10-28
+
+원음은 스튜디오에서 공기 주입식 보드의 압축 공기를 빼며 녹음한 소리입니다.
+기차·버스의 공압 배출과 같은 질감을 위해 첫 번째 가공 분출 구간을 편집했습니다.
+가공: 길이 편집, 재생 속도·음높이 조절, 낮은 음역 원음 층 추가,
+105 Hz 이하 및 10.5 kHz 이상 감쇠, 분출 후 감쇠·끝 페이드, 음량 조절.
+상업적 사용·수정·재배포가 가능하며 출처 표시는 필수가 아닙니다.
+
+권장 사용: 콧김 분출 시작 시 한 번 재생. 반복 재생 끔, Pitch 1.0.
+적용: 추적 연속 점프 패턴의 콧김 분출 시작 시 긴 버전을 한 번 재생합니다.
+음원과 콧바람 음량 비율은 각 씬의 PassAudio Inspector에서 조절합니다.

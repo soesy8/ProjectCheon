@@ -1,0 +1,30 @@
+천지인 글꼴 구성
+
+제목: Yeon Sung Regular (연성)
+본문: Yeon Sung Regular (연성)
+기존 공개 서체를 바탕으로 제작한 Unity TextMeshPro용 폰트 에셋이다.
+원본 글자 윤곽은 변경하지 않았다. 출처와 원본 라이선스는 Sources에 포함되어 있다.
+
+사용 에셋
+Resources/CheonFonts/CheonTitle.asset: 큰 제목, 보스 이름, 호리병 이름
+Resources/CheonFonts/CheonYeonSung.asset: 설명, 조작키, 버튼, 숫자
+CheonTitleFallback.asset: 새 문구에 필요한 연성 글자 동적 추가
+CheonBodyFallback.asset: 연성에 없는 기호·문자에 한해 사용하는 Pretendard 보조 폰트
+CheonBody.asset 및 Pretendard 원본은 기존 에셋 참조 호환을 위해 유지한다.
+
+PassHud의 본문 글꼴, 붓글씨 제목 필드를 비우면 위 기본 에셋을 사용한다.
+Inspector에서 각 글꼴을 직접 지정할 수 있다. 제목 자간 기본값은 2이다.
+기존 이미지형 천지인 로고는 그대로 사용한다.
+
+폰트 설정
+주 폰트는 현재 UI 문자와 영문·숫자를 정적 아틀라스에 미리 저장했다.
+본문: 샘플링 48, 패딩 5. 제목: 샘플링 80, 패딩 8.
+모든 아틀라스는 장당 최대 1024×1024이며 폰트 Scale은 1이다.
+동적 보조 폰트는 Multi Atlas 및 Clear Dynamic Data On Build가 켜져 있다.
+연성에서 제공하지 않는 글자는 Pretendard 보조 폰트로 표시한다.
+권장 사용 크기: 제목 28~90, 본문 20~28 (1600×900 HUD 기준).
+
+공식 출처
+https://github.com/google/fonts/tree/main/ofl/yeonsung
+https://github.com/orioncactus/pretendard/releases/tag/v1.3.9
+두 원본 폰트의 OFL 라이선스는 Sources/YeonSung-OFL.txt 및 Sources/Pretendard-OFL.txt 참조.

@@ -11,6 +11,7 @@ namespace Cheon.Prototype.MountainPass
         {
             public Renderer renderer;
             public Material[] materials;
+            public Material[] replacements;
             public MaterialPropertyBlock[] properties;
             public bool enabled;
             public ShadowCastingMode shadows;
@@ -19,6 +20,8 @@ namespace Cheon.Prototype.MountainPass
         private PassBossPatternSettings settings;
         private Transform visual;
         private bool minion;
+        private PassBossPatternController owner;
+        private bool materialsApplied;
         private ParticleSystem particles;
         private readonly List<RendererState> originals = new List<RendererState>();
         private readonly List<Material> dissolveMaterials = new List<Material>();
@@ -34,6 +37,7 @@ namespace Cheon.Prototype.MountainPass
         public void Configure(PassBossPatternSettings configuration, Transform model, bool miniature)
         {
             settings = configuration; visual = model; minion = miniature;
+            owner = GetComponent<PassBossPatternController>();
             properties = new MaterialPropertyBlock();
             var item = new GameObject("DeathPowder"); item.transform.SetParent(transform, false);
             particles = item.AddComponent<ParticleSystem>();
@@ -63,6 +67,39 @@ namespace Cheon.Prototype.MountainPass
         {
             if (IsPlaying) return;
             ResetEffect();
+            bool rebuild = originals.Count == 0;
+            foreach (var state in originals)
+            {
+                if (state.renderer == null) continue;
+                var current = state.renderer.sharedMaterials;
+                if (current.Length != state.materials.Length) { rebuild = true; break; }
+                state.materials = current;
+            }
+            if (rebuild)
+            {
+                originals.Clear(); DisposeMaterials(); PrepareRendererStates();
+            }
+            foreach (var state in originals)
+            {
+                if (state.renderer == null) continue;
+                state.enabled = state.renderer.enabled; state.shadows = state.renderer.shadowCastingMode;
+                for (int slot = 0; slot < state.materials.Length; slot++)
+                {
+                    state.renderer.GetPropertyBlock(state.properties[slot], slot);
+                    ConfigureDissolveMaterial(state.replacements[slot], state.materials[slot]);
+                }
+                state.renderer.sharedMaterials = state.replacements;
+                state.renderer.shadowCastingMode = ShadowCastingMode.Off;
+            }
+            materialsApplied = true;
+            IsPlaying = true;
+            particles.Play();
+            ApplyProgress();
+        }
+
+        private void PrepareRendererStates()
+        {
+            // 모델과 슬롯이 같으면 소멸 재질·프로퍼티 버퍼를 다음 사망에서도 재사용한다.
             foreach (var renderer in visual.GetComponentsInChildren<Renderer>(true))
             {
                 var state = new RendererState
@@ -71,33 +108,31 @@ namespace Cheon.Prototype.MountainPass
                     shadows = renderer.shadowCastingMode
                 };
                 state.properties = new MaterialPropertyBlock[state.materials.Length];
-                var replacements = new Material[state.materials.Length];
-                for (int slot = 0; slot < replacements.Length; slot++)
+                state.replacements = new Material[state.materials.Length];
+                for (int slot = 0; slot < state.replacements.Length; slot++)
                 {
                     state.properties[slot] = new MaterialPropertyBlock();
-                    renderer.GetPropertyBlock(state.properties[slot], slot);
-                    Material source = state.materials[slot];
                     var material = new Material(settings.death.material) { name = "DeathDissolve_Instance" };
-                    if (source != null)
-                    {
-                        string map = source.HasProperty("_BaseMap") ? "_BaseMap" : "_MainTex";
-                        if (source.HasProperty(map))
-                        {
-                            material.SetTexture("_BaseMap", source.GetTexture(map));
-                            material.SetTextureScale("_BaseMap", source.GetTextureScale(map));
-                            material.SetTextureOffset("_BaseMap", source.GetTextureOffset(map));
-                        }
-                        string color = source.HasProperty("_BaseColor") ? "_BaseColor" : "_Color";
-                        if (source.HasProperty(color)) material.SetColor("_BaseColor", source.GetColor(color));
-                    }
-                    replacements[slot] = material; dissolveMaterials.Add(material);
+                    state.replacements[slot] = material; dissolveMaterials.Add(material);
                 }
-                renderer.sharedMaterials = replacements; renderer.shadowCastingMode = ShadowCastingMode.Off;
                 originals.Add(state);
             }
-            IsPlaying = true;
-            particles.Play();
-            ApplyProgress();
+        }
+
+        private void ConfigureDissolveMaterial(Material material, Material source)
+        {
+            material.shader = settings.death.material.shader;
+            material.CopyPropertiesFromMaterial(settings.death.material);
+            if (source == null) return;
+            string map = source.HasProperty("_BaseMap") ? "_BaseMap" : "_MainTex";
+            if (source.HasProperty(map))
+            {
+                material.SetTexture("_BaseMap", source.GetTexture(map));
+                material.SetTextureScale("_BaseMap", source.GetTextureScale(map));
+                material.SetTextureOffset("_BaseMap", source.GetTextureOffset(map));
+            }
+            string color = source.HasProperty("_BaseColor") ? "_BaseColor" : "_Color";
+            if (source.HasProperty(color)) material.SetColor("_BaseColor", source.GetColor(color));
         }
 
         private void Update()
@@ -124,7 +159,7 @@ namespace Cheon.Prototype.MountainPass
             if (minion) tail = Mathf.Max(tail, settings.summon.deathLifetime);
             if (age < duration + tail) return;
             IsPlaying = false;
-            if (minion) Destroy(gameObject);
+            if (minion && (owner == null || !owner.TryReturnToSummonPool())) Destroy(gameObject);
         }
 
         private void ApplyProgress()
@@ -170,6 +205,7 @@ namespace Cheon.Prototype.MountainPass
             IsPlaying = ModelHidden = false;
             age = particleRemainder = TintProgress = DissolveProgress = 0; ParticlesEmitted = 0;
             if (particles != null) particles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            if (!materialsApplied) return;
             foreach (var state in originals)
             {
                 if (state.renderer == null) continue;
@@ -177,8 +213,7 @@ namespace Cheon.Prototype.MountainPass
                 state.renderer.enabled = state.enabled; state.renderer.shadowCastingMode = state.shadows;
                 for (int slot = 0; slot < state.properties.Length; slot++) state.renderer.SetPropertyBlock(state.properties[slot], slot);
             }
-            originals.Clear();
-            DisposeMaterials();
+            materialsApplied = false;
         }
 
         private void DisposeMaterials()

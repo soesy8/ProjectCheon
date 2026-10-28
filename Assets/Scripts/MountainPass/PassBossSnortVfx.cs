@@ -49,6 +49,7 @@ namespace Cheon.Prototype.MountainPass
 
         public void EmitSnort()
         {
+            if (!isActiveAndEnabled || steam == null) return;
             Clear(); steam.Play(); Bursts++;
             emissionRoutine = StartCoroutine(EmitSteamInSequence());
         }
@@ -87,6 +88,7 @@ namespace Cheon.Prototype.MountainPass
             if (steam != null) steam.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         }
 
+        private void OnDisable() => Clear();
         private void OnDestroy() { if (material != null) Destroy(material); }
     }
 }

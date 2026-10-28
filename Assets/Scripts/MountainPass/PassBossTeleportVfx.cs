@@ -167,6 +167,13 @@ namespace Cheon.Prototype.MountainPass
             }
         }
 
+        private void OnDisable()
+        {
+            ResetEffect();
+            // 컴포넌트만 꺼도 숨김 도중 제외했던 몸체 충돌을 복구한다.
+            if (owner != null && owner.Health != null && !owner.Health.IsDead && owner.Body != null)
+                owner.Body.enabled = true;
+        }
         private void OnDestroy() { if (smokeMaterial != null) Destroy(smokeMaterial); }
     }
 }

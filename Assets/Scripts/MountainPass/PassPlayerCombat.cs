@@ -71,10 +71,11 @@ namespace Cheon.Prototype.MountainPass
         {
             Vector3 direction = inputDirection;
             float nearestDistanceSquared = directionalTargetRange * directionalTargetRange;
-            // 공격 전환 때만 적 목록을 조회해 주변 지형 콜라이더 수와 관계없이 타겟을 선택한다.
-            foreach (var enemy in FindObjectsByType<PassBossPatternController>(FindObjectsSortMode.None))
+            if (!(boss is PassBossPatternController patternBoss) || patternBoss.Settings == null) return direction;
+            // 보스가 등록한 목록을 재사용해 공격 전환마다 씬 검색과 결과 배열 할당을 하지 않는다.
+            foreach (var enemy in patternBoss.Settings.Enemies)
             {
-                if (!enemy.isActiveAndEnabled || !enemy.IsAlive || !enemy.Body.enabled) continue;
+                if (enemy == null || !enemy.isActiveAndEnabled || !enemy.IsAlive || !enemy.Body.enabled) continue;
                 Vector3 offset = enemy.transform.position - transform.position;
                 if (Mathf.Abs(offset.y) > 3f) continue;
                 Vector3 targetDirection = Vector3.ProjectOnPlane(offset, Vector3.up);

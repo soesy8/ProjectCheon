@@ -1,2 +1,0 @@
-﻿var preview = UnityEngine.Object.FindFirstObjectByType<Cheon.Tests.PlayerReactions.Test_PlayerReactionPreview>();
-return new {frame=Time.frameCount, playing=UnityEditor.EditorApplication.isPlaying, preview=preview == null ? "missing" : preview.Phase.ToString(), settings=preview == null ? "" : preview.Settings.name, cameras=UnityEngine.Object.FindObjectsByType<Camera>(FindObjectsSortMode.None).Select(c=>c.name).ToArray()};
