@@ -178,6 +178,9 @@ namespace Cheon.Prototype.MountainPass
             if (Phase != PatternPhase.Dormant) return;
             if (!isMinion && audioControl != null) audioControl.Spirit();
             // 등장의 Timeline이 끝난 뒤에만 모델을 피벗 아래로 옮겨 원래 애니메이션 경로를 보존한다.
+            // 비균일 배율의 부모 아래에서는 기울어진 채 재배치하면 외형 배율도 틀어지므로 먼저 복원한다.
+            RestoreVisualPose();
+            visual.localScale = spawnVisualScale;
             visual.SetParent(bodyPivot, true); visualAttached = true;
             Health.Invulnerable = false;
             openingReadyAt = Time.time + settings.turn.openingDelay;

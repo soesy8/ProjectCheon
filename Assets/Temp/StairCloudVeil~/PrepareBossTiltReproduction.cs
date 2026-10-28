@@ -1,0 +1,13 @@
+var game = UnityEngine.Object.FindFirstObjectByType<Cheon.Prototype.MountainPass.PassGameFlow>();
+if (!game.IsRunning) throw new System.Exception("Start the journey before checking the boss.");
+var boss = (Cheon.Prototype.MountainPass.PassBossPatternController)game.Boss;
+boss.enabled = false;
+var floor = (Renderer)new SerializedObject(game).FindProperty("bossDetectionFloor").objectReferenceValue;
+Vector3 position = floor.bounds.center + Vector3.right * (floor.bounds.extents.x + 4f);
+position.y = floor.bounds.max.y + 0.15f;
+var movement = game.Player.GetComponent<Cheon.Prototype.MountainPass.PassPlayerMovement>();
+movement.Teleport(position, Quaternion.LookRotation(Vector3.ProjectOnPlane(boss.transform.position - position, Vector3.up)));
+movement.InputEnabled = false;
+game.View.SnapBehind();
+game.BeginEncounter();
+return new { bossPosition = boss.transform.position.ToString(), playerPosition = game.Player.position.ToString() };

@@ -32,7 +32,9 @@ namespace Cheon.MountainPass.Presentation
                 if(image.name=="HealthFill") image.color=health;
                 if(image.name=="EnergyFill") image.color=energy;
             }
-            AddIcon(vitality,"Test_VitalityIcon",new Vector2(23,-33),new Vector2(25,25),PassHudIcon.IconKind.Vitality);
+            // 하트 원화가 있으면 보조 아이콘을 생성하지 않아 같은 위치에 겹치지 않게 한다.
+            if (vitality.Find("HealthIcon") == null)
+                AddIcon(vitality,"Test_VitalityIcon",new Vector2(23,-33),new Vector2(25,25),PassHudIcon.IconKind.Vitality);
             AddIcon(vitality,"Test_EnergyIcon",new Vector2(23,-83),new Vector2(25,25),PassHudIcon.IconKind.Fan);
 
             RectTransform boss=Find("Gameplay/GuardianVitality");

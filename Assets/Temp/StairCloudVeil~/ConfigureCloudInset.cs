@@ -1,0 +1,10 @@
+if (Application.isPlaying) throw new System.Exception("Set cloud placement in Edit Mode.");
+var veil = UnityEngine.Object.FindFirstObjectByType<Cheon.Prototype.MountainPass.PassStairCloudVeil>();
+Undo.RecordObject(veil, "Move clouds slightly inward");
+var serialized = new SerializedObject(veil);
+serialized.FindProperty("inwardAmount").floatValue = 0.1f;
+serialized.ApplyModifiedProperties();
+EditorUtility.SetDirty(veil);
+UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(veil.gameObject.scene);
+UnityEditor.SceneManagement.EditorSceneManager.SaveScene(veil.gameObject.scene);
+return new { inset = serialized.FindProperty("inwardAmount").floatValue };

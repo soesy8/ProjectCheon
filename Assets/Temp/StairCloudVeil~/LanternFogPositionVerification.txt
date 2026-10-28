@@ -1,0 +1,1 @@
+PASS: ascent, descent, stationary position, jump, shared fade range, no world splitting.

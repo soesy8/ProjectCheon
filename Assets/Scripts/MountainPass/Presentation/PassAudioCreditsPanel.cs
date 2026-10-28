@@ -31,26 +31,26 @@ namespace Cheon.MountainPass.Presentation
             var canvas = transform.Find("MountainPassHUD");
             var introduction = canvas != null ? canvas.Find("Introduction") : null;
             var column = introduction != null ? introduction.Find("TitleColumn") : null;
-            var challenge = column != null ? column.Find("BeginChallenge") : null;
-            if (game == null || challenge == null || musicCredits == null || effectCredits == null)
+            var settingsButton = column != null ? column.Find("AudioSettings") : null;
+            if (game == null || settingsButton == null || musicCredits == null || effectCredits == null)
             {
-                Debug.LogError("테스트 크레딧: 타이틀 HUD와 크레딧 문서를 연결하세요.", this);
+                Debug.LogError("크레딧: 타이틀 HUD와 크레딧 문서를 연결하세요.", this);
                 enabled = false;
                 return;
             }
-            template = challenge.GetComponentInChildren<TMP_Text>();
+            template = settingsButton.GetComponentInChildren<TMP_Text>();
             titleControls = column.GetComponent<CanvasGroup>();
             if (titleControls == null) titleControls = column.gameObject.AddComponent<CanvasGroup>();
 
-            creditsButton = MakeButton("Test_CreditsButton", column, "크레딧", new Vector2(60, -750), new Vector2(450, 60));
+            creditsButton = MakeButton("CreditsButton", column, "크레딧", new Vector2(60, -694), new Vector2(450, 60));
             var image = creditsButton.GetComponent<UnityEngine.UI.Image>();
-            image.sprite = challenge.GetComponent<UnityEngine.UI.Image>().sprite;
-            image.color = challenge.GetComponent<UnityEngine.UI.Image>().color;
-            image.type = challenge.GetComponent<UnityEngine.UI.Image>().type;
+            image.sprite = settingsButton.GetComponent<UnityEngine.UI.Image>().sprite;
+            image.color = settingsButton.GetComponent<UnityEngine.UI.Image>().color;
+            image.type = settingsButton.GetComponent<UnityEngine.UI.Image>().type;
             PassHud.FitInkBorder(image, creditsButton.GetComponent<RectTransform>().rect.height);
             creditsButton.onClick.AddListener(OpenCredits);
 
-            panel = Rect("Test_AudioCredits", introduction);
+            panel = Rect("AudioCredits", introduction);
             Stretch(panel, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
             panel.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(0, 0, 0, .7f);
             var sheet = Rect("Sheet", panel);

@@ -71,7 +71,7 @@ namespace Cheon.MountainPass.Presentation
             swingSequence = 0;
             if (to == "ROLL") { sounds.Dodge(); trackingSteps = false; }
             if (pendingSwing > 0) trackingSteps = false;
-            if (to == "DRAW" || to == "SHEATHE") sounds.Equip();
+            if (to == "DRAW" || to == "SHEATHE") sounds.Equip(to == "DRAW");
         }
         private void LateUpdate()
         {

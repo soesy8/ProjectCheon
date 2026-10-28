@@ -25,7 +25,7 @@ namespace Cheon.MountainPass.Presentation
         [SerializeField, Range(0f, 1f), InspectorName("타격·전조 중 음악 비율")] private float impactMusicRatio = .62f;
         private AudioSource titleVictory, exploration, combat, menu, effects, movement, ambience;
         private AudioSource activeMusic;
-        private float transitionGain, contextGain, duckGain = 1f, duckUntil;
+        private float transitionGain, contextGain, ambienceGain, duckGain = 1f, duckUntil;
         private float originalEffectsVolume, originalMovementVolume, originalAmbienceVolume;
         private int originalEffectsPriority, originalMovementPriority, originalAmbiencePriority;
         private bool previousPaused, initialized, subscribed;
@@ -36,7 +36,8 @@ namespace Cheon.MountainPass.Presentation
             (exploration != null && exploration.isPlaying) || (combat != null && combat.isPlaying);
         public AudioClip CurrentMusic => activeMusic != null ? activeMusic.clip : null;
         public float ImpactDuck => duckGain;
-        public float MasterVolume => masterVolume;
+        public float MasterVolume => masterVolume * PassAudioSettings.MasterVolume;
+        public float EffectsGain => MasterVolume * PassAudioSettings.EffectsVolume;
 
         public void Configure(PassGameFlow flow, PassAudio audio, AudioClip calm, AudioClip battle, AudioClip confirm)
         {
@@ -49,16 +50,16 @@ namespace Cheon.MountainPass.Presentation
             if (game == null || sounds == null || game.Boss == null || game.PlayerHealth == null ||
                 titleVictoryMusic == null || explorationMusic == null || combatMusic == null)
             {
-                Debug.LogError("테스트 사운드: 게임 참조와 타이틀·탐색·전투 음악을 연결하세요.", this);
+                Debug.LogError("사운드: 게임 참조와 타이틀·탐색·전투 음악을 연결하세요.", this);
                 enabled = false;
                 return;
             }
-            // 이 테스트 씬의 PassAudio.Awake가 생성하는 순서는 효과음, 발걸음, 환경음이다.
+            // PassAudio.Awake가 생성하는 순서는 효과음, 발걸음, 환경음이다.
             // 추가 AudioSource는 별도 자식에 두어 원본의 소스 순서를 바꾸지 않는다.
             AudioSource[] sources = sounds.GetComponents<AudioSource>();
             if (sources.Length != 3)
             {
-                Debug.LogError("테스트 사운드: PassAudio 소스 구성이 변경되어 연결을 확인해야 합니다.", this);
+                Debug.LogError("사운드: PassAudio 소스 구성이 변경되어 연결을 확인해야 합니다.", this);
                 enabled = false;
                 return;
             }
@@ -69,10 +70,10 @@ namespace Cheon.MountainPass.Presentation
             originalEffectsPriority = effects.priority;
             originalMovementPriority = movement.priority;
             originalAmbiencePriority = ambience.priority;
-            titleVictory = CreateSource("Test_TitleVictoryMusic", titleVictoryMusic, true, 160);
-            exploration = CreateSource("Test_ExplorationMusic", explorationMusic, true, 160);
-            combat = CreateSource("Test_CombatMusic", combatMusic, true, 160);
-            menu = CreateSource("Test_PauseMenuAudio", pauseConfirm, false, 48);
+            titleVictory = CreateSource("TitleVictoryMusic", titleVictoryMusic, true, 160);
+            exploration = CreateSource("ExplorationMusic", explorationMusic, true, 160);
+            combat = CreateSource("CombatMusic", combatMusic, true, 160);
+            menu = CreateSource("PauseMenuAudio", pauseConfirm, false, 48);
             sounds.ConfigureMenuAudio(menu);
             initialized = true;
             Subscribe();
@@ -116,13 +117,15 @@ namespace Cheon.MountainPass.Presentation
             contextGain = Mathf.MoveTowards(contextGain, targetGain, delta * (paused ? 3f : 1.5f));
             float duckTarget = Time.unscaledTime < duckUntil ? impactMusicRatio : 1f;
             duckGain = Mathf.MoveTowards(duckGain, duckTarget, delta * (duckTarget < duckGain ? 12f : 1.8f));
-            float gain = masterVolume * musicVolume * contextGain * duckGain;
+            float gain = MasterVolume * musicVolume * PassAudioSettings.MusicVolume * contextGain * duckGain;
             UpdateMusic(gain, delta);
-            effects.volume = masterVolume * effectsVolume;
-            menu.volume = masterVolume * effectsVolume;
-            movement.volume = paused ? 0f : masterVolume * movementVolume;
-            float ambientTarget = masterVolume * ambienceVolume * (game.InEncounter ? .55f : 1f) * (paused ? .4f : 1f);
-            ambience.volume = Mathf.MoveTowards(ambience.volume, ambientTarget, delta * .25f);
+            effects.volume = EffectsGain * effectsVolume;
+            menu.volume = EffectsGain * effectsVolume;
+            movement.volume = paused ? 0f : EffectsGain * movementVolume;
+            float ambientTarget = ambienceVolume * (game.InEncounter ? .55f : 1f) * (paused ? .4f : 1f);
+            // 환경 연출만 부드럽게 바꾸고 사용자 음량은 즉시 곱해 0%에서 잔향을 남기지 않는다.
+            ambienceGain = Mathf.MoveTowards(ambienceGain, ambientTarget, delta * .25f);
+            ambience.volume = EffectsGain * ambienceGain;
         }
 
         private void UpdateMusic(float gain, float delta)
@@ -150,11 +153,12 @@ namespace Cheon.MountainPass.Presentation
             SetMusic(combat, activeMusic == combat ? gain * transitionGain : 0f);
         }
 
-        private static void SetMusic(AudioSource source, float gain)
+        private void SetMusic(AudioSource source, float gain)
         {
             source.volume = gain;
-            if (gain > .0001f) { if (!source.isPlaying) source.Play(); }
-            else if (source.isPlaying) source.Stop();
+            // 음소거 중에도 재생 위치를 유지해 음량을 올릴 때 곡이 처음부터 다시 시작하지 않는다.
+            if (source == activeMusic && !source.isPlaying) source.Play();
+            else if (source != activeMusic && source.isPlaying) source.Stop();
         }
 
         public void EmphasizeCue(float duration)

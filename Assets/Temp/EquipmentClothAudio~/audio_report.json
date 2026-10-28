@@ -1,0 +1,41 @@
+[
+  {
+    "file": "Assets\\Arts\\Audio\\MountainPass\\Presentation\\ClothDraw.wav",
+    "seconds": 0.43,
+    "sample_rate": 44100,
+    "channels": 1,
+    "peak_dbfs": -12.97,
+    "rms_dbfs": -26.2,
+    "clipped_samples": 0,
+    "edge_samples": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "file": "Assets\\Arts\\Audio\\MountainPass\\Presentation\\ClothSheathe.wav",
+    "seconds": 0.52,
+    "sample_rate": 44100,
+    "channels": 1,
+    "peak_dbfs": -12.87,
+    "rms_dbfs": -26.2,
+    "clipped_samples": 0,
+    "edge_samples": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "file": "Assets\\Arts\\Audio\\MountainPass\\Presentation\\FanEquip.wav",
+    "seconds": 0.45,
+    "sample_rate": 44100,
+    "channels": 1,
+    "peak_dbfs": -5.19,
+    "rms_dbfs": -23.64,
+    "clipped_samples": 0,
+    "edge_samples": [
+      -0.00067138671875,
+      0.0
+    ]
+  }
+]

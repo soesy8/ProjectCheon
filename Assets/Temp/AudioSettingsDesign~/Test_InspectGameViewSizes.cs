@@ -1,0 +1,10 @@
+var assembly = typeof(UnityEditor.Editor).Assembly;
+var gameViewType = assembly.GetType("UnityEditor.GameView");
+var window = UnityEngine.Resources.FindObjectsOfTypeAll(gameViewType).FirstOrDefault();
+var sizesType = assembly.GetType("UnityEditor.GameViewSizes");
+var singletonType = typeof(UnityEditor.ScriptableSingleton<>).MakeGenericType(sizesType);
+var sizes = singletonType.GetProperty("instance").GetValue(null);
+var groupType = assembly.GetType("UnityEditor.GameViewSizeGroupType");
+var group = sizesType.GetMethod("GetGroup").Invoke(sizes, new[] { System.Enum.Parse(groupType, "Standalone") });
+return new { selected = gameViewType.GetProperty("selectedSizeIndex", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic).GetValue(window),
+    sizes = group.GetType().GetMethod("GetDisplayTexts").Invoke(group, null) };

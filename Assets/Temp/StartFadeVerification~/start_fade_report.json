@@ -1,0 +1,717 @@
+{
+  "passed": true,
+  "seconds": 1.57707119,
+  "firstFrame": 2,
+  "finalFrame": 80,
+  "capturedOut": true,
+  "capturedBlack": true,
+  "capturedIn": true,
+  "playingTransitions": 1,
+  "finalAlpha": 0.0,
+  "finalTimeScale": 1.0,
+  "finalState": "Playing",
+  "samples": [
+    {
+      "elapsed": 0.00110149384,
+      "frame": 2,
+      "alpha": 0.0,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.0174798965,
+      "frame": 3,
+      "alpha": 0.153421283,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.0244407654,
+      "frame": 4,
+      "alpha": 0.165482283,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.05119419,
+      "frame": 5,
+      "alpha": 0.21520336,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.06880379,
+      "frame": 6,
+      "alpha": 0.2501494,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.09283066,
+      "frame": 7,
+      "alpha": 0.300224662,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.111063957,
+      "frame": 8,
+      "alpha": 0.33973664,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.13149929,
+      "frame": 9,
+      "alpha": 0.3822744,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.151789665,
+      "frame": 10,
+      "alpha": 0.430880547,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.165416718,
+      "frame": 11,
+      "alpha": 0.462378234,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.239919662,
+      "frame": 12,
+      "alpha": 0.6331395,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.257936478,
+      "frame": 13,
+      "alpha": 0.6726836,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.2827425,
+      "frame": 14,
+      "alpha": 0.7249272,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.29548645,
+      "frame": 15,
+      "alpha": 0.7517364,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.312753677,
+      "frame": 16,
+      "alpha": 0.786011636,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.3245783,
+      "frame": 17,
+      "alpha": 0.8085427,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.3377447,
+      "frame": 18,
+      "alpha": 0.832524,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.3585539,
+      "frame": 19,
+      "alpha": 0.8679575,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.373087883,
+      "frame": 20,
+      "alpha": 0.89073205,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.390410423,
+      "frame": 21,
+      "alpha": 0.915391147,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.406423569,
+      "frame": 22,
+      "alpha": 0.9359952,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.4235897,
+      "frame": 23,
+      "alpha": 0.955241263,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.439610481,
+      "frame": 24,
+      "alpha": 0.970329463,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.4539261,
+      "frame": 25,
+      "alpha": 0.98137176,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.473876953,
+      "frame": 26,
+      "alpha": 0.99259907,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.4873314,
+      "frame": 27,
+      "alpha": 0.997417331,
+      "state": "Intro",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.5085373,
+      "frame": 28,
+      "alpha": 1.0,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.540214539,
+      "frame": 29,
+      "alpha": 1.0,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.557232857,
+      "frame": 30,
+      "alpha": 1.0,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.572859764,
+      "frame": 31,
+      "alpha": 1.0,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.586837769,
+      "frame": 32,
+      "alpha": 1.0,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.604887962,
+      "frame": 33,
+      "alpha": 1.0,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.6219492,
+      "frame": 34,
+      "alpha": 1.0,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.6352587,
+      "frame": 35,
+      "alpha": 1.0,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.6554203,
+      "frame": 36,
+      "alpha": 1.0,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.673226357,
+      "frame": 37,
+      "alpha": 1.0,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.6870432,
+      "frame": 38,
+      "alpha": 0.9991949,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.705431,
+      "frame": 39,
+      "alpha": 0.9957456,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.7196665,
+      "frame": 40,
+      "alpha": 0.9912972,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.7389145,
+      "frame": 41,
+      "alpha": 0.9829036,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.75247097,
+      "frame": 42,
+      "alpha": 0.975432754,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.771657,
+      "frame": 43,
+      "alpha": 0.9627324,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.7854452,
+      "frame": 44,
+      "alpha": 0.9521328,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.8055935,
+      "frame": 45,
+      "alpha": 0.9346815,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.822133064,
+      "frame": 46,
+      "alpha": 0.9185248,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.836233139,
+      "frame": 47,
+      "alpha": 0.9035527,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.855221748,
+      "frame": 48,
+      "alpha": 0.881850839,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.871789932,
+      "frame": 49,
+      "alpha": 0.861555159,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.8885832,
+      "frame": 50,
+      "alpha": 0.8396851,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.9023552,
+      "frame": 51,
+      "alpha": 0.820925355,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.9224653,
+      "frame": 52,
+      "alpha": 0.79221797,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.938703537,
+      "frame": 53,
+      "alpha": 0.76801914,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.9537287,
+      "frame": 54,
+      "alpha": 0.7448846,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.972320557,
+      "frame": 55,
+      "alpha": 0.71538496,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 0.9867382,
+      "frame": 56,
+      "alpha": 0.6919248,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.02615547,
+      "frame": 57,
+      "alpha": 0.6256254,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.03231716,
+      "frame": 58,
+      "alpha": 0.615063548,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.05126381,
+      "frame": 59,
+      "alpha": 0.5831693,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.08603859,
+      "frame": 60,
+      "alpha": 0.521163762,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.09954071,
+      "frame": 61,
+      "alpha": 0.497364581,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.115902,
+      "frame": 62,
+      "alpha": 0.4685092,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.12903118,
+      "frame": 63,
+      "alpha": 0.4453652,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.14946365,
+      "frame": 64,
+      "alpha": 0.409648538,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.16566944,
+      "frame": 65,
+      "alpha": 0.3816328,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.18217659,
+      "frame": 66,
+      "alpha": 0.353505671,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.19651031,
+      "frame": 67,
+      "alpha": 0.329301059,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.215519,
+      "frame": 68,
+      "alpha": 0.297954917,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.23273945,
+      "frame": 69,
+      "alpha": 0.270205855,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.24925423,
+      "frame": 70,
+      "alpha": 0.244374931,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.26559734,
+      "frame": 71,
+      "alpha": 0.219585538,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.27975655,
+      "frame": 72,
+      "alpha": 0.198827446,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.343174,
+      "frame": 73,
+      "alpha": 0.115828574,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.35560322,
+      "frame": 74,
+      "alpha": 0.101108551,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.404355,
+      "frame": 75,
+      "alpha": 0.0532077551,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.43729973,
+      "frame": 76,
+      "alpha": 0.0284727812,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.44498348,
+      "frame": 77,
+      "alpha": 0.0237455964,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.46495247,
+      "frame": 78,
+      "alpha": 0.01335299,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    },
+    {
+      "elapsed": 1.51094627,
+      "frame": 79,
+      "alpha": 0.00060659647,
+      "state": "Playing",
+      "timeScale": 0.0,
+      "running": false,
+      "blocksClicks": true
+    }
+  ]
+}

@@ -37,3 +37,8 @@ CC0 재료는 출처 표기가 필수는 아니지만 감사의 뜻으로 기재
 <link="https://creativecommons.org/publicdomain/zero/1.0/deed.ko"><color=#59E0BA><u>CC0 이용조건 보기</u></color></link>
 가공: 접촉음 추출, 주파수·속도·음량 조절, 재질음 합성, 끝부분 페이드.
 장승 패턴의 폭발·충격파는 하강하는 저음, 저역 잡음, 공기 파열음을 직접 합성해 더했습니다.
+
+<color=#D6B06E><size=27>발도·납도 · 천 마찰음</size></color>
+사용자 제공 원음: cloth_rustle_martian_19291_preview_hq.mp3
+가공: 서로 다른 구간 추출, 저역 잡음 정리, 음량 조정, 시작·끝 페이드.
+ClothDraw / ClothSheathe는 원본 음색과 재생 속도를 유지해 편집했습니다.

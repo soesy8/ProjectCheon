@@ -26,7 +26,9 @@ namespace Cheon.Prototype.MountainPass
         [SerializeField, InspectorName("장승 깨어남·소환")] private AudioClip spirit;
         [SerializeField, InspectorName("승리")] private AudioClip victory;
         [SerializeField, InspectorName("패배")] private AudioClip defeat;
-        [SerializeField, InspectorName("부채 발도·납도")] private AudioClip equipment;
+        [SerializeField, InspectorName("부채 발도 · 옷 스침")] private AudioClip equipment;
+        [SerializeField, InspectorName("부채 납도 · 옷 스침")] private AudioClip sheatheEquipment;
+        [SerializeField, Range(0f, 1f), InspectorName("발도·납도 음량 비율")] private float equipmentVolume = 0.45f;
         [SerializeField, InspectorName("환경음 음량 비율"), Range(0f, 1f)] private float ambienceVolume = 0.16f;
         private AudioSource effects, ambience, movement;
         private AudioSource menu;
@@ -36,13 +38,14 @@ namespace Cheon.Prototype.MountainPass
         public void ConfigureMenuAudio(AudioSource source) { menu = source; }
         private void Awake()
         {
-            effects = gameObject.AddComponent<AudioSource>(); effects.playOnAwake = false; effects.volume = volume;
-            movement = gameObject.AddComponent<AudioSource>(); movement.playOnAwake = false; movement.volume = volume * 0.7f;
+            float userGain = PassAudioSettings.MasterVolume * PassAudioSettings.EffectsVolume;
+            effects = gameObject.AddComponent<AudioSource>(); effects.playOnAwake = false; effects.volume = volume * userGain;
+            movement = gameObject.AddComponent<AudioSource>(); movement.playOnAwake = false; movement.volume = volume * 0.7f * userGain;
             if (strike == null) strike = Tone("FanStrike", 240f, 0.16f, 0.3f);
             if (hurt == null) hurt = Tone("PlayerHurt", 95f, 0.28f, 0.2f);
             if (slam == null) slam = Tone("GuardianSlam", 52f, 0.7f, 0.35f);
             if (bell == null) bell = Tone("ShrineBell", 660f, 2.1f, 0.03f);
-            ambience = gameObject.AddComponent<AudioSource>(); ambience.playOnAwake = false; ambience.loop = true; ambience.volume = volume * ambienceVolume;
+            ambience = gameObject.AddComponent<AudioSource>(); ambience.playOnAwake = false; ambience.loop = true; ambience.volume = volume * ambienceVolume * userGain;
             if (wind == null) wind = Tone("MountainWind", 65.4f, 4f, 0.12f, true);
             ambience.clip = wind; ambience.Play();
         }
@@ -98,7 +101,7 @@ namespace Cheon.Prototype.MountainPass
         public void Spirit() => Play(spirit, 0.8f);
         public void Victory() => Play(victory, 0.8f);
         public void Defeat() => Play(defeat, 0.65f);
-        public void Equip() => Play(equipment, 0.45f);
+        public void Equip(bool drawing = true) => Play(drawing || sheatheEquipment == null ? equipment : sheatheEquipment, equipmentVolume);
         public void Footstep(bool running)
         { if (movement != null && footstep != null) { movement.pitch = Random.Range(0.88f, 1.12f); movement.PlayOneShot(footstep, running ? 0.6f : 0.4f); } }
         private void Play(AudioClip clip, float gain) { if (effects != null && clip != null) effects.PlayOneShot(clip, gain); }

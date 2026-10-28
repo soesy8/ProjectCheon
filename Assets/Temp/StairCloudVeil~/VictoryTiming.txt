@@ -1,0 +1,1 @@
+PASS: result at 1.0039s; fade alpha max=0; transition=False; minimum time scale=1

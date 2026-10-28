@@ -1,0 +1,10 @@
+if (Application.isPlaying) throw new System.Exception("Configure victory timing in Edit Mode.");
+var game = UnityEngine.Object.FindFirstObjectByType<Cheon.Prototype.MountainPass.PassGameFlow>();
+Undo.RecordObject(game, "Delay clear screen without fading");
+var serialized = new SerializedObject(game);
+serialized.FindProperty("victoryScreenDelay").floatValue = 1f;
+serialized.ApplyModifiedProperties();
+EditorUtility.SetDirty(game);
+UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(game.gameObject.scene);
+UnityEditor.SceneManagement.EditorSceneManager.SaveScene(game.gameObject.scene);
+return serialized.FindProperty("victoryScreenDelay").floatValue;

@@ -25,7 +25,7 @@ namespace Cheon.Prototype.MountainPass
             pendingSwing = to == "ATTACK1" ? 1 : to == "ATTACK2" ? 2 : to == "ATTACK3" ? 3 : 0;
             swingSequence = 0;
             if (to == "ROLL") audioControl.Dodge();
-            if (to == "DRAW" || to == "SHEATHE") audioControl.Equip();
+            if (to == "DRAW" || to == "SHEATHE") audioControl.Equip(to == "DRAW");
         }
         private void LateUpdate()
         {

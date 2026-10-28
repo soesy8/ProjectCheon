@@ -29,7 +29,7 @@ namespace Cheon.MountainPass.Presentation
         private void Start()
         {
             if (game == null || boss == null || soundscape == null) { enabled = false; return; }
-            var item = new GameObject("Test_BossWarningAudio");
+            var item = new GameObject("BossWarningAudio");
             item.transform.SetParent(boss.transform, false);
             source = item.AddComponent<AudioSource>();
             source.playOnAwake = false;
@@ -45,6 +45,7 @@ namespace Cheon.MountainPass.Presentation
         private void LateUpdate()
         {
             if (source == null) return;
+            source.volume = cueVolume * soundscape.EffectsGain;
             var phase = boss.Phase;
             if (!game.IsRunning)
             {
@@ -60,7 +61,6 @@ namespace Cheon.MountainPass.Presentation
             else if (phase == PassBossPatternController.PatternPhase.FallWindup) cue = heavyCue;
             else if (phase == PassBossPatternController.PatternPhase.CrackWindup) cue = crackCue;
             if (cue == null) return;
-            source.volume = cueVolume * soundscape.MasterVolume;
             source.PlayOneShot(cue);
             soundscape.EmphasizeCue(cue.length + .1f);
             LastCue = cue;

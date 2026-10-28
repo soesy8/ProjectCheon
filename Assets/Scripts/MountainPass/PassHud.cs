@@ -18,6 +18,7 @@ namespace Cheon.Prototype.MountainPass
         [SerializeField] private TMP_Settings textSettings;
         [SerializeField, InspectorName("먹 붓터치 배경")] private Sprite inkBrush;
         [SerializeField, InspectorName("호리병 아이콘")] private Sprite gourdIcon;
+        [SerializeField, InspectorName("체력 아이콘")] private Sprite healthIcon;
         [SerializeField, InspectorName("타이틀 배경 원화")] private Sprite titleBackground;
         [SerializeField, InspectorName("천지인 서예 로고")] private Sprite titleLogo;
         [Header("게이지 원화")]
@@ -45,6 +46,10 @@ namespace Cheon.Prototype.MountainPass
         private TMP_Text healthValue, recoveryHint, interactionLabel, objective, chapter, bossName, warning, notice, markerLabel;
         private TMP_Text resultEyebrow, resultTitle, resultDescription, primaryCaption, secondaryCaption;
         private TMP_Text pauseControlsText;
+        private PassAudioSettingsPanel audioSettings;
+        private RectTransform pauseSettingsButton, pauseQuitButton;
+        public bool IsAudioSettingsOpen => audioSettings != null && audioSettings.IsOpen;
+        public void CloseAudioSettings() => audioSettings?.CloseWithSound();
         private float noticeUntil, noticeDuration, damageAlpha;
         private PassGameFlow.RunState previousState = (PassGameFlow.RunState)(-1);
         private float displayedHealth = -1f, displayedMaximum = -1f, displayedBossHealth = -1f;
@@ -97,6 +102,8 @@ namespace Cheon.Prototype.MountainPass
                 events.AddComponent<InputSystemUIInputModule>().AssignDefaultActions();
             }
             BuildGameplay(); BuildIntroduction(); BuildResult(); BuildCinematic();
+            audioSettings = gameObject.AddComponent<PassAudioSettingsPanel>();
+            audioSettings.Initialize(canvas, game, font, textMaterial, titleFont, titleTextMaterial);
             damageFlash = FullPanel("DamageFlash", canvas, new Color(0.7f, 0.08f, 0.04f, 0f)).GetComponent<UnityEngine.UI.Image>();
             damageFlash.raycastTarget = false;
             var fade = GetComponent<PassScreenFade>();
@@ -111,6 +118,12 @@ namespace Cheon.Prototype.MountainPass
             // 먹 배경이 화면 밖으로 잘리지 않도록, 좌측 패널의 시작선을 같은 여백에 맞춘다.
             Vector2 vitalityInkPosition = new Vector2(leftInkInset - vitality.anchoredPosition.x, -4f);
             InkPanel("VitalityInk", vitality, Vector2.up, vitalityInkPosition, vitalityInkSize);
+            if (healthIcon != null)
+            {
+                var healthImage = Box("HealthIcon", vitality, Vector2.up, new Vector2(8f, -26f), new Vector2(40f, 40f), Color.white).GetComponent<UnityEngine.UI.Image>();
+                healthImage.sprite = healthIcon;
+                healthImage.preserveAspect = true;
+            }
             healthFill = ResourceBar("Health", vitality, new Vector2(54f, -30f), new Vector2(344f, 32f), playerBarFrame, healthBarTexture, healthGreen, 23f);
             energyFill = ResourceBar("Energy", vitality, new Vector2(54f, -80f), new Vector2(344f, 32f), playerBarFrame, energyBarTexture, energyBlue, 23f);
             healthValue = Label("HealthValue", vitality, "100 / 100", new Vector2(410f, -28f), new Vector2(110f, 36f), 24f, paper);
@@ -168,12 +181,13 @@ namespace Cheon.Prototype.MountainPass
             else Label("Title", panel, "천지인", new Vector2(80f, -215f), new Vector2(550f, 160f), 120f, paper, true);
             Label("Subtitle", panel, "산문을 지키는 자", new Vector2(90f, -412f), new Vector2(450f, 50f), 30f, paper, true);
             Box("TitleRule", panel, Vector2.up, new Vector2(90f, -492f), new Vector2(76f, 2f), gold);
-            var begin = CreateButton("BeginJourney", panel, "산길에서 시작", new Vector2(60f, -566f), new Vector2(450f, 80f), Color.white, game.BeginJourney);
+            var begin = CreateButton("BeginJourney", panel, "여정 시작하기", new Vector2(60f, -534f), new Vector2(450f, 72f), Color.white, game.BeginJourney);
             begin.fontSize = 27f;
             Label("Selected", begin.transform.parent, "◇", new Vector2(28f, -23f), new Vector2(32f, 32f), 25f, jade);
-            var challenge = CreateButton("BeginChallenge", panel, "수문장에게 도전", new Vector2(60f, -658f), new Vector2(450f, 80f), new Color(0.65f, 0.8f, 0.76f), game.BeginBossChallenge);
-            challenge.fontSize = 27f;
-            Label("EnterHint", panel, "ENTER  선택", new Vector2(90f, -824f), new Vector2(450f, 28f), 17f, gold);
+            var settings = CreateButton("AudioSettings", panel, "소리 설정", new Vector2(60f, -614f), new Vector2(450f, 72f), new Color(0.65f, 0.8f, 0.76f), OpenAudioSettings);
+            settings.fontSize = 27f;
+            CreateButton("QuitGame", panel, "게임 종료", new Vector2(60f, -766f), new Vector2(450f, 60f), new Color(0.72f, 0.63f, 0.51f), game.QuitGame);
+            Label("EnterHint", panel, "방향키  이동    ENTER  선택", new Vector2(90f, -850f), new Vector2(450f, 28f), 17f, gold);
             var seal = Label("ChapterSeal", introduction, "01\nMOUNTAIN PASS", new Vector2(-50f, -65f), new Vector2(240f, 80f), 18f, new Color(0.08f, 0.15f, 0.15f));
             seal.rectTransform.anchorMin = seal.rectTransform.anchorMax = seal.rectTransform.pivot = Vector2.one;
             seal.alignment = TextAlignmentOptions.Right;
@@ -192,6 +206,8 @@ namespace Cheon.Prototype.MountainPass
             resultEyebrow.alignment = resultTitle.alignment = resultDescription.alignment = TextAlignmentOptions.Center;
             primaryCaption = CreateButton("PrimaryAction", panel, "", new Vector2(102f, -339f), new Vector2(285f, 58f), jade, PrimaryAction);
             secondaryCaption = CreateButton("SecondaryAction", panel, "", new Vector2(413f, -339f), new Vector2(285f, 58f), new Color(0.16f, 0.23f, 0.25f), SecondaryAction);
+            pauseSettingsButton = (RectTransform)CreateButton("AudioSettings", panel, "소리 설정", new Vector2(102f, -411f), new Vector2(285f, 58f), new Color(0.16f, 0.23f, 0.25f), OpenAudioSettings).transform.parent;
+            pauseQuitButton = (RectTransform)CreateButton("QuitGame", panel, "게임 종료", new Vector2(413f, -411f), new Vector2(285f, 58f), new Color(0.35f, 0.25f, 0.19f), game.QuitGame).transform.parent;
             pauseControls = InkPanel("PauseControls", result, new Vector2(0.5f, 0f), new Vector2(0f, 27f), new Vector2(1280f, 96f));
             pauseControlsText = Label("Controls", pauseControls, "WASD 이동    Shift 달리기    마우스 시점    좌클릭 / J 공격    Space 회피\nTab 주시    E 호리병    F 상호작용    Esc 메뉴", Vector2.zero, Vector2.zero, 21f, paper);
             pauseControlsText.rectTransform.anchorMin = Vector2.zero; pauseControlsText.rectTransform.anchorMax = Vector2.one;
@@ -215,7 +231,18 @@ namespace Cheon.Prototype.MountainPass
         private void PrimaryAction()
         { if (game.State == PassGameFlow.RunState.Paused) game.TogglePause(); else if (game.State == PassGameFlow.RunState.Defeat) game.RetryCheckpoint(); else game.BeginJourney(); }
         private void SecondaryAction()
-        { if (game.State == PassGameFlow.RunState.Defeat) game.BeginJourney(); else game.BeginBossChallenge(); }
+        { game.ReturnToTitle(); }
+
+        public void OpenAudioSettings()
+        {
+            if (game.IsTransitioning || (game.State != PassGameFlow.RunState.Intro && game.State != PassGameFlow.RunState.Paused)) return;
+            var menu = game.State == PassGameFlow.RunState.Intro ? introduction : result;
+            var controls = menu.GetComponent<CanvasGroup>();
+            if (controls == null) controls = menu.gameObject.AddComponent<CanvasGroup>();
+            var returnButton = game.State == PassGameFlow.RunState.Intro
+                ? introduction.Find("TitleColumn/AudioSettings").gameObject : pauseSettingsButton.gameObject;
+            audioSettings.Open(controls, returnButton);
+        }
 
         private void Update()
         {
@@ -226,7 +253,13 @@ namespace Cheon.Prototype.MountainPass
             SetVisible(introduction, intro); SetVisible(gameplay, !intro && !presenting); SetVisible(cinematic, presenting);
             bool showResult = game.State == PassGameFlow.RunState.Paused || game.State == PassGameFlow.RunState.Defeat || game.State == PassGameFlow.RunState.Victory;
             SetVisible(result, showResult);
-            if (previousState != game.State) { previousState = game.State; RefreshResult(); EventSystem.current?.SetSelectedGameObject(null); }
+            if (previousState != game.State)
+            {
+                if (IsAudioSettingsOpen) audioSettings.Close();
+                previousState = game.State; RefreshResult();
+                EventSystem.current?.SetSelectedGameObject(intro ? introduction.Find("TitleColumn/BeginJourney").gameObject
+                    : showResult ? primaryCaption.transform.parent.gameObject : null);
+            }
             if (displayedHealth != game.PlayerHealth.Current || displayedMaximum != game.PlayerHealth.Maximum)
             {
                 displayedHealth = game.PlayerHealth.Current; displayedMaximum = game.PlayerHealth.Maximum;
@@ -290,6 +323,8 @@ namespace Cheon.Prototype.MountainPass
             SetVisible(pauseTitleInk, paused);
             SetVisible(pauseDescriptionInk, paused);
             SetVisible(pauseControls, paused);
+            SetVisible(pauseSettingsButton, paused);
+            SetVisible(pauseQuitButton, paused);
             bool won = game.State == PassGameFlow.RunState.Victory;
             resultEyebrow.text = paused ? "숨 고르기" : won ? "산문 개방" : "다시 산신각으로";
             resultTitle.text = paused ? "잠시 멈춤" : won ? "길을 열었습니다" : "다시 일어설 시간";
@@ -297,7 +332,7 @@ namespace Cheon.Prototype.MountainPass
                 : won ? $"수문장의 귀기가 걷히고 산문에 바람이 돌아왔습니다.\n여정  {Mathf.FloorToInt(game.Elapsed / 60f):00}:{Mathf.FloorToInt(game.Elapsed % 60f):00}    ·    명중  {game.PlayerCombat.HitsLanded}회"
                 : "수문장은 다시 잠들었습니다.\n산신각의 가호를 받아 다시 도전하세요.";
             primaryCaption.text = paused ? "여정 계속하기" : won ? "산길 다시 걷기" : "다시 도전하기";
-            secondaryCaption.text = game.State == PassGameFlow.RunState.Defeat ? "산길 처음부터" : "수문장에게 도전";
+            secondaryCaption.text = "타이틀로 돌아가기";
         }
 
         public void Notify(string message, float duration)
@@ -344,6 +379,7 @@ namespace Cheon.Prototype.MountainPass
         }
         private void LoadHudArtwork()
         {
+            if (healthIcon == null) healthIcon = Resources.Load<Sprite>("CheonHud/T_HealthIcon");
             foreach (var sprite in Resources.LoadAll<Sprite>("CheonHud/T_HudBars"))
             {
                 switch (sprite.name)

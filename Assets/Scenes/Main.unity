@@ -13078,6 +13078,37 @@ Transform:
   - {fileID: 2395073770162003629}
   m_Father: {fileID: 914932909}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1078377437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1078377438}
+  m_Layer: 0
+  m_Name: FogFadeEnd_BetweenTopLanternPairs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1078377438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078377437}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.77036047, y: 25.618189, z: 41.67105}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1422209488}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1079465127
 GameObject:
   m_ObjectHideFlags: 0
@@ -16789,6 +16820,8 @@ Transform:
   - {fileID: 1387484978}
   - {fileID: 234451877}
   - {fileID: 2010210914}
+  - {fileID: 1432076722}
+  - {fileID: 1078377438}
   m_Father: {fileID: 1799540014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1427707596
@@ -16905,6 +16938,37 @@ Transform:
   - {fileID: 1672820311}
   - {fileID: 218148869}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1432076721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1432076722}
+  m_Layer: 0
+  m_Name: FogFadeStart_FourthLanternPair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1432076722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432076721}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.871558, y: 20.019894, z: 54.29101}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1422209488}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1432740976
 GameObject:
@@ -29447,6 +29511,7 @@ GameObject:
   - component: {fileID: 2000667314}
   - component: {fileID: 2000667315}
   - component: {fileID: 2000667316}
+  - component: {fileID: 2000667317}
   m_Layer: 0
   m_Name: "\uAC8C\uC784 \uC9C4\uD589\xB7\uD654\uBA74\xB7\uD6A8\uACFC\uC74C"
   m_TagString: Untagged
@@ -29474,6 +29539,7 @@ MonoBehaviour:
   textSettings: {fileID: 11400000, guid: 1acb7635efaba7740955f1b6a226e902, type: 2}
   inkBrush: {fileID: 21300000, guid: 30adbb92245d9b040bee83cb43d65d23, type: 3}
   gourdIcon: {fileID: 21300000, guid: e91d35d3916ec0a4195fefe9c4d57d1f, type: 3}
+  healthIcon: {fileID: 0}
   titleBackground: {fileID: 21300000, guid: a9f187c1e88e73743898f3914a10faf7, type: 3}
   titleLogo: {fileID: 21300000, guid: 659d5612629acce4c9234998a8a96aef, type: 3}
   playerBarFrame: {fileID: 0}
@@ -29518,7 +29584,9 @@ MonoBehaviour:
   spirit: {fileID: 8300000, guid: 634a5c1be7b6c9b42b87a6b9301bb062, type: 3}
   victory: {fileID: 8300000, guid: f5297fc6654a53b49b7da5b26126e0e6, type: 3}
   defeat: {fileID: 8300000, guid: bfe60287c73978e4c8cd83f7c7aa9f7b, type: 3}
-  equipment: {fileID: 8300000, guid: 124aae57661436c4e983bddb531cf350, type: 3}
+  equipment: {fileID: 8300000, guid: fc254fecd483fc244b90ae0e2616048c, type: 3}
+  sheatheEquipment: {fileID: 8300000, guid: 4a0e1679c6c006e46883e33a97e3cee3, type: 3}
+  equipmentVolume: 0.45
   ambienceVolume: 0.16
 --- !u!114 &2000667307
 MonoBehaviour:
@@ -29558,11 +29626,11 @@ MonoBehaviour:
   shrine: {fileID: 1421376859}
   entrance: {fileID: 38716474}
   gourd: {fileID: 633025452}
-  arenaCheckpoint: {x: -10.058268, y: 37.199993, z: -27.074554}
   bossDetectionFloor: {fileID: 626172086}
   bossDetectionHeightTolerance: 3
   fallDamage: 20
   checkpointFallDistance: 12
+  victoryScreenDelay: 1
 --- !u!4 &2000667309
 Transform:
   m_ObjectHideFlags: 0
@@ -29601,11 +29669,8 @@ MonoBehaviour:
   overheadHeight: 22
   climbingDensity: 0.24
   valleyDensity: 0
-  summitRevealCenter: {x: 5.654829, y: 27.145004, z: 36.23096}
-  summitRevealForward: {x: 0.77002144, y: 0, z: -0.638018}
-  openingHalfWidth: 32
-  openingFeather: 4
-  openingSmoothTime: 1.4
+  fadeStartPoint: {fileID: 1432076722}
+  fadeEndPoint: {fileID: 1078377438}
   bossDensity: 0.022
   bossFadeSeconds: 9
 --- !u!114 &2000667311
@@ -29621,6 +29686,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassScreenFade
   duration: 0.35
+  startFadeOutDuration: 0.65
+  startBlackHoldDuration: 0.12
+  startFadeInDuration: 0.85
 --- !u!114 &2000667312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29710,6 +29778,40 @@ MonoBehaviour:
   game: {fileID: 2000667308}
   musicCredits: {fileID: 4900000, guid: 832083586ef6175418bf07a178b59b44, type: 3}
   effectCredits: {fileID: 4900000, guid: c0c90c0b5101546489c570b7a41d6dd7, type: 3}
+--- !u!114 &2000667317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000667304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716ec31402c0cb84b892ea6b49311176, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassStairCloudVeil
+  game: {fileID: 2000667308}
+  mountainMist: {fileID: 2000667310}
+  cloudTexture: {fileID: 2800000, guid: 8ff24a8a0b6e9b04bb3d1a7885f67f05, type: 3}
+  cloudMaterial: {fileID: 2100000, guid: 767f43c1fea492c489a2c69e7386687e, type: 2}
+  maximumOpacity: 0.22
+  inwardAmount: 0.1
+  cloudTint: {r: 0.94, g: 0.98, b: 1, a: 1}
+  clearRadius: {x: 0.24, y: 0.28}
+  clearFeather: 0.65
+  blurRadius: 3
+  openingDistance: 0.5
+  driftAmount: 0.008
+  driftSpeed: 0.24
+  layersPerCloud: 3
+  randomSeed: 1739
+  layerSpread: {x: 0.09, y: 0.12}
+  sizeVariation: 0.24
+  angleVariation: 20
+  layerOpacityRange: {x: 0.5, y: 0.9}
+  noiseStrength: 0.9
+  noiseScale: 5.2
+  noiseDriftSpeed: 0.045
 --- !u!1 &2010210913
 GameObject:
   m_ObjectHideFlags: 0

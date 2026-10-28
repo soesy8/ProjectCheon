@@ -41,9 +41,11 @@ namespace Cheon.Prototype.MountainPass
         public virtual void ResetEncounter()
         {
             Health.Restore(); Health.Invulnerable = true;
-            visual.SetLocalPositionAndRotation(visualPosition, visualRotation);
+            RestoreVisualPose();
             State = BossState.Dormant;
         }
+        // 등장 Timeline을 중간에 건너뛰어도 기울어진 포즈를 전투에 넘기지 않는다.
+        public void RestoreVisualPose() => visual.SetLocalPositionAndRotation(visualPosition, visualRotation);
         public abstract void WakeUp();
         protected abstract void OnDefeated();
         protected virtual void OnDestroy()

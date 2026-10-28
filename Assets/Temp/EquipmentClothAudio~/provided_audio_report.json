@@ -1,0 +1,32 @@
+[
+  {
+    "file": "Assets\\Arts\\Audio\\MountainPass\\Presentation\\ClothDraw.wav",
+    "source": "cloth_rustle_martian_19291_preview_hq.mp3",
+    "source_start_seconds": 0.49,
+    "source_end_seconds": 0.92,
+    "seconds": 0.43,
+    "sample_rate": 44100,
+    "peak_dbfs": -11.05687724071182,
+    "rms_dbfs": -28.16040205967927,
+    "clipped_samples": 0,
+    "edge_samples": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "file": "Assets\\Arts\\Audio\\MountainPass\\Presentation\\ClothSheathe.wav",
+    "source": "cloth_rustle_martian_19291_preview_hq.mp3",
+    "source_start_seconds": 1.09,
+    "source_end_seconds": 1.61,
+    "seconds": 0.52,
+    "sample_rate": 44100,
+    "peak_dbfs": -11.055930601330132,
+    "rms_dbfs": -31.590058172896818,
+    "clipped_samples": 0,
+    "edge_samples": [
+      0.0,
+      0.0
+    ]
+  }
+]

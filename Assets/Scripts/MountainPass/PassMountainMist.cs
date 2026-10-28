@@ -29,18 +29,11 @@ namespace Cheon.Prototype.MountainPass
         [InspectorName("정상 도착 후 안개 농도")]
         [SerializeField, Range(0f, 0.3f)] private float valleyDensity = 0f;
 
-        [Header("정상에서 안개가 양옆으로 걷히는 연출")]
-        [InspectorName("정상 안개 열림 중심")]
-        [SerializeField] private Vector3 summitRevealCenter = new Vector3(4f, 27.15f, 38f);
-        [Tooltip("마지막 계단에서 정상을 바라보는 월드 방향입니다.")]
-        [InspectorName("정상 안개 열림 전방 방향")]
-        [SerializeField] private Vector3 summitRevealForward = new Vector3(0.77f, 0f, -0.64f);
-        [InspectorName("정상 안개 열림 반쪽 너비 (m)")]
-        [SerializeField, Min(1f)] private float openingHalfWidth = 32f;
-        [InspectorName("정상 안개 열림 경계 폭 (m)")]
-        [SerializeField, Min(0.1f)] private float openingFeather = 4f;
-        [InspectorName("정상 안개 열림 보간 시간 (초)")]
-        [SerializeField, Min(0.01f)] private float openingSmoothTime = 1.4f;
+        [Header("등 위치 기준 안개 해제 구간")]
+        [InspectorName("안개가 걷히기 시작하는 위치")]
+        [SerializeField] private Transform fadeStartPoint;
+        [InspectorName("안개가 완전히 걷히는 위치")]
+        [SerializeField] private Transform fadeEndPoint;
 
         [Header("보스 전투 안개")]
         [InspectorName("보스 전투 안개 농도")]
@@ -48,12 +41,15 @@ namespace Cheon.Prototype.MountainPass
         [InspectorName("보스 안개 생성 시간 (초)")]
         [SerializeField, Min(0.1f)] private float bossFadeSeconds = 9f;
         public float SummitClarity { get; private set; }
+        public bool IsAtSummit { get; private set; }
         public float BossMistAmount { get; private set; }
         public PassHeightFog ApproachFog => approachFog;
         public PassHeightFog RearFog => rearFog;
         public PassHeightFog BossFog => bossFog;
+        // 공간 안개의 남은 농도를 0~1 범위로 조회한다.
+        public float ClimbingMistAmount => isActiveAndEnabled && approachFog != null && approachFog.isActiveAndEnabled
+            ? Mathf.InverseLerp(valleyDensity, climbingDensity, approachFog.Density) : 0f;
         private float fogHeightVelocity, displayedFogHeight, previousPlayerHeight;
-        private float openingVelocity;
         private bool hasFogHeight;
 
         public void Configure(PassGameFlow flow, PassHeightFog approach, PassHeightFog rear, PassHeightFog arena)
@@ -62,10 +58,8 @@ namespace Cheon.Prototype.MountainPass
         {
             if (game == null || game.Player == null || approachFog == null) return;
             float height = game.Player.position.y;
-            float fadeStart = summitHeight - summitFadeHeight;
-            float fadeEnd = Mathf.Max(fadeStart + 0.1f, summitHeight - summitClearLeadHeight);
-            float targetClarity = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(fadeStart, fadeEnd, height));
-            SummitClarity = Mathf.SmoothDamp(SummitClarity, targetClarity, ref openingVelocity, openingSmoothTime);
+            SummitClarity = CalculateClarity(game.Player.position);
+            IsAtSummit = SummitClarity >= 1f;
             // 정상 지붕보다 높은 상한을 유지해 초반에 위쪽으로 시야가 새지 않게 한다.
             Vector3 position = approachFog.transform.position;
             float targetHeight = Mathf.Max(height, summitHeight) + overheadHeight;
@@ -73,30 +67,46 @@ namespace Cheon.Prototype.MountainPass
             { displayedFogHeight = targetHeight; fogHeightVelocity = 0f; hasFogHeight = true; }
             else displayedFogHeight = Mathf.SmoothDamp(displayedFogHeight, targetHeight, ref fogHeightVelocity, fogHeightSmoothTime);
             previousPlayerHeight = height;
-            // 높이 변화와 좌우 이동을 별도로 보간해 계단마다 안개가 튀지 않게 한다.
             position.y = displayedFogHeight;
             approachFog.transform.position = position;
-            // 정상에서는 시간 보간이 끝나기를 기다리지 않고 남은 안개까지 완전히 숨긴다.
-            float densityClarity = Mathf.Max(SummitClarity, targetClarity);
-            float density = Mathf.Lerp(climbingDensity, valleyDensity, densityClarity);
-            approachFog.SetDensity(height >= fadeEnd ? 0f : density);
-            Vector3 forward = Vector3.ProjectOnPlane(summitRevealForward, Vector3.up).normalized;
-            if (forward.sqrMagnitude < 0.001f) forward = Vector3.back;
-            Vector3 right = Vector3.Cross(Vector3.up, forward);
-            approachFog.SetSidewaysOpening(summitRevealCenter, right, openingHalfWidth * SummitClarity, openingFeather);
+            // 같은 위치에서는 같은 농도를 유지하고, 내려오면 그 위치의 농도로 다시 채운다.
+            float density = Mathf.Lerp(climbingDensity, valleyDensity, SummitClarity);
+            approachFog.SetDensity(IsAtSummit ? 0f : density);
+            // 기존 공간 안개는 갈라지지 않고 농도만 옅어진다. 남아 있는 열림 값도 해제한다.
+            approachFog.SetSidewaysOpening(Vector3.zero, Vector3.right, 0f, 4f);
             if (bossFog == null) return;
             if (game.State == PassGameFlow.RunState.Cinematic || !game.InEncounter) BossMistAmount = 0f;
             else BossMistAmount = Mathf.MoveTowards(BossMistAmount, 1f, Time.deltaTime / bossFadeSeconds);
             bossFog.SetDensity(bossDensity * Mathf.SmoothStep(0f, 1f, BossMistAmount));
         }
 
+        private float CalculateClarity(Vector3 playerPosition)
+        {
+            if (fadeStartPoint != null && fadeEndPoint != null)
+            {
+                Vector3 direction = fadeEndPoint.position - fadeStartPoint.position;
+                // 등 밑동의 높이나 점프 높이가 아니라 계단을 따라 이동한 위치를 기준으로 한다.
+                direction.y = 0f;
+                if (direction.sqrMagnitude > 0.001f)
+                {
+                    float progress = Vector3.Dot(playerPosition - fadeStartPoint.position, direction) / direction.sqrMagnitude;
+                    return Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(progress));
+                }
+            }
+
+            // 다른 씬에서 위치 기준을 지정하지 않았을 때는 기존 높이 설정을 사용한다.
+            float fadeStart = summitHeight - summitFadeHeight;
+            float fadeEnd = Mathf.Max(fadeStart + 0.1f, summitHeight - summitClearLeadHeight);
+            return Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(fadeStart, fadeEnd, playerPosition.y));
+        }
+
         private void OnDisable()
         {
             if (approachFog == null) return;
-            approachFog.SetSidewaysOpening(Vector3.zero, Vector3.right, 0f, openingFeather);
+            approachFog.SetSidewaysOpening(Vector3.zero, Vector3.right, 0f, 4f);
             approachFog.ApplySettings();
             SummitClarity = 0f;
-            openingVelocity = 0f;
+            IsAtSummit = false;
             hasFogHeight = false;
         }
     }

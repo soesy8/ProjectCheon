@@ -1,0 +1,10 @@
+var game = UnityEngine.Object.FindFirstObjectByType<Cheon.Prototype.MountainPass.PassGameFlow>();
+var mist = game.GetComponent<Cheon.Prototype.MountainPass.PassMountainMist>();
+var fields = new SerializedObject(mist);
+var start = (Transform)fields.FindProperty("fadeStartPoint").objectReferenceValue;
+var end = (Transform)fields.FindProperty("fadeEndPoint").objectReferenceValue;
+var movement = game.Player.GetComponent<Cheon.Prototype.MountainPass.PassPlayerMovement>();
+movement.InputEnabled = false;
+movement.Teleport(start.position + Vector3.up * 0.15f, Quaternion.LookRotation(Vector3.ProjectOnPlane(end.position - start.position, Vector3.up)));
+game.View.SnapBehind();
+return start.position.ToString();
