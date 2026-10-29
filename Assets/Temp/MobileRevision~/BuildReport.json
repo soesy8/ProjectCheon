@@ -1,0 +1,30 @@
+﻿{
+    "status":  "completed",
+    "buildId":  "build_adedce584733",
+    "result":  "Succeeded",
+    "platform":  "Android",
+    "outputPath":  "E:/C.J.I/APKBuild/천지인.apk",
+    "buildTimeMs":  236115,
+    "totalWarnings":  5,
+    "totalErrors":  0,
+    "errors":  [
+
+               ],
+    "warnings":  [
+                     {
+                         "message":  "Pipeline: No RuntimePipelineConfig asset found (Project Settings \u003e Pipeline \u003e Runtime). Pipeline will be disabled in Player builds."
+                     },
+                     {
+                         "message":  "A meta data file (.meta) exists but its folder \u0027Assets/Temp/MobileRevision~\u0027 can\u0027t be found, and has been created. Empty directories cannot be stored in version control, so it\u0027s assumed that the meta data file is for an empty directory in version control. When moving or deleting folders outside of Unity, please ensure that the corresponding .meta file is moved or deleted along with it."
+                     },
+                     {
+                         "message":  "Library\\Bee\\artifacts\\Android\\Manifest\\IntermediateLauncherManifestDiag.txt: Round icons are deprecated and will be removed in a future Unity version. Use Adaptive icons instead."
+                     },
+                     {
+                         "message":  "Library\\Bee\\artifacts\\Android\\Manifest\\IntermediateLauncherManifestDiag.txt: Legacy icons are deprecated and will be removed in a future Unity version. Use Adaptive icons instead."
+                     },
+                     {
+                         "message":  "A meta data file (.meta) exists but its folder \u0027Assets/Temp/MobileRevision~\u0027 can\u0027t be found, and has been created. Empty directories cannot be stored in version control, so it\u0027s assumed that the meta data file is for an empty directory in version control. When moving or deleting folders outside of Unity, please ensure that the corresponding .meta file is moved or deleted along with it."
+                     }
+                 ]
+}

@@ -78,7 +78,8 @@ namespace Cheon.Prototype.MountainPass
             if (director == null || director.playableAsset == null) { game.CompleteBossPresentation(); return; }
             director.stopped -= OnPresentationStopped; director.stopped += OnPresentationStopped;
             game.View.enabled = false; playerCamera.enabled = false; cinematicCamera.enabled = true;
-            Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;
+            Cursor.lockState = game.View.UsesTouchControls ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = false;
             director.time = 0; director.Play();
             PlayAura();
         }

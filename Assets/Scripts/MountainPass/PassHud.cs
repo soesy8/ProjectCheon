@@ -47,6 +47,8 @@ namespace Cheon.Prototype.MountainPass
         private TMP_Text resultEyebrow, resultTitle, resultDescription, primaryCaption, secondaryCaption;
         private TMP_Text pauseControlsText;
         private PassAudioSettingsPanel audioSettings;
+        private PassMobileControls mobileControls;
+        public bool UsesMobileControls => mobileControls != null && mobileControls.IsInitialized;
         private RectTransform pauseSettingsButton, pauseQuitButton;
         public bool IsAudioSettingsOpen => audioSettings != null && audioSettings.IsOpen;
         public void CloseAudioSettings() => audioSettings?.CloseWithSound();
@@ -102,6 +104,9 @@ namespace Cheon.Prototype.MountainPass
                 events.AddComponent<InputSystemUIInputModule>().AssignDefaultActions();
             }
             BuildGameplay(); BuildIntroduction(); BuildResult(); BuildCinematic();
+            mobileControls = GetComponent<PassMobileControls>();
+            if (PassMobileControls.SupportsPlatform && mobileControls != null)
+                mobileControls.Initialize(canvas, game, font, textMaterial);
             audioSettings = gameObject.AddComponent<PassAudioSettingsPanel>();
             audioSettings.Initialize(canvas, game, font, textMaterial, titleFont, titleTextMaterial);
             damageFlash = FullPanel("DamageFlash", canvas, new Color(0.7f, 0.08f, 0.04f, 0f)).GetComponent<UnityEngine.UI.Image>();
@@ -279,7 +284,7 @@ namespace Cheon.Prototype.MountainPass
                 displayedUses = game.Gourd.RemainingUses; displayedMaximumUses = game.Gourd.MaximumUses; displayedHealAmount = game.Gourd.HealAmount;
                 recoveryHint.SetText("{0:0} / {1:0}", displayedUses, displayedMaximumUses);
             }
-            SetVisible(interactionPanel, (nearShrine || praying) && game.IsRunning);
+            SetVisible(interactionPanel, (nearShrine || praying) && game.IsRunning && !UsesMobileControls);
             SetLabel(interactionLabel, praying ? "산신각에 기도를 올리는 중" : "F  산신각에 기도하기  ·  생명력 회복 · 호리병 충전");
             SetLabel(chapter, game.InEncounter ? "03  /  산문의 수문장" : game.ReachedShrine ? "02  /  산문 너머" : "01  /  산신각으로 가는 길");
             SetLabel(objective, game.ObjectiveTitle);
@@ -300,7 +305,7 @@ namespace Cheon.Prototype.MountainPass
             {
                 Vector3 viewport = Camera.main.WorldToViewportPoint(game.ObjectivePosition + Vector3.up * 2f);
                 if (viewport.z < 0f) { viewport.x = viewport.x > 0.5f ? 0.08f : 0.92f; viewport.y = 0.5f; }
-                marker.anchorMin = marker.anchorMax = new Vector2(Mathf.Clamp(viewport.x, 0.08f, 0.92f), Mathf.Clamp(viewport.y, 0.24f, 0.77f));
+                marker.anchorMin = marker.anchorMax = new Vector2(Mathf.Clamp(viewport.x, 0.08f, 0.92f), Mathf.Clamp(viewport.y, UsesMobileControls ? .58f : .24f, .77f));
                 marker.anchoredPosition = Vector2.zero;
                 int distance = Mathf.RoundToInt(Vector3.Distance(game.Player.position, game.ObjectivePosition));
                 if (displayedDistance != distance || markerWasShrine != game.ReachedShrine)
@@ -402,14 +407,14 @@ namespace Cheon.Prototype.MountainPass
         }
         private void ResizeHudPanels()
         {
-            float width = canvas.rect.width;
+            float width = UsesMobileControls ? gameplay.rect.width : canvas.rect.width;
             if (Mathf.Approximately(width, previousCanvasWidth)) return;
             previousCanvasWidth = width;
             // 안내 문구의 실제 폭에 먹 가장자리 여백만 더해 불필요하게 긴 배경을 줄인다.
             float controlsWidth = pauseControlsText.GetPreferredValues().x + 128f;
             pauseControls.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Mathf.Min(controlsWidth, width - 64f));
             // 화면 비율이 좁아져도 좌측 호리병 패널과 보스 게이지가 겹치지 않도록 여백을 확보한다.
-            float panelWidth = Mathf.Clamp(width - 660f, 540f, 930f);
+            float panelWidth = UsesMobileControls ? Mathf.Clamp(width - 860f, 420f, 760f) : Mathf.Clamp(width - 660f, 540f, 930f);
             bossPanel.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, panelWidth);
             ((RectTransform)bossPanel.Find("BossBorder")).SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, panelWidth - 80f);
             var track = (RectTransform)bossFill.transform.parent;
@@ -418,6 +423,86 @@ namespace Cheon.Prototype.MountainPass
             bossName.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, panelWidth - 64f);
             ((RectTransform)bossPanel.Find("BossCaption")).SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, panelWidth - 64f);
         }
+        public void ApplyMobileLayout()
+        {
+            // 화면 높이를 기준으로 배율을 맞춰 19.5:9에서도 900 높이의 메뉴가 잘리지 않게 한다.
+            canvas.GetComponent<UnityEngine.UI.CanvasScaler>().matchWidthOrHeight = 1f;
+            if (titleBackground != null)
+            {
+                var background = introduction.GetComponent<UnityEngine.UI.Image>();
+                background.sprite = null; background.color = Color.clear;
+                var artwork = FullPanel("MobileTitleArtwork", introduction, Color.white);
+                artwork.SetAsFirstSibling();
+                artwork.GetComponent<UnityEngine.UI.Image>().sprite = titleBackground;
+                var aspect = artwork.gameObject.AddComponent<UnityEngine.UI.AspectRatioFitter>();
+                aspect.aspectMode = UnityEngine.UI.AspectRatioFitter.AspectMode.EnvelopeParent;
+                aspect.aspectRatio = titleBackground.rect.width / titleBackground.rect.height;
+            }
+            StretchMobileLetterbox((RectTransform)cinematic.Find("LetterboxTop"), true, 85f);
+            StretchMobileLetterbox((RectTransform)cinematic.Find("LetterboxBottom"), false, 110f);
+            gameplay.Find("HealingGourd").gameObject.SetActive(false);
+            var vitality = (RectTransform)gameplay.Find("PlayerVitality");
+            vitality.localScale = Vector3.one * .85f;
+            vitality.anchoredPosition = new Vector2(32f, -18f);
+            healthValue.gameObject.SetActive(false); energyValue.gameObject.SetActive(false);
+            var healthIconRect = vitality.Find("HealthIcon") as RectTransform;
+            if (healthIconRect != null) healthIconRect.anchoredPosition = new Vector2(36f, -26f);
+            var energyIconRect = vitality.Find("Test_EnergyIcon") as RectTransform;
+            if (energyIconRect != null) energyIconRect.anchoredPosition = new Vector2(43.5f, -83f);
+            // 수치가 있던 공간까지 게이지를 늘리고 아이콘은 먹 패널의 진한 영역 안쪽에 둔다.
+            ResizeMobilePlayerBar(vitality, "Health");
+            ResizeMobilePlayerBar(vitality, "Energy");
+            previousCanvasWidth = -1f;
+            ((RectTransform)gameplay.Find("Objective")).anchoredPosition = new Vector2(-150f, -24f);
+            pauseControlsText.text = "왼쪽 스틱 걷기    이동 중 달리기 버튼 · 정지 중 납도 버튼\n오른쪽 드래그 시점    공격 · 회피 · 회복 · 주시    메뉴 일시정지";
+            introduction.Find("TitleColumn/EnterHint").GetComponent<TMP_Text>().text = "버튼을 터치하여 선택";
+            var skip = cinematic.Find("SkipHint").GetComponent<TMP_Text>();
+            skip.text = "건너뛰기"; skip.raycastTarget = true;
+            skip.rectTransform.sizeDelta = new Vector2(230f, 70f);
+            var button = skip.gameObject.AddComponent<UnityEngine.UI.Button>();
+            button.targetGraphic = skip;
+            button.navigation = new UnityEngine.UI.Navigation { mode = UnityEngine.UI.Navigation.Mode.None };
+            button.onClick.AddListener(() => { if (!game.IsTransitioning) game.Entrance?.SkipPresentation(); });
+        }
+
+        public void SetMobileSafeArea(Vector2 minimum, Vector2 maximum)
+        {
+            gameplay.anchorMin = minimum; gameplay.anchorMax = maximum;
+            gameplay.offsetMin = gameplay.offsetMax = Vector2.zero;
+            Canvas.ForceUpdateCanvases();
+            var titleColumn = (RectTransform)introduction.Find("TitleColumn");
+            titleColumn.anchorMin = titleColumn.anchorMax = titleColumn.pivot = new Vector2(0f, .5f);
+            float safeHeight = (maximum.y - minimum.y) * canvas.rect.height;
+            titleColumn.localScale = Vector3.one * Mathf.Min(1f, safeHeight / 900f);
+            titleColumn.anchoredPosition = new Vector2(minimum.x * canvas.rect.width,
+                (minimum.y + maximum.y - 1f) * canvas.rect.height * .5f);
+            ((RectTransform)result.Find("ResultColumn")).anchoredPosition = new Vector2(
+                (minimum.x + maximum.x - 1f) * canvas.rect.width * .5f,
+                (minimum.y + maximum.y - 1f) * canvas.rect.height * .5f);
+            pauseControls.anchoredPosition = new Vector2(0f, 27f + minimum.y * canvas.rect.height);
+            cinematic.Find("SkipHint").GetComponent<RectTransform>().anchoredPosition =
+                new Vector2(-50f - (1f - maximum.x) * canvas.rect.width, 30f + minimum.y * canvas.rect.height);
+        }
+
+        private static void StretchMobileLetterbox(RectTransform rect, bool top, float height)
+        {
+            float edge = top ? 1f : 0f;
+            rect.anchorMin = new Vector2(0f, edge); rect.anchorMax = new Vector2(1f, edge);
+            rect.pivot = new Vector2(.5f, edge); rect.anchoredPosition = Vector2.zero;
+            rect.sizeDelta = new Vector2(0f, height);
+        }
+
+        private static void ResizeMobilePlayerBar(RectTransform vitality, string prefix)
+        {
+            var border = (RectTransform)vitality.Find(prefix + "Border");
+            var track = (RectTransform)vitality.Find(prefix + "Track");
+            border.anchoredPosition = new Vector2(86f, border.anchoredPosition.y);
+            border.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 460f);
+            track.anchoredPosition = new Vector2(109f, track.anchoredPosition.y);
+            track.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 414f);
+            ((RectTransform)track.GetChild(0)).SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 414f);
+        }
+
         private TMP_Text Label(string title, Transform parent, string text, Vector2 position, Vector2 size, float pointSize, Color color, bool useTitleFont = false)
         {
             var label = Rect(title, parent, Vector2.up, position, size).gameObject.AddComponent<TextMeshProUGUI>();

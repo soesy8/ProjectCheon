@@ -1,0 +1,41 @@
+{
+  "generator": "image_gen built-in",
+  "finalSize": "512x512",
+  "assets": [
+    {
+      "key": "revisionRun",
+      "file": "Assets/Arts/UI/MountainPass/MobileControls/T_MobileRun.png",
+      "kind": "button",
+      "sourcePath": "C:\\Users\\MBC\\.codex\\generated_images\\01a18613-ea1f-7840-925b-67a4e119fe0d\\exec-6b529c35-1e1c-40fe-b0b0-45f9d84a896f.png",
+      "prompt": "Use case: precise-object-edit. Asset type: 512x512 mobile game RUN button sprite.\nThe supplied image is the exact edit target. Keep its circular deep dark teal ink-wash face, double antique-gold rim, small paired Korean cloud-scroll ornaments, flat front view, transparent exterior and equal padding. Replace ONLY the central folding fan with one bold ivory silhouette of a running person, head, bent arms and widely striding legs, leaning slightly forward, with two small motion strokes behind. Instantly readable as sprint/run at small mobile size. One normal-state circular button, no text, no letters, no numerals, no other objects. Transparent alpha background outside the circle, clean antialiasing, keep complete circle within canvas. Same frame and symbol visual weight as reference. Output 512x512 PNG."
+    },
+    {
+      "key": "revisionSheathe",
+      "file": "Assets/Arts/UI/MountainPass/MobileControls/T_MobileSheathe.png",
+      "kind": "button",
+      "sourcePath": "C:\\Users\\MBC\\.codex\\generated_images\\01a18613-ea1f-7840-925b-67a4e119fe0d\\exec-cb608ec9-97e9-446a-855b-12aaa66dba16.png",
+      "prompt": "Use case: precise-object-edit. Asset type: 512x512 mobile SHEATHE button sprite.\nThe supplied RUN button is the exact edit target. Preserve its circular frame, dark teal ink-wash face, double antique-gold rim, paired cloud-scroll ornaments and transparent exterior. Replace ONLY the central running glyph with JUST ONE CLOSED FOLDING FAN. A simple narrow ivory folded fan bundle, gently tapered toward a small circular pivot at its lower end, tilted about 25 degrees clockwise. Use only a clean ivory outer silhouette with 3 slim dark rib-division lines, matching the simple flat ivory pictogram language of the running button. No surrounding arrow, no pouch, no hand, no motion swoosh, no additional symbol, no sword, no decoration on the fan. Keep the glyph bold and readable at 80px. No text, letters or numbers. Exactly one normal-state circular button on square canvas, full silhouette inside equal transparent padding. True alpha-transparent exterior. Output 512x512 PNG."
+    },
+    {
+      "key": "revisionDodge",
+      "file": "Assets/Arts/UI/MountainPass/MobileControls/T_MobileDodge.png",
+      "kind": "replace",
+      "sourcePath": "C:\\Users\\MBC\\.codex\\generated_images\\01a18613-ea1f-7840-925b-67a4e119fe0d\\exec-a87b79fd-de6c-4b26-8c99-333faa11a5b1.png",
+      "prompt": "Use case: precise-object-edit. Asset type: mobile DODGE ROLL button pictogram.\nImage 1 is the ROLL-POSE REFERENCE, image 2 is the SIMPLE RUN-BUTTON STYLE REFERENCE.\nCreate a corrected roll button with the exact same gold-rim/dark-teal disc and frame as image 2. Use the clearly curled forward-roll posture from image 1, but simplify the human to the SAME flat ivory sports-sign style as the running icon in image 2.\nThe person is in SIDE VIEW doing a compact forward somersault, back curved into an almost circular C, both knees held to chest, head tucked next to knees at the bottom-right, two feet pointing left. One simple circular head and broad solid shapes for back, tucked thighs, and one curved arm across shins. Correct human anatomy and a compact fetal/tuck shape. Remove the outlined fingers and clothes from image 1. Use only two or three large dark negative-space gaps to separate limbs. Add one thin short curved motion arc above-left, with a small arrowhead, to make rolling unambiguous.\nNo running stance, no crawling stance, no kneeling bow, no disconnected extra limbs, no realistic anatomy, no detailed fingers, no clothing lines. Simple ivory silhouette, clear at small size, matching the run icon's detail level and stroke weight. Preserve the full round frame and equal transparent padding. No text, no numerals. Alpha-transparent exterior. Square 512x512 PNG."
+    },
+    {
+      "key": "revisionIconForeground",
+      "file": "Assets/Arts/UI/MountainPass/AppIcon/T_CheonAppIconForeground.png",
+      "kind": "foreground",
+      "sourcePath": "C:\\Users\\MBC\\.codex\\generated_images\\01a18613-ea1f-7840-925b-67a4e119fe0d\\exec-324c1b13-d2fb-41e0-9ad3-9c2b11dbabfe.png",
+      "prompt": "Use case: stylized-concept. Asset type: Android adaptive launcher icon FOREGROUND for Korean fantasy action game 천지인.\nThe supplied button is a STYLE AND FAN REFERENCE ONLY. Create ONE isolated open Korean folding paper fan as the entire app symbol. Ivory hanji paper, clean dark-teal bamboo rib divisions, a restrained antique-gold lower rib and pivot, small jade-green cord and tassel hanging below the pivot. Broad graceful 150-degree open fan silhouette, flat/front view with subtle polished painted shading, bold and recognizable at launcher-icon size. Match the game's ivory, jade and antique-gold palette. No surrounding circle, no button frame, no cloud disc, no app name, no text, no letters, no numerals, no scenery, no drop shadow outside the fan.\nTrue transparent alpha background. Square 512x512 canvas. IMPORTANT Android adaptive icon safe area: keep ALL fan and tassel artwork inside the central 62% of the square (x between 19% and 81%, y between 19% and 81%). Leave broad even transparent padding. The fan is centered with pivot pointing downward. Complete silhouette, no cropping."
+    },
+    {
+      "key": "revisionIconLegacy",
+      "file": "Assets/Arts/UI/MountainPass/AppIcon/T_CheonAppIcon.png",
+      "kind": "opaque",
+      "sourcePath": "C:\\Users\\MBC\\.codex\\generated_images\\01a18613-ea1f-7840-925b-67a4e119fe0d\\exec-a71c7a83-72f0-4d75-bd4c-da6d9020afa9.png",
+      "prompt": "Use case: compositing. Asset type: opaque Android LEGACY launcher app icon, 512x512 PNG.\nThe supplied isolated fan is the EXACT FAN IDENTITY reference. Retain its ivory paper, dark teal rib dividers, antique-gold lower ribs/pivot, jade knot and tassel, shape and front-facing painted style. Create a polished app icon from this fan on a FULL-BLEED opaque square background of very dark teal ink wash, centered around #142B30, restrained subtle texture, slightly lighter behind fan, dark corners.\nKeep the entire fan and tassel inside the central 80 percent of the square, comfortably centered, generous safe space for round launcher masks. The fan is the only subject. No circular button rim, no surrounding border, no pre-rounded square corners, no text, no letters, no app name, no watermark. All square-canvas pixels including corners must be opaque. Strong recognizable silhouette when shown at 48px. Output exactly 512x512 if possible."
+    }
+  ]
+}

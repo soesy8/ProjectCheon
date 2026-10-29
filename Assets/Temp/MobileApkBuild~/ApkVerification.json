@@ -1,0 +1,12 @@
+{
+    "apkPath":  "E:/C.J.I/APKBuild/CheonJiIn_Android_0.1.0.apk",
+    "bytes":  70028303,
+    "sha256":  "9D05306CE8A801734F31197176B299557AEC57D488CA0B82166B8EBDAF1809E7",
+    "hasAndroidManifest":  true,
+    "hasArm64Il2Cpp":  true,
+    "hasMobileControls":  true,
+    "hasMobileDragInput":  true,
+    "hasMobileSafeAreaUi":  true,
+    "signature":  "APK Signature Scheme v2 verified",
+    "alignment":  "16KB page alignment verified"
+}

@@ -71,6 +71,15 @@ namespace Cheon.Prototype.MountainPass
         private bool wasObstructed;
         private bool applicationFocused = true;
         private int ignoreMouseUntilFrame;
+        [SerializeField, Range(45f, 360f), InspectorName("터치 가로 한 화면 회전 각도")] private float touchSensitivity = 180f;
+        private bool touchControlsEnabled;
+        private Vector2 touchLook;
+        public bool UsesTouchControls => touchControlsEnabled;
+        public bool CanLockBoss => game != null && game.InEncounter && game.BossHasDetectedPlayer && boss != null && game.Boss != null &&
+            game.Boss.Health != null && !game.Boss.Health.IsDead;
+        public void SetTouchControlsEnabled(bool enabled) { touchControlsEnabled = enabled; ClearTouchLook(); RefreshCursor(); }
+        public void AddTouchLook(Vector2 normalizedDelta) { if (touchControlsEnabled) touchLook += normalizedDelta * touchSensitivity; }
+        public void ClearTouchLook() => touchLook = Vector2.zero;
         public bool BossLocked { get; private set; }
         public float Pitch => pitch;
         public bool BossFramingAllowed => BossLocked && player != null && boss != null &&
@@ -109,7 +118,7 @@ namespace Cheon.Prototype.MountainPass
         public void AddShake(float amount) => shake = Mathf.Max(shake, amount);
         public void RefreshCursor()
         {
-            bool locked = applicationFocused && game != null && game.IsRunning;
+            bool locked = !touchControlsEnabled && applicationFocused && game != null && game.IsRunning;
             if (locked && Cursor.lockState != CursorLockMode.Locked) ignoreMouseUntilFrame = Time.frameCount + 2;
             Cursor.lockState = locked ? CursorLockMode.Locked : CursorLockMode.None;
             Cursor.visible = !locked;
@@ -118,14 +127,15 @@ namespace Cheon.Prototype.MountainPass
         private void OnDisable() { Cursor.lockState = CursorLockMode.None; Cursor.visible = true; }
         private void LateUpdate()
         {
+            Vector2 touchMotion = touchLook;
+            ClearTouchLook();
             if (player == null) return;
             RefreshCursor();
             if (game != null && game.State == PassGameFlow.RunState.Paused) return;
             float delta = Time.deltaTime;
             if (delta <= 0f) return;
             bool running = game != null && game.IsRunning;
-            bool canLockBoss = game != null && game.InEncounter && game.BossHasDetectedPlayer && boss != null && game.Boss != null &&
-                game.Boss.Health != null && !game.Boss.Health.IsDead;
+            bool canLockBoss = CanLockBoss;
             bool typing = PassHud.IsTyping;
             if (!canLockBoss) LockBoss(false);
             if (running && !typing && canLockBoss && Keyboard.current != null && Keyboard.current.tabKey.wasPressedThisFrame)
@@ -133,6 +143,13 @@ namespace Cheon.Prototype.MountainPass
             if (running && applicationFocused && !typing && !BossLocked && Cursor.lockState == CursorLockMode.Locked && Mouse.current != null && Time.frameCount > ignoreMouseUntilFrame)
             {
                 ApplyMouseMotion(Mouse.current.delta.ReadValue(), delta);
+            }
+            if (touchControlsEnabled && running && applicationFocused && !typing && !BossLocked)
+            {
+                // 화면 폭으로 정규화한 터치 이동을 사용해 해상도가 달라도 같은 거리를 드래그하면 같은 각도로 회전한다.
+                Vector2 turn = Vector2.ClampMagnitude(touchMotion, maximumMouseAngularSpeed * Mathf.Min(delta, .05f));
+                yaw += turn.x;
+                pitch = Mathf.Clamp(pitch - turn.y, minimumPitch, maximumPitch);
             }
 
             // 플레이어 이동만 한 번 보간하고, 회전은 같은 반지름의 궤도에 적용해 거리와 높이를 유지한다.

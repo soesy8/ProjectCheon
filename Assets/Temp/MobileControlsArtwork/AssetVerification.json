@@ -1,0 +1,58 @@
+[
+    {
+        "file":  "T_MobileAttack.png",
+        "normalization":  "1254x1254 -\u003e 512x512",
+        "image":  "512x512 RGBA; clear=108249; antialiased=152767; opaque=1128",
+        "sprite":  true,
+        "maxSize":  512
+    },
+    {
+        "file":  "T_MobileDodge.png",
+        "normalization":  "1254x1254 -\u003e 512x512",
+        "image":  "512x512 RGBA; clear=108421; antialiased=152566; opaque=1157",
+        "sprite":  true,
+        "maxSize":  512
+    },
+    {
+        "file":  "T_MobileHeal.png",
+        "normalization":  "1254x1254 -\u003e 512x512",
+        "image":  "512x512 RGBA; clear=108754; antialiased=152171; opaque=1219",
+        "sprite":  true,
+        "maxSize":  512
+    },
+    {
+        "file":  "T_MobileLockOn.png",
+        "normalization":  "1254x1254 -\u003e 512x512",
+        "image":  "512x512 RGBA; clear=109146; antialiased=151780; opaque=1218",
+        "sprite":  true,
+        "maxSize":  512
+    },
+    {
+        "file":  "T_MobilePause.png",
+        "normalization":  "1254x1254 -\u003e 512x512",
+        "image":  "512x512 RGBA; clear=107683; antialiased=153256; opaque=1205",
+        "sprite":  true,
+        "maxSize":  512
+    },
+    {
+        "file":  "T_MobileInteract.png",
+        "normalization":  "1254x1254 -\u003e 512x512",
+        "image":  "512x512 RGBA; clear=109264; antialiased=151711; opaque=1169",
+        "sprite":  true,
+        "maxSize":  512
+    },
+    {
+        "file":  "T_MobileJoystickBase.png",
+        "normalization":  "1254x1254 -\u003e 512x512",
+        "image":  "512x512 RGBA; clear=108257; antialiased=152683; opaque=1204",
+        "sprite":  true,
+        "maxSize":  512
+    },
+    {
+        "file":  "T_MobileJoystickKnob.png",
+        "normalization":  "1254x1254 -\u003e 512x512",
+        "image":  "512x512 RGBA; clear=107486; antialiased=153418; opaque=1240",
+        "sprite":  true,
+        "maxSize":  512
+    }
+]

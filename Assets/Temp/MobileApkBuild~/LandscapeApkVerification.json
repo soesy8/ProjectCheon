@@ -1,0 +1,9 @@
+{
+    "apkPath":  "E:/C.J.I/APKBuild/천지인.apk",
+    "appName":  "천지인",
+    "orientation":  "landscape (Android manifest value 0)",
+    "bytes":  70028299,
+    "sha256":  "01A1B17F0DA89505148E98F01266AD9FA44863028E46ED67BD34483CCC980745",
+    "signatureVerified":  true,
+    "pageAlignment16KB":  true
+}

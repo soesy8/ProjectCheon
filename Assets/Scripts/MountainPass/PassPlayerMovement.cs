@@ -53,6 +53,14 @@ namespace Cheon.Prototype.MountainPass
         private Vector3 dodgeDirection;
         private PassPlayerEnergy energy;
         private bool sprintExhausted;
+        private bool touchControlsEnabled, touchSprint, touchAttackRequested, touchDodgeRequested;
+        private Vector2 touchMovement;
+
+        public void SetTouchControlsEnabled(bool enabled) { touchControlsEnabled = enabled; ClearTouchInput(); }
+        public void SetTouchMovement(Vector2 input, bool sprint) { touchMovement = Vector2.ClampMagnitude(input, 1f); touchSprint = sprint; }
+        public void RequestTouchAttack() { if (touchControlsEnabled && InputEnabled) touchAttackRequested = true; }
+        public void RequestTouchDodge() { if (touchControlsEnabled && InputEnabled) touchDodgeRequested = true; }
+        public void ClearTouchInput() { touchMovement = Vector2.zero; touchSprint = touchAttackRequested = touchDodgeRequested = false; }
 
         public PassAnimationController AnimationControl => animationControl;
         public CharacterController Body => body != null ? body : body = GetComponent<CharacterController>();
@@ -83,11 +91,11 @@ namespace Cheon.Prototype.MountainPass
         private void Update()
         {
             if (animationControl == null || view == null || !InputEnabled || Time.timeScale <= 0f)
-            { IsMoving = IsSprinting = false; inputDirection = Vector3.zero; return; }
-            var keyboard = Keyboard.current;
-            var mouse = Mouse.current;
+            { IsMoving = IsSprinting = false; inputDirection = Vector3.zero; ClearTouchInput(); return; }
+            var keyboard = touchControlsEnabled ? null : Keyboard.current;
+            var mouse = touchControlsEnabled ? null : Mouse.current;
             bool typing = PassHud.IsTyping;
-            Vector2 input = Vector2.zero;
+            Vector2 input = typing ? Vector2.zero : touchMovement;
             if (keyboard != null && !typing)
             {
                 input.x = (keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed ? 1f : 0f) -
@@ -102,8 +110,8 @@ namespace Cheon.Prototype.MountainPass
             inputDirection = direction;
             // 강피격 중 회피 입력은 일어나기에만 소비해 같은 키로 곧바로 구르지 않도록 한다.
             bool recovering = !typing && animationControl.TryRecoverFromHeavy(direction.sqrMagnitude > 0.01f,
-                keyboard != null && keyboard.spaceKey.wasPressedThisFrame);
-            bool sprintInput = keyboard != null && (keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed);
+                touchDodgeRequested || keyboard != null && keyboard.spaceKey.wasPressedThisFrame);
+            bool sprintInput = touchSprint || keyboard != null && (keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed);
             bool sprint = sprintInput;
             if (!sprint || direction.sqrMagnitude <= 0.01f) sprintExhausted = false;
             if (energy != null && !energy.CanSprint) sprintExhausted = true;
@@ -116,6 +124,7 @@ namespace Cheon.Prototype.MountainPass
                 CollectActionInput(keyboard, mouse);
                 TryBufferedAction(direction);
             }
+            touchAttackRequested = touchDodgeRequested = false;
             // 달리기 키를 누르면 정지 중에도 납도한다. 진행 중인 공격은 끝까지 재생한다.
             if (!typing && sprintInput && animationControl.IsCombatRequested && !animationControl.IsActionPlaying &&
                 actionExecutedFrame != Time.frameCount && animationControl.CanChangeEquipment)
@@ -184,6 +193,8 @@ namespace Cheon.Prototype.MountainPass
         private void CollectActionInput(Keyboard keyboard, Mouse mouse)
         {
             frameAction = 0;
+            if (touchDodgeRequested) ConsiderAction(DodgeAction);
+            if (touchAttackRequested) ConsiderAction(NextComboAction);
             if (keyboard != null)
             {
                 if (keyboard.spaceKey.wasPressedThisFrame) ConsiderAction(DodgeAction);
@@ -277,6 +288,7 @@ namespace Cheon.Prototype.MountainPass
         {
             if (animationControl != null) animationControl.BeforeAutomaticReturn -= ProcessBufferedAction;
             ClearPendingAction();
+            ClearTouchInput();
         }
 
         private void OnEnable()

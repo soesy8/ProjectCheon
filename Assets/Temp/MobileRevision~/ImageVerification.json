@@ -1,0 +1,80 @@
+[
+    {
+        "file":  "T_MobileAttack.png",
+        "width":  512,
+        "height":  512,
+        "cornerAlpha":  0
+    },
+    {
+        "file":  "T_MobileDodge.png",
+        "width":  512,
+        "height":  512,
+        "cornerAlpha":  0
+    },
+    {
+        "file":  "T_MobileHeal.png",
+        "width":  512,
+        "height":  512,
+        "cornerAlpha":  0
+    },
+    {
+        "file":  "T_MobileInteract.png",
+        "width":  512,
+        "height":  512,
+        "cornerAlpha":  0
+    },
+    {
+        "file":  "T_MobileJoystickBase.png",
+        "width":  512,
+        "height":  512,
+        "cornerAlpha":  0
+    },
+    {
+        "file":  "T_MobileJoystickKnob.png",
+        "width":  512,
+        "height":  512,
+        "cornerAlpha":  0
+    },
+    {
+        "file":  "T_MobileLockOn.png",
+        "width":  512,
+        "height":  512,
+        "cornerAlpha":  0
+    },
+    {
+        "file":  "T_MobilePause.png",
+        "width":  512,
+        "height":  512,
+        "cornerAlpha":  0
+    },
+    {
+        "file":  "T_MobileRun.png",
+        "width":  512,
+        "height":  512,
+        "cornerAlpha":  0
+    },
+    {
+        "file":  "T_MobileSheathe.png",
+        "width":  512,
+        "height":  512,
+        "cornerAlpha":  0
+    },
+    {
+        "file":  "T_CheonAppIcon.png",
+        "width":  512,
+        "height":  512,
+        "cornerAlpha":  255
+    },
+    {
+        "file":  "T_CheonAppIconBackground.png",
+        "width":  512,
+        "height":  512,
+        "cornerAlpha":  255
+    },
+    {
+        "file":  "T_CheonAppIconForeground.png",
+        "width":  512,
+        "height":  512,
+        "cornerAlpha":  0
+    }
+]

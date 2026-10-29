@@ -4770,6 +4770,7 @@ MonoBehaviour:
   framingSpeed: 10
   framingReturnSpeed: 5
   maximumFramingSpeed: 12
+  touchSensitivity: 180
 --- !u!114 &218148871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46111,6 +46112,7 @@ GameObject:
   - component: {fileID: 2000667315}
   - component: {fileID: 2000667316}
   - component: {fileID: 2000667317}
+  - component: {fileID: 2000667318}
   m_Layer: 0
   m_Name: "\uAC8C\uC784 \uC9C4\uD589\xB7\uD654\uBA74\xB7\uD6A8\uACFC\uC74C"
   m_TagString: Untagged
@@ -46413,6 +46415,31 @@ MonoBehaviour:
   noiseStrength: 0.9
   noiseScale: 5.2
   noiseDriftSpeed: 0.045
+--- !u!114 &2000667318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000667304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c370dee01399c32469eb8c5123a7b56a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cheon.Prototype.MountainPass.PassMobileControls
+  attackSprite: {fileID: 21300000, guid: 34847fb2d1674b73ae63e025a94c2834, type: 3}
+  dodgeSprite: {fileID: 21300000, guid: 1d6842d50f4042979c3195f73b1edc24, type: 3}
+  healSprite: {fileID: 21300000, guid: 2c6a46642bf845098279aabbc5a53e1e, type: 3}
+  lockOnSprite: {fileID: 21300000, guid: 07b2e836ce9747d1a80cdad5905f3a38, type: 3}
+  pauseSprite: {fileID: 21300000, guid: 27734d523be34e478582d0fed0433b90, type: 3}
+  interactSprite: {fileID: 21300000, guid: 55c2daf5cd0844559430395d7f0d6c28, type: 3}
+  joystickBaseSprite: {fileID: 21300000, guid: 3e99ba9eac3346b5b0179a6a66b0cd63, type: 3}
+  joystickKnobSprite: {fileID: 21300000, guid: c6af66cb90614bbaa8a2778a81ab28b6, type: 3}
+  runSprite: {fileID: 21300000, guid: 556bace8137c460a9ba4fd5bf0e748fc, type: 3}
+  sheatheSprite: {fileID: 21300000, guid: 537bdc83aa5741a39d5aa98dafe4cfe4, type: 3}
+  joystickTravel: 84
+  joystickDeadZone: 0.12
+  buttonOpacity: 0.88
 --- !u!1 &2010210913
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,211 @@
+[
+  {
+    "name": "editor is playing",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "frames advance",
+    "passed": true,
+    "detail": {
+      "beforeFrame": 35,
+      "afterFrame": 53
+    }
+  },
+  {
+    "name": "desktop keeps touch UI disabled",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "FHD+ resolution is 2340x1080",
+    "passed": true,
+    "detail": {
+      "width": 2340,
+      "height": 1080
+    }
+  },
+  {
+    "name": "mobile canvas keeps 900 reference height",
+    "passed": true,
+    "detail": {
+      "width": 1949.99988,
+      "height": 899.999939
+    }
+  },
+  {
+    "name": "all title buttons are on screen",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "mobile UI initializes with eight artwork references",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "touch starts journey",
+    "passed": true,
+    "detail": "Playing"
+  },
+  {
+    "name": "one EventSystem",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "desktop key hints are replaced",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "mobile removes resource values and stick hint",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "mobile resource bars are longer",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "joystick walks",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "second finger rotates camera while walking",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "third finger attacks during movement and look",
+    "passed": true,
+    "detail": "ATTACK1"
+  },
+  {
+    "name": "lifting movement finger stops input",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "dodge touch rolls",
+    "passed": true,
+    "detail": "ROLL"
+  },
+  {
+    "name": "full stick stays at maximum walking speed",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "moving shows run icon and caption",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "run button starts sprint and consumes energy",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "second run tap returns to walking",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "stopping cancels sprint and shows sheathe",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "stationary sheathe button puts fan away",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "hit reaction finishes before healing input",
+    "passed": true,
+    "detail": "SHEATHED_IDLE"
+  },
+  {
+    "name": "healing button drinks and heals",
+    "passed": true,
+    "detail": {
+      "beforeUses": 3,
+      "uses": 2,
+      "beforeHealth": 70.0,
+      "health": 71.48546,
+      "healingClicks": 1,
+      "healingClickState": {
+        "animation": "SHEATHED_IDLE",
+        "action": false,
+        "equipment": false,
+        "input": true,
+        "running": true,
+        "drinking": true,
+        "gourdPhase": "Drawing"
+      }
+    }
+  },
+  {
+    "name": "menu pauses and clears held movement",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "touch resumes without stale held finger",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "interaction button appears only near shrine",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "interaction touch starts prayer",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "prayer reaches checkpoint and refills gourd",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "cinematic hides gameplay touch controls",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "letterboxes cover full FHD+ width",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "touch skips cinematic",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "boss lock is available after detection",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "touch locks boss",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "touch unlocks boss",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "app suspension clears touch ownership and movement",
+    "passed": true,
+    "detail": null
+  }
+]
